@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TMake.Data;
+using TMake.Terraria;
+
+namespace TMake.File
+{
+    public static class TownRoomManagerFile
+    {
+        public static TownRoomManager[] Load(BinaryReader reader)
+        {
+            int totalRooms = reader.ReadInt32();
+            TownRoomManager[] townRoomManagers = new TownRoomManager[totalRooms];
+            for (int i = 0; i < totalRooms; i++)
+            {
+                int NpcId = reader.ReadInt32();
+                Point Home = new(reader.ReadInt32(), reader.ReadInt32());
+                townRoomManagers[i] = new TownRoomManager
+                {
+                    NPCType = NpcId,
+                    Home = Home
+                };
+            }
+            return townRoomManagers;
+        }
+        public static int Save(IList<TownRoomManager> rooms, BinaryWriter bw, uint version)
+        {
+            var maxNPC = WorldProperty.GetVersionData(version).MaxNpcId;
+
+            var validRoomsForVersion = rooms.Where(r => r.NPCType <= maxNPC).ToList();
+
+            bw.Write(validRoomsForVersion.Count);
+            foreach (TownRoomManager room in validRoomsForVersion)
+            {
+                bw.Write(room.NPCType);
+                bw.Write(room.Home.X);
+                bw.Write(room.Home.Y);
+            }
+            return (int)bw.BaseStream.Position;
+        }
+    }
+}
