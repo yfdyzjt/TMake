@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
-using TMake.Data;
+﻿using TMake.Data;
 using TMake.Terraria;
 
 namespace TMake.File

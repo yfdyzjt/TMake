@@ -4,9 +4,6 @@ namespace TMake.Data
 {
     public class World
     {
-        List<Schematic> schematics = [];
-        List<Script> scripts = [];
-
         public Tile[,] Tile = new Tile[0, 0];
         public List<Chest> Chest = [];
         public List<Sign> Sign = [];

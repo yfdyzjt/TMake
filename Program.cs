@@ -1,7 +1,4 @@
-﻿using TMake.File;
-using TMake.Data;
-
-namespace TMake
+﻿namespace TMake
 {
     internal class Program
     {
