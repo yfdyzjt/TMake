@@ -3,7 +3,7 @@ using TMake.Terraria;
 
 namespace TMake.File
 {
-    public partial class WorldFile
+    public class WorldFile
     {
 
         public static World Read(string filename)
@@ -20,6 +20,10 @@ namespace TMake.File
                 if (world.Version > 87)
                 {
                     LoadV2(world, binaryReader);
+                }
+                else
+                {
+                    throw new FileFormatException("Unexpected Position: Invalid Verison");
                 }
             }
             catch
@@ -201,27 +205,8 @@ namespace TMake.File
                 positions[i] = binaryReader.ReadInt32();
             }
 
-            ushort length = binaryReader.ReadUInt16();
-            importance = new bool[length];
-            byte data = 0;
-            byte bitMask = 128;
-            for (int i = 0; i < length; i++)
-            {
-                if (bitMask != 128)
-                {
-                    bitMask = (byte)(bitMask << 1);
-                }
-                else
-                {
-                    data = binaryReader.ReadByte();
-                    bitMask = 1;
-                }
-
-                if ((data & bitMask) == bitMask)
-                {
-                    importance[i] = true;
-                }
-            }
+            // Read tile frame importance from bit-packed data
+            importance = ReadBitArray(binaryReader);
 
             return true;
         }
@@ -260,39 +245,7 @@ namespace TMake.File
             }
 
             // write bitpacked tile frame importance           
-            // write the number of bits
-            binaryWriter.Write((Int16)tileFrameImportant.Length);
-
-            // write the bit data
-            byte data = 0;
-            byte bitMask = 1;
-            for (int i = 0; i < tileFrameImportant.Length; i++)
-            {
-                // Check if the current value is true, if it is set then set the bit for the current mask in the data byte.
-                if (tileFrameImportant[i])
-                {
-                    data = (byte)(data | bitMask);
-                }
-
-                // If we wrote the last bit mask (B1000000 = 0x80 = 128), write the data byte to the stream and start the mask over.
-                // Otherwise, keep incrementing the mask to write the next bit.
-                if (bitMask != 128)
-                {
-                    bitMask = (byte)(bitMask << 1);
-                }
-                else
-                {
-                    binaryWriter.Write(data);
-                    data = 0;
-                    bitMask = 1;
-                }
-            }
-
-            // Write any remaning data in the buffer.
-            if (bitMask != 1)
-            {
-                binaryWriter.Write(data);
-            }
+            WriteBitArray(binaryWriter, tileFrameImportant);
 
             return (int)binaryWriter.BaseStream.Position;
         }
@@ -1269,6 +1222,74 @@ namespace TMake.File
             binaryWriter.Write(world.WorldID);
 
             return (int)binaryWriter.BaseStream.Position;
+        }
+        private static bool[] ReadBitArray(BinaryReader reader)
+        {
+            // get the number of bits
+            int length = reader.ReadInt16();
+
+            // read the bit data
+            var booleans = new bool[length];
+            byte data = 0;
+            byte bitMask = 128;
+            for (int i = 0; i < length; i++)
+            {
+                // If we read the last bit mask (B1000000 = 0x80 = 128), read the next byte from the stream and start the mask over.
+                // Otherwise, keep incrementing the mask to get the next bit.
+                if (bitMask != 128)
+                {
+                    bitMask = (byte)(bitMask << 1);
+                }
+                else
+                {
+                    data = reader.ReadByte();
+                    bitMask = 1;
+                }
+
+                // Check the mask, if it is set then set the current boolean to true
+                if ((data & bitMask) == bitMask)
+                {
+                    booleans[i] = true;
+                }
+            }
+
+            return booleans;
+        }
+        private static void WriteBitArray(BinaryWriter writer, bool[] values)
+        {
+            // write the number of bits
+            writer.Write((Int16)values.Length);
+
+            // write the bit data
+            byte data = 0;
+            byte bitMask = 1;
+            for (int i = 0; i < values.Length; i++)
+            {
+                // Check if the current value is true, if it is set then set the bit for the current mask in the data byte.
+                if (values[i])
+                {
+                    data = (byte)(data | bitMask);
+                }
+
+                // If we wrote the last bit mask (B1000000 = 0x80 = 128), write the data byte to the stream and start the mask over.
+                // Otherwise, keep incrementing the mask to write the next bit.
+                if (bitMask != 128)
+                {
+                    bitMask = (byte)(bitMask << 1);
+                }
+                else
+                {
+                    writer.Write(data);
+                    data = 0;
+                    bitMask = 1;
+                }
+            }
+
+            // Write any remaning data in the buffer.
+            if (bitMask != 1)
+            {
+                writer.Write(data);
+            }
         }
     }
 }
