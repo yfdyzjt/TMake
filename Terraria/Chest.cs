@@ -14,5 +14,9 @@
                 Item[i] = new Item();
             }
         }
+        public Chest Clone()
+        {
+            return (Chest)MemberwiseClone();
+        }
     }
 }

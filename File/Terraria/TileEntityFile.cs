@@ -23,7 +23,8 @@ namespace TMake.File
                 {
                     Type = reader.ReadByte(),
                     ID = reader.ReadInt32(),
-                    Position = new Point16(reader.ReadInt16(), reader.ReadInt16())
+                    X = reader.ReadInt16(),
+                    Y = reader.ReadInt16()
                 };
 
                 switch ((TileEntityType)entity.Type)
@@ -65,8 +66,8 @@ namespace TMake.File
             {
                 bw.Write(tentity.Type);
                 bw.Write(tentity.ID);
-                bw.Write(tentity.Position.X);
-                bw.Write(tentity.Position.Y);
+                bw.Write((short)tentity.X);
+                bw.Write((short)tentity.Y);
                 switch (tentity.Type)
                 {
                     case (byte)TileEntityType.TrainingDummy: //it is a dummy

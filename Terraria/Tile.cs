@@ -26,31 +26,35 @@
         public bool FullBrightBlock;
         public bool FullBrightWall;
 
-        public void CopyFrom(Tile from)
+        public void Reset()
         {
-            Active = from.Active;
-            Type = from.Type;
-            FrameX = from.FrameX;
-            FrameY = from.FrameY;
-            Color = from.Color;
-            Wall = from.Wall;
-            WallColor = from.WallColor;
-            Liquid = from.Liquid;
-            Lava = from.Lava;
-            Honey = from.Honey;
-            Shimmer = from.Shimmer;
-            Wire = from.Wire;
-            Wire2 = from.Wire2;
-            Wire3 = from.Wire3;
-            HalfBrick = from.HalfBrick;
-            Slope = from.Slope;
-            Actuator = from.Actuator;
-            InActive = from.InActive;
-            Wire4 = from.Wire4;
-            InvisibleBlock = from.InvisibleBlock;
-            InvisibleWall = from.InvisibleWall;
-            FullBrightBlock = from.FullBrightBlock;
-            FullBrightWall = from.FullBrightWall;
+            Active = false;
+            Type = 0;
+            FrameX = 0;
+            FrameY = 0;
+            Color = 0;
+            Wall = 0;
+            WallColor = 0;
+            Liquid = 0;
+            Lava = false;
+            Honey = false;
+            Shimmer = false;
+            Wire = false;
+            Wire2 = false;
+            Wire3 = false;
+            HalfBrick = false;
+            Slope = 0;
+            Actuator = false;
+            InActive = false;
+            Wire4 = false;
+            InvisibleBlock = false;
+            InvisibleWall = false;
+            FullBrightBlock = false;
+            FullBrightWall = false;
+        }
+        public Tile Clone()
+        {
+            return (Tile)MemberwiseClone();
         }
         public static bool operator ==(Tile left, Tile right)
         {
