@@ -7,7 +7,8 @@
         List<Sign> Sign { get; set; }
         List<TileEntity> TileEntity { get; set; }
 
-        public int MaxTilesX { get; set; }
-        public int MaxTilesY { get; set; }
+        int MaxTilesX { get; set; }
+        int MaxTilesY { get; set; }
+        uint Version { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace TMake
 
             T2 toArea = new()
             {
+                Version = fromArea.Version,
                 MaxTilesX = selection.Width,
                 MaxTilesY = selection.Height,
                 Tile = new Tile[selection.Width, selection.Height]
