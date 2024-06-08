@@ -6,11 +6,6 @@ namespace TMake
 {
     public static partial class Tool
     {
-        public static void Copy<T>(T area, Rectangle selection, Point toPosition) where T : ITileArea
-        {
-            Schematic sch = Copy<T, Schematic>(area, selection);
-            Paste(area, toPosition, sch);
-        }
         public static void Delete<T>(T area, Rectangle selection) where T : ITileArea
         {
             selection.Intersect(new(0, 0, area.MaxTilesX, area.MaxTilesY));
@@ -21,11 +16,16 @@ namespace TMake
 
             for (int x = selection.Left; x < selection.Right; x++)
             {
-                for (int y = selection.Top; x < selection.Bottom; y++)
+                for (int y = selection.Top; y < selection.Bottom; y++)
                 {
                     area.Tile[x, y].Reset();
                 }
             }
+        }
+        public static void Copy<T>(T area, Rectangle selection, Point toPosition) where T : ITileArea
+        {
+            Schematic sch = Copy<T, Schematic>(area, selection);
+            Paste(area, toPosition, sch);
         }
         public static T2 Copy<T1, T2>(T1 fromArea, Rectangle selection) where T1 : ITileArea where T2 : ITileArea, new()
         {
@@ -65,7 +65,7 @@ namespace TMake
 
             for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)
             {
-                for (int y = selection.Top, j = 0; x < selection.Bottom; y++, j++)
+                for (int y = selection.Top, j = 0; y < selection.Bottom; y++, j++)
                 {
                     toArea.Tile[i, j] = fromArea.Tile[x, y].Clone();
                 }
@@ -120,7 +120,7 @@ namespace TMake
 
             for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)
             {
-                for (int y = selection.Top, j = 0; x < selection.Bottom; y++, j++)
+                for (int y = selection.Top, j = 0; y < selection.Bottom; y++, j++)
                 {
                     toArea.Tile[x, y] = fromArea.Tile[i, j].Clone();
                 }
