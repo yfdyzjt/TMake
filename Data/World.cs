@@ -2,17 +2,17 @@
 
 namespace TMake.Data
 {
-    public class World
+    public class World : ITileArea
     {
-        public Tile[,] Tile = new Tile[0, 0];
-        public List<Chest> Chest = [];
-        public List<Sign> Sign = [];
-        public List<NPC> NPC = [];
-        public List<TileEntity> TileEntity = [];
-        public List<PressurePlate> PressurePlate = [];
-        public List<TownRoomManager> TownManager = [];
-        public Bestiary Bestiary = new();
-        public CreativePowerManager CreativePowerManager = new();
+        public Tile[,] Tile { get; set; } = new Tile[0, 0];
+        public List<Chest> Chest { get; set; } = [];
+        public List<Sign> Sign { get; set; } = [];
+        public List<NPC> NPC { get; set; } = [];
+        public List<TileEntity> TileEntity { get; set; } = [];
+        public List<PressurePlate> PressurePlate { get; set; } = [];
+        public List<TownRoomManager> TownManager { get; set; } = [];
+        public Bestiary Bestiary { get; set; } = new();
+        public CreativePowerManager CreativePowerManager { get; set; } = new();
 
         public uint Version { get; set; }
         public bool IsChinese { get; set; }

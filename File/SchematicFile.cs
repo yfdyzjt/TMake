@@ -57,11 +57,10 @@ namespace TMake.File
             sch.Version = br.ReadUInt32() - 10000;
 
             var tileFrameImportant = ReadBitArray(br);
-            int sizeX = br.ReadInt32();
-            int sizeY = br.ReadInt32();
-            sch.Size = new Point(sizeX, sizeY);
+            sch.MaxTilesX = br.ReadInt32();
+            sch.MaxTilesY = br.ReadInt32();
 
-            sch.Tile = TileFile.Load(br, sizeX, sizeY, sch.Version, tileFrameImportant);
+            sch.Tile = TileFile.Load(br, sch.MaxTilesX, sch.MaxTilesY, sch.Version, tileFrameImportant);
             sch.Chest.AddRange(ChestFile.Load(br));
             sch.Sign.AddRange(SignFile.Load(br));
             sch.TileEntity.AddRange(TileEntityFile.Load(br));
@@ -73,8 +72,8 @@ namespace TMake.File
 
             if (sch.Name != verifyName ||
                 sch.Version != verifyVersion ||
-                sch.Size.X != verifyX ||
-                sch.Size.Y != verifyY)
+                sch.MaxTilesX != verifyX ||
+                sch.MaxTilesY != verifyY)
             {
                 throw new FileFormatException("Invalid Footer");
             }
@@ -86,18 +85,18 @@ namespace TMake.File
             bw.Write(sch.Name);
             bw.Write(sch.Version + 10000);
             WriteBitArray(bw, tileFrameImportant);
-            bw.Write(sch.Size.X);
-            bw.Write(sch.Size.Y);
+            bw.Write(sch.MaxTilesX);
+            bw.Write(sch.MaxTilesY);
 
-            TileFile.Save(sch.Tile, bw, sch.Size.X, sch.Size.Y, sch.Version, tileFrameImportant);
+            TileFile.Save(sch.Tile, bw, sch.MaxTilesX, sch.MaxTilesY, sch.Version, tileFrameImportant);
             ChestFile.Save(sch.Chest, bw, sch.Version);
             SignFile.Save(sch.Sign, bw, sch.Version);
             TileEntityFile.Save(sch.TileEntity, bw);
 
             bw.Write(sch.Name);
             bw.Write(sch.Version);
-            bw.Write(sch.Size.X);
-            bw.Write(sch.Size.Y);
+            bw.Write(sch.MaxTilesX);
+            bw.Write(sch.MaxTilesY);
         }
         private static bool[] ReadBitArray(BinaryReader reader)
         {

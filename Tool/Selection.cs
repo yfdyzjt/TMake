@@ -6,119 +6,123 @@ namespace TMake
 {
     public static partial class Tool
     {
-        public static void Delete(World world, Rectangle selection)
+        public static void Copy<T>(T area, Rectangle selection, Point toPosition) where T : ITileArea
         {
-            Rectangle rectangle = Rectangle.Intersect(selection, new(0, 0, world.MaxTilesX, world.MaxTilesY));
+            Schematic sch = Copy<T, Schematic>(area, selection);
+            Paste(area, toPosition, sch);
+        }
+        public static void Delete<T>(T area, Rectangle selection) where T : ITileArea
+        {
+            selection.Intersect(new(0, 0, area.MaxTilesX, area.MaxTilesY));
 
-            world.Chest.RemoveAll(chest => rectangle.Contains(chest.X, chest.Y));
-            world.Sign.RemoveAll(sign => rectangle.Contains(sign.X, sign.Y));
-            world.TileEntity.RemoveAll(tileEntity => rectangle.Contains(tileEntity.X, tileEntity.Y));
+            area.Chest.RemoveAll(chest => selection.Contains(chest.X, chest.Y));
+            area.Sign.RemoveAll(sign => selection.Contains(sign.X, sign.Y));
+            area.TileEntity.RemoveAll(tileEntity => selection.Contains(tileEntity.X, tileEntity.Y));
 
-            for (int x = rectangle.Left; x < rectangle.Right; x++)
+            for (int x = selection.Left; x < selection.Right; x++)
             {
-                for (int y = rectangle.Top; x < rectangle.Bottom; y++)
+                for (int y = selection.Top; x < selection.Bottom; y++)
                 {
-                    world.Tile[x, y].Reset();
+                    area.Tile[x, y].Reset();
                 }
             }
         }
-        public static Schematic Copy(World world, Rectangle selection)
+        public static T2 Copy<T1, T2>(T1 fromArea, Rectangle selection) where T1 : ITileArea where T2 : ITileArea, new()
         {
-            Rectangle rectangle = Rectangle.Intersect(selection, new(0, 0, world.MaxTilesX, world.MaxTilesY));
+            selection.Intersect(new(0, 0, fromArea.MaxTilesX, fromArea.MaxTilesY));
 
-            Schematic sch = new()
+            T2 toArea = new()
             {
-                Tile = new Tile[rectangle.Width, rectangle.Height],
-                Size = new Point(rectangle.Width, rectangle.Height),
-                Version = world.Version
+                MaxTilesX = selection.Width,
+                MaxTilesY = selection.Height,
+                Tile = new Tile[selection.Width, selection.Height]
             };
 
-            sch.Chest.AddRange(world.Chest.Where(chest =>
-            rectangle.Contains(chest.X, chest.Y)).Select(chest =>
+            toArea.Chest.AddRange(fromArea.Chest.Where(chest =>
+            selection.Contains(chest.X, chest.Y)).Select(chest =>
             {
                 var clone = chest.Clone();
-                clone.X -= rectangle.Left;
-                clone.Y -= rectangle.Top;
+                clone.X -= selection.Left;
+                clone.Y -= selection.Top;
                 return clone;
             }));
-            sch.Sign.AddRange(world.Sign.Where(sign =>
-            rectangle.Contains(sign.X, sign.Y)).Select(sign =>
+            toArea.Sign.AddRange(fromArea.Sign.Where(sign =>
+            selection.Contains(sign.X, sign.Y)).Select(sign =>
             {
                 var clone = sign.Clone();
-                clone.X -= rectangle.Left;
-                clone.Y -= rectangle.Top;
+                clone.X -= selection.Left;
+                clone.Y -= selection.Top;
                 return clone;
             }));
-            sch.TileEntity.AddRange(world.TileEntity.Where(tileEntity =>
-            rectangle.Contains(tileEntity.X, tileEntity.Y)).Select(tileEntity =>
+            toArea.TileEntity.AddRange(fromArea.TileEntity.Where(tileEntity =>
+            selection.Contains(tileEntity.X, tileEntity.Y)).Select(tileEntity =>
             {
                 var clone = tileEntity.Clone();
-                clone.X -= rectangle.Left;
-                clone.Y -= rectangle.Top;
+                clone.X -= selection.Left;
+                clone.Y -= selection.Top;
                 return clone;
             }));
 
-            for (int x = rectangle.Left, i = 0; x < rectangle.Right; x++, i++)
+            for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)
             {
-                for (int y = rectangle.Top, j = 0; x < rectangle.Bottom; y++, j++)
+                for (int y = selection.Top, j = 0; x < selection.Bottom; y++, j++)
                 {
-                    sch.Tile[i, j] = world.Tile[x, y].Clone();
+                    toArea.Tile[i, j] = fromArea.Tile[x, y].Clone();
                 }
             }
-            return sch;
-        }
-        public static void Copy(World world, Rectangle fromRectangle, Point toPosition)
-        {
-            Schematic sch = Copy(world, fromRectangle);
-            Paste(world, sch, toPosition);
-        }
-        public static Schematic Cut(World world, Rectangle rectangle)
-        {
-            Schematic sch = Copy(world, rectangle);
-            Delete(world, rectangle);
-            return sch;
-        }
-        public static void Cut(World world, Rectangle fromRectangle, Point toPosition)
-        {
-            Schematic sch = Cut(world, fromRectangle);
-            Paste(world, sch, toPosition);
-        }
-        public static void Paste(World world, Schematic sch, Point position)
-        {
-            Rectangle rectangle = Rectangle.Intersect(new(position, new(sch.Size)), new(0, 0, world.MaxTilesX, world.MaxTilesY));
 
-            Delete(world, rectangle);
+            return toArea;
+        }
+        public static void Cut<T>(T area, Rectangle fromRectangle, Point toPosition) where T : ITileArea
+        {
+            Schematic sch = Cut<T, Schematic>(area, fromRectangle);
+            Paste(area, toPosition, sch);
+        }
+        public static T2 Cut<T1, T2>(T1 area, Rectangle rectangle) where T1 : ITileArea where T2 : ITileArea, new()
+        {
+            T2 toArea = Copy<T1, T2>(area, rectangle);
+            Delete(area, rectangle);
+            return toArea;
+        }
+        public static void Paste<T1, T2>(T1 toArea, Point position, T2 fromArea) where T1 : ITileArea where T2 : ITileArea
+        {
+            Rectangle selection = Rectangle.Intersect(
+                new(position,
+                new(fromArea.MaxTilesX, fromArea.MaxTilesY)),
+                new(0, 0, toArea.MaxTilesX, toArea.MaxTilesY));
 
-            world.Chest.AddRange(sch.Chest.Where(chest =>
-            rectangle.Contains(chest.X, chest.Y)).Select(chest =>
+            Delete(toArea, selection);
+
+            toArea.Chest.AddRange(fromArea.Chest.Where(chest =>
+            selection.Contains(chest.X, chest.Y)).Select(chest =>
             {
                 var clone = chest.Clone();
-                clone.X += rectangle.Left;
-                clone.Y += rectangle.Top;
+                clone.X += selection.Left;
+                clone.Y += selection.Top;
                 return clone;
             }));
-            world.Sign.AddRange(sch.Sign.Where(sign =>
-            rectangle.Contains(sign.X, sign.Y)).Select(sign =>
+            toArea.Sign.AddRange(fromArea.Sign.Where(sign =>
+            selection.Contains(sign.X, sign.Y)).Select(sign =>
             {
                 var clone = sign.Clone();
-                clone.X += rectangle.Left;
-                clone.Y += rectangle.Top;
+                clone.X += selection.Left;
+                clone.Y += selection.Top;
                 return clone;
             }));
-            world.TileEntity.AddRange(sch.TileEntity.Where(tileEntity =>
-            rectangle.Contains(tileEntity.X, tileEntity.Y)).Select(tileEntity =>
+            toArea.TileEntity.AddRange(fromArea.TileEntity.Where(tileEntity =>
+            selection.Contains(tileEntity.X, tileEntity.Y)).Select(tileEntity =>
             {
                 var clone = tileEntity.Clone();
-                clone.X += rectangle.Left;
-                clone.Y += rectangle.Top;
+                clone.X += selection.Left;
+                clone.Y += selection.Top;
                 return clone;
             }));
 
-            for (int x = rectangle.Left, i = 0; x < rectangle.Right; x++, i++)
+            for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)
             {
-                for (int y = rectangle.Top, j = 0; x < rectangle.Bottom; y++, j++)
+                for (int y = selection.Top, j = 0; x < selection.Bottom; y++, j++)
                 {
-                    world.Tile[x, y] = sch.Tile[i, j].Clone();
+                    toArea.Tile[x, y] = fromArea.Tile[i, j].Clone();
                 }
             }
         }
