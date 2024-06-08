@@ -251,7 +251,7 @@ namespace TMake.File
         }
         private static void LoadHeader(BinaryReader binaryReader, World world)
         {
-            world.WorldName = binaryReader.ReadString();
+            world.Name = binaryReader.ReadString();
             if (world.Version >= 179)
             {
                 if (world.Version == 179)
@@ -270,7 +270,7 @@ namespace TMake.File
             {
                 world.Guid = Guid.NewGuid();
             }
-            world.WorldID = binaryReader.ReadInt32();
+            world.ID = binaryReader.ReadInt32();
             world.LeftWorld = binaryReader.ReadInt32();
             world.RightWorld = binaryReader.ReadInt32();
             world.TopWorld = binaryReader.ReadInt32();
@@ -643,7 +643,7 @@ namespace TMake.File
         }
         private static int SaveWorldHeader(BinaryWriter binaryWriter, World world)
         {
-            binaryWriter.Write(world.WorldName);
+            binaryWriter.Write(world.Name);
 
             if (world.Version >= 179)
             {
@@ -667,7 +667,7 @@ namespace TMake.File
 
             }
 
-            binaryWriter.Write(world.WorldID);
+            binaryWriter.Write(world.ID);
 
             binaryWriter.Write(world.LeftWorld);
 
@@ -1209,17 +1209,17 @@ namespace TMake.File
             if (!binaryReader.ReadBoolean())
                 throw new FileFormatException("Invalid Footer");
 
-            if (binaryReader.ReadString() != world.WorldName)
+            if (binaryReader.ReadString() != world.Name)
                 throw new FileFormatException("Invalid Footer");
 
-            if (binaryReader.ReadInt32() != world.WorldID)
+            if (binaryReader.ReadInt32() != world.ID)
                 throw new FileFormatException("Invalid Footer");
         }
         private static int SaveFooter(BinaryWriter binaryWriter, World world)
         {
             binaryWriter.Write(true);
-            binaryWriter.Write(world.WorldName);
-            binaryWriter.Write(world.WorldID);
+            binaryWriter.Write(world.Name);
+            binaryWriter.Write(world.ID);
 
             return (int)binaryWriter.BaseStream.Position;
         }

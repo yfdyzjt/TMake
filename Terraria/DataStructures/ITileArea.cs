@@ -10,5 +10,6 @@
         int MaxTilesX { get; set; }
         int MaxTilesY { get; set; }
         uint Version { get; set; }
+        string Name { get; set; }
     }
 }

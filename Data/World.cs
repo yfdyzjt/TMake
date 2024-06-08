@@ -18,11 +18,11 @@ namespace TMake.Data
         public bool IsChinese { get; set; }
         public uint Revision { get; set; }
         public bool IsFavorite { get; set; }
-        public string WorldName { get; set; } = "";
+        public string Name { get; set; } = "";
         public string Seed { get; set; } = "";
         public ulong WorldGenVersion { get; set; }
         public Guid Guid { get; set; }
-        public int WorldID { get; set; }
+        public int ID { get; set; }
         public int LeftWorld { get; set; }
         public int RightWorld { get; set; }
         public int TopWorld { get; set; }
