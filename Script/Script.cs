@@ -1,6 +1,6 @@
 ﻿using Neo.IronLua;
 
-namespace TMake.Data
+namespace TMake.Script
 {
     public class Script
     {

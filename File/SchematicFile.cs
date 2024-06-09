@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using TMake.Data;
 using TMake.Terraria;
 
 namespace TMake.File

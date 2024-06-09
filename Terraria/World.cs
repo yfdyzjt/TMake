@@ -1,6 +1,4 @@
-﻿using TMake.Terraria;
-
-namespace TMake.Data
+﻿namespace TMake.Terraria
 {
     public class World : ITileArea
     {

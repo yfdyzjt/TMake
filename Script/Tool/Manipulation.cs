@@ -1,8 +1,7 @@
 ﻿using System.Drawing;
-using TMake.Data;
 using TMake.Terraria;
 
-namespace TMake
+namespace TMake.Script
 {
     public static partial class Tool
     {

@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using TMake.Terraria;
-
-namespace TMake.Data
+﻿namespace TMake.Terraria
 {
     public class Schematic : ITileArea
     {

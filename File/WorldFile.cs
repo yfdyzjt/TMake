@@ -1,5 +1,4 @@
-﻿using TMake.Data;
-using TMake.Terraria;
+﻿using TMake.Terraria;
 
 namespace TMake.File
 {
