@@ -14,7 +14,18 @@
         public Item[] Dyes { get; set; } = [];
         public TileEntity Clone()
         {
-            return (TileEntity)MemberwiseClone();
+            var tileEntity = (TileEntity)MemberwiseClone();
+            tileEntity.NPC = NPC.Clone();
+            tileEntity.Item = Item.Clone();
+            for (int i = 0; i < Items.Length; i++)
+            {
+                tileEntity.Items[i] = Items[i].Clone();
+            }
+            for (int i = 0; i < Dyes.Length; i++)
+            {
+                tileEntity.Dyes[i] = Dyes[i].Clone();
+            }
+            return tileEntity;
         }
     }
 }

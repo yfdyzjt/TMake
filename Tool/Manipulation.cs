@@ -22,6 +22,18 @@ namespace TMake
                 }
             }
         }
+        public static void Fill<T>(T area, Rectangle selection, Tile tile) where T : ITileArea
+        {
+            selection.Intersect(new(0, 0, area.MaxTilesX, area.MaxTilesY));
+
+            for (int x = selection.Left; x < selection.Right; x++)
+            {
+                for (int y = selection.Top; y < selection.Bottom; y++)
+                {
+                    area.Tile[x, y] = tile.Clone();
+                }
+            }
+        }
         public static void Copy<T>(T area, Rectangle selection, Point toPosition) where T : ITileArea
         {
             Schematic sch = Copy<T, Schematic>(area, selection);

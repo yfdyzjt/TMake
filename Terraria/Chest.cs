@@ -16,7 +16,12 @@
         }
         public Chest Clone()
         {
-            return (Chest)MemberwiseClone();
+            var chest = (Chest)MemberwiseClone();
+            for (int i = 0; i < ChestProperty.MaxItems; i++)
+            {
+                chest.Item[i] = Item[i].Clone();
+            }
+            return chest;
         }
     }
 }
