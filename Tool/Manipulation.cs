@@ -48,7 +48,7 @@ namespace TMake
                 Version = fromArea.Version,
                 MaxTilesX = selection.Width,
                 MaxTilesY = selection.Height,
-                Name = "Copy_of_" + fromArea.Name,
+                Name = fromArea.Name,
                 Tile = new Tile[selection.Width, selection.Height]
             };
 
