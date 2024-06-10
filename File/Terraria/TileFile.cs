@@ -16,7 +16,7 @@ namespace TMake.File
                     while (rle > 0)
                     {
                         y++;
-                        tiles[x, y] = tile.Clone();
+                        tiles[x, y] = tile.Copy();
                         rle--;
                     }
                 }

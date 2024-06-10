@@ -12,18 +12,22 @@
         public bool On { get; set; }
         public Item[] Items { get; set; } = [];
         public Item[] Dyes { get; set; } = [];
-        public TileEntity Clone()
+        public TileEntity Copy()
         {
-            var tileEntity = (TileEntity)MemberwiseClone();
-            tileEntity.NPC = NPC.Clone();
-            tileEntity.Item = Item.Clone();
+            return (TileEntity)MemberwiseClone();
+        }
+        public TileEntity DeepCopy()
+        {
+            var tileEntity = Copy();
+            tileEntity.NPC = NPC.Copy();
+            tileEntity.Item = Item.Copy();
             for (int i = 0; i < Items.Length; i++)
             {
-                tileEntity.Items[i] = Items[i].Clone();
+                tileEntity.Items[i] = Items[i].Copy();
             }
             for (int i = 0; i < Dyes.Length; i++)
             {
-                tileEntity.Dyes[i] = Dyes[i].Clone();
+                tileEntity.Dyes[i] = Dyes[i].Copy();
             }
             return tileEntity;
         }

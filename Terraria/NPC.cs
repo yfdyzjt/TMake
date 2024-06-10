@@ -14,7 +14,7 @@ namespace TMake.Terraria
         public int HomeTileY { get; set; }
         public int TownNpcVariationIndex { get; set; }
         public bool ShimmeredTownNPC { get; set; }
-        public NPC Clone()
+        public NPC Copy()
         {
             return (NPC)MemberwiseClone();
         }

@@ -14,12 +14,16 @@
                 Item[i] = new Item();
             }
         }
-        public Chest Clone()
+        public Chest Copy()
         {
-            var chest = (Chest)MemberwiseClone();
+            return (Chest)MemberwiseClone();
+        }
+        public Chest DeepCopy()
+        {
+            var chest = Copy();
             for (int i = 0; i < ChestProperty.MaxItems; i++)
             {
-                chest.Item[i] = Item[i].Clone();
+                chest.Item[i] = Item[i].Copy();
             }
             return chest;
         }

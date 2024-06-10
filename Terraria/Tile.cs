@@ -52,7 +52,7 @@
             FullBrightBlock = false;
             FullBrightWall = false;
         }
-        public Tile Clone()
+        public Tile Copy()
         {
             return (Tile)MemberwiseClone();
         }
