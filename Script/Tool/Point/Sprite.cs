@@ -46,8 +46,8 @@ namespace TMake.Script
                         Tile tile = area.Tile[x, y];
                         tile.Active = true;
                         tile.Type = sprite.TileType;
-                        tile.FrameX = (short)(x * (tileDate.TextureGrid.X + 2) + sprite.Origin.X);
-                        tile.FrameY = (short)(y * (tileDate.TextureGrid.Y + 2) + sprite.Origin.Y);
+                        tile.FrameX = (short)(i * (tileDate.TextureGrid.X + 2) + sprite.Origin.X);
+                        tile.FrameY = (short)(j * (tileDate.TextureGrid.Y + 2) + sprite.Origin.Y);
                     }
                 }
             }
@@ -64,14 +64,16 @@ namespace TMake.Script
                 }
                 else if (IsTileEntity(sprite.TileType))
                 {
-                    TileEntity TE = new TileEntity();
-                    TE.X = position.X;
-                    TE.Y = position.Y;
-                    TE.ID = area.TileEntity.Count;
+                    TileEntity TE = new()
+                    {
+                        X = position.X,
+                        Y = position.Y,
+                        ID = area.TileEntity.Count
+                    };
                     if (sprite.TileType == (int)TileID.TargetDummy)
                     {
                         TE.Type = 0;
-                        TE.NPC = new() { Type = 488 };
+                        TE.NPC = new() { Type = (int)NPCID.TargetDummy };
                     }
                     else if (sprite.TileType == (int)TileID.ItemFrame)
                     {

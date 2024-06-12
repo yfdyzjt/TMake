@@ -1,37 +1,24 @@
-﻿using TMake.Terraria;
+﻿using System.Drawing;
+using TMake.Terraria;
 
 namespace TMake.Script
 {
     public static partial class Tool
     {
-        public static bool IsChest(int tileType)
+        public static Chest GetChest<T>(T area, Point position, bool validate = true) where T : ITileArea
         {
-            return tileType == (int)TileID.Containers
-                || tileType == (int)TileID.Dressers
-                || tileType == (int)TileID.Containers2
-                || tileType == (int)TileID.FakeContainers
-                || tileType == (int)TileID.FakeContainers2;
+            if (validate) { if (!new Rectangle(0, 0, area.MaxTilesX, area.MaxTilesY).Contains(position)) throw new ArgumentOutOfRangeException(nameof(position), $"Missing Tile: {position}"); }
+            return area.Chest.First(chest => chest.X == position.X && chest.Y == position.Y);
         }
-        public static bool IsSign(int tileType)
+        public static Sign GetSign<T>(T area, Point position, bool validate = true) where T : ITileArea
         {
-            return tileType == (int)TileID.Signs
-                || tileType == (int)TileID.Tombstones
-                || tileType == (int)TileID.AnnouncementBox
-                || tileType == (int)TileID.TatteredWoodSign;
+            if (validate) { if (!new Rectangle(0, 0, area.MaxTilesX, area.MaxTilesY).Contains(position)) throw new ArgumentOutOfRangeException(nameof(position), $"Missing Tile: {position}"); }
+            return area.Sign.First(sign => sign.X == position.X && sign.Y == position.Y);
         }
-        public static bool IsTileEntity(int tileType)
+        public static TileEntity GetTileEntity<T>(T area, Point position, bool validate = true) where T : ITileArea
         {
-            return tileType == (int)TileID.DisplayDoll
-                || tileType == (int)TileID.Mannequin
-                || tileType == (int)TileID.Womannequin
-                || tileType == (int)TileID.FoodPlatter
-                || tileType == (int)TileID.TargetDummy
-                || tileType == (int)TileID.ItemFrame
-                || tileType == (int)TileID.LogicSensor
-                || tileType == (int)TileID.WeaponsRack
-                || tileType == (int)TileID.WeaponsRack2
-                || tileType == (int)TileID.HatRack
-                || tileType == (int)TileID.TeleportationPylon;
+            if (validate) { if (!new Rectangle(0, 0, area.MaxTilesX, area.MaxTilesY).Contains(position)) throw new ArgumentOutOfRangeException(nameof(position), $"Missing Tile: {position}"); }
+            return area.TileEntity.First(tileEntity => tileEntity.X == position.X && tileEntity.Y == position.Y);
         }
     }
 }

@@ -15,22 +15,26 @@
                 throw new ArgumentOutOfRangeException(nameof(type), $"Missing sprite data: {type}");
             }
         }
-        public static SpriteData GetSpriteData(string name, string variety = "", FrameAnchor anchor = FrameAnchor.None)
+        public static SpriteData GetSpriteData(string name, int count = 0)
         {
-            var sprites = SpriteDatas.Where(sprite => (sprite.Name == name && sprite.Variety == variety && sprite.Anchor == anchor)).ToList();
+            var sprites = SpriteDatas.Where(sprite => sprite.Name == name).ToList();
 
-            if (sprites.Count == 1)
+            if (count < sprites.Count)
             {
-                return sprites[0];
-            }
-            else if(sprites.Count > 1)
-            {
-                throw new ArgumentOutOfRangeException(nameof(name), $"Missing sprite data: {name}");
+                return sprites[count];
             }
             else
             {
-                throw new ArgumentOutOfRangeException(nameof(name), $"Not unique sprite data: {name}");
+                throw new ArgumentOutOfRangeException(nameof(name), $"Missing sprite data: {name}");
             }
+        }
+        public static SpriteData GetSpriteData(string name, string variety)
+        {
+            return SpriteDatas.First(sprite => (sprite.Name == name && sprite.Variety == variety));
+        }
+        public static SpriteData GetSpriteData(string name, FrameAnchor anchor)
+        {
+            return SpriteDatas.First(sprite => (sprite.Name == name && sprite.Anchor == anchor));
         }
         public readonly static List<SpriteData> SpriteDatas = new()
 {
@@ -38,42 +42,48 @@
 new SpriteData()
 {
 TileType = 3,
-Name = "Grass_Single_Blade",
+Name = "Forest_Short_Plants",
+Variety = "Grass_Single_Blade",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(18,0),
-Name = "Grass_Double_Blade",
+Name = "Forest_Short_Plants",
+Variety = "Grass_Double_Blade",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(36,0),
-Name = "Grass_Small_Y",
+Name = "Forest_Short_Plants",
+Variety = "Grass_Small_Y",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(54,0),
-Name = "Grass_Three_Small",
+Name = "Forest_Short_Plants",
+Variety = "Grass_Three_Small",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(72,0),
-Name = "Grass_Single_Blade",
+Name = "Forest_Short_Plants",
+Variety = "Grass_Single_Blade",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(90,0),
-Name = "Grass_Three_Large",
+Name = "Forest_Short_Plants",
+Variety = "Grass_Three_Large",
 },
 
 new SpriteData()
@@ -87,266 +97,304 @@ new SpriteData()
 {
 TileType = 3,
 Origin = new(108,0),
-Name = "Magenta_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "Magenta_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(540,0),
-Name = "Magenta_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "Magenta_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(558,0),
-Name = "Magenta_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "Magenta_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(576,0),
-Name = "Magenta_Flower_D",
+Name = "Forest_Short_Plants",
+Variety = "Magenta_Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(126,0),
-Name = "Pink_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "Pink_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(306,0),
-Name = "Pink_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "Pink_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(594,0),
-Name = "Pink_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "Pink_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(612,0),
-Name = "Pink_Flower_D",
+Name = "Forest_Short_Plants",
+Variety = "Pink_Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(630,0),
-Name = "Pink_Flower_E",
+Name = "Forest_Short_Plants",
+Variety = "Pink_Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(162,0),
-Name = "Blue_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "Blue_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(288,0),
-Name = "Blue_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "Blue_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(360,0),
-Name = "Blue_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "Blue_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(180,0),
-Name = "Yellow_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(198,0),
-Name = "Yellow_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(234,0),
-Name = "Yellow_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(324,0),
-Name = "Yellow_Flower_D",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(432,0),
-Name = "Yellow_Flower_E",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(450,0),
-Name = "Yellow_Flower_F",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(468,0),
-Name = "Yellow_Flower_G",
+Name = "Forest_Short_Plants",
+Variety = "Yellow_Flower_G",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(216,0),
-Name = "Violet_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "Violet_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(756,0),
-Name = "Violet_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "Violet_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(774,0),
-Name = "Violet_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "Violet_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(792,0),
-Name = "Violet_Flower_D",
+Name = "Forest_Short_Plants",
+Variety = "Violet_Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(252,0),
-Name = "White_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(270,0),
-Name = "White_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(486,0),
-Name = "White_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(504,0),
-Name = "White_Flower_D",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(522,0),
-Name = "White_Flower_E",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(648,0),
-Name = "White_Flower_F",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(666,0),
-Name = "White_Flower_G",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_G",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(684,0),
-Name = "White_Flower_H",
+Name = "Forest_Short_Plants",
+Variety = "White_Flower_H",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(342,0),
-Name = "Red_Flower_A",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(378,0),
-Name = "Red_Flower_B",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(396,0),
-Name = "Red_Flower_C",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(414,0),
-Name = "Red_Flower_D",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(702,0),
-Name = "Red_Flower_E",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(720,0),
-Name = "Red_Flower_F",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 3,
 Origin = new(738,0),
-Name = "Red_Flower_G",
+Name = "Forest_Short_Plants",
+Variety = "Red_Flower_G",
 },
 
 new SpriteData()
@@ -8548,6 +8596,7 @@ new SpriteData()
 {
 TileType = 12,
 Size = new(2,2),
+Name = "Crystal_Heart",
 },
 
 new SpriteData()
@@ -9781,6 +9830,7 @@ new SpriteData()
 {
 TileType = 17,
 Size = new(3,2),
+Name = "Furnace",
 },
 
 new SpriteData()
@@ -21457,42 +21507,48 @@ Name = "Golden_Chest_(unused_-_DO_NOT_USE)",
 new SpriteData()
 {
 TileType = 24,
-Name = "Grass_Single_Blade",
+Name = "Corruption_Short_Plants",
+Variety = "Grass_Single_Blade",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(18,0),
-Name = "Grass_Double_Blade",
+Name = "Corruption_Short_Plants",
+Variety = "Grass_Double_Blade",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(36,0),
-Name = "Grass_Small_Y",
+Name = "Corruption_Short_Plants",
+Variety = "Grass_Small_Y",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(54,0),
-Name = "Grass_Three_Small",
+Name = "Corruption_Short_Plants",
+Variety = "Grass_Three_Small",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(72,0),
-Name = "Grass_Single_Blade",
+Name = "Corruption_Short_Plants",
+Variety = "Grass_Single_Blade",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(90,0),
-Name = "Grass_Three_Large",
+Name = "Corruption_Short_Plants",
+Variety = "Grass_Three_Large",
 },
 
 new SpriteData()
@@ -21506,112 +21562,128 @@ new SpriteData()
 {
 TileType = 24,
 Origin = new(108,0),
-Name = "Flower_A",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(126,0),
-Name = "Flower_B",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(162,0),
-Name = "Flower_C",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(180,0),
-Name = "Flower_D",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(198,0),
-Name = "Flower_E",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(216,0),
-Name = "Flower_F",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(234,0),
-Name = "Flower_G",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_G",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(252,0),
-Name = "Flower_H",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_H",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(270,0),
-Name = "Flower_I",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_I",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(288,0),
-Name = "Flower_J",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_J",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(306,0),
-Name = "Flower_K",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_K",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(324,0),
-Name = "Flower_L",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_L",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(342,0),
-Name = "Flower_M",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_M",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(360,0),
-Name = "Flower_N",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_N",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(378,0),
-Name = "Flower_O",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_O",
 },
 
 new SpriteData()
 {
 TileType = 24,
 Origin = new(396,0),
-Name = "Flower_P",
+Name = "Corruption_Short_Plants",
+Variety = "Flower_P",
 },
 
 new SpriteData()
@@ -21633,7 +21705,8 @@ new SpriteData()
 {
 TileType = 27,
 Size = new(2,4),
-Name = "A",
+Name = "Sunflower",
+Variety = "A",
 },
 
 new SpriteData()
@@ -21641,7 +21714,8 @@ new SpriteData()
 TileType = 27,
 Size = new(2,4),
 Origin = new(36,0),
-Name = "B",
+Name = "Sunflower",
+Variety = "B",
 },
 
 new SpriteData()
@@ -21649,7 +21723,8 @@ new SpriteData()
 TileType = 27,
 Size = new(2,4),
 Origin = new(72,0),
-Name = "C",
+Name = "Sunflower",
+Variety = "C",
 },
 
 new SpriteData()
@@ -22663,6 +22738,7 @@ new SpriteData()
 {
 TileType = 29,
 Size = new(2,1),
+Name = "Piggy_Bank",
 },
 
 new SpriteData()
@@ -24236,7 +24312,8 @@ new SpriteData()
 {
 TileType = 35,
 Size = new(2,2),
-Name = "A_On",
+Name = "Jack_'O_Lantern",
+Variety = "A_On",
 },
 
 new SpriteData()
@@ -24244,7 +24321,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "A_Off",
+Name = "Jack_'O_Lantern",
+Variety = "A_Off",
 },
 
 new SpriteData()
@@ -24252,7 +24330,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,36),
-Name = "B_On",
+Name = "Jack_'O_Lantern",
+Variety = "B_On",
 },
 
 new SpriteData()
@@ -24260,7 +24339,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,36),
-Name = "B_Off",
+Name = "Jack_'O_Lantern",
+Variety = "B_Off",
 },
 
 new SpriteData()
@@ -24268,7 +24348,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,72),
-Name = "C_On",
+Name = "Jack_'O_Lantern",
+Variety = "C_On",
 },
 
 new SpriteData()
@@ -24276,7 +24357,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,72),
-Name = "C_Off",
+Name = "Jack_'O_Lantern",
+Variety = "C_Off",
 },
 
 new SpriteData()
@@ -24284,7 +24366,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,108),
-Name = "D_On",
+Name = "Jack_'O_Lantern",
+Variety = "D_On",
 },
 
 new SpriteData()
@@ -24292,7 +24375,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,108),
-Name = "D_Off",
+Name = "Jack_'O_Lantern",
+Variety = "D_Off",
 },
 
 new SpriteData()
@@ -24300,7 +24384,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,144),
-Name = "E_On",
+Name = "Jack_'O_Lantern",
+Variety = "E_On",
 },
 
 new SpriteData()
@@ -24308,7 +24393,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,144),
-Name = "E_Off",
+Name = "Jack_'O_Lantern",
+Variety = "E_Off",
 },
 
 new SpriteData()
@@ -24316,7 +24402,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,180),
-Name = "F_On",
+Name = "Jack_'O_Lantern",
+Variety = "F_On",
 },
 
 new SpriteData()
@@ -24324,7 +24411,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,180),
-Name = "F_Off",
+Name = "Jack_'O_Lantern",
+Variety = "F_Off",
 },
 
 new SpriteData()
@@ -24332,7 +24420,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,216),
-Name = "G_On",
+Name = "Jack_'O_Lantern",
+Variety = "G_On",
 },
 
 new SpriteData()
@@ -24340,7 +24429,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,216),
-Name = "G_Off",
+Name = "Jack_'O_Lantern",
+Variety = "G_Off",
 },
 
 new SpriteData()
@@ -24348,7 +24438,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,252),
-Name = "H_On",
+Name = "Jack_'O_Lantern",
+Variety = "H_On",
 },
 
 new SpriteData()
@@ -24356,7 +24447,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,252),
-Name = "H_Off",
+Name = "Jack_'O_Lantern",
+Variety = "H_Off",
 },
 
 new SpriteData()
@@ -24364,7 +24456,8 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(0,288),
-Name = "I_On",
+Name = "Jack_'O_Lantern",
+Variety = "I_On",
 },
 
 new SpriteData()
@@ -24372,62 +24465,71 @@ new SpriteData()
 TileType = 35,
 Size = new(2,2),
 Origin = new(36,288),
-Name = "I_Off",
+Name = "Jack_'O_Lantern",
+Variety = "I_Off",
 },
 
 new SpriteData()
 {
 TileType = 36,
-Name = "Red_with_White_Ribbon",
+Name = "Presents",
+Variety = "Red_with_White_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(18,0),
-Name = "Red_with_Blue_Ribbon",
+Name = "Presents",
+Variety = "Red_with_Blue_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(36,0),
-Name = "Green_with_White_Ribbon",
+Name = "Presents",
+Variety = "Green_with_White_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(54,0),
-Name = "Green_with_Red_Ribbon",
+Name = "Presents",
+Variety = "Green_with_Red_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(72,0),
-Name = "Yellow_with_White_Ribbon",
+Name = "Presents",
+Variety = "Yellow_with_White_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(90,0),
-Name = "Yellow_with_Green_Ribbon",
+Name = "Presents",
+Variety = "Yellow_with_Green_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(108,0),
-Name = "Blue_with_White_Ribbon",
+Name = "Presents",
+Variety = "Blue_with_White_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 36,
 Origin = new(126,0),
-Name = "Blue_with_Yellow_Ribbon",
+Name = "Presents",
+Variety = "Blue_with_Yellow_Ribbon",
 },
 
 new SpriteData()
@@ -25314,55 +25416,63 @@ Variety = "Off",
 new SpriteData()
 {
 TileType = 49,
-Name = "On",
+Name = "Water_Candle",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 49,
 Origin = new(18,0),
-Name = "Off",
+Name = "Water_Candle",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 50,
-Name = "Blue_Red_Brown",
+Name = "Books",
+Variety = "Blue_Red_Brown",
 },
 
 new SpriteData()
 {
 TileType = 50,
 Origin = new(18,0),
-Name = "Yellow_Pink",
+Name = "Books",
+Variety = "Yellow_Pink",
 },
 
 new SpriteData()
 {
 TileType = 50,
 Origin = new(36,0),
-Name = "Teal_Brown",
+Name = "Books",
+Variety = "Teal_Brown",
 },
 
 new SpriteData()
 {
 TileType = 50,
 Origin = new(54,0),
-Name = "Purple_Blue",
+Name = "Books",
+Variety = "Purple_Blue",
 },
 
 new SpriteData()
 {
 TileType = 50,
 Origin = new(72,0),
-Name = "Green_Orange",
+Name = "Books",
+Variety = "Green_Orange",
 },
 
 new SpriteData()
 {
 TileType = 50,
 Origin = new(90,0),
-Name = "Brown_Water_Bolt_Gray",
+Name = "Books",
+Variety = "Brown_Water_Bolt_Gray",
 },
 
 new SpriteData()
@@ -25370,7 +25480,8 @@ new SpriteData()
 TileType = 55,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
-Name = "Ground",
+Name = "Sign",
+Variety = "Ground",
 },
 
 new SpriteData()
@@ -25379,7 +25490,8 @@ TileType = 55,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Hanging",
+Name = "Sign",
+Variety = "Hanging",
 },
 
 new SpriteData()
@@ -25388,7 +25500,8 @@ TileType = 55,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Left_Side",
+Name = "Sign",
+Variety = "Left_Side",
 },
 
 new SpriteData()
@@ -25397,7 +25510,8 @@ TileType = 55,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Right_Side",
+Name = "Sign",
+Variety = "Right_Side",
 },
 
 new SpriteData()
@@ -25405,62 +25519,71 @@ new SpriteData()
 TileType = 55,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Wall",
+Name = "Sign",
+Variety = "Wall",
 },
 
 new SpriteData()
 {
 TileType = 61,
-Name = "Grass_Single_Blade",
+Name = "Jungle_Short_Plants",
+Variety = "Grass_Single_Blade",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(18,0),
-Name = "Grass_Double_Blade",
+Name = "Jungle_Short_Plants",
+Variety = "Grass_Double_Blade",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(36,0),
-Name = "Grass_Small_Y",
+Name = "Jungle_Short_Plants",
+Variety = "Grass_Small_Y",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(54,0),
-Name = "Grass_Three_Small",
+Name = "Jungle_Short_Plants",
+Variety = "Grass_Three_Small",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(72,0),
-Name = "Grass_Single_Blade",
+Name = "Jungle_Short_Plants",
+Variety = "Grass_Single_Blade",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(90,0),
-Name = "Grass_Three_Large",
+Name = "Jungle_Short_Plants",
+Variety = "Grass_Three_Large",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(108,0),
-Name = "Flower_A",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(126,0),
-Name = "Flower_B",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
@@ -25481,173 +25604,198 @@ new SpriteData()
 {
 TileType = 61,
 Origin = new(180,0),
-Name = "Flower_C",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(198,0),
-Name = "Flower_D",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(216,0),
-Name = "Flower_E",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(234,0),
-Name = "Flower_F",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(252,0),
-Name = "Flower_G",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_G",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(270,0),
-Name = "Flower_H",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_H",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(288,0),
-Name = "Flower_I",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_I",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(306,0),
-Name = "Flower_J",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_J",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(324,0),
-Name = "Flower_K",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_K",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(342,0),
-Name = "Flower_L",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_L",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(360,0),
-Name = "Flower_M",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_M",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(378,0),
-Name = "Flower_N",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_N",
 },
 
 new SpriteData()
 {
 TileType = 61,
 Origin = new(396,0),
-Name = "Flower_O",
+Name = "Jungle_Short_Plants",
+Variety = "Flower_O",
 },
 
 new SpriteData()
 {
 TileType = 71,
-Name = "Double_Small",
+Name = "Mushroom_Plant",
+Variety = "Double_Small",
 },
 
 new SpriteData()
 {
 TileType = 71,
 Origin = new(18,0),
-Name = "Small",
+Name = "Mushroom_Plant",
+Variety = "Small",
 },
 
 new SpriteData()
 {
 TileType = 71,
 Origin = new(36,0),
-Name = "Malformed",
+Name = "Mushroom_Plant",
+Variety = "Malformed",
 },
 
 new SpriteData()
 {
 TileType = 71,
 Origin = new(54,0),
-Name = "Thin",
+Name = "Mushroom_Plant",
+Variety = "Thin",
 },
 
 new SpriteData()
 {
 TileType = 71,
 Origin = new(72,0),
-Name = "Standard",
+Name = "Mushroom_Plant",
+Variety = "Standard",
 },
 
 new SpriteData()
 {
 TileType = 72,
-Name = "Trunk_A",
+Name = "Giant_Glowing_Mushroom_(Underground)",
+Variety = "Trunk_A",
 },
 
 new SpriteData()
 {
 TileType = 72,
 Origin = new(18,0),
-Name = "Top_Plain",
+Name = "Giant_Glowing_Mushroom_(Underground)",
+Variety = "Top_Plain",
 },
 
 new SpriteData()
 {
 TileType = 72,
 Origin = new(0,18),
-Name = "Trunk_B",
+Name = "Giant_Glowing_Mushroom_(Underground)",
+Variety = "Trunk_B",
 },
 
 new SpriteData()
 {
 TileType = 72,
 Origin = new(18,18),
-Name = "Top_Left_Indent",
+Name = "Giant_Glowing_Mushroom_(Underground)",
+Variety = "Top_Left_Indent",
 },
 
 new SpriteData()
 {
 TileType = 72,
 Origin = new(0,36),
-Name = "Trunk_C",
+Name = "Giant_Glowing_Mushroom_(Underground)",
+Variety = "Trunk_C",
 },
 
 new SpriteData()
 {
 TileType = 72,
 Origin = new(18,36),
-Name = "Top_Right_Indent",
+Name = "Giant_Glowing_Mushroom_(Underground)",
+Variety = "Top_Right_Indent",
 },
 
 new SpriteData()
 {
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
-Name = "Grass_A",
+Name = "Forest_Tall_Plants",
+Variety = "Grass_A",
 },
 
 new SpriteData()
@@ -25655,7 +25803,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(18,0),
-Name = "Grass_B",
+Name = "Forest_Tall_Plants",
+Variety = "Grass_B",
 },
 
 new SpriteData()
@@ -25663,7 +25812,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(36,0),
-Name = "Grass_C",
+Name = "Forest_Tall_Plants",
+Variety = "Grass_C",
 },
 
 new SpriteData()
@@ -25671,7 +25821,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(54,0),
-Name = "Grass_D",
+Name = "Forest_Tall_Plants",
+Variety = "Grass_D",
 },
 
 new SpriteData()
@@ -25679,7 +25830,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(72,0),
-Name = "Grass_E",
+Name = "Forest_Tall_Plants",
+Variety = "Grass_E",
 },
 
 new SpriteData()
@@ -25687,7 +25839,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(90,0),
-Name = "Grass_F",
+Name = "Forest_Tall_Plants",
+Variety = "Grass_F",
 },
 
 new SpriteData()
@@ -25695,7 +25848,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(108,0),
-Name = "Magenta_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "Magenta_Flower_A",
 },
 
 new SpriteData()
@@ -25703,7 +25857,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(540,0),
-Name = "Magenta_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "Magenta_Flower_B",
 },
 
 new SpriteData()
@@ -25711,7 +25866,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(558,0),
-Name = "Magenta_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "Magenta_Flower_C",
 },
 
 new SpriteData()
@@ -25719,7 +25875,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(576,0),
-Name = "Magenta_Flower_D",
+Name = "Forest_Tall_Plants",
+Variety = "Magenta_Flower_D",
 },
 
 new SpriteData()
@@ -25727,7 +25884,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(126,0),
-Name = "Pink_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "Pink_Flower_A",
 },
 
 new SpriteData()
@@ -25735,7 +25893,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(306,0),
-Name = "Pink_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "Pink_Flower_B",
 },
 
 new SpriteData()
@@ -25743,7 +25902,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(594,0),
-Name = "Pink_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "Pink_Flower_C",
 },
 
 new SpriteData()
@@ -25751,7 +25911,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(612,0),
-Name = "Pink_Flower_D",
+Name = "Forest_Tall_Plants",
+Variety = "Pink_Flower_D",
 },
 
 new SpriteData()
@@ -25759,7 +25920,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(630,0),
-Name = "Pink_Flower_E",
+Name = "Forest_Tall_Plants",
+Variety = "Pink_Flower_E",
 },
 
 new SpriteData()
@@ -25767,7 +25929,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(162,0),
-Name = "Blue_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "Blue_Flower_A",
 },
 
 new SpriteData()
@@ -25775,7 +25938,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(288,0),
-Name = "Blue_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "Blue_Flower_B",
 },
 
 new SpriteData()
@@ -25783,7 +25947,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(360,0),
-Name = "Blue_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "Blue_Flower_C",
 },
 
 new SpriteData()
@@ -25791,7 +25956,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(180,0),
-Name = "Yellow_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_A",
 },
 
 new SpriteData()
@@ -25799,7 +25965,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(198,0),
-Name = "Yellow_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_B",
 },
 
 new SpriteData()
@@ -25807,7 +25974,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(234,0),
-Name = "Yellow_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_C",
 },
 
 new SpriteData()
@@ -25815,7 +25983,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(324,0),
-Name = "Yellow_Flower_D",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_D",
 },
 
 new SpriteData()
@@ -25823,7 +25992,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(432,0),
-Name = "Yellow_Flower_E",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_E",
 },
 
 new SpriteData()
@@ -25831,7 +26001,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(450,0),
-Name = "Yellow_Flower_F",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_F",
 },
 
 new SpriteData()
@@ -25839,7 +26010,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(468,0),
-Name = "Yellow_Flower_G",
+Name = "Forest_Tall_Plants",
+Variety = "Yellow_Flower_G",
 },
 
 new SpriteData()
@@ -25847,7 +26019,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(216,0),
-Name = "Violet_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "Violet_Flower_A",
 },
 
 new SpriteData()
@@ -25855,7 +26028,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(756,0),
-Name = "Violet_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "Violet_Flower_B",
 },
 
 new SpriteData()
@@ -25863,7 +26037,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(774,0),
-Name = "Violet_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "Violet_Flower_C",
 },
 
 new SpriteData()
@@ -25871,7 +26046,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(792,0),
-Name = "Violet_Flower_D",
+Name = "Forest_Tall_Plants",
+Variety = "Violet_Flower_D",
 },
 
 new SpriteData()
@@ -25879,7 +26055,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(252,0),
-Name = "White_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_A",
 },
 
 new SpriteData()
@@ -25887,7 +26064,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(270,0),
-Name = "White_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_B",
 },
 
 new SpriteData()
@@ -25895,7 +26073,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(486,0),
-Name = "White_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_C",
 },
 
 new SpriteData()
@@ -25903,7 +26082,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(504,0),
-Name = "White_Flower_D",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_D",
 },
 
 new SpriteData()
@@ -25911,7 +26091,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(522,0),
-Name = "White_Flower_E",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_E",
 },
 
 new SpriteData()
@@ -25919,7 +26100,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(648,0),
-Name = "White_Flower_F",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_F",
 },
 
 new SpriteData()
@@ -25927,7 +26109,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(666,0),
-Name = "White_Flower_G",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_G",
 },
 
 new SpriteData()
@@ -25935,7 +26118,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(684,0),
-Name = "White_Flower_H",
+Name = "Forest_Tall_Plants",
+Variety = "White_Flower_H",
 },
 
 new SpriteData()
@@ -25943,7 +26127,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(342,0),
-Name = "Red_Flower_A",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_A",
 },
 
 new SpriteData()
@@ -25951,7 +26136,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(378,0),
-Name = "Red_Flower_B",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_B",
 },
 
 new SpriteData()
@@ -25959,7 +26145,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(396,0),
-Name = "Red_Flower_C",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_C",
 },
 
 new SpriteData()
@@ -25967,7 +26154,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(414,0),
-Name = "Red_Flower_D",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_D",
 },
 
 new SpriteData()
@@ -25975,7 +26163,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(702,0),
-Name = "Red_Flower_E",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_E",
 },
 
 new SpriteData()
@@ -25983,7 +26172,8 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(720,0),
-Name = "Red_Flower_F",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_F",
 },
 
 new SpriteData()
@@ -25991,14 +26181,16 @@ new SpriteData()
 TileType = 73,
 Anchor = FrameAnchor.Bottom,
 Origin = new(738,0),
-Name = "Red_Flower_G",
+Name = "Forest_Tall_Plants",
+Variety = "Red_Flower_G",
 },
 
 new SpriteData()
 {
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
-Name = "A",
+Name = "Jungle_Tall_Plants",
+Variety = "A",
 },
 
 new SpriteData()
@@ -26006,7 +26198,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(18,0),
-Name = "B",
+Name = "Jungle_Tall_Plants",
+Variety = "B",
 },
 
 new SpriteData()
@@ -26014,7 +26207,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(36,0),
-Name = "C",
+Name = "Jungle_Tall_Plants",
+Variety = "C",
 },
 
 new SpriteData()
@@ -26022,7 +26216,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(54,0),
-Name = "D",
+Name = "Jungle_Tall_Plants",
+Variety = "D",
 },
 
 new SpriteData()
@@ -26030,7 +26225,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(72,0),
-Name = "E",
+Name = "Jungle_Tall_Plants",
+Variety = "E",
 },
 
 new SpriteData()
@@ -26038,7 +26234,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(90,0),
-Name = "F",
+Name = "Jungle_Tall_Plants",
+Variety = "F",
 },
 
 new SpriteData()
@@ -26046,7 +26243,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(108,0),
-Name = "Flower_A",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
@@ -26054,7 +26252,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(126,0),
-Name = "Flower_B",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
@@ -26062,7 +26261,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(162,0),
-Name = "Flower_C",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
@@ -26070,7 +26270,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(180,0),
-Name = "Flower_D",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
@@ -26078,7 +26279,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(198,0),
-Name = "Flower_E",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
@@ -26086,7 +26288,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(216,0),
-Name = "Flower_F",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_F",
 },
 
 new SpriteData()
@@ -26094,7 +26297,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(234,0),
-Name = "Flower_G",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_G",
 },
 
 new SpriteData()
@@ -26102,7 +26306,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(252,0),
-Name = "Flower_H",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_H",
 },
 
 new SpriteData()
@@ -26110,7 +26315,8 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(270,0),
-Name = "Flower_I",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_I",
 },
 
 new SpriteData()
@@ -26118,18 +26324,21 @@ new SpriteData()
 TileType = 74,
 Anchor = FrameAnchor.Bottom,
 Origin = new(288,0),
-Name = "Flower_J",
+Name = "Jungle_Tall_Plants",
+Variety = "Flower_J",
 },
 
 new SpriteData()
 {
 TileType = 77,
 Size = new(3,2),
+Name = "Hellforge",
 },
 
 new SpriteData()
 {
 TileType = 78,
+Name = "Clay_Pot",
 },
 
 new SpriteData()
@@ -26909,7 +27118,8 @@ new SpriteData()
 {
 TileType = 81,
 Anchor = FrameAnchor.Bottom,
-Name = "Red",
+Name = "Coral",
+Variety = "Red",
 },
 
 new SpriteData()
@@ -26917,7 +27127,8 @@ new SpriteData()
 TileType = 81,
 Anchor = FrameAnchor.Bottom,
 Origin = new(26,0),
-Name = "Pink",
+Name = "Coral",
+Variety = "Pink",
 },
 
 new SpriteData()
@@ -26925,7 +27136,8 @@ new SpriteData()
 TileType = 81,
 Anchor = FrameAnchor.Bottom,
 Origin = new(52,0),
-Name = "Yellow",
+Name = "Coral",
+Variety = "Yellow",
 },
 
 new SpriteData()
@@ -26933,7 +27145,8 @@ new SpriteData()
 TileType = 81,
 Anchor = FrameAnchor.Bottom,
 Origin = new(78,0),
-Name = "Green",
+Name = "Coral",
+Variety = "Green",
 },
 
 new SpriteData()
@@ -26941,7 +27154,8 @@ new SpriteData()
 TileType = 81,
 Anchor = FrameAnchor.Bottom,
 Origin = new(104,0),
-Name = "Blue",
+Name = "Coral",
+Variety = "Blue",
 },
 
 new SpriteData()
@@ -26949,7 +27163,8 @@ new SpriteData()
 TileType = 81,
 Anchor = FrameAnchor.Bottom,
 Origin = new(130,0),
-Name = "Sponge",
+Name = "Coral",
+Variety = "Sponge",
 },
 
 new SpriteData()
@@ -27100,7 +27315,8 @@ new SpriteData()
 {
 TileType = 85,
 Size = new(2,2),
-Name = "Tombstone",
+Name = "Tombstones",
+Variety = "Tombstone",
 },
 
 new SpriteData()
@@ -27108,7 +27324,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Grave_Marker",
+Name = "Tombstones",
+Variety = "Grave_Marker",
 },
 
 new SpriteData()
@@ -27116,7 +27333,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Cross_Grave_Marker",
+Name = "Tombstones",
+Variety = "Cross_Grave_Marker",
 },
 
 new SpriteData()
@@ -27124,7 +27342,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Headstone",
+Name = "Tombstones",
+Variety = "Headstone",
 },
 
 new SpriteData()
@@ -27132,7 +27351,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Gravestone",
+Name = "Tombstones",
+Variety = "Gravestone",
 },
 
 new SpriteData()
@@ -27140,7 +27360,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(180,0),
-Name = "Obelisk",
+Name = "Tombstones",
+Variety = "Obelisk",
 },
 
 new SpriteData()
@@ -27148,7 +27369,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(216,0),
-Name = "Golden_Cross_Grave_Marker",
+Name = "Tombstones",
+Variety = "Golden_Cross_Grave_Marker",
 },
 
 new SpriteData()
@@ -27156,7 +27378,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(252,0),
-Name = "Golden_Tombstone",
+Name = "Tombstones",
+Variety = "Golden_Tombstone",
 },
 
 new SpriteData()
@@ -27164,7 +27387,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(288,0),
-Name = "Golden_Grave_Marker",
+Name = "Tombstones",
+Variety = "Golden_Grave_Marker",
 },
 
 new SpriteData()
@@ -27172,7 +27396,8 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(324,0),
-Name = "Golden_Gravestone",
+Name = "Tombstones",
+Variety = "Golden_Gravestone",
 },
 
 new SpriteData()
@@ -27180,13 +27405,15 @@ new SpriteData()
 TileType = 85,
 Size = new(2,2),
 Origin = new(360,0),
-Name = "Golden_Headstone",
+Name = "Tombstones",
+Variety = "Golden_Headstone",
 },
 
 new SpriteData()
 {
 TileType = 86,
 Size = new(3,2),
+Name = "Loom",
 },
 
 new SpriteData()
@@ -31825,7 +32052,8 @@ new SpriteData()
 {
 TileType = 92,
 Size = new(1,6),
-Name = "On",
+Name = "Lamp_Post",
+Variety = "On",
 },
 
 new SpriteData()
@@ -31833,7 +32061,8 @@ new SpriteData()
 TileType = 92,
 Size = new(1,6),
 Origin = new(18,0),
-Name = "Off",
+Name = "Lamp_Post",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -32613,13 +32842,15 @@ new SpriteData()
 {
 TileType = 94,
 Size = new(2,2),
+Name = "Keg",
 },
 
 new SpriteData()
 {
 TileType = 95,
 Size = new(2,2),
-Name = "On",
+Name = "Chinese_Lantern",
+Variety = "On",
 },
 
 new SpriteData()
@@ -32627,7 +32858,8 @@ new SpriteData()
 TileType = 95,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Off",
+Name = "Chinese_Lantern",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -32649,18 +32881,21 @@ new SpriteData()
 {
 TileType = 97,
 Size = new(2,2),
+Name = "Safe",
 },
 
 new SpriteData()
 {
 TileType = 98,
 Size = new(2,2),
+Name = "Skull_Lantern",
 },
 
 new SpriteData()
 {
 TileType = 99,
 Size = new(2,2),
+Name = "Trash_Can",
 },
 
 new SpriteData()
@@ -33791,6 +34026,7 @@ new SpriteData()
 {
 TileType = 102,
 Size = new(3,4),
+Name = "Throne",
 },
 
 new SpriteData()
@@ -35672,47 +35908,54 @@ new SpriteData()
 {
 TileType = 106,
 Size = new(3,3),
+Name = "Sawmill",
 },
 
 new SpriteData()
 {
 TileType = 110,
-Name = "Grass_Single_Blade_A",
+Name = "Hallow_Short_Plants",
+Variety = "Grass_Single_Blade_A",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(18,0),
-Name = "Grass_Double_Blade",
+Name = "Hallow_Short_Plants",
+Variety = "Grass_Double_Blade",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(36,0),
-Name = "Grass_Single_Blade_B",
+Name = "Hallow_Short_Plants",
+Variety = "Grass_Single_Blade_B",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(54,0),
-Name = "Grass_Three_Small",
+Name = "Hallow_Short_Plants",
+Variety = "Grass_Three_Small",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(90,0),
-Name = "Grass_Three_Large",
+Name = "Hallow_Short_Plants",
+Variety = "Grass_Three_Large",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(162,0),
-Name = "Grass_Small_Y",
+Name = "Hallow_Short_Plants",
+Variety = "Grass_Small_Y",
 },
 
 new SpriteData()
@@ -35726,119 +35969,136 @@ new SpriteData()
 {
 TileType = 110,
 Origin = new(72,0),
-Name = "Flower_A",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(108,0),
-Name = "Flower_B",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(126,0),
-Name = "Flower_C",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(180,0),
-Name = "Flower_D",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(198,0),
-Name = "Flower_E",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(216,0),
-Name = "Flower_F",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(234,0),
-Name = "Flower_G",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_G",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(252,0),
-Name = "Flower_H",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_H",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(270,0),
-Name = "Flower_I",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_I",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(288,0),
-Name = "Flower_J",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_J",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(306,0),
-Name = "Flower_K",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_K",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(324,0),
-Name = "Flower_L",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_L",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(342,0),
-Name = "Flower_M",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_M",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(360,0),
-Name = "Flower_N",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_N",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(378,0),
-Name = "Flower_O",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_O",
 },
 
 new SpriteData()
 {
 TileType = 110,
 Origin = new(396,0),
-Name = "Flower_P",
+Name = "Hallow_Short_Plants",
+Variety = "Flower_P",
 },
 
 new SpriteData()
 {
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
-Name = "Grass_A",
+Name = "Hallow_Tall_Plants",
+Variety = "Grass_A",
 },
 
 new SpriteData()
@@ -35846,7 +36106,8 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(18,0),
-Name = "Grass_B",
+Name = "Hallow_Tall_Plants",
+Variety = "Grass_B",
 },
 
 new SpriteData()
@@ -35854,7 +36115,8 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(90,0),
-Name = "Grass_C",
+Name = "Hallow_Tall_Plants",
+Variety = "Grass_C",
 },
 
 new SpriteData()
@@ -35862,7 +36124,8 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(36,0),
-Name = "Flower_A",
+Name = "Hallow_Tall_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
@@ -35870,7 +36133,8 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(54,0),
-Name = "Flower_B",
+Name = "Hallow_Tall_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
@@ -35878,7 +36142,8 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(72,0),
-Name = "Flower_C",
+Name = "Hallow_Tall_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
@@ -35886,7 +36151,8 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(108,0),
-Name = "Flower_D",
+Name = "Hallow_Tall_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
@@ -35894,26 +36160,30 @@ new SpriteData()
 TileType = 113,
 Anchor = FrameAnchor.Bottom,
 Origin = new(126,0),
-Name = "Flower_E",
+Name = "Hallow_Tall_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 114,
 Size = new(3,2),
+Name = "Tinkerer's_Workshop",
 },
 
 new SpriteData()
 {
 TileType = 125,
 Size = new(2,2),
+Name = "Crystal_Ball",
 },
 
 new SpriteData()
 {
 TileType = 126,
 Size = new(2,2),
-Name = "On",
+Name = "Disco_Ball",
+Variety = "On",
 },
 
 new SpriteData()
@@ -35921,7 +36191,8 @@ new SpriteData()
 TileType = 126,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Off",
+Name = "Disco_Ball",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -35929,6 +36200,7 @@ new SpriteData()
 TileType = 128,
 Anchor = FrameAnchor.Left,
 Size = new(2,3),
+Name = "Mannequin_(Legacy)",
 },
 
 new SpriteData()
@@ -35937,13 +36209,15 @@ TileType = 128,
 Anchor = FrameAnchor.Right,
 Size = new(2,3),
 Origin = new(36,0),
+Name = "Mannequin_(Legacy)",
 },
 
 new SpriteData()
 {
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -35951,7 +36225,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(0,18),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -35959,7 +36234,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(0,36),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -35967,7 +36243,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(0,54),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -35975,7 +36252,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(108,0),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -35983,7 +36261,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(108,18),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -35991,7 +36270,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(108,36),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -35999,7 +36279,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(108,54),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -36007,7 +36288,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(54,0),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36015,7 +36297,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(54,18),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36023,7 +36306,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(54,36),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36031,7 +36315,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(54,54),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36039,7 +36324,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(162,0),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36047,7 +36333,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(162,18),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36055,7 +36342,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(162,36),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36063,7 +36351,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(162,54),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36071,7 +36360,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(216,0),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36079,7 +36369,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(216,18),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36087,7 +36378,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(216,36),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36095,7 +36387,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(216,54),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36103,7 +36396,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(270,0),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36111,7 +36405,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(270,18),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36119,7 +36414,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(270,36),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36127,7 +36423,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(270,54),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36135,7 +36432,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(18,0),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -36143,7 +36441,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(18,18),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -36151,7 +36450,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(18,36),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -36159,7 +36459,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(18,54),
-Name = "Large_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_A",
 },
 
 new SpriteData()
@@ -36167,7 +36468,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(126,0),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -36175,7 +36477,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(126,18),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -36183,7 +36486,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(126,36),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -36191,7 +36495,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(126,54),
-Name = "Medium_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_A",
 },
 
 new SpriteData()
@@ -36199,7 +36504,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(72,0),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36207,7 +36513,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(72,18),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36215,7 +36522,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(72,36),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36223,7 +36531,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(72,54),
-Name = "Small_Pink_A",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_A",
 },
 
 new SpriteData()
@@ -36231,7 +36540,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(180,0),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36239,7 +36549,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(180,18),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36247,7 +36558,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(180,36),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36255,7 +36567,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(180,54),
-Name = "Medium_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Pink_B",
 },
 
 new SpriteData()
@@ -36263,7 +36576,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(234,0),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36271,7 +36585,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(234,18),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36279,7 +36594,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(234,36),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36287,7 +36603,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(234,54),
-Name = "Small_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Small_Pink_B",
 },
 
 new SpriteData()
@@ -36295,7 +36612,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(288,0),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36303,7 +36621,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(288,18),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36311,7 +36630,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(288,36),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36319,7 +36639,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(288,54),
-Name = "Large_Pink_B",
+Name = "Crystal_Shard",
+Variety = "Large_Pink_B",
 },
 
 new SpriteData()
@@ -36327,7 +36648,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(36,0),
-Name = "Large_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_A",
 },
 
 new SpriteData()
@@ -36335,7 +36657,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(36,18),
-Name = "Large_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_A",
 },
 
 new SpriteData()
@@ -36343,7 +36666,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(36,36),
-Name = "Large_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_A",
 },
 
 new SpriteData()
@@ -36351,7 +36675,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(36,54),
-Name = "Large_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_A",
 },
 
 new SpriteData()
@@ -36359,7 +36684,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(144,0),
-Name = "Medium_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_A",
 },
 
 new SpriteData()
@@ -36367,7 +36693,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(144,18),
-Name = "Medium_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_A",
 },
 
 new SpriteData()
@@ -36375,7 +36702,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(144,36),
-Name = "Medium_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_A",
 },
 
 new SpriteData()
@@ -36383,7 +36711,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(144,54),
-Name = "Medium_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_A",
 },
 
 new SpriteData()
@@ -36391,7 +36720,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(90,0),
-Name = "Small_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_A",
 },
 
 new SpriteData()
@@ -36399,7 +36729,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(90,18),
-Name = "Small_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_A",
 },
 
 new SpriteData()
@@ -36407,7 +36738,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(90,36),
-Name = "Small_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_A",
 },
 
 new SpriteData()
@@ -36415,7 +36747,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(90,54),
-Name = "Small_Purple_A",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_A",
 },
 
 new SpriteData()
@@ -36423,7 +36756,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(198,0),
-Name = "Medium_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_B",
 },
 
 new SpriteData()
@@ -36431,7 +36765,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(198,18),
-Name = "Medium_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_B",
 },
 
 new SpriteData()
@@ -36439,7 +36774,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(198,36),
-Name = "Medium_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_B",
 },
 
 new SpriteData()
@@ -36447,7 +36783,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(198,54),
-Name = "Medium_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Medium_Purple_B",
 },
 
 new SpriteData()
@@ -36455,7 +36792,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(252,0),
-Name = "Small_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_B",
 },
 
 new SpriteData()
@@ -36463,7 +36801,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(252,18),
-Name = "Small_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_B",
 },
 
 new SpriteData()
@@ -36471,7 +36810,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(252,36),
-Name = "Small_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_B",
 },
 
 new SpriteData()
@@ -36479,7 +36819,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(252,54),
-Name = "Small_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Small_Purple_B",
 },
 
 new SpriteData()
@@ -36487,7 +36828,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Bottom,
 Origin = new(306,0),
-Name = "Large_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_B",
 },
 
 new SpriteData()
@@ -36495,7 +36837,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Top,
 Origin = new(306,18),
-Name = "Large_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_B",
 },
 
 new SpriteData()
@@ -36503,7 +36846,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Right,
 Origin = new(306,36),
-Name = "Large_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_B",
 },
 
 new SpriteData()
@@ -36511,7 +36855,8 @@ new SpriteData()
 TileType = 129,
 Anchor = FrameAnchor.Left,
 Origin = new(306,54),
-Name = "Large_Purple_B",
+Name = "Crystal_Shard",
+Variety = "Large_Purple_B",
 },
 
 new SpriteData()
@@ -36551,7 +36896,8 @@ new SpriteData()
 TileType = 132,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
-Name = "Right",
+Name = "Lever",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -36560,7 +36906,8 @@ TileType = 132,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Left",
+Name = "Lever",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -36568,7 +36915,8 @@ new SpriteData()
 TileType = 132,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Up",
+Name = "Lever",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -36576,7 +36924,8 @@ new SpriteData()
 TileType = 132,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Down",
+Name = "Lever",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -36668,7 +37017,8 @@ new SpriteData()
 {
 TileType = 136,
 Anchor = FrameAnchor.Bottom,
-Name = "Setting_One",
+Name = "Switch",
+Variety = "Setting_One",
 },
 
 new SpriteData()
@@ -36676,7 +37026,8 @@ new SpriteData()
 TileType = 136,
 Anchor = FrameAnchor.Left,
 Origin = new(18,18),
-Name = "Setting_One",
+Name = "Switch",
+Variety = "Setting_One",
 },
 
 new SpriteData()
@@ -36684,14 +37035,16 @@ new SpriteData()
 TileType = 136,
 Anchor = FrameAnchor.Right,
 Origin = new(36,0),
-Name = "Setting_One",
+Name = "Switch",
+Variety = "Setting_One",
 },
 
 new SpriteData()
 {
 TileType = 136,
 Origin = new(54,0),
-Name = "Setting_One",
+Name = "Switch",
+Variety = "Setting_One",
 },
 
 new SpriteData()
@@ -36699,7 +37052,8 @@ new SpriteData()
 TileType = 136,
 Anchor = FrameAnchor.Bottom,
 Origin = new(0,18),
-Name = "Setting_Two",
+Name = "Switch",
+Variety = "Setting_Two",
 },
 
 new SpriteData()
@@ -36707,7 +37061,8 @@ new SpriteData()
 TileType = 136,
 Anchor = FrameAnchor.Left,
 Origin = new(18,0),
-Name = "Setting_Two",
+Name = "Switch",
+Variety = "Setting_Two",
 },
 
 new SpriteData()
@@ -36715,14 +37070,16 @@ new SpriteData()
 TileType = 136,
 Anchor = FrameAnchor.Right,
 Origin = new(36,18),
-Name = "Setting_Two",
+Name = "Switch",
+Variety = "Setting_Two",
 },
 
 new SpriteData()
 {
 TileType = 136,
 Origin = new(54,18),
-Name = "Setting_Two",
+Name = "Switch",
+Variety = "Setting_Two",
 },
 
 new SpriteData()
@@ -37000,6 +37357,7 @@ new SpriteData()
 {
 TileType = 138,
 Size = new(2,2),
+Name = "Boulder",
 },
 
 new SpriteData()
@@ -37742,26 +38100,30 @@ Variety = "On",
 new SpriteData()
 {
 TileType = 141,
-Name = "Single",
+Name = "Explosives",
+Variety = "Single",
 },
 
 new SpriteData()
 {
 TileType = 141,
 Origin = new(0,18),
-Name = "Multi",
+Name = "Explosives",
+Variety = "Multi",
 },
 
 new SpriteData()
 {
 TileType = 142,
 Size = new(2,2),
+Name = "Inlet_Pump",
 },
 
 new SpriteData()
 {
 TileType = 143,
 Size = new(2,2),
+Name = "Outlet_Pump",
 },
 
 new SpriteData()
@@ -39114,6 +39476,7 @@ new SpriteData()
 {
 TileType = 171,
 Size = new(4,8),
+Name = "Christmas_Tree",
 },
 
 new SpriteData()
@@ -39471,7 +39834,8 @@ new SpriteData()
 {
 TileType = 173,
 Size = new(2,2),
-Name = "On",
+Name = "Platinum_Candelabra",
+Variety = "On",
 },
 
 new SpriteData()
@@ -39479,20 +39843,23 @@ new SpriteData()
 TileType = 173,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Off",
+Name = "Platinum_Candelabra",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 174,
-Name = "On",
+Name = "Platinum_Candle",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 174,
 Origin = new(18,0),
-Name = "Off",
+Name = "Platinum_Candle",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -41440,966 +41807,1104 @@ Variety = "C",
 new SpriteData()
 {
 TileType = 185,
-Name = "Small_Stone_A",
+Name = "Small_Decos",
+Variety = "Small_Stone_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(18,0),
-Name = "Small_Stone_B",
+Name = "Small_Decos",
+Variety = "Small_Stone_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(36,0),
-Name = "Small_Stone_C",
+Name = "Small_Decos",
+Variety = "Small_Stone_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(54,0),
-Name = "Small_Stone_D",
+Name = "Small_Decos",
+Variety = "Small_Stone_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(72,0),
-Name = "Small_Stone_E",
+Name = "Small_Decos",
+Variety = "Small_Stone_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(90,0),
-Name = "Small_Stone_F",
+Name = "Small_Decos",
+Variety = "Small_Stone_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(108,0),
-Name = "Small_Dirt_A",
+Name = "Small_Decos",
+Variety = "Small_Dirt_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(126,0),
-Name = "Small_Dirt_B",
+Name = "Small_Decos",
+Variety = "Small_Dirt_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(144,0),
-Name = "Small_Dirt_C",
+Name = "Small_Decos",
+Variety = "Small_Dirt_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(162,0),
-Name = "Small_Dirt_D",
+Name = "Small_Decos",
+Variety = "Small_Dirt_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(180,0),
-Name = "Small_Dirt_E",
+Name = "Small_Decos",
+Variety = "Small_Dirt_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(198,0),
-Name = "Small_Dirt_F",
+Name = "Small_Decos",
+Variety = "Small_Dirt_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(216,0),
-Name = "Skull_Right",
+Name = "Small_Decos",
+Variety = "Skull_Right",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(234,0),
-Name = "Skull_Down",
+Name = "Small_Decos",
+Variety = "Skull_Down",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(252,0),
-Name = "Skull_Up",
+Name = "Small_Decos",
+Variety = "Skull_Up",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(270,0),
-Name = "Skull_Crushed",
+Name = "Small_Decos",
+Variety = "Skull_Crushed",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(288,0),
-Name = "Bone_A",
+Name = "Small_Decos",
+Variety = "Bone_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(306,0),
-Name = "Bone_B",
+Name = "Small_Decos",
+Variety = "Bone_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(324,0),
-Name = "Bone_C",
+Name = "Small_Decos",
+Variety = "Bone_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(342,0),
-Name = "Bone_D",
+Name = "Small_Decos",
+Variety = "Bone_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(360,0),
-Name = "Gore_Skull_Up",
+Name = "Small_Decos",
+Variety = "Gore_Skull_Up",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(378,0),
-Name = "Gore_Skull_Down",
+Name = "Small_Decos",
+Variety = "Gore_Skull_Down",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(396,0),
-Name = "Gore_Skull_left",
+Name = "Small_Decos",
+Variety = "Gore_Skull_left",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(414,0),
-Name = "Gore_Skull_Crushed",
+Name = "Small_Decos",
+Variety = "Gore_Skull_Crushed",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(432,0),
-Name = "Gore_A",
+Name = "Small_Decos",
+Variety = "Gore_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(450,0),
-Name = "Gore_B",
+Name = "Small_Decos",
+Variety = "Gore_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(468,0),
-Name = "Gore_C",
+Name = "Small_Decos",
+Variety = "Gore_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(486,0),
-Name = "Gore_D",
+Name = "Small_Decos",
+Variety = "Gore_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(504,0),
-Name = "Broken_Tool_A",
+Name = "Small_Decos",
+Variety = "Broken_Tool_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(522,0),
-Name = "Broken_Tool_B",
+Name = "Small_Decos",
+Variety = "Broken_Tool_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(540,0),
-Name = "Broken_Tool_C",
+Name = "Small_Decos",
+Variety = "Broken_Tool_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(558,0),
-Name = "Broken_Tool_D",
+Name = "Small_Decos",
+Variety = "Broken_Tool_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(576,0),
-Name = "Broken_Tool_E",
+Name = "Small_Decos",
+Variety = "Broken_Tool_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(594,0),
-Name = "Broken_Tool_F",
+Name = "Small_Decos",
+Variety = "Broken_Tool_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(612,0),
-Name = "Broken_Tool_G",
+Name = "Small_Decos",
+Variety = "Broken_Tool_G",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(630,0),
-Name = "Broken_Tool_H",
+Name = "Small_Decos",
+Variety = "Broken_Tool_H",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(648,0),
-Name = "Snowy_A",
+Name = "Small_Decos",
+Variety = "Snowy_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(666,0),
-Name = "Snowy_B",
+Name = "Small_Decos",
+Variety = "Snowy_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(684,0),
-Name = "Snowy_C",
+Name = "Small_Decos",
+Variety = "Snowy_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(702,0),
-Name = "Snowy_D",
+Name = "Small_Decos",
+Variety = "Snowy_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(720,0),
-Name = "Snowy_E",
+Name = "Small_Decos",
+Variety = "Snowy_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(738,0),
-Name = "Snowy_F",
+Name = "Small_Decos",
+Variety = "Snowy_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(756,0),
-Name = "Icy_A",
+Name = "Small_Decos",
+Variety = "Icy_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(774,0),
-Name = "Icy_B",
+Name = "Small_Decos",
+Variety = "Icy_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(792,0),
-Name = "Icy_C",
+Name = "Small_Decos",
+Variety = "Icy_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(810,0),
-Name = "Icy_D",
+Name = "Small_Decos",
+Variety = "Icy_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(828,0),
-Name = "Icy_E",
+Name = "Small_Decos",
+Variety = "Icy_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(846,0),
-Name = "Icy_F",
+Name = "Small_Decos",
+Variety = "Icy_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(864,0),
-Name = "Spider_Eggs_A",
+Name = "Small_Decos",
+Variety = "Spider_Eggs_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(882,0),
-Name = "Spider_Eggs_B",
+Name = "Small_Decos",
+Variety = "Spider_Eggs_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(900,0),
-Name = "Spider_Eggs_C",
+Name = "Small_Decos",
+Variety = "Spider_Eggs_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(918,0),
-Name = "Spider_Eggs_D",
+Name = "Small_Decos",
+Variety = "Spider_Eggs_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(936,0),
-Name = "Spider_Eggs_E",
+Name = "Small_Decos",
+Variety = "Spider_Eggs_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(954,0),
-Name = "Spider_Eggs_F",
+Name = "Small_Decos",
+Variety = "Spider_Eggs_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(972,0),
-Name = "Sandstone_A",
+Name = "Small_Decos",
+Variety = "Sandstone_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(990,0),
-Name = "Sandstone_B",
+Name = "Small_Decos",
+Variety = "Sandstone_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1008,0),
-Name = "Sandstone_C",
+Name = "Small_Decos",
+Variety = "Sandstone_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1026,0),
-Name = "Sandstone_D",
+Name = "Small_Decos",
+Variety = "Sandstone_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1044,0),
-Name = "Sandstone_E",
+Name = "Small_Decos",
+Variety = "Sandstone_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1062,0),
-Name = "Sandstone_F",
+Name = "Small_Decos",
+Variety = "Sandstone_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1080,0),
-Name = "Granite_A",
+Name = "Small_Decos",
+Variety = "Granite_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1098,0),
-Name = "Granite_B",
+Name = "Small_Decos",
+Variety = "Granite_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1116,0),
-Name = "Granite_C",
+Name = "Small_Decos",
+Variety = "Granite_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1134,0),
-Name = "Granite_D",
+Name = "Small_Decos",
+Variety = "Granite_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1152,0),
-Name = "Granite_E",
+Name = "Small_Decos",
+Variety = "Granite_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1170,0),
-Name = "Granite_F",
+Name = "Small_Decos",
+Variety = "Granite_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1188,0),
-Name = "Marble_A",
+Name = "Small_Decos",
+Variety = "Marble_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1206,0),
-Name = "Marble_B",
+Name = "Small_Decos",
+Variety = "Marble_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1224,0),
-Name = "Marble_C",
+Name = "Small_Decos",
+Variety = "Marble_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1242,0),
-Name = "Marble_D",
+Name = "Small_Decos",
+Variety = "Marble_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1260,0),
-Name = "Marble_E",
+Name = "Small_Decos",
+Variety = "Marble_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1278,0),
-Name = "Marble_F",
+Name = "Small_Decos",
+Variety = "Marble_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(0,18),
-Name = "Stone_A",
+Name = "Small_Decos",
+Variety = "Stone_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(36,18),
-Name = "Stone_B",
+Name = "Small_Decos",
+Variety = "Stone_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(72,18),
-Name = "Stone_C",
+Name = "Small_Decos",
+Variety = "Stone_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(108,18),
-Name = "Stone_D",
+Name = "Small_Decos",
+Variety = "Stone_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(144,18),
-Name = "Stone_E",
+Name = "Small_Decos",
+Variety = "Stone_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(180,18),
-Name = "Stone_F",
+Name = "Small_Decos",
+Variety = "Stone_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(216,18),
-Name = "Skeleton_Left",
+Name = "Small_Decos",
+Variety = "Skeleton_Left",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(252,18),
-Name = "Skeleton_Right",
+Name = "Small_Decos",
+Variety = "Skeleton_Right",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(288,18),
-Name = "Bone_A",
+Name = "Small_Decos",
+Variety = "Bone_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(324,18),
-Name = "Bone_B",
+Name = "Small_Decos",
+Variety = "Bone_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(360,18),
-Name = "Bone_C",
+Name = "Small_Decos",
+Variety = "Bone_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(396,18),
-Name = "Gore_Skeleton_Left",
+Name = "Small_Decos",
+Variety = "Gore_Skeleton_Left",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(432,18),
-Name = "Gore_Skeleton_Right",
+Name = "Small_Decos",
+Variety = "Gore_Skeleton_Right",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(468,18),
-Name = "Gore_A",
+Name = "Small_Decos",
+Variety = "Gore_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(504,18),
-Name = "Gore_B",
+Name = "Small_Decos",
+Variety = "Gore_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(540,18),
-Name = "Gore_C",
+Name = "Small_Decos",
+Variety = "Gore_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(576,18),
-Name = "Copper_Pile",
+Name = "Small_Decos",
+Variety = "Copper_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(612,18),
-Name = "Sliver_Pile",
+Name = "Small_Decos",
+Variety = "Sliver_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(648,18),
-Name = "Gold_Pile",
+Name = "Small_Decos",
+Variety = "Gold_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(684,18),
-Name = "Amethyst_Pile",
+Name = "Small_Decos",
+Variety = "Amethyst_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(720,18),
-Name = "Topaz_Pile",
+Name = "Small_Decos",
+Variety = "Topaz_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(756,18),
-Name = "Sapphire_Pile",
+Name = "Small_Decos",
+Variety = "Sapphire_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(792,18),
-Name = "Emerald_Pile",
+Name = "Small_Decos",
+Variety = "Emerald_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(828,18),
-Name = "Ruby_Pile",
+Name = "Small_Decos",
+Variety = "Ruby_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(864,18),
-Name = "Diamond_Pile",
+Name = "Small_Decos",
+Variety = "Diamond_Pile",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(900,18),
-Name = "Ice_Junk_A",
+Name = "Small_Decos",
+Variety = "Ice_Junk_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(936,18),
-Name = "Ice_Junk_B",
+Name = "Small_Decos",
+Variety = "Ice_Junk_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(972,18),
-Name = "Ice_Junk_C",
+Name = "Small_Decos",
+Variety = "Ice_Junk_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1008,18),
-Name = "Ice_Junk_D",
+Name = "Small_Decos",
+Variety = "Ice_Junk_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1044,18),
-Name = "Ice_Junk_E",
+Name = "Small_Decos",
+Variety = "Ice_Junk_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1080,18),
-Name = "Ice_Junk_F",
+Name = "Small_Decos",
+Variety = "Ice_Junk_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1116,18),
-Name = "Debris_A",
+Name = "Small_Decos",
+Variety = "Debris_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1152,18),
-Name = "Debris_B",
+Name = "Small_Decos",
+Variety = "Debris_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1188,18),
-Name = "Debris_C",
+Name = "Small_Decos",
+Variety = "Debris_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1224,18),
-Name = "Spider_Egg_Pile_A",
+Name = "Small_Decos",
+Variety = "Spider_Egg_Pile_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1260,18),
-Name = "Spider_Egg_Pile_B",
+Name = "Small_Decos",
+Variety = "Spider_Egg_Pile_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1296,18),
-Name = "Spider_Egg_Pile_C",
+Name = "Small_Decos",
+Variety = "Spider_Egg_Pile_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1332,18),
-Name = "Spider_Egg_Pile_D",
+Name = "Small_Decos",
+Variety = "Spider_Egg_Pile_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1368,18),
-Name = "Stony_Moss_A",
+Name = "Small_Decos",
+Variety = "Stony_Moss_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1404,18),
-Name = "Stony_Moss_B",
+Name = "Small_Decos",
+Variety = "Stony_Moss_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1440,18),
-Name = "Stony_Moss_C",
+Name = "Small_Decos",
+Variety = "Stony_Moss_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1476,18),
-Name = "Sandstone_A",
+Name = "Small_Decos",
+Variety = "Sandstone_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1512,18),
-Name = "Sandstone_B",
+Name = "Small_Decos",
+Variety = "Sandstone_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1548,18),
-Name = "Sandstone_C",
+Name = "Small_Decos",
+Variety = "Sandstone_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1584,18),
-Name = "Sandstone_D",
+Name = "Small_Decos",
+Variety = "Sandstone_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1620,18),
-Name = "Sandstone_E",
+Name = "Small_Decos",
+Variety = "Sandstone_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1656,18),
-Name = "Sandstone_F",
+Name = "Small_Decos",
+Variety = "Sandstone_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1692,18),
-Name = "Granite_A",
+Name = "Small_Decos",
+Variety = "Granite_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1728,18),
-Name = "Granite_B",
+Name = "Small_Decos",
+Variety = "Granite_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1764,18),
-Name = "Granite_C",
+Name = "Small_Decos",
+Variety = "Granite_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1800,18),
-Name = "Granite_D",
+Name = "Small_Decos",
+Variety = "Granite_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1836,18),
-Name = "Granite_E",
+Name = "Small_Decos",
+Variety = "Granite_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1872,18),
-Name = "Granite_F",
+Name = "Small_Decos",
+Variety = "Granite_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1908,18),
-Name = "Marble_A",
+Name = "Small_Decos",
+Variety = "Marble_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1944,18),
-Name = "Marble_B",
+Name = "Small_Decos",
+Variety = "Marble_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(1980,18),
-Name = "Marble_C",
+Name = "Small_Decos",
+Variety = "Marble_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2016,18),
-Name = "Marble_D",
+Name = "Small_Decos",
+Variety = "Marble_D",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2052,18),
-Name = "Marble_E",
+Name = "Small_Decos",
+Variety = "Marble_E",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2088,18),
-Name = "Marble_F",
+Name = "Small_Decos",
+Variety = "Marble_F",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2124,18),
-Name = "Living_Wood_A",
+Name = "Small_Decos",
+Variety = "Living_Wood_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2160,18),
-Name = "Living_Wood_B",
+Name = "Small_Decos",
+Variety = "Living_Wood_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2196,18),
-Name = "Living_Wood_C",
+Name = "Small_Decos",
+Variety = "Living_Wood_C",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2232,18),
-Name = "Sand_A",
+Name = "Small_Decos",
+Variety = "Sand_A",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2268,18),
-Name = "Sand_B",
+Name = "Small_Decos",
+Variety = "Sand_B",
 },
 
 new SpriteData()
 {
 TileType = 185,
 Origin = new(2304,18),
-Name = "Sand_C",
+Name = "Small_Decos",
+Variety = "Sand_C",
 },
 
 new SpriteData()
 {
 TileType = 186,
 Size = new(3,2),
-Name = "Bones_A",
+Name = "Decos_(3x2)",
+Variety = "Bones_A",
 },
 
 new SpriteData()
@@ -42407,7 +42912,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Bones_B",
+Name = "Decos_(3x2)",
+Variety = "Bones_B",
 },
 
 new SpriteData()
@@ -42415,7 +42921,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "Bones_C",
+Name = "Decos_(3x2)",
+Variety = "Bones_C",
 },
 
 new SpriteData()
@@ -42423,7 +42930,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "Bones_D",
+Name = "Decos_(3x2)",
+Variety = "Bones_D",
 },
 
 new SpriteData()
@@ -42431,7 +42939,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "Bones_E",
+Name = "Decos_(3x2)",
+Variety = "Bones_E",
 },
 
 new SpriteData()
@@ -42439,7 +42948,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "Bones_F",
+Name = "Decos_(3x2)",
+Variety = "Bones_F",
 },
 
 new SpriteData()
@@ -42447,7 +42957,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "Sword_Bones",
+Name = "Decos_(3x2)",
+Variety = "Sword_Bones",
 },
 
 new SpriteData()
@@ -42455,7 +42966,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "Rocks_A",
+Name = "Decos_(3x2)",
+Variety = "Rocks_A",
 },
 
 new SpriteData()
@@ -42463,7 +42975,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "Rocks_B",
+Name = "Decos_(3x2)",
+Variety = "Rocks_B",
 },
 
 new SpriteData()
@@ -42471,7 +42984,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(486,0),
-Name = "Rocks_C",
+Name = "Decos_(3x2)",
+Variety = "Rocks_C",
 },
 
 new SpriteData()
@@ -42479,7 +42993,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(540,0),
-Name = "Rocks_D",
+Name = "Decos_(3x2)",
+Variety = "Rocks_D",
 },
 
 new SpriteData()
@@ -42487,7 +43002,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(594,0),
-Name = "Rocks_E",
+Name = "Decos_(3x2)",
+Variety = "Rocks_E",
 },
 
 new SpriteData()
@@ -42495,7 +43011,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(648,0),
-Name = "Rocks_F",
+Name = "Decos_(3x2)",
+Variety = "Rocks_F",
 },
 
 new SpriteData()
@@ -42503,7 +43020,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(702,0),
-Name = "Rocks_G",
+Name = "Decos_(3x2)",
+Variety = "Rocks_G",
 },
 
 new SpriteData()
@@ -42511,7 +43029,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(756,0),
-Name = "Rocks_Pick",
+Name = "Decos_(3x2)",
+Variety = "Rocks_Pick",
 },
 
 new SpriteData()
@@ -42519,7 +43038,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(810,0),
-Name = "Rocks_Sword",
+Name = "Decos_(3x2)",
+Variety = "Rocks_Sword",
 },
 
 new SpriteData()
@@ -42527,7 +43047,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(864,0),
-Name = "Copper_Pile_A",
+Name = "Decos_(3x2)",
+Variety = "Copper_Pile_A",
 },
 
 new SpriteData()
@@ -42535,7 +43056,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(918,0),
-Name = "Copper_Pile_B",
+Name = "Decos_(3x2)",
+Variety = "Copper_Pile_B",
 },
 
 new SpriteData()
@@ -42543,7 +43065,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(972,0),
-Name = "Silver_Pile_A",
+Name = "Decos_(3x2)",
+Variety = "Silver_Pile_A",
 },
 
 new SpriteData()
@@ -42551,7 +43074,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1026,0),
-Name = "Silver_Pile_B",
+Name = "Decos_(3x2)",
+Variety = "Silver_Pile_B",
 },
 
 new SpriteData()
@@ -42559,7 +43083,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1080,0),
-Name = "Gold_Pile_A",
+Name = "Decos_(3x2)",
+Variety = "Gold_Pile_A",
 },
 
 new SpriteData()
@@ -42567,7 +43092,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1134,0),
-Name = "Gold_Pile_B",
+Name = "Decos_(3x2)",
+Variety = "Gold_Pile_B",
 },
 
 new SpriteData()
@@ -42575,7 +43101,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1188,0),
-Name = "Broken_Machine_A",
+Name = "Decos_(3x2)",
+Variety = "Broken_Machine_A",
 },
 
 new SpriteData()
@@ -42583,7 +43110,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1242,0),
-Name = "Broken_Machine_B",
+Name = "Decos_(3x2)",
+Variety = "Broken_Machine_B",
 },
 
 new SpriteData()
@@ -42591,7 +43119,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1296,0),
-Name = "Broken_Chest",
+Name = "Decos_(3x2)",
+Variety = "Broken_Chest",
 },
 
 new SpriteData()
@@ -42599,7 +43128,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1350,0),
-Name = "Broken_Candelabra",
+Name = "Decos_(3x2)",
+Variety = "Broken_Candelabra",
 },
 
 new SpriteData()
@@ -42607,7 +43137,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1404,0),
-Name = "Frozen_A",
+Name = "Decos_(3x2)",
+Variety = "Frozen_A",
 },
 
 new SpriteData()
@@ -42615,7 +43146,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1458,0),
-Name = "Frozen_B",
+Name = "Decos_(3x2)",
+Variety = "Frozen_B",
 },
 
 new SpriteData()
@@ -42623,7 +43155,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1512,0),
-Name = "Frozen_C",
+Name = "Decos_(3x2)",
+Variety = "Frozen_C",
 },
 
 new SpriteData()
@@ -42631,7 +43164,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1566,0),
-Name = "Frozen_D",
+Name = "Decos_(3x2)",
+Variety = "Frozen_D",
 },
 
 new SpriteData()
@@ -42639,7 +43173,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1620,0),
-Name = "Frozen_E",
+Name = "Decos_(3x2)",
+Variety = "Frozen_E",
 },
 
 new SpriteData()
@@ -42647,7 +43182,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1674,0),
-Name = "Frozen_F",
+Name = "Decos_(3x2)",
+Variety = "Frozen_F",
 },
 
 new SpriteData()
@@ -42655,7 +43191,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1728,0),
-Name = "Mushroom_A",
+Name = "Decos_(3x2)",
+Variety = "Mushroom_A",
 },
 
 new SpriteData()
@@ -42663,7 +43200,8 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1782,0),
-Name = "Mushroom_B",
+Name = "Decos_(3x2)",
+Variety = "Mushroom_B",
 },
 
 new SpriteData()
@@ -42671,14 +43209,16 @@ new SpriteData()
 TileType = 186,
 Size = new(3,2),
 Origin = new(1836,0),
-Name = "Mushroom_C",
+Name = "Decos_(3x2)",
+Variety = "Mushroom_C",
 },
 
 new SpriteData()
 {
 TileType = 187,
 Size = new(3,2),
-Name = "Jungle_Stone_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Jungle_Stone_A",
 },
 
 new SpriteData()
@@ -42686,7 +43226,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Jungle_Stone_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Jungle_Stone_B",
 },
 
 new SpriteData()
@@ -42694,7 +43235,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "Jungle_Stone_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Jungle_Stone_C",
 },
 
 new SpriteData()
@@ -42702,7 +43244,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "Jungle_Stone_D",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Jungle_Stone_D",
 },
 
 new SpriteData()
@@ -42710,7 +43253,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "Jungle_Stone_E",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Jungle_Stone_E",
 },
 
 new SpriteData()
@@ -42718,7 +43262,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "Jungle_Stone_F",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Jungle_Stone_F",
 },
 
 new SpriteData()
@@ -42726,7 +43271,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "Corrupt_Stone_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Corrupt_Stone_A",
 },
 
 new SpriteData()
@@ -42734,7 +43280,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "Corrupt_Stone_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Corrupt_Stone_B",
 },
 
 new SpriteData()
@@ -42742,7 +43289,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "Corrupt_Stone_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Corrupt_Stone_C",
 },
 
 new SpriteData()
@@ -42750,7 +43298,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(486,0),
-Name = "Webbed_Stone_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Webbed_Stone_A",
 },
 
 new SpriteData()
@@ -42758,7 +43307,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(540,0),
-Name = "Webbed_Stone_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Webbed_Stone_B",
 },
 
 new SpriteData()
@@ -42766,7 +43316,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(594,0),
-Name = "Webbed_Stone_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Webbed_Stone_C",
 },
 
 new SpriteData()
@@ -42774,7 +43325,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(648,0),
-Name = "Cocoon_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Cocoon_A",
 },
 
 new SpriteData()
@@ -42782,7 +43334,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(702,0),
-Name = "Cocoon_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Cocoon_B",
 },
 
 new SpriteData()
@@ -42790,7 +43343,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(756,0),
-Name = "Mossy_Stone_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Mossy_Stone_A",
 },
 
 new SpriteData()
@@ -42798,7 +43352,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(810,0),
-Name = "Mossy_Stone_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Mossy_Stone_B",
 },
 
 new SpriteData()
@@ -42806,7 +43361,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(864,0),
-Name = "Mossy_Stone_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Mossy_Stone_C",
 },
 
 new SpriteData()
@@ -42814,7 +43370,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(918,0),
-Name = "Enchanted_Sword",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Enchanted_Sword",
 },
 
 new SpriteData()
@@ -42822,7 +43379,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(972,0),
-Name = "Lihzahrd_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Lihzahrd_A",
 },
 
 new SpriteData()
@@ -42830,7 +43388,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1026,0),
-Name = "Lihzahrd_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Lihzahrd_B",
 },
 
 new SpriteData()
@@ -42838,7 +43397,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1080,0),
-Name = "Lihzahrd_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Lihzahrd_C",
 },
 
 new SpriteData()
@@ -42846,7 +43406,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1134,0),
-Name = "Cage_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Cage_A",
 },
 
 new SpriteData()
@@ -42854,7 +43415,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1188,0),
-Name = "Cage_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Cage_B",
 },
 
 new SpriteData()
@@ -42862,7 +43424,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1242,0),
-Name = "Minecart",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Minecart",
 },
 
 new SpriteData()
@@ -42870,7 +43433,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1296,0),
-Name = "Cave_In",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Cave_In",
 },
 
 new SpriteData()
@@ -42878,7 +43442,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1350,0),
-Name = "Dirt_Pile",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Dirt_Pile",
 },
 
 new SpriteData()
@@ -42886,7 +43451,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1404,0),
-Name = "Abandoned_Tent",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Abandoned_Tent",
 },
 
 new SpriteData()
@@ -42894,7 +43460,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1458,0),
-Name = "Wheelbarrow",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Wheelbarrow",
 },
 
 new SpriteData()
@@ -42902,7 +43469,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1512,0),
-Name = "Peg",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Peg",
 },
 
 new SpriteData()
@@ -42910,7 +43478,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1566,0),
-Name = "Sandstone_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Sandstone_A",
 },
 
 new SpriteData()
@@ -42918,7 +43487,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1620,0),
-Name = "Sandstone_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Sandstone_B",
 },
 
 new SpriteData()
@@ -42926,7 +43496,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1674,0),
-Name = "Sandstone_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Sandstone_C",
 },
 
 new SpriteData()
@@ -42934,7 +43505,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1728,0),
-Name = "Sandstone_D",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Sandstone_D",
 },
 
 new SpriteData()
@@ -42942,7 +43514,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1782,0),
-Name = "Sandstone_E",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Sandstone_E",
 },
 
 new SpriteData()
@@ -42950,7 +43523,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1836,0),
-Name = "Sandstone_F",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Sandstone_F",
 },
 
 new SpriteData()
@@ -42958,7 +43532,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1890,0),
-Name = "Granite_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Granite_A",
 },
 
 new SpriteData()
@@ -42966,7 +43541,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1944,0),
-Name = "Granite_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Granite_B",
 },
 
 new SpriteData()
@@ -42974,7 +43550,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(1998,0),
-Name = "Granite_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Granite_C",
 },
 
 new SpriteData()
@@ -42982,7 +43559,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2052,0),
-Name = "Granite_D",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Granite_D",
 },
 
 new SpriteData()
@@ -42990,7 +43568,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2106,0),
-Name = "Granite_E",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Granite_E",
 },
 
 new SpriteData()
@@ -42998,7 +43577,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2160,0),
-Name = "Granite_F",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Granite_F",
 },
 
 new SpriteData()
@@ -43006,7 +43586,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2214,0),
-Name = "Marble_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Marble_A",
 },
 
 new SpriteData()
@@ -43014,7 +43595,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2268,0),
-Name = "Marble_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Marble_B",
 },
 
 new SpriteData()
@@ -43022,7 +43604,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2322,0),
-Name = "Marble_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Marble_C",
 },
 
 new SpriteData()
@@ -43030,7 +43613,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2376,0),
-Name = "Marble_D",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Marble_D",
 },
 
 new SpriteData()
@@ -43038,7 +43622,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2430,0),
-Name = "Marble_E",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Marble_E",
 },
 
 new SpriteData()
@@ -43046,7 +43631,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2484,0),
-Name = "Marble_F",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Marble_F",
 },
 
 new SpriteData()
@@ -43054,7 +43640,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2538,0),
-Name = "Living_Wood_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Living_Wood_A",
 },
 
 new SpriteData()
@@ -43062,7 +43649,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2592,0),
-Name = "Living_Wood_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Living_Wood_B",
 },
 
 new SpriteData()
@@ -43070,7 +43658,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2646,0),
-Name = "Living_Wood_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Living_Wood_C",
 },
 
 new SpriteData()
@@ -43078,7 +43667,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2700,0),
-Name = "Living_Leaf_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Living_Leaf_A",
 },
 
 new SpriteData()
@@ -43086,7 +43676,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2754,0),
-Name = "Living_Leaf_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Living_Leaf_B",
 },
 
 new SpriteData()
@@ -43094,7 +43685,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2808,0),
-Name = "Animal_Skull_A",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Animal_Skull_A",
 },
 
 new SpriteData()
@@ -43102,7 +43694,8 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2862,0),
-Name = "Animal_Skull_B",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Animal_Skull_B",
 },
 
 new SpriteData()
@@ -43110,111 +43703,127 @@ new SpriteData()
 TileType = 187,
 Size = new(3,2),
 Origin = new(2916,0),
-Name = "Animal_Skull_C",
+Name = "Decos_(3x2)_(Group_2)",
+Variety = "Animal_Skull_C",
 },
 
 new SpriteData()
 {
 TileType = 201,
-Name = "Grass_Three_Blades",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Three_Blades",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(18,0),
-Name = "Grass_Two_Blades",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Two_Blades",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(36,0),
-Name = "Grass_Hooked",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Hooked",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(54,0),
-Name = "Grass_Short",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Short",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(72,0),
-Name = "Grass_Thick_A",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_A",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(90,0),
-Name = "Grass_Fleshy_A",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Fleshy_A",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(108,0),
-Name = "Grass_Sparse",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Sparse",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(126,0),
-Name = "Grass_Fleshy_B",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Fleshy_B",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(144,0),
-Name = "Grass_Thick_B",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_B",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(162,0),
-Name = "Grass_Thick_C",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_C",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(180,0),
-Name = "Grass_Fleshy_C",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Fleshy_C",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(198,0),
-Name = "Grass_Thick_D",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_D",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(216,0),
-Name = "Grass_Thick_E",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_E",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(234,0),
-Name = "Grass_Thick_F",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_F",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(252,0),
-Name = "Grass_Thick_G",
+Name = "Crimson_Short_Plants",
+Variety = "Grass_Thick_G",
 },
 
 new SpriteData()
@@ -43228,49 +43837,56 @@ new SpriteData()
 {
 TileType = 201,
 Origin = new(288,0),
-Name = "Flower_A",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(306,0),
-Name = "Flower_B",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(324,0),
-Name = "Flower_C",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(342,0),
-Name = "Flower_D",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(360,0),
-Name = "Flower_E",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(378,0),
-Name = "Flower_F",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_F",
 },
 
 new SpriteData()
 {
 TileType = 201,
 Origin = new(396,0),
-Name = "Flower_G",
+Name = "Crimson_Short_Plants",
+Variety = "Flower_G",
 },
 
 new SpriteData()
@@ -43859,6 +44475,7 @@ Variety = "Orange_Portal_0_deg_Left",
 new SpriteData()
 {
 TileType = 210,
+Name = "Land_Mine",
 },
 
 new SpriteData()
@@ -43866,6 +44483,7 @@ new SpriteData()
 TileType = 212,
 Anchor = FrameAnchor.Left,
 Size = new(3,3),
+Name = "Snowball_Launcher",
 },
 
 new SpriteData()
@@ -43874,6 +44492,7 @@ TileType = 212,
 Anchor = FrameAnchor.Right,
 Size = new(3,3),
 Origin = new(54,0),
+Name = "Snowball_Launcher",
 },
 
 new SpriteData()
@@ -44202,24 +44821,28 @@ new SpriteData()
 {
 TileType = 217,
 Size = new(3,2),
+Name = "Blend-O-Matic",
 },
 
 new SpriteData()
 {
 TileType = 218,
 Size = new(3,2),
+Name = "Meat_Grinder",
 },
 
 new SpriteData()
 {
 TileType = 219,
 Size = new(3,3),
+Name = "Extractinator",
 },
 
 new SpriteData()
 {
 TileType = 220,
 Size = new(3,3),
+Name = "Solidifier",
 },
 
 new SpriteData()
@@ -44349,19 +44972,22 @@ new SpriteData()
 {
 TileType = 228,
 Size = new(3,3),
+Name = "Dye_Vat",
 },
 
 new SpriteData()
 {
 TileType = 231,
 Size = new(3,3),
+Name = "Larva",
 },
 
 new SpriteData()
 {
 TileType = 233,
 Size = new(3,2),
-Name = "3x2_A",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_A",
 },
 
 new SpriteData()
@@ -44369,7 +44995,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "3x2_B",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_B",
 },
 
 new SpriteData()
@@ -44377,7 +45004,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "3x2_C",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_C",
 },
 
 new SpriteData()
@@ -44385,7 +45013,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "3x2_D",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_D",
 },
 
 new SpriteData()
@@ -44393,7 +45022,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "3x2_E",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_E",
 },
 
 new SpriteData()
@@ -44401,7 +45031,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "3x2_F",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_F",
 },
 
 new SpriteData()
@@ -44409,7 +45040,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "3x2_G",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_G",
 },
 
 new SpriteData()
@@ -44417,7 +45049,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "3x2_H",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_H",
 },
 
 new SpriteData()
@@ -44425,7 +45058,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "3x2_I",
+Name = "Jungle_Large_Plants",
+Variety = "3x2_I",
 },
 
 new SpriteData()
@@ -44433,7 +45067,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(0,36),
-Name = "2x2_A",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_A",
 },
 
 new SpriteData()
@@ -44441,7 +45076,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(36,36),
-Name = "2x2_B",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_B",
 },
 
 new SpriteData()
@@ -44449,7 +45085,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(72,36),
-Name = "2x2_C",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_C",
 },
 
 new SpriteData()
@@ -44457,7 +45094,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(108,36),
-Name = "2x2_D",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_D",
 },
 
 new SpriteData()
@@ -44465,7 +45103,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(144,36),
-Name = "2x2_E",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_E",
 },
 
 new SpriteData()
@@ -44473,7 +45112,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(180,36),
-Name = "2x2_F",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_F",
 },
 
 new SpriteData()
@@ -44481,7 +45121,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(216,36),
-Name = "2x2_G",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_G",
 },
 
 new SpriteData()
@@ -44489,7 +45130,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(252,36),
-Name = "2x2_H",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_H",
 },
 
 new SpriteData()
@@ -44497,7 +45139,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(288,36),
-Name = "2x2_I",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_I",
 },
 
 new SpriteData()
@@ -44505,7 +45148,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(324,36),
-Name = "2x2_J",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_J",
 },
 
 new SpriteData()
@@ -44513,7 +45157,8 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(360,36),
-Name = "2x2_K",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_K",
 },
 
 new SpriteData()
@@ -44521,20 +45166,23 @@ new SpriteData()
 TileType = 233,
 Size = new(3,2),
 Origin = new(396,36),
-Name = "2x2_L",
+Name = "Jungle_Large_Plants",
+Variety = "2x2_L",
 },
 
 new SpriteData()
 {
 TileType = 235,
 Size = new(3,1),
+Name = "Teleporter",
 },
 
 new SpriteData()
 {
 TileType = 236,
 Size = new(2,2),
-Name = "A",
+Name = "Life_Fruit_Plant",
+Variety = "A",
 },
 
 new SpriteData()
@@ -44542,7 +45190,8 @@ new SpriteData()
 TileType = 236,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "B",
+Name = "Life_Fruit_Plant",
+Variety = "B",
 },
 
 new SpriteData()
@@ -44550,179 +45199,205 @@ new SpriteData()
 TileType = 236,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "C",
+Name = "Life_Fruit_Plant",
+Variety = "C",
 },
 
 new SpriteData()
 {
 TileType = 237,
 Size = new(3,2),
+Name = "Lihzahrd_Altar",
 },
 
 new SpriteData()
 {
 TileType = 238,
 Size = new(2,2),
+Name = "Plantera's_Bulb",
 },
 
 new SpriteData()
 {
 TileType = 239,
-Name = "Copper_Bar",
+Name = "Ore_Bars",
+Variety = "Copper_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(18,0),
-Name = "Tin_Bar",
+Name = "Ore_Bars",
+Variety = "Tin_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(36,0),
-Name = "Iron_Bar",
+Name = "Ore_Bars",
+Variety = "Iron_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(54,0),
-Name = "Lead_Bar",
+Name = "Ore_Bars",
+Variety = "Lead_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(72,0),
-Name = "Silver_Bar",
+Name = "Ore_Bars",
+Variety = "Silver_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(90,0),
-Name = "Tungsten_Bar",
+Name = "Ore_Bars",
+Variety = "Tungsten_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(108,0),
-Name = "Gold_Bar",
+Name = "Ore_Bars",
+Variety = "Gold_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(126,0),
-Name = "Platinum_Bar",
+Name = "Ore_Bars",
+Variety = "Platinum_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(144,0),
-Name = "Demonite_Bar",
+Name = "Ore_Bars",
+Variety = "Demonite_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(162,0),
-Name = "Meteorite_Bar",
+Name = "Ore_Bars",
+Variety = "Meteorite_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(180,0),
-Name = "Hellstone_Bar",
+Name = "Ore_Bars",
+Variety = "Hellstone_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(198,0),
-Name = "Cobalt_Bar",
+Name = "Ore_Bars",
+Variety = "Cobalt_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(216,0),
-Name = "Palladium_Bar",
+Name = "Ore_Bars",
+Variety = "Palladium_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(234,0),
-Name = "Mythril_Bar",
+Name = "Ore_Bars",
+Variety = "Mythril_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(252,0),
-Name = "Orichalcum_Bar",
+Name = "Ore_Bars",
+Variety = "Orichalcum_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(270,0),
-Name = "Adamantite_Bar",
+Name = "Ore_Bars",
+Variety = "Adamantite_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(288,0),
-Name = "Titanium_Bar",
+Name = "Ore_Bars",
+Variety = "Titanium_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(306,0),
-Name = "Chlorophyte_Bar",
+Name = "Ore_Bars",
+Variety = "Chlorophyte_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(324,0),
-Name = "Hallowed_Bar",
+Name = "Ore_Bars",
+Variety = "Hallowed_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(342,0),
-Name = "Crimtane_Bar",
+Name = "Ore_Bars",
+Variety = "Crimtane_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(360,0),
-Name = "Shroomite_Bar",
+Name = "Ore_Bars",
+Variety = "Shroomite_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(378,0),
-Name = "Spectre_Bar",
+Name = "Ore_Bars",
+Variety = "Spectre_Bar",
 },
 
 new SpriteData()
 {
 TileType = 239,
 Origin = new(396,0),
-Name = "Luminite_Bar",
+Name = "Ore_Bars",
+Variety = "Luminite_Bar",
 },
 
 new SpriteData()
@@ -45565,7 +46240,8 @@ new SpriteData()
 {
 TileType = 241,
 Size = new(4,3),
-Name = "A",
+Name = "Catacombs",
+Variety = "A",
 },
 
 new SpriteData()
@@ -45573,7 +46249,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,54),
-Name = "B",
+Name = "Catacombs",
+Variety = "B",
 },
 
 new SpriteData()
@@ -45581,7 +46258,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,108),
-Name = "C",
+Name = "Catacombs",
+Variety = "C",
 },
 
 new SpriteData()
@@ -45589,7 +46267,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,162),
-Name = "D",
+Name = "Catacombs",
+Variety = "D",
 },
 
 new SpriteData()
@@ -45597,7 +46276,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,216),
-Name = "E",
+Name = "Catacombs",
+Variety = "E",
 },
 
 new SpriteData()
@@ -45605,7 +46285,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,270),
-Name = "F",
+Name = "Catacombs",
+Variety = "F",
 },
 
 new SpriteData()
@@ -45613,7 +46294,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,324),
-Name = "G",
+Name = "Catacombs",
+Variety = "G",
 },
 
 new SpriteData()
@@ -45621,7 +46303,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,378),
-Name = "H",
+Name = "Catacombs",
+Variety = "H",
 },
 
 new SpriteData()
@@ -45629,7 +46312,8 @@ new SpriteData()
 TileType = 241,
 Size = new(4,3),
 Origin = new(0,432),
-Name = "I",
+Name = "Catacombs",
+Variety = "I",
 },
 
 new SpriteData()
@@ -46229,12 +46913,14 @@ new SpriteData()
 {
 TileType = 243,
 Size = new(3,3),
+Name = "Imbuing_Station",
 },
 
 new SpriteData()
 {
 TileType = 244,
 Size = new(3,2),
+Name = "Bubble_Machine",
 },
 
 new SpriteData()
@@ -46833,13 +47519,15 @@ new SpriteData()
 {
 TileType = 247,
 Size = new(3,3),
+Name = "Autohammer",
 },
 
 new SpriteData()
 {
 TileType = 254,
 Size = new(2,2),
-Name = "Sprout_A1",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_A1",
 },
 
 new SpriteData()
@@ -46847,7 +47535,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(0,36),
-Name = "Sprout_A2",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_A2",
 },
 
 new SpriteData()
@@ -46855,7 +47544,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(0,72),
-Name = "Sprout_A3",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_A3",
 },
 
 new SpriteData()
@@ -46863,7 +47553,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(0,108),
-Name = "Sprout_A4",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_A4",
 },
 
 new SpriteData()
@@ -46871,7 +47562,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(0,144),
-Name = "Sprout_A5",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_A5",
 },
 
 new SpriteData()
@@ -46879,7 +47571,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(0,180),
-Name = "Sprout_A6",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_A6",
 },
 
 new SpriteData()
@@ -46887,7 +47580,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Sprout_B1",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_B1",
 },
 
 new SpriteData()
@@ -46895,7 +47589,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(36,36),
-Name = "Sprout_B2",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_B2",
 },
 
 new SpriteData()
@@ -46903,7 +47598,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(36,72),
-Name = "Sprout_B3",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_B3",
 },
 
 new SpriteData()
@@ -46911,7 +47607,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(36,108),
-Name = "Sprout_B4",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_B4",
 },
 
 new SpriteData()
@@ -46919,7 +47616,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(36,144),
-Name = "Sprout_B5",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_B5",
 },
 
 new SpriteData()
@@ -46927,7 +47625,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(36,180),
-Name = "Sprout_B6",
+Name = "Pumpkin_Plant",
+Variety = "Sprout_B6",
 },
 
 new SpriteData()
@@ -46935,7 +47634,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Immature_A1",
+Name = "Pumpkin_Plant",
+Variety = "Immature_A1",
 },
 
 new SpriteData()
@@ -46943,7 +47643,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(72,36),
-Name = "Immature_A2",
+Name = "Pumpkin_Plant",
+Variety = "Immature_A2",
 },
 
 new SpriteData()
@@ -46951,7 +47652,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(72,72),
-Name = "Immature_A3",
+Name = "Pumpkin_Plant",
+Variety = "Immature_A3",
 },
 
 new SpriteData()
@@ -46959,7 +47661,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(72,108),
-Name = "Immature_A4",
+Name = "Pumpkin_Plant",
+Variety = "Immature_A4",
 },
 
 new SpriteData()
@@ -46967,7 +47670,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(72,144),
-Name = "Immature_A5",
+Name = "Pumpkin_Plant",
+Variety = "Immature_A5",
 },
 
 new SpriteData()
@@ -46975,7 +47679,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(72,180),
-Name = "Immature_A6",
+Name = "Pumpkin_Plant",
+Variety = "Immature_A6",
 },
 
 new SpriteData()
@@ -46983,7 +47688,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Immature_B1",
+Name = "Pumpkin_Plant",
+Variety = "Immature_B1",
 },
 
 new SpriteData()
@@ -46991,7 +47697,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(108,36),
-Name = "Immature_B2",
+Name = "Pumpkin_Plant",
+Variety = "Immature_B2",
 },
 
 new SpriteData()
@@ -46999,7 +47706,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(108,72),
-Name = "Immature_B3",
+Name = "Pumpkin_Plant",
+Variety = "Immature_B3",
 },
 
 new SpriteData()
@@ -47007,7 +47715,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(108,108),
-Name = "Immature_B4",
+Name = "Pumpkin_Plant",
+Variety = "Immature_B4",
 },
 
 new SpriteData()
@@ -47015,7 +47724,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(108,144),
-Name = "Immature_B5",
+Name = "Pumpkin_Plant",
+Variety = "Immature_B5",
 },
 
 new SpriteData()
@@ -47023,7 +47733,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(108,180),
-Name = "Immature_B6",
+Name = "Pumpkin_Plant",
+Variety = "Immature_B6",
 },
 
 new SpriteData()
@@ -47031,7 +47742,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Mature_A",
+Name = "Pumpkin_Plant",
+Variety = "Mature_A",
 },
 
 new SpriteData()
@@ -47039,7 +47751,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(144,36),
-Name = "Mature_B",
+Name = "Pumpkin_Plant",
+Variety = "Mature_B",
 },
 
 new SpriteData()
@@ -47047,7 +47760,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(144,72),
-Name = "Mature_C",
+Name = "Pumpkin_Plant",
+Variety = "Mature_C",
 },
 
 new SpriteData()
@@ -47055,7 +47769,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(144,108),
-Name = "Mature_D",
+Name = "Pumpkin_Plant",
+Variety = "Mature_D",
 },
 
 new SpriteData()
@@ -47063,7 +47778,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(144,144),
-Name = "Mature_E",
+Name = "Pumpkin_Plant",
+Variety = "Mature_E",
 },
 
 new SpriteData()
@@ -47071,7 +47787,8 @@ new SpriteData()
 TileType = 254,
 Size = new(2,2),
 Origin = new(144,180),
-Name = "Mature_F",
+Name = "Pumpkin_Plant",
+Variety = "Mature_F",
 },
 
 new SpriteData()
@@ -47079,6 +47796,7 @@ new SpriteData()
 TileType = 269,
 Anchor = FrameAnchor.Left,
 Size = new(2,3),
+Name = "Womannequin_(Legacy)",
 },
 
 new SpriteData()
@@ -47087,263 +47805,307 @@ TileType = 269,
 Anchor = FrameAnchor.Right,
 Size = new(2,3),
 Origin = new(36,0),
+Name = "Womannequin_(Legacy)",
 },
 
 new SpriteData()
 {
 TileType = 270,
 Size = new(1,2),
+Name = "Firefly_in_a_Bottle",
 },
 
 new SpriteData()
 {
 TileType = 271,
 Size = new(1,2),
+Name = "Lightning_Bug_in_a_Bottle",
 },
 
 new SpriteData()
 {
 TileType = 275,
 Size = new(6,3),
+Name = "Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 276,
 Size = new(6,3),
+Name = "Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 277,
 Size = new(6,3),
+Name = "Mallard_Duck_Cage",
 },
 
 new SpriteData()
 {
 TileType = 278,
 Size = new(6,3),
+Name = "Duck_Cage",
 },
 
 new SpriteData()
 {
 TileType = 279,
 Size = new(6,3),
+Name = "Bird_Cage",
 },
 
 new SpriteData()
 {
 TileType = 280,
 Size = new(6,3),
+Name = "Blue_Jay_Cage",
 },
 
 new SpriteData()
 {
 TileType = 281,
 Size = new(6,3),
+Name = "Cardinal_Cage",
 },
 
 new SpriteData()
 {
 TileType = 282,
 Size = new(2,2),
+Name = "Fish_Bowl",
 },
 
 new SpriteData()
 {
 TileType = 283,
 Size = new(3,3),
+Name = "Heavy_Work_Bench",
 },
 
 new SpriteData()
 {
 TileType = 285,
 Size = new(3,2),
+Name = "Snail_Cage",
 },
 
 new SpriteData()
 {
 TileType = 286,
 Size = new(3,2),
+Name = "Glowing_Snail_Cage",
 },
 
 new SpriteData()
 {
 TileType = 287,
 Size = new(2,2),
+Name = "Ammo_Box",
 },
 
 new SpriteData()
 {
 TileType = 288,
 Size = new(2,2),
+Name = "Monarch_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 289,
 Size = new(2,2),
+Name = "Purple_Emperor_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 290,
 Size = new(2,2),
+Name = "Red_Admiral_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 291,
 Size = new(2,2),
+Name = "Ulysses_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 292,
 Size = new(2,2),
+Name = "Sulphur_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 293,
 Size = new(2,2),
+Name = "Tree_Nymph_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 294,
 Size = new(2,2),
+Name = "Zebra_Swallowtail_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 295,
 Size = new(2,2),
+Name = "Julia_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 296,
 Size = new(6,3),
+Name = "Scorpion_Cage",
 },
 
 new SpriteData()
 {
 TileType = 297,
 Size = new(6,3),
+Name = "Black_Scorpion_Cage",
 },
 
 new SpriteData()
 {
 TileType = 298,
 Size = new(3,2),
+Name = "Frog_Cage",
 },
 
 new SpriteData()
 {
 TileType = 299,
 Size = new(3,2),
+Name = "Mouse_Cage",
 },
 
 new SpriteData()
 {
 TileType = 300,
 Size = new(3,3),
+Name = "Bone_Welder",
 },
 
 new SpriteData()
 {
 TileType = 301,
 Size = new(3,3),
+Name = "Flesh_Cloning_Vat",
 },
 
 new SpriteData()
 {
 TileType = 302,
 Size = new(3,3),
+Name = "Glass_Kiln",
 },
 
 new SpriteData()
 {
 TileType = 303,
 Size = new(3,3),
+Name = "Lihzahrd_Furnace",
 },
 
 new SpriteData()
 {
 TileType = 304,
 Size = new(3,3),
+Name = "Living_Loom",
 },
 
 new SpriteData()
 {
 TileType = 305,
 Size = new(3,3),
+Name = "Sky_Mill",
 },
 
 new SpriteData()
 {
 TileType = 306,
 Size = new(3,3),
+Name = "Ice_Machine",
 },
 
 new SpriteData()
 {
 TileType = 307,
 Size = new(3,3),
+Name = "Steampunk_Boiler",
 },
 
 new SpriteData()
 {
 TileType = 308,
 Size = new(3,3),
+Name = "Honey_Dispenser",
 },
 
 new SpriteData()
 {
 TileType = 309,
 Size = new(6,3),
+Name = "Penguin_Cage",
 },
 
 new SpriteData()
 {
 TileType = 310,
 Size = new(3,2),
+Name = "Worm_Cage",
 },
 
 new SpriteData()
 {
 TileType = 314,
+Name = "Minecart_Track",
 },
 
 new SpriteData()
 {
 TileType = 316,
 Size = new(2,2),
+Name = "Blue_Jellyfish_Jar",
 },
 
 new SpriteData()
 {
 TileType = 317,
 Size = new(2,2),
+Name = "Green_Jellyfish_Jar",
 },
 
 new SpriteData()
 {
 TileType = 318,
 Size = new(2,2),
+Name = "Pink_Jellyfish_Jar",
 },
 
 new SpriteData()
 {
 TileType = 319,
 Size = new(2,2),
+Name = "Ship_in_a_Bottle",
 },
 
 new SpriteData()
 {
 TileType = 320,
 Size = new(2,3),
+Name = "Seaweed_Planter",
 },
 
 new SpriteData()
@@ -48173,6 +48935,7 @@ new SpriteData()
 {
 TileType = 334,
 Size = new(3,3),
+Name = "Weapon_Rack_(Legacy_-_DO_NOT_USE)",
 },
 
 new SpriteData()
@@ -48180,20 +48943,23 @@ new SpriteData()
 TileType = 334,
 Size = new(3,3),
 Origin = new(54,0),
-Name = "Flipped",
+Name = "Weapon_Rack_(Legacy_-_DO_NOT_USE)",
+Variety = "Flipped",
 },
 
 new SpriteData()
 {
 TileType = 335,
 Size = new(2,2),
+Name = "Fireworks_Box",
 },
 
 new SpriteData()
 {
 TileType = 337,
 Size = new(2,3),
-Name = "0_Statue",
+Name = "Text_Statue",
+Variety = "0_Statue",
 },
 
 new SpriteData()
@@ -48201,7 +48967,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(36,0),
-Name = "1_Statue",
+Name = "Text_Statue",
+Variety = "1_Statue",
 },
 
 new SpriteData()
@@ -48209,7 +48976,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(72,0),
-Name = "2_Statue",
+Name = "Text_Statue",
+Variety = "2_Statue",
 },
 
 new SpriteData()
@@ -48217,7 +48985,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(108,0),
-Name = "3_Statue",
+Name = "Text_Statue",
+Variety = "3_Statue",
 },
 
 new SpriteData()
@@ -48225,7 +48994,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(144,0),
-Name = "4_Statue",
+Name = "Text_Statue",
+Variety = "4_Statue",
 },
 
 new SpriteData()
@@ -48233,7 +49003,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(180,0),
-Name = "5_Statue",
+Name = "Text_Statue",
+Variety = "5_Statue",
 },
 
 new SpriteData()
@@ -48241,7 +49012,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(216,0),
-Name = "6_Statue",
+Name = "Text_Statue",
+Variety = "6_Statue",
 },
 
 new SpriteData()
@@ -48249,7 +49021,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(252,0),
-Name = "7_Statue",
+Name = "Text_Statue",
+Variety = "7_Statue",
 },
 
 new SpriteData()
@@ -48257,7 +49030,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(288,0),
-Name = "8_Statue",
+Name = "Text_Statue",
+Variety = "8_Statue",
 },
 
 new SpriteData()
@@ -48265,7 +49039,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(324,0),
-Name = "9_Statue",
+Name = "Text_Statue",
+Variety = "9_Statue",
 },
 
 new SpriteData()
@@ -48273,7 +49048,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(360,0),
-Name = "A_Statue",
+Name = "Text_Statue",
+Variety = "A_Statue",
 },
 
 new SpriteData()
@@ -48281,7 +49057,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(396,0),
-Name = "B_Statue",
+Name = "Text_Statue",
+Variety = "B_Statue",
 },
 
 new SpriteData()
@@ -48289,7 +49066,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(432,0),
-Name = "C_Statue",
+Name = "Text_Statue",
+Variety = "C_Statue",
 },
 
 new SpriteData()
@@ -48297,7 +49075,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(468,0),
-Name = "D_Statue",
+Name = "Text_Statue",
+Variety = "D_Statue",
 },
 
 new SpriteData()
@@ -48305,7 +49084,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(504,0),
-Name = "E_Statue",
+Name = "Text_Statue",
+Variety = "E_Statue",
 },
 
 new SpriteData()
@@ -48313,7 +49093,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(540,0),
-Name = "F_Statue",
+Name = "Text_Statue",
+Variety = "F_Statue",
 },
 
 new SpriteData()
@@ -48321,7 +49102,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(576,0),
-Name = "G_Statue",
+Name = "Text_Statue",
+Variety = "G_Statue",
 },
 
 new SpriteData()
@@ -48329,7 +49111,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(612,0),
-Name = "H_Statue",
+Name = "Text_Statue",
+Variety = "H_Statue",
 },
 
 new SpriteData()
@@ -48337,7 +49120,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(648,0),
-Name = "I_Statue",
+Name = "Text_Statue",
+Variety = "I_Statue",
 },
 
 new SpriteData()
@@ -48345,7 +49129,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(684,0),
-Name = "J_Statue",
+Name = "Text_Statue",
+Variety = "J_Statue",
 },
 
 new SpriteData()
@@ -48353,7 +49138,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(720,0),
-Name = "K_Statue",
+Name = "Text_Statue",
+Variety = "K_Statue",
 },
 
 new SpriteData()
@@ -48361,7 +49147,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(756,0),
-Name = "L_Statue",
+Name = "Text_Statue",
+Variety = "L_Statue",
 },
 
 new SpriteData()
@@ -48369,7 +49156,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(792,0),
-Name = "M_Statue",
+Name = "Text_Statue",
+Variety = "M_Statue",
 },
 
 new SpriteData()
@@ -48377,7 +49165,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(828,0),
-Name = "N_Statue",
+Name = "Text_Statue",
+Variety = "N_Statue",
 },
 
 new SpriteData()
@@ -48385,7 +49174,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(864,0),
-Name = "O_Statue",
+Name = "Text_Statue",
+Variety = "O_Statue",
 },
 
 new SpriteData()
@@ -48393,7 +49183,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(900,0),
-Name = "P_Statue",
+Name = "Text_Statue",
+Variety = "P_Statue",
 },
 
 new SpriteData()
@@ -48401,7 +49192,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(936,0),
-Name = "Q_Statue",
+Name = "Text_Statue",
+Variety = "Q_Statue",
 },
 
 new SpriteData()
@@ -48409,7 +49201,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(972,0),
-Name = "R_Statue",
+Name = "Text_Statue",
+Variety = "R_Statue",
 },
 
 new SpriteData()
@@ -48417,7 +49210,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1008,0),
-Name = "S_Statue",
+Name = "Text_Statue",
+Variety = "S_Statue",
 },
 
 new SpriteData()
@@ -48425,7 +49219,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1044,0),
-Name = "T_Statue",
+Name = "Text_Statue",
+Variety = "T_Statue",
 },
 
 new SpriteData()
@@ -48433,7 +49228,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1080,0),
-Name = "U_Statue",
+Name = "Text_Statue",
+Variety = "U_Statue",
 },
 
 new SpriteData()
@@ -48441,7 +49237,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1116,0),
-Name = "V_Statue",
+Name = "Text_Statue",
+Variety = "V_Statue",
 },
 
 new SpriteData()
@@ -48449,7 +49246,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1152,0),
-Name = "W_Statue",
+Name = "Text_Statue",
+Variety = "W_Statue",
 },
 
 new SpriteData()
@@ -48457,7 +49255,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1188,0),
-Name = "X_Statue",
+Name = "Text_Statue",
+Variety = "X_Statue",
 },
 
 new SpriteData()
@@ -48465,7 +49264,8 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1224,0),
-Name = "Y_Statue",
+Name = "Text_Statue",
+Variety = "Y_Statue",
 },
 
 new SpriteData()
@@ -48473,26 +49273,30 @@ new SpriteData()
 TileType = 337,
 Size = new(2,3),
 Origin = new(1260,0),
-Name = "Z_Statue",
+Name = "Text_Statue",
+Variety = "Z_Statue",
 },
 
 new SpriteData()
 {
 TileType = 338,
 Size = new(1,2),
+Name = "Firework_Fountain",
 },
 
 new SpriteData()
 {
 TileType = 339,
 Size = new(3,2),
+Name = "Grasshopper_Cage",
 },
 
 new SpriteData()
 {
 TileType = 349,
 Size = new(2,3),
-Name = "Left_Off",
+Name = "Mushroom_Statue",
+Variety = "Left_Off",
 },
 
 new SpriteData()
@@ -48500,7 +49304,8 @@ new SpriteData()
 TileType = 349,
 Size = new(2,3),
 Origin = new(216,0),
-Name = "Left_On",
+Name = "Mushroom_Statue",
+Variety = "Left_On",
 },
 
 new SpriteData()
@@ -48508,7 +49313,8 @@ new SpriteData()
 TileType = 349,
 Size = new(2,3),
 Origin = new(0,54),
-Name = "Right_Off",
+Name = "Mushroom_Statue",
+Variety = "Right_Off",
 },
 
 new SpriteData()
@@ -48516,95 +49322,111 @@ new SpriteData()
 TileType = 349,
 Size = new(2,3),
 Origin = new(216,54),
-Name = "Right_On",
+Name = "Mushroom_Statue",
+Variety = "Right_On",
 },
 
 new SpriteData()
 {
 TileType = 354,
 Size = new(3,3),
+Name = "Bewitching_Table",
 },
 
 new SpriteData()
 {
 TileType = 355,
 Size = new(3,3),
+Name = "Alchemy_Table",
 },
 
 new SpriteData()
 {
 TileType = 356,
 Size = new(2,3),
+Name = "Enchanted_Sundial",
 },
 
 new SpriteData()
 {
 TileType = 358,
 Size = new(6,3),
+Name = "Gold_Bird_Cage",
 },
 
 new SpriteData()
 {
 TileType = 359,
 Size = new(6,3),
+Name = "Gold_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 360,
 Size = new(2,2),
+Name = "Gold_Butterfly_Cage",
 },
 
 new SpriteData()
 {
 TileType = 361,
 Size = new(3,2),
+Name = "Gold_Frog_Cage",
 },
 
 new SpriteData()
 {
 TileType = 362,
 Size = new(3,2),
+Name = "Gold_Grasshopper_Cage",
 },
 
 new SpriteData()
 {
 TileType = 363,
 Size = new(3,2),
+Name = "Gold_Mouse_Cage",
 },
 
 new SpriteData()
 {
 TileType = 364,
 Size = new(3,2),
+Name = "Gold_Worm_Cage",
 },
 
 new SpriteData()
 {
 TileType = 372,
-Name = "On",
+Name = "Peace_Candle",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 372,
 Origin = new(18,0),
-Name = "Off",
+Name = "Peace_Candle",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 373,
+Name = "Water_Drip",
 },
 
 new SpriteData()
 {
 TileType = 374,
+Name = "Lava_Drip",
 },
 
 new SpriteData()
 {
 TileType = 375,
+Name = "Honey_Drip",
 },
 
 new SpriteData()
@@ -48818,7 +49640,8 @@ new SpriteData()
 {
 TileType = 377,
 Size = new(3,2),
-Name = "Left",
+Name = "Sharpening_Station",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -48826,14 +49649,16 @@ new SpriteData()
 TileType = 377,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Right",
+Name = "Sharpening_Station",
+Variety = "Right",
 },
 
 new SpriteData()
 {
 TileType = 378,
 Size = new(2,3),
-Name = "Left",
+Name = "Target_Dummy",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -48841,7 +49666,8 @@ new SpriteData()
 TileType = 378,
 Size = new(2,3),
 Origin = new(36,0),
-Name = "Right",
+Name = "Target_Dummy",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -49103,7 +49929,8 @@ new SpriteData()
 {
 TileType = 386,
 Size = new(2,2),
-Name = "Up",
+Name = "Trap_Door_(Open)",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -49111,20 +49938,23 @@ new SpriteData()
 TileType = 386,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Down",
+Name = "Trap_Door_(Open)",
+Variety = "Down",
 },
 
 new SpriteData()
 {
 TileType = 387,
 Size = new(2,1),
+Name = "Trap_Door_(Closed)",
 },
 
 new SpriteData()
 {
 TileType = 388,
 Size = new(1,5),
-Name = "Right",
+Name = "Tall_Gate_(Closed)",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -49132,14 +49962,16 @@ new SpriteData()
 TileType = 388,
 Size = new(1,5),
 Origin = new(0,100),
-Name = "Left",
+Name = "Tall_Gate_(Closed)",
+Variety = "Left",
 },
 
 new SpriteData()
 {
 TileType = 389,
 Size = new(1,5),
-Name = "Right",
+Name = "Tall_Gate_(Open)",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -49147,37 +49979,43 @@ new SpriteData()
 TileType = 389,
 Size = new(1,5),
 Origin = new(0,100),
-Name = "Left",
+Name = "Tall_Gate_(Open)",
+Variety = "Left",
 },
 
 new SpriteData()
 {
 TileType = 390,
 Size = new(1,2),
+Name = "Lava_Lamp",
 },
 
 new SpriteData()
 {
 TileType = 391,
 Size = new(3,2),
+Name = "Cage_Enchanted_Nightcrawler",
 },
 
 new SpriteData()
 {
 TileType = 392,
 Size = new(3,2),
+Name = "Buggy_Cage",
 },
 
 new SpriteData()
 {
 TileType = 393,
 Size = new(3,2),
+Name = "Grubby_Cage",
 },
 
 new SpriteData()
 {
 TileType = 394,
 Size = new(3,2),
+Name = "Sluggy_Cage",
 },
 
 new SpriteData()
@@ -49185,7 +50023,8 @@ new SpriteData()
 TileType = 395,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
-Name = "Ground",
+Name = "Item_Frame",
+Variety = "Ground",
 },
 
 new SpriteData()
@@ -49194,7 +50033,8 @@ TileType = 395,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Hanging",
+Name = "Item_Frame",
+Variety = "Hanging",
 },
 
 new SpriteData()
@@ -49203,7 +50043,8 @@ TileType = 395,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Left_Side",
+Name = "Item_Frame",
+Variety = "Left_Side",
 },
 
 new SpriteData()
@@ -49212,7 +50053,8 @@ TileType = 395,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Right_Side",
+Name = "Item_Frame",
+Variety = "Right_Side",
 },
 
 new SpriteData()
@@ -49220,14 +50062,16 @@ new SpriteData()
 TileType = 395,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Wall",
+Name = "Item_Frame",
+Variety = "Wall",
 },
 
 new SpriteData()
 {
 TileType = 405,
 Size = new(3,2),
-Name = "Lit",
+Name = "Fireplace",
+Variety = "Lit",
 },
 
 new SpriteData()
@@ -49235,13 +50079,15 @@ new SpriteData()
 TileType = 405,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Unlit",
+Name = "Fireplace",
+Variety = "Unlit",
 },
 
 new SpriteData()
 {
 TileType = 406,
 Size = new(3,3),
+Name = "Chimney",
 },
 
 new SpriteData()
@@ -49319,7 +50165,8 @@ new SpriteData()
 {
 TileType = 411,
 Size = new(2,2),
-Name = "Trigger_Up",
+Name = "Detonator",
+Variety = "Trigger_Up",
 },
 
 new SpriteData()
@@ -49327,45 +50174,52 @@ new SpriteData()
 TileType = 411,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Trigger_Down",
+Name = "Detonator",
+Variety = "Trigger_Down",
 },
 
 new SpriteData()
 {
 TileType = 412,
 Size = new(3,3),
+Name = "Lunar_Crafting_Station",
 },
 
 new SpriteData()
 {
 TileType = 413,
 Size = new(6,3),
+Name = "Red_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 414,
 Size = new(6,3),
+Name = "Gold_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 419,
-Name = "Off",
+Name = "Logic_Lamp",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 419,
 Origin = new(18,0),
-Name = "On",
+Name = "Logic_Lamp",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 419,
 Origin = new(36,0),
-Name = "Faulty",
+Name = "Logic_Lamp",
+Variety = "Faulty",
 },
 
 new SpriteData()
@@ -49625,21 +50479,24 @@ Variety = "On",
 new SpriteData()
 {
 TileType = 424,
-Name = "Top_to_Bottom,_Left_to_Right",
+Name = "Junction_Box",
+Variety = "Top_to_Bottom,_Left_to_Right",
 },
 
 new SpriteData()
 {
 TileType = 424,
 Origin = new(18,0),
-Name = "Top_to_Left,_Bottom_to_Right",
+Name = "Junction_Box",
+Variety = "Top_to_Left,_Bottom_to_Right",
 },
 
 new SpriteData()
 {
 TileType = 424,
 Origin = new(36,0),
-Name = "Top_to_Right,_Bottom_to_Left",
+Name = "Junction_Box",
+Variety = "Top_to_Right,_Bottom_to_Left",
 },
 
 new SpriteData()
@@ -49647,7 +50504,8 @@ new SpriteData()
 TileType = 425,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
-Name = "Ground",
+Name = "Announcement_Box",
+Variety = "Ground",
 },
 
 new SpriteData()
@@ -49656,7 +50514,8 @@ TileType = 425,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Hanging",
+Name = "Announcement_Box",
+Variety = "Hanging",
 },
 
 new SpriteData()
@@ -49665,7 +50524,8 @@ TileType = 425,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Left_Side",
+Name = "Announcement_Box",
+Variety = "Left_Side",
 },
 
 new SpriteData()
@@ -49674,7 +50534,8 @@ TileType = 425,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Right_Side",
+Name = "Announcement_Box",
+Variety = "Right_Side",
 },
 
 new SpriteData()
@@ -49682,2540 +50543,2904 @@ new SpriteData()
 TileType = 425,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Wall",
+Name = "Announcement_Box",
+Variety = "Wall",
 },
 
 new SpriteData()
 {
 TileType = 427,
-Name = "Flat_A",
+Name = "Red_Team_Platform",
+Variety = "Flat_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(18,0),
-Name = "Endcap_Right_A",
+Name = "Red_Team_Platform",
+Variety = "Endcap_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(36,0),
-Name = "Endcap_Left_A",
+Name = "Red_Team_Platform",
+Variety = "Endcap_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(54,0),
-Name = "Attach_Left_A",
+Name = "Red_Team_Platform",
+Variety = "Attach_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(72,0),
-Name = "Attach_Right_A",
+Name = "Red_Team_Platform",
+Variety = "Attach_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(90,0),
-Name = "Single_A",
+Name = "Red_Team_Platform",
+Variety = "Single_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(108,0),
-Name = "Attach_Left_Endcap_A",
+Name = "Red_Team_Platform",
+Variety = "Attach_Left_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(126,0),
-Name = "Attach_Right_Endcap_A",
+Name = "Red_Team_Platform",
+Variety = "Attach_Right_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(144,0),
-Name = "Stair_Up-Right_Riser_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Right_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(162,0),
-Name = "Stair_Up-Right_Stringer_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(180,0),
-Name = "Stair_Up-Left_Riser_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Left_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(198,0),
-Name = "Stair_Up-Left_Stringer_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(216,0),
-Name = "Stair_Top_Landing_R_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(234,0),
-Name = "Stair_Top_Landing_L_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(252,0),
-Name = "Stair_Top_Landing_L-R_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(270,0),
-Name = "Stair_Top_Landing_R_Endcap_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(288,0),
-Name = "Stair_Top_Landing_L_Endcap_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(306,0),
-Name = "Stair_Bottom_Landing_R_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(324,0),
-Name = "Stair_Bottom_Landing_L_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(342,0),
-Name = "Stair_Inset_Up-Right_1_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(360,0),
-Name = "Stair_Inset_Up-Left_1_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(378,0),
-Name = "Stair_Inset_Up-Right_2_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(396,0),
-Name = "Stair_Inset_Up-Left_2_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(414,0),
-Name = "Stair_Inset_Up-Right_3_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(432,0),
-Name = "Stair_Inset_Up-Left_3_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(450,0),
-Name = "Stair_Inverted_Right_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inverted_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(468,0),
-Name = "Stair_Inverted_Left_A",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inverted_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(0,18),
-Name = "Flat_B",
+Name = "Red_Team_Platform",
+Variety = "Flat_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(18,18),
-Name = "Endcap_Right_B",
+Name = "Red_Team_Platform",
+Variety = "Endcap_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(36,18),
-Name = "Endcap_Left_B",
+Name = "Red_Team_Platform",
+Variety = "Endcap_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(54,18),
-Name = "Attach_Left_B",
+Name = "Red_Team_Platform",
+Variety = "Attach_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(72,18),
-Name = "Attach_Right_B",
+Name = "Red_Team_Platform",
+Variety = "Attach_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(90,18),
-Name = "Single_B",
+Name = "Red_Team_Platform",
+Variety = "Single_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(108,18),
-Name = "Attach_Left_Endcap_B",
+Name = "Red_Team_Platform",
+Variety = "Attach_Left_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(126,18),
-Name = "Attach_Right_Endcap_B",
+Name = "Red_Team_Platform",
+Variety = "Attach_Right_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(144,18),
-Name = "Stair_Up-Right_Riser_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Right_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(162,18),
-Name = "Stair_Up-Right_Stringer_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(180,18),
-Name = "Stair_Up-Left_Riser_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Left_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(198,18),
-Name = "Stair_Up-Left_Stringer_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(216,18),
-Name = "Stair_Top_Landing_R_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(234,18),
-Name = "Stair_Top_Landing_L_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(252,18),
-Name = "Stair_Top_Landing_L-R_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(270,18),
-Name = "Stair_Top_Landing_R_Endcap_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(288,18),
-Name = "Stair_Top_Landing_L_Endcap_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(306,18),
-Name = "Stair_Bottom_Landing_R_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(324,18),
-Name = "Stair_Bottom_Landing_L_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(342,18),
-Name = "Stair_Inset_Up-Right_1_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(360,18),
-Name = "Stair_Inset_Up-Left_1_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(378,18),
-Name = "Stair_Inset_Up-Right_2_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(396,18),
-Name = "Stair_Inset_Up-Left_2_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(414,18),
-Name = "Stair_Inset_Up-Right_3_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(432,18),
-Name = "Stair_Inset_Up-Left_3_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(450,18),
-Name = "Stair_Inverted_Right_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inverted_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 427,
 Origin = new(468,18),
-Name = "Stair_Inverted_Left_B",
+Name = "Red_Team_Platform",
+Variety = "Stair_Inverted_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 428,
-Name = "Orange_Off",
+Name = "Weighted_Pressure_Plates",
+Variety = "Orange_Off",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(0,18),
-Name = "Cyan_Off",
+Name = "Weighted_Pressure_Plates",
+Variety = "Cyan_Off",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(0,36),
-Name = "Purple_Off",
+Name = "Weighted_Pressure_Plates",
+Variety = "Purple_Off",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(0,54),
-Name = "Pink_Off",
+Name = "Weighted_Pressure_Plates",
+Variety = "Pink_Off",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(18,0),
-Name = "Orange_On",
+Name = "Weighted_Pressure_Plates",
+Variety = "Orange_On",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(18,18),
-Name = "Cyan_On",
+Name = "Weighted_Pressure_Plates",
+Variety = "Cyan_On",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(18,36),
-Name = "Purple_On",
+Name = "Weighted_Pressure_Plates",
+Variety = "Purple_On",
 },
 
 new SpriteData()
 {
 TileType = 428,
 Origin = new(18,54),
-Name = "Pink_On",
+Name = "Weighted_Pressure_Plates",
+Variety = "Pink_On",
 },
 
 new SpriteData()
 {
 TileType = 429,
-Name = "Off",
+Name = "Wire_Bulb",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(18,0),
-Name = "Red_A",
+Name = "Wire_Bulb",
+Variety = "Red_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(36,0),
-Name = "Green_A",
+Name = "Wire_Bulb",
+Variety = "Green_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(54,0),
-Name = "Red,_Green_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Green_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(72,0),
-Name = "Blue_A",
+Name = "Wire_Bulb",
+Variety = "Blue_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(90,0),
-Name = "Red,_Blue_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Blue_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(108,0),
-Name = "Green,_Blue_A",
+Name = "Wire_Bulb",
+Variety = "Green,_Blue_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(126,0),
-Name = "Red,_Green,_Blue_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Green,_Blue_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(144,0),
-Name = "Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(162,0),
-Name = "Red,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(180,0),
-Name = "Green,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Green,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(198,0),
-Name = "Red,_Green,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Green,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(216,0),
-Name = "Blue,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Blue,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(234,0),
-Name = "Red,_Blue,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Blue,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(252,0),
-Name = "Green,_Blue,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Green,_Blue,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(270,0),
-Name = "Red,_Green,_Blue,_Yellow_A",
+Name = "Wire_Bulb",
+Variety = "Red,_Green,_Blue,_Yellow_A",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(18,18),
-Name = "Red_B",
+Name = "Wire_Bulb",
+Variety = "Red_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(36,18),
-Name = "Green_B",
+Name = "Wire_Bulb",
+Variety = "Green_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(54,18),
-Name = "Red,_Green_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Green_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(72,18),
-Name = "Blue_B",
+Name = "Wire_Bulb",
+Variety = "Blue_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(90,18),
-Name = "Red,_Blue_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Blue_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(108,18),
-Name = "Green,_Blue_B",
+Name = "Wire_Bulb",
+Variety = "Green,_Blue_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(126,18),
-Name = "Red,_Green,_Blue_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Green,_Blue_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(144,18),
-Name = "Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(162,18),
-Name = "Red,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(180,18),
-Name = "Green,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Green,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(198,18),
-Name = "Red,_Green,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Green,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(216,18),
-Name = "Blue,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Blue,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(234,18),
-Name = "Red,_Blue,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Blue,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(252,18),
-Name = "Green,_Blue,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Green,_Blue,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 429,
 Origin = new(270,18),
-Name = "Red,_Green,_Blue,_Yellow_B",
+Name = "Wire_Bulb",
+Variety = "Red,_Green,_Blue,_Yellow_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
-Name = "Flat_A",
+Name = "Green_Team_Platform",
+Variety = "Flat_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(18,0),
-Name = "Endcap_Right_A",
+Name = "Green_Team_Platform",
+Variety = "Endcap_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(36,0),
-Name = "Endcap_Left_A",
+Name = "Green_Team_Platform",
+Variety = "Endcap_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(54,0),
-Name = "Attach_Left_A",
+Name = "Green_Team_Platform",
+Variety = "Attach_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(72,0),
-Name = "Attach_Right_A",
+Name = "Green_Team_Platform",
+Variety = "Attach_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(90,0),
-Name = "Single_A",
+Name = "Green_Team_Platform",
+Variety = "Single_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(108,0),
-Name = "Attach_Left_Endcap_A",
+Name = "Green_Team_Platform",
+Variety = "Attach_Left_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(126,0),
-Name = "Attach_Right_Endcap_A",
+Name = "Green_Team_Platform",
+Variety = "Attach_Right_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(144,0),
-Name = "Stair_Up-Right_Riser_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Right_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(162,0),
-Name = "Stair_Up-Right_Stringer_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(180,0),
-Name = "Stair_Up-Left_Riser_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Left_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(198,0),
-Name = "Stair_Up-Left_Stringer_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(216,0),
-Name = "Stair_Top_Landing_R_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(234,0),
-Name = "Stair_Top_Landing_L_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(252,0),
-Name = "Stair_Top_Landing_L-R_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(270,0),
-Name = "Stair_Top_Landing_R_Endcap_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(288,0),
-Name = "Stair_Top_Landing_L_Endcap_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(306,0),
-Name = "Stair_Bottom_Landing_R_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(324,0),
-Name = "Stair_Bottom_Landing_L_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(342,0),
-Name = "Stair_Inset_Up-Right_1_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(360,0),
-Name = "Stair_Inset_Up-Left_1_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(378,0),
-Name = "Stair_Inset_Up-Right_2_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(396,0),
-Name = "Stair_Inset_Up-Left_2_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(414,0),
-Name = "Stair_Inset_Up-Right_3_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(432,0),
-Name = "Stair_Inset_Up-Left_3_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(450,0),
-Name = "Stair_Inverted_Right_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inverted_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(468,0),
-Name = "Stair_Inverted_Left_A",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inverted_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(0,18),
-Name = "Flat_B",
+Name = "Green_Team_Platform",
+Variety = "Flat_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(18,18),
-Name = "Endcap_Right_B",
+Name = "Green_Team_Platform",
+Variety = "Endcap_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(36,18),
-Name = "Endcap_Left_B",
+Name = "Green_Team_Platform",
+Variety = "Endcap_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(54,18),
-Name = "Attach_Left_B",
+Name = "Green_Team_Platform",
+Variety = "Attach_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(72,18),
-Name = "Attach_Right_B",
+Name = "Green_Team_Platform",
+Variety = "Attach_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(90,18),
-Name = "Single_B",
+Name = "Green_Team_Platform",
+Variety = "Single_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(108,18),
-Name = "Attach_Left_Endcap_B",
+Name = "Green_Team_Platform",
+Variety = "Attach_Left_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(126,18),
-Name = "Attach_Right_Endcap_B",
+Name = "Green_Team_Platform",
+Variety = "Attach_Right_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(144,18),
-Name = "Stair_Up-Right_Riser_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Right_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(162,18),
-Name = "Stair_Up-Right_Stringer_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(180,18),
-Name = "Stair_Up-Left_Riser_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Left_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(198,18),
-Name = "Stair_Up-Left_Stringer_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(216,18),
-Name = "Stair_Top_Landing_R_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(234,18),
-Name = "Stair_Top_Landing_L_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(252,18),
-Name = "Stair_Top_Landing_L-R_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(270,18),
-Name = "Stair_Top_Landing_R_Endcap_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(288,18),
-Name = "Stair_Top_Landing_L_Endcap_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(306,18),
-Name = "Stair_Bottom_Landing_R_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(324,18),
-Name = "Stair_Bottom_Landing_L_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(342,18),
-Name = "Stair_Inset_Up-Right_1_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(360,18),
-Name = "Stair_Inset_Up-Left_1_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(378,18),
-Name = "Stair_Inset_Up-Right_2_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(396,18),
-Name = "Stair_Inset_Up-Left_2_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(414,18),
-Name = "Stair_Inset_Up-Right_3_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(432,18),
-Name = "Stair_Inset_Up-Left_3_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(450,18),
-Name = "Stair_Inverted_Right_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inverted_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 435,
 Origin = new(468,18),
-Name = "Stair_Inverted_Left_B",
+Name = "Green_Team_Platform",
+Variety = "Stair_Inverted_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
-Name = "Flat_A",
+Name = "Blue_Team_Platform",
+Variety = "Flat_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(18,0),
-Name = "Endcap_Right_A",
+Name = "Blue_Team_Platform",
+Variety = "Endcap_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(36,0),
-Name = "Endcap_Left_A",
+Name = "Blue_Team_Platform",
+Variety = "Endcap_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(54,0),
-Name = "Attach_Left_A",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(72,0),
-Name = "Attach_Right_A",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(90,0),
-Name = "Single_A",
+Name = "Blue_Team_Platform",
+Variety = "Single_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(108,0),
-Name = "Attach_Left_Endcap_A",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Left_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(126,0),
-Name = "Attach_Right_Endcap_A",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Right_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(144,0),
-Name = "Stair_Up-Right_Riser_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Right_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(162,0),
-Name = "Stair_Up-Right_Stringer_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(180,0),
-Name = "Stair_Up-Left_Riser_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Left_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(198,0),
-Name = "Stair_Up-Left_Stringer_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(216,0),
-Name = "Stair_Top_Landing_R_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(234,0),
-Name = "Stair_Top_Landing_L_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(252,0),
-Name = "Stair_Top_Landing_L-R_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(270,0),
-Name = "Stair_Top_Landing_R_Endcap_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(288,0),
-Name = "Stair_Top_Landing_L_Endcap_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(306,0),
-Name = "Stair_Bottom_Landing_R_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(324,0),
-Name = "Stair_Bottom_Landing_L_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(342,0),
-Name = "Stair_Inset_Up-Right_1_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(360,0),
-Name = "Stair_Inset_Up-Left_1_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(378,0),
-Name = "Stair_Inset_Up-Right_2_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(396,0),
-Name = "Stair_Inset_Up-Left_2_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(414,0),
-Name = "Stair_Inset_Up-Right_3_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(432,0),
-Name = "Stair_Inset_Up-Left_3_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(450,0),
-Name = "Stair_Inverted_Right_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inverted_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(468,0),
-Name = "Stair_Inverted_Left_A",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inverted_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(0,18),
-Name = "Flat_B",
+Name = "Blue_Team_Platform",
+Variety = "Flat_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(18,18),
-Name = "Endcap_Right_B",
+Name = "Blue_Team_Platform",
+Variety = "Endcap_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(36,18),
-Name = "Endcap_Left_B",
+Name = "Blue_Team_Platform",
+Variety = "Endcap_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(54,18),
-Name = "Attach_Left_B",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(72,18),
-Name = "Attach_Right_B",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(90,18),
-Name = "Single_B",
+Name = "Blue_Team_Platform",
+Variety = "Single_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(108,18),
-Name = "Attach_Left_Endcap_B",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Left_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(126,18),
-Name = "Attach_Right_Endcap_B",
+Name = "Blue_Team_Platform",
+Variety = "Attach_Right_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(144,18),
-Name = "Stair_Up-Right_Riser_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Right_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(162,18),
-Name = "Stair_Up-Right_Stringer_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(180,18),
-Name = "Stair_Up-Left_Riser_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Left_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(198,18),
-Name = "Stair_Up-Left_Stringer_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(216,18),
-Name = "Stair_Top_Landing_R_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(234,18),
-Name = "Stair_Top_Landing_L_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(252,18),
-Name = "Stair_Top_Landing_L-R_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(270,18),
-Name = "Stair_Top_Landing_R_Endcap_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(288,18),
-Name = "Stair_Top_Landing_L_Endcap_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(306,18),
-Name = "Stair_Bottom_Landing_R_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(324,18),
-Name = "Stair_Bottom_Landing_L_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(342,18),
-Name = "Stair_Inset_Up-Right_1_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(360,18),
-Name = "Stair_Inset_Up-Left_1_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(378,18),
-Name = "Stair_Inset_Up-Right_2_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(396,18),
-Name = "Stair_Inset_Up-Left_2_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(414,18),
-Name = "Stair_Inset_Up-Right_3_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(432,18),
-Name = "Stair_Inset_Up-Left_3_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(450,18),
-Name = "Stair_Inverted_Right_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inverted_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 436,
 Origin = new(468,18),
-Name = "Stair_Inverted_Left_B",
+Name = "Blue_Team_Platform",
+Variety = "Stair_Inverted_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
-Name = "Flat_A",
+Name = "Yellow_Team_Platform",
+Variety = "Flat_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(18,0),
-Name = "Endcap_Right_A",
+Name = "Yellow_Team_Platform",
+Variety = "Endcap_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(36,0),
-Name = "Endcap_Left_A",
+Name = "Yellow_Team_Platform",
+Variety = "Endcap_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(54,0),
-Name = "Attach_Left_A",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(72,0),
-Name = "Attach_Right_A",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(90,0),
-Name = "Single_A",
+Name = "Yellow_Team_Platform",
+Variety = "Single_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(108,0),
-Name = "Attach_Left_Endcap_A",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Left_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(126,0),
-Name = "Attach_Right_Endcap_A",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Right_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(144,0),
-Name = "Stair_Up-Right_Riser_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Right_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(162,0),
-Name = "Stair_Up-Right_Stringer_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(180,0),
-Name = "Stair_Up-Left_Riser_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Left_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(198,0),
-Name = "Stair_Up-Left_Stringer_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(216,0),
-Name = "Stair_Top_Landing_R_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(234,0),
-Name = "Stair_Top_Landing_L_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(252,0),
-Name = "Stair_Top_Landing_L-R_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(270,0),
-Name = "Stair_Top_Landing_R_Endcap_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(288,0),
-Name = "Stair_Top_Landing_L_Endcap_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(306,0),
-Name = "Stair_Bottom_Landing_R_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(324,0),
-Name = "Stair_Bottom_Landing_L_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(342,0),
-Name = "Stair_Inset_Up-Right_1_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(360,0),
-Name = "Stair_Inset_Up-Left_1_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(378,0),
-Name = "Stair_Inset_Up-Right_2_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(396,0),
-Name = "Stair_Inset_Up-Left_2_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(414,0),
-Name = "Stair_Inset_Up-Right_3_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(432,0),
-Name = "Stair_Inset_Up-Left_3_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(450,0),
-Name = "Stair_Inverted_Right_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inverted_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(468,0),
-Name = "Stair_Inverted_Left_A",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inverted_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(0,18),
-Name = "Flat_B",
+Name = "Yellow_Team_Platform",
+Variety = "Flat_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(18,18),
-Name = "Endcap_Right_B",
+Name = "Yellow_Team_Platform",
+Variety = "Endcap_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(36,18),
-Name = "Endcap_Left_B",
+Name = "Yellow_Team_Platform",
+Variety = "Endcap_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(54,18),
-Name = "Attach_Left_B",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(72,18),
-Name = "Attach_Right_B",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(90,18),
-Name = "Single_B",
+Name = "Yellow_Team_Platform",
+Variety = "Single_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(108,18),
-Name = "Attach_Left_Endcap_B",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Left_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(126,18),
-Name = "Attach_Right_Endcap_B",
+Name = "Yellow_Team_Platform",
+Variety = "Attach_Right_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(144,18),
-Name = "Stair_Up-Right_Riser_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Right_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(162,18),
-Name = "Stair_Up-Right_Stringer_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(180,18),
-Name = "Stair_Up-Left_Riser_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Left_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(198,18),
-Name = "Stair_Up-Left_Stringer_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(216,18),
-Name = "Stair_Top_Landing_R_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(234,18),
-Name = "Stair_Top_Landing_L_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(252,18),
-Name = "Stair_Top_Landing_L-R_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(270,18),
-Name = "Stair_Top_Landing_R_Endcap_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(288,18),
-Name = "Stair_Top_Landing_L_Endcap_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(306,18),
-Name = "Stair_Bottom_Landing_R_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(324,18),
-Name = "Stair_Bottom_Landing_L_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(342,18),
-Name = "Stair_Inset_Up-Right_1_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(360,18),
-Name = "Stair_Inset_Up-Left_1_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(378,18),
-Name = "Stair_Inset_Up-Right_2_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(396,18),
-Name = "Stair_Inset_Up-Left_2_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(414,18),
-Name = "Stair_Inset_Up-Right_3_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(432,18),
-Name = "Stair_Inset_Up-Left_3_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(450,18),
-Name = "Stair_Inverted_Right_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inverted_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 437,
 Origin = new(468,18),
-Name = "Stair_Inverted_Left_B",
+Name = "Yellow_Team_Platform",
+Variety = "Stair_Inverted_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
-Name = "Flat_A",
+Name = "Pink_Team_Platform",
+Variety = "Flat_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(18,0),
-Name = "Endcap_Right_A",
+Name = "Pink_Team_Platform",
+Variety = "Endcap_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(36,0),
-Name = "Endcap_Left_A",
+Name = "Pink_Team_Platform",
+Variety = "Endcap_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(54,0),
-Name = "Attach_Left_A",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(72,0),
-Name = "Attach_Right_A",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(90,0),
-Name = "Single_A",
+Name = "Pink_Team_Platform",
+Variety = "Single_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(108,0),
-Name = "Attach_Left_Endcap_A",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Left_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(126,0),
-Name = "Attach_Right_Endcap_A",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Right_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(144,0),
-Name = "Stair_Up-Right_Riser_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Right_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(162,0),
-Name = "Stair_Up-Right_Stringer_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(180,0),
-Name = "Stair_Up-Left_Riser_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Left_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(198,0),
-Name = "Stair_Up-Left_Stringer_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(216,0),
-Name = "Stair_Top_Landing_R_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(234,0),
-Name = "Stair_Top_Landing_L_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(252,0),
-Name = "Stair_Top_Landing_L-R_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(270,0),
-Name = "Stair_Top_Landing_R_Endcap_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(288,0),
-Name = "Stair_Top_Landing_L_Endcap_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(306,0),
-Name = "Stair_Bottom_Landing_R_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(324,0),
-Name = "Stair_Bottom_Landing_L_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(342,0),
-Name = "Stair_Inset_Up-Right_1_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(360,0),
-Name = "Stair_Inset_Up-Left_1_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(378,0),
-Name = "Stair_Inset_Up-Right_2_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(396,0),
-Name = "Stair_Inset_Up-Left_2_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(414,0),
-Name = "Stair_Inset_Up-Right_3_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(432,0),
-Name = "Stair_Inset_Up-Left_3_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(450,0),
-Name = "Stair_Inverted_Right_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inverted_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(468,0),
-Name = "Stair_Inverted_Left_A",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inverted_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(0,18),
-Name = "Flat_B",
+Name = "Pink_Team_Platform",
+Variety = "Flat_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(18,18),
-Name = "Endcap_Right_B",
+Name = "Pink_Team_Platform",
+Variety = "Endcap_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(36,18),
-Name = "Endcap_Left_B",
+Name = "Pink_Team_Platform",
+Variety = "Endcap_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(54,18),
-Name = "Attach_Left_B",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(72,18),
-Name = "Attach_Right_B",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(90,18),
-Name = "Single_B",
+Name = "Pink_Team_Platform",
+Variety = "Single_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(108,18),
-Name = "Attach_Left_Endcap_B",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Left_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(126,18),
-Name = "Attach_Right_Endcap_B",
+Name = "Pink_Team_Platform",
+Variety = "Attach_Right_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(144,18),
-Name = "Stair_Up-Right_Riser_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Right_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(162,18),
-Name = "Stair_Up-Right_Stringer_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(180,18),
-Name = "Stair_Up-Left_Riser_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Left_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(198,18),
-Name = "Stair_Up-Left_Stringer_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(216,18),
-Name = "Stair_Top_Landing_R_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(234,18),
-Name = "Stair_Top_Landing_L_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(252,18),
-Name = "Stair_Top_Landing_L-R_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(270,18),
-Name = "Stair_Top_Landing_R_Endcap_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(288,18),
-Name = "Stair_Top_Landing_L_Endcap_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(306,18),
-Name = "Stair_Bottom_Landing_R_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(324,18),
-Name = "Stair_Bottom_Landing_L_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(342,18),
-Name = "Stair_Inset_Up-Right_1_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(360,18),
-Name = "Stair_Inset_Up-Left_1_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(378,18),
-Name = "Stair_Inset_Up-Right_2_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(396,18),
-Name = "Stair_Inset_Up-Left_2_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(414,18),
-Name = "Stair_Inset_Up-Right_3_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(432,18),
-Name = "Stair_Inset_Up-Left_3_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(450,18),
-Name = "Stair_Inverted_Right_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inverted_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 438,
 Origin = new(468,18),
-Name = "Stair_Inverted_Left_B",
+Name = "Pink_Team_Platform",
+Variety = "Stair_Inverted_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
-Name = "Flat_A",
+Name = "White_Team_Platform",
+Variety = "Flat_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(18,0),
-Name = "Endcap_Right_A",
+Name = "White_Team_Platform",
+Variety = "Endcap_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(36,0),
-Name = "Endcap_Left_A",
+Name = "White_Team_Platform",
+Variety = "Endcap_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(54,0),
-Name = "Attach_Left_A",
+Name = "White_Team_Platform",
+Variety = "Attach_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(72,0),
-Name = "Attach_Right_A",
+Name = "White_Team_Platform",
+Variety = "Attach_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(90,0),
-Name = "Single_A",
+Name = "White_Team_Platform",
+Variety = "Single_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(108,0),
-Name = "Attach_Left_Endcap_A",
+Name = "White_Team_Platform",
+Variety = "Attach_Left_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(126,0),
-Name = "Attach_Right_Endcap_A",
+Name = "White_Team_Platform",
+Variety = "Attach_Right_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(144,0),
-Name = "Stair_Up-Right_Riser_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Right_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(162,0),
-Name = "Stair_Up-Right_Stringer_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(180,0),
-Name = "Stair_Up-Left_Riser_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Left_Riser_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(198,0),
-Name = "Stair_Up-Left_Stringer_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(216,0),
-Name = "Stair_Top_Landing_R_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(234,0),
-Name = "Stair_Top_Landing_L_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(252,0),
-Name = "Stair_Top_Landing_L-R_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(270,0),
-Name = "Stair_Top_Landing_R_Endcap_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(288,0),
-Name = "Stair_Top_Landing_L_Endcap_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(306,0),
-Name = "Stair_Bottom_Landing_R_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(324,0),
-Name = "Stair_Bottom_Landing_L_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(342,0),
-Name = "Stair_Inset_Up-Right_1_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(360,0),
-Name = "Stair_Inset_Up-Left_1_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(378,0),
-Name = "Stair_Inset_Up-Right_2_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(396,0),
-Name = "Stair_Inset_Up-Left_2_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(414,0),
-Name = "Stair_Inset_Up-Right_3_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(432,0),
-Name = "Stair_Inset_Up-Left_3_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(450,0),
-Name = "Stair_Inverted_Right_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inverted_Right_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(468,0),
-Name = "Stair_Inverted_Left_A",
+Name = "White_Team_Platform",
+Variety = "Stair_Inverted_Left_A",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(0,18),
-Name = "Flat_B",
+Name = "White_Team_Platform",
+Variety = "Flat_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(18,18),
-Name = "Endcap_Right_B",
+Name = "White_Team_Platform",
+Variety = "Endcap_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(36,18),
-Name = "Endcap_Left_B",
+Name = "White_Team_Platform",
+Variety = "Endcap_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(54,18),
-Name = "Attach_Left_B",
+Name = "White_Team_Platform",
+Variety = "Attach_Left_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(72,18),
-Name = "Attach_Right_B",
+Name = "White_Team_Platform",
+Variety = "Attach_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(90,18),
-Name = "Single_B",
+Name = "White_Team_Platform",
+Variety = "Single_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(108,18),
-Name = "Attach_Left_Endcap_B",
+Name = "White_Team_Platform",
+Variety = "Attach_Left_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(126,18),
-Name = "Attach_Right_Endcap_B",
+Name = "White_Team_Platform",
+Variety = "Attach_Right_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(144,18),
-Name = "Stair_Up-Right_Riser_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Right_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(162,18),
-Name = "Stair_Up-Right_Stringer_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Right_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(180,18),
-Name = "Stair_Up-Left_Riser_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Left_Riser_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(198,18),
-Name = "Stair_Up-Left_Stringer_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Up-Left_Stringer_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(216,18),
-Name = "Stair_Top_Landing_R_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(234,18),
-Name = "Stair_Top_Landing_L_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(252,18),
-Name = "Stair_Top_Landing_L-R_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_L-R_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(270,18),
-Name = "Stair_Top_Landing_R_Endcap_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_R_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(288,18),
-Name = "Stair_Top_Landing_L_Endcap_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Top_Landing_L_Endcap_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(306,18),
-Name = "Stair_Bottom_Landing_R_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Bottom_Landing_R_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(324,18),
-Name = "Stair_Bottom_Landing_L_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Bottom_Landing_L_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(342,18),
-Name = "Stair_Inset_Up-Right_1_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Right_1_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(360,18),
-Name = "Stair_Inset_Up-Left_1_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Left_1_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(378,18),
-Name = "Stair_Inset_Up-Right_2_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Right_2_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(396,18),
-Name = "Stair_Inset_Up-Left_2_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Left_2_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(414,18),
-Name = "Stair_Inset_Up-Right_3_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Right_3_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(432,18),
-Name = "Stair_Inset_Up-Left_3_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inset_Up-Left_3_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(450,18),
-Name = "Stair_Inverted_Right_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inverted_Right_B",
 },
 
 new SpriteData()
 {
 TileType = 439,
 Origin = new(468,18),
-Name = "Stair_Inverted_Left_B",
+Name = "White_Team_Platform",
+Variety = "Stair_Inverted_Left_B",
 },
 
 new SpriteData()
@@ -52788,6 +54013,7 @@ new SpriteData()
 {
 TileType = 442,
 Anchor = FrameAnchor.Bottom,
+Name = "Teal_Pressure_Pad",
 },
 
 new SpriteData()
@@ -52795,6 +54021,7 @@ new SpriteData()
 TileType = 442,
 Anchor = FrameAnchor.Top,
 Origin = new(22,0),
+Name = "Teal_Pressure_Pad",
 },
 
 new SpriteData()
@@ -52802,6 +54029,7 @@ new SpriteData()
 TileType = 442,
 Anchor = FrameAnchor.Left,
 Origin = new(44,0),
+Name = "Teal_Pressure_Pad",
 },
 
 new SpriteData()
@@ -52809,6 +54037,7 @@ new SpriteData()
 TileType = 442,
 Anchor = FrameAnchor.Right,
 Origin = new(66,0),
+Name = "Teal_Pressure_Pad",
 },
 
 new SpriteData()
@@ -52816,7 +54045,8 @@ new SpriteData()
 TileType = 443,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,1),
-Name = "A",
+Name = "Geyser",
+Variety = "A",
 },
 
 new SpriteData()
@@ -52825,7 +54055,8 @@ TileType = 443,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,1),
 Origin = new(36,0),
-Name = "B",
+Name = "Geyser",
+Variety = "B",
 },
 
 new SpriteData()
@@ -52834,7 +54065,8 @@ TileType = 443,
 Anchor = FrameAnchor.Top,
 Size = new(2,1),
 Origin = new(72,0),
-Name = "A",
+Name = "Geyser",
+Variety = "A",
 },
 
 new SpriteData()
@@ -52843,46 +54075,53 @@ TileType = 443,
 Anchor = FrameAnchor.Top,
 Size = new(2,1),
 Origin = new(108,0),
-Name = "B",
+Name = "Geyser",
+Variety = "B",
 },
 
 new SpriteData()
 {
 TileType = 444,
 Size = new(2,2),
+Name = "Bee_Hive",
 },
 
 new SpriteData()
 {
 TileType = 445,
-Name = "Off",
+Name = "Pixel_Box",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 445,
 Origin = new(18,0),
-Name = "On",
+Name = "Pixel_Box",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 445,
 Origin = new(18,18),
-Name = "C",
+Name = "Pixel_Box",
+Variety = "C",
 },
 
 new SpriteData()
 {
 TileType = 452,
 Size = new(3,2),
+Name = "Silly_Balloon_Machine",
 },
 
 new SpriteData()
 {
 TileType = 453,
 Size = new(1,3),
-Name = "Purple_Left",
+Name = "Silly_Tied_Balloon",
+Variety = "Purple_Left",
 },
 
 new SpriteData()
@@ -52890,7 +54129,8 @@ new SpriteData()
 TileType = 453,
 Size = new(1,3),
 Origin = new(18,0),
-Name = "Purple_Right",
+Name = "Silly_Tied_Balloon",
+Variety = "Purple_Right",
 },
 
 new SpriteData()
@@ -52898,7 +54138,8 @@ new SpriteData()
 TileType = 453,
 Size = new(1,3),
 Origin = new(36,0),
-Name = "Green_Left",
+Name = "Silly_Tied_Balloon",
+Variety = "Green_Left",
 },
 
 new SpriteData()
@@ -52906,7 +54147,8 @@ new SpriteData()
 TileType = 453,
 Size = new(1,3),
 Origin = new(54,0),
-Name = "Green_Right",
+Name = "Silly_Tied_Balloon",
+Variety = "Green_Right",
 },
 
 new SpriteData()
@@ -52914,7 +54156,8 @@ new SpriteData()
 TileType = 453,
 Size = new(1,3),
 Origin = new(72,0),
-Name = "Pink_Left",
+Name = "Silly_Tied_Balloon",
+Variety = "Pink_Left",
 },
 
 new SpriteData()
@@ -52922,32 +54165,37 @@ new SpriteData()
 TileType = 453,
 Size = new(1,3),
 Origin = new(90,0),
-Name = "Pink_Right",
+Name = "Silly_Tied_Balloon",
+Variety = "Pink_Right",
 },
 
 new SpriteData()
 {
 TileType = 454,
 Size = new(4,3),
+Name = "Pigronata",
 },
 
 new SpriteData()
 {
 TileType = 455,
 Size = new(3,3),
+Name = "Party_Center",
 },
 
 new SpriteData()
 {
 TileType = 456,
 Size = new(2,3),
+Name = "Silly_Tied_Bundle_of_Balloons",
 },
 
 new SpriteData()
 {
 TileType = 457,
 Size = new(2,2),
-Name = "Blue_with_Green_Ribbon",
+Name = "Party_Presents",
+Variety = "Blue_with_Green_Ribbon",
 },
 
 new SpriteData()
@@ -52955,7 +54203,8 @@ new SpriteData()
 TileType = 457,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Pink_with_Blue_Ribbon",
+Name = "Party_Presents",
+Variety = "Pink_with_Blue_Ribbon",
 },
 
 new SpriteData()
@@ -52963,7 +54212,8 @@ new SpriteData()
 TileType = 457,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Cyan_with_Pink_Ribbon",
+Name = "Party_Presents",
+Variety = "Cyan_with_Pink_Ribbon",
 },
 
 new SpriteData()
@@ -52971,7 +54221,8 @@ new SpriteData()
 TileType = 457,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Purple_with_Green_Ribbon",
+Name = "Party_Presents",
+Variety = "Purple_with_Green_Ribbon",
 },
 
 new SpriteData()
@@ -52979,42 +54230,49 @@ new SpriteData()
 TileType = 457,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "White_with_Pink_Ribbon",
+Name = "Party_Presents",
+Variety = "White_with_Pink_Ribbon",
 },
 
 new SpriteData()
 {
 TileType = 461,
+Name = "Sand_Drip",
 },
 
 new SpriteData()
 {
 TileType = 462,
 Size = new(2,1),
+Name = "Desert_Spirit_Lamp",
 },
 
 new SpriteData()
 {
 TileType = 463,
 Size = new(3,4),
+Name = "Defender's_Forge",
 },
 
 new SpriteData()
 {
 TileType = 464,
 Size = new(5,4),
+Name = "War_Table",
 },
 
 new SpriteData()
 {
 TileType = 465,
 Size = new(2,3),
+Name = "War_Table_Banner",
 },
 
 new SpriteData()
 {
 TileType = 466,
 Size = new(5,4),
+Name = "Elder_Cystal_Stand",
 },
 
 new SpriteData()
@@ -53467,6 +54725,7 @@ new SpriteData()
 {
 TileType = 471,
 Size = new(3,3),
+Name = "Weapon_Rack",
 },
 
 new SpriteData()
@@ -53474,13 +54733,15 @@ new SpriteData()
 TileType = 471,
 Size = new(3,3),
 Origin = new(54,0),
-Name = "Flipped",
+Name = "Weapon_Rack",
+Variety = "Flipped",
 },
 
 new SpriteData()
 {
 TileType = 475,
 Size = new(3,4),
+Name = "Hat_Rack",
 },
 
 new SpriteData()
@@ -53488,19 +54749,22 @@ new SpriteData()
 TileType = 475,
 Size = new(3,4),
 Origin = new(54,0),
-Name = "Flipped",
+Name = "Hat_Rack",
+Variety = "Flipped",
 },
 
 new SpriteData()
 {
 TileType = 476,
+Name = "Golf_Cup",
 },
 
 new SpriteData()
 {
 TileType = 480,
 Size = new(2,3),
-Name = "Off",
+Name = "Blood_Moon_Monolith",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -53508,25 +54772,29 @@ new SpriteData()
 TileType = 480,
 Size = new(2,3),
 Origin = new(0,54),
-Name = "On",
+Name = "Blood_Moon_Monolith",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 484,
 Size = new(2,2),
+Name = "Rolling_Cactus",
 },
 
 new SpriteData()
 {
 TileType = 485,
 Size = new(2,2),
+Name = "Antlion_Larva",
 },
 
 new SpriteData()
 {
 TileType = 486,
 Size = new(3,2),
+Name = "Drum_Set",
 },
 
 new SpriteData()
@@ -53548,24 +54816,28 @@ new SpriteData()
 {
 TileType = 488,
 Size = new(3,2),
+Name = "Fallen_Log",
 },
 
 new SpriteData()
 {
 TileType = 489,
 Size = new(2,3),
+Name = "Pin_Wheel",
 },
 
 new SpriteData()
 {
 TileType = 490,
 Size = new(2,2),
+Name = "Weather_Vane",
 },
 
 new SpriteData()
 {
 TileType = 491,
 Size = new(3,3),
+Name = "Void_Vault",
 },
 
 new SpriteData()
@@ -53618,6 +54890,7 @@ Name = "Purple_Pin_Flag",
 new SpriteData()
 {
 TileType = 494,
+Name = "Golf_Tee",
 },
 
 new SpriteData()
@@ -54397,12 +55670,14 @@ new SpriteData()
 {
 TileType = 499,
 Size = new(3,3),
+Name = "Decay_Chamber",
 },
 
 new SpriteData()
 {
 TileType = 505,
 Size = new(2,2),
+Name = "Gold_Fish_Bowl",
 },
 
 new SpriteData()
@@ -54410,7 +55685,8 @@ new SpriteData()
 TileType = 506,
 Anchor = FrameAnchor.Left,
 Size = new(2,3),
-Name = "On",
+Name = "Bast_Statue",
+Variety = "On",
 },
 
 new SpriteData()
@@ -54419,7 +55695,8 @@ TileType = 506,
 Anchor = FrameAnchor.Right,
 Size = new(2,3),
 Origin = new(36,0),
-Name = "On",
+Name = "Bast_Statue",
+Variety = "On",
 },
 
 new SpriteData()
@@ -54428,7 +55705,8 @@ TileType = 506,
 Anchor = FrameAnchor.Left,
 Size = new(2,3),
 Origin = new(72,0),
-Name = "Off",
+Name = "Bast_Statue",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -54437,14 +55715,16 @@ TileType = 506,
 Anchor = FrameAnchor.Right,
 Size = new(2,3),
 Origin = new(108,0),
-Name = "Off",
+Name = "Bast_Statue",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 509,
 Size = new(2,3),
-Name = "Off",
+Name = "Void_Monolith",
+Variety = "Off",
 },
 
 new SpriteData()
@@ -54452,7 +55732,8 @@ new SpriteData()
 TileType = 509,
 Size = new(2,3),
 Origin = new(0,54),
-Name = "On",
+Name = "Void_Monolith",
+Variety = "On",
 },
 
 new SpriteData()
@@ -54460,7 +55741,8 @@ new SpriteData()
 TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
-Name = "Right",
+Name = "Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54469,7 +55751,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Right",
+Name = "Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54478,7 +55761,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Right",
+Name = "Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54487,7 +55771,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Right",
+Name = "Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54495,7 +55780,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Right",
+Name = "Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54504,7 +55790,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,36),
-Name = "Down-Right",
+Name = "Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54513,7 +55800,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,36),
-Name = "Down-Right",
+Name = "Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54522,7 +55810,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,36),
-Name = "Down-Right",
+Name = "Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54531,7 +55820,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,36),
-Name = "Down-Right",
+Name = "Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54539,7 +55829,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,36),
-Name = "Down-Right",
+Name = "Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54548,7 +55839,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,72),
-Name = "Down",
+Name = "Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54557,7 +55849,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,72),
-Name = "Down",
+Name = "Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54566,7 +55859,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,72),
-Name = "Down",
+Name = "Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54575,7 +55869,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,72),
-Name = "Down",
+Name = "Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54583,7 +55878,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,72),
-Name = "Down",
+Name = "Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54592,7 +55888,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,108),
-Name = "Down-Left",
+Name = "Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54601,7 +55898,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,108),
-Name = "Down-Left",
+Name = "Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54610,7 +55908,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,108),
-Name = "Down-Left",
+Name = "Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54619,7 +55918,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,108),
-Name = "Down-Left",
+Name = "Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54627,7 +55927,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,108),
-Name = "Down-Left",
+Name = "Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54636,7 +55937,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,144),
-Name = "Left",
+Name = "Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -54645,7 +55947,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,144),
-Name = "Left",
+Name = "Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -54654,7 +55957,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,144),
-Name = "Left",
+Name = "Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -54663,7 +55967,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,144),
-Name = "Left",
+Name = "Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -54671,7 +55976,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,144),
-Name = "Left",
+Name = "Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -54680,7 +55986,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,180),
-Name = "Up-Left",
+Name = "Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -54689,7 +55996,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,180),
-Name = "Up-Left",
+Name = "Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -54698,7 +56006,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,180),
-Name = "Up-Left",
+Name = "Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -54707,7 +56016,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,180),
-Name = "Up-Left",
+Name = "Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -54715,7 +56025,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,180),
-Name = "Up-Left",
+Name = "Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -54724,7 +56035,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,216),
-Name = "Up",
+Name = "Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -54733,7 +56045,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,216),
-Name = "Up",
+Name = "Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -54742,7 +56055,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,216),
-Name = "Up",
+Name = "Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -54751,7 +56065,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,216),
-Name = "Up",
+Name = "Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -54759,7 +56074,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,216),
-Name = "Up",
+Name = "Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -54768,7 +56084,8 @@ TileType = 510,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,252),
-Name = "Up-Right",
+Name = "Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -54777,7 +56094,8 @@ TileType = 510,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,252),
-Name = "Up-Right",
+Name = "Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -54786,7 +56104,8 @@ TileType = 510,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,252),
-Name = "Up-Right",
+Name = "Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -54795,7 +56114,8 @@ TileType = 510,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,252),
-Name = "Up-Right",
+Name = "Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -54803,7 +56123,8 @@ new SpriteData()
 TileType = 510,
 Size = new(2,2),
 Origin = new(144,252),
-Name = "Up-Right",
+Name = "Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -54811,7 +56132,8 @@ new SpriteData()
 TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
-Name = "Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54820,7 +56142,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54829,7 +56152,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54838,7 +56162,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54846,7 +56171,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Right",
 },
 
 new SpriteData()
@@ -54855,7 +56181,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,36),
-Name = "Down-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54864,7 +56191,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,36),
-Name = "Down-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54873,7 +56201,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,36),
-Name = "Down-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54882,7 +56211,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,36),
-Name = "Down-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54890,7 +56220,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,36),
-Name = "Down-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Right",
 },
 
 new SpriteData()
@@ -54899,7 +56230,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,72),
-Name = "Down",
+Name = "Painted_Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54908,7 +56240,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,72),
-Name = "Down",
+Name = "Painted_Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54917,7 +56250,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,72),
-Name = "Down",
+Name = "Painted_Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54926,7 +56260,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,72),
-Name = "Down",
+Name = "Painted_Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54934,7 +56269,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,72),
-Name = "Down",
+Name = "Painted_Arrow_Sign",
+Variety = "Down",
 },
 
 new SpriteData()
@@ -54943,7 +56279,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,108),
-Name = "Down-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54952,7 +56289,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,108),
-Name = "Down-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54961,7 +56299,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,108),
-Name = "Down-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54970,7 +56309,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,108),
-Name = "Down-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54978,7 +56318,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,108),
-Name = "Down-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Down-Left",
 },
 
 new SpriteData()
@@ -54987,7 +56328,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,144),
-Name = "Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -54996,7 +56338,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,144),
-Name = "Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -55005,7 +56348,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,144),
-Name = "Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -55014,7 +56358,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,144),
-Name = "Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -55022,7 +56367,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,144),
-Name = "Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -55031,7 +56377,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,180),
-Name = "Up-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -55040,7 +56387,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,180),
-Name = "Up-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -55049,7 +56397,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,180),
-Name = "Up-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -55058,7 +56407,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,180),
-Name = "Up-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -55066,7 +56416,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,180),
-Name = "Up-Left",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Left",
 },
 
 new SpriteData()
@@ -55075,7 +56426,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,216),
-Name = "Up",
+Name = "Painted_Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -55084,7 +56436,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,216),
-Name = "Up",
+Name = "Painted_Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -55093,7 +56446,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,216),
-Name = "Up",
+Name = "Painted_Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -55102,7 +56456,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,216),
-Name = "Up",
+Name = "Painted_Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -55110,7 +56465,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,216),
-Name = "Up",
+Name = "Painted_Arrow_Sign",
+Variety = "Up",
 },
 
 new SpriteData()
@@ -55119,7 +56475,8 @@ TileType = 511,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(0,252),
-Name = "Up-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -55128,7 +56485,8 @@ TileType = 511,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
 Origin = new(36,252),
-Name = "Up-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -55137,7 +56495,8 @@ TileType = 511,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,252),
-Name = "Up-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -55146,7 +56505,8 @@ TileType = 511,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,252),
-Name = "Up-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -55154,7 +56514,8 @@ new SpriteData()
 TileType = 511,
 Size = new(2,2),
 Origin = new(144,252),
-Name = "Up-Right",
+Name = "Painted_Arrow_Sign",
+Variety = "Up-Right",
 },
 
 new SpriteData()
@@ -56502,56 +57863,65 @@ Variety = "Flower_D",
 new SpriteData()
 {
 TileType = 520,
-Name = "A",
+Name = "Plate",
+Variety = "A",
 },
 
 new SpriteData()
 {
 TileType = 520,
 Origin = new(18,0),
-Name = "B",
+Name = "Plate",
+Variety = "B",
 },
 
 new SpriteData()
 {
 TileType = 521,
 Size = new(2,2),
+Name = "Black_Dragonfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 522,
 Size = new(2,2),
+Name = "Blue_Dragonfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 523,
 Size = new(2,2),
+Name = "Green_Dragonfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 524,
 Size = new(2,2),
+Name = "Orange_Dragonfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 525,
 Size = new(2,2),
+Name = "Red_Dragonfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 526,
 Size = new(2,2),
+Name = "Yellow_Dragonfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 527,
 Size = new(2,2),
+Name = "Gold_Dragonfly_Jar",
 },
 
 new SpriteData()
@@ -57232,7 +58602,8 @@ new SpriteData()
 {
 TileType = 530,
 Size = new(3,2),
-Name = "A",
+Name = "Oasis_Plants",
+Variety = "A",
 },
 
 new SpriteData()
@@ -57240,7 +58611,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "B",
+Name = "Oasis_Plants",
+Variety = "B",
 },
 
 new SpriteData()
@@ -57248,7 +58620,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "C",
+Name = "Oasis_Plants",
+Variety = "C",
 },
 
 new SpriteData()
@@ -57256,7 +58629,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "D",
+Name = "Oasis_Plants",
+Variety = "D",
 },
 
 new SpriteData()
@@ -57264,7 +58638,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "E",
+Name = "Oasis_Plants",
+Variety = "E",
 },
 
 new SpriteData()
@@ -57272,7 +58647,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "F",
+Name = "Oasis_Plants",
+Variety = "F",
 },
 
 new SpriteData()
@@ -57280,7 +58656,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "G",
+Name = "Oasis_Plants",
+Variety = "G",
 },
 
 new SpriteData()
@@ -57288,7 +58665,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "H",
+Name = "Oasis_Plants",
+Variety = "H",
 },
 
 new SpriteData()
@@ -57296,7 +58674,8 @@ new SpriteData()
 TileType = 530,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "I",
+Name = "Oasis_Plants",
+Variety = "I",
 },
 
 new SpriteData()
@@ -57546,42 +58925,49 @@ new SpriteData()
 {
 TileType = 531,
 Size = new(2,3),
+Name = "Boulder_Statue",
 },
 
 new SpriteData()
 {
 TileType = 532,
 Size = new(3,2),
+Name = "Maggot_Cage",
 },
 
 new SpriteData()
 {
 TileType = 533,
 Size = new(3,2),
+Name = "Rat_Cage",
 },
 
 new SpriteData()
 {
 TileType = 538,
 Size = new(3,2),
+Name = "Ladybug_Cage",
 },
 
 new SpriteData()
 {
 TileType = 542,
 Size = new(6,3),
+Name = "Owl_Cage",
 },
 
 new SpriteData()
 {
 TileType = 543,
 Size = new(2,2),
+Name = "Pupfish_Bowl",
 },
 
 new SpriteData()
 {
 TileType = 544,
 Size = new(3,2),
+Name = "Gold_Ladybug_Cage",
 },
 
 new SpriteData()
@@ -57589,7 +58975,8 @@ new SpriteData()
 TileType = 545,
 Anchor = FrameAnchor.Left,
 Size = new(2,3),
-Name = "Leg_Up",
+Name = "Lawn_Flamingo",
+Variety = "Leg_Up",
 },
 
 new SpriteData()
@@ -57598,7 +58985,8 @@ TileType = 545,
 Anchor = FrameAnchor.Left,
 Size = new(2,3),
 Origin = new(36,0),
-Name = "Leg_Down",
+Name = "Lawn_Flamingo",
+Variety = "Leg_Down",
 },
 
 new SpriteData()
@@ -57607,7 +58995,8 @@ TileType = 545,
 Anchor = FrameAnchor.Right,
 Size = new(2,3),
 Origin = new(0,54),
-Name = "Leg_Up",
+Name = "Lawn_Flamingo",
+Variety = "Leg_Up",
 },
 
 new SpriteData()
@@ -57616,7 +59005,8 @@ TileType = 545,
 Anchor = FrameAnchor.Right,
 Size = new(2,3),
 Origin = new(36,54),
-Name = "Leg_Down",
+Name = "Lawn_Flamingo",
+Variety = "Leg_Down",
 },
 
 new SpriteData()
@@ -57732,110 +59122,126 @@ Name = "Potted_Brimstone_Bush",
 new SpriteData()
 {
 TileType = 549,
-Name = "A",
+Name = "Seaweed",
+Variety = "A",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(18,0),
-Name = "B",
+Name = "Seaweed",
+Variety = "B",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(36,0),
-Name = "C",
+Name = "Seaweed",
+Variety = "C",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(54,0),
-Name = "D",
+Name = "Seaweed",
+Variety = "D",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(72,0),
-Name = "E",
+Name = "Seaweed",
+Variety = "E",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(90,0),
-Name = "F",
+Name = "Seaweed",
+Variety = "F",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(108,0),
-Name = "G",
+Name = "Seaweed",
+Variety = "G",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(126,0),
-Name = "H",
+Name = "Seaweed",
+Variety = "H",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(144,0),
-Name = "I",
+Name = "Seaweed",
+Variety = "I",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(162,0),
-Name = "J",
+Name = "Seaweed",
+Variety = "J",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(180,0),
-Name = "K",
+Name = "Seaweed",
+Variety = "K",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(198,0),
-Name = "L",
+Name = "Seaweed",
+Variety = "L",
 },
 
 new SpriteData()
 {
 TileType = 549,
 Origin = new(216,0),
-Name = "M",
+Name = "Seaweed",
+Variety = "M",
 },
 
 new SpriteData()
 {
 TileType = 550,
 Size = new(6,3),
+Name = "Turtle_Cage",
 },
 
 new SpriteData()
 {
 TileType = 551,
 Size = new(6,3),
+Name = "Jungle_Turtle_Cage",
 },
 
 new SpriteData()
 {
 TileType = 552,
 Size = new(3,2),
-Name = "A",
+Name = "Sandcastle_Bucket",
+Variety = "A",
 },
 
 new SpriteData()
@@ -57843,7 +59249,8 @@ new SpriteData()
 TileType = 552,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "B",
+Name = "Sandcastle_Bucket",
+Variety = "B",
 },
 
 new SpriteData()
@@ -57851,7 +59258,8 @@ new SpriteData()
 TileType = 552,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "C",
+Name = "Sandcastle_Bucket",
+Variety = "C",
 },
 
 new SpriteData()
@@ -57859,43 +59267,50 @@ new SpriteData()
 TileType = 552,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "D",
+Name = "Sandcastle_Bucket",
+Variety = "D",
 },
 
 new SpriteData()
 {
 TileType = 553,
 Size = new(6,3),
+Name = "Grebe_Cage",
 },
 
 new SpriteData()
 {
 TileType = 554,
 Size = new(6,3),
+Name = "Seagull_Cage",
 },
 
 new SpriteData()
 {
 TileType = 555,
 Size = new(3,2),
+Name = "Water_Strider_Cage",
 },
 
 new SpriteData()
 {
 TileType = 556,
 Size = new(3,2),
+Name = "Gold_Water_Strider_Cage",
 },
 
 new SpriteData()
 {
 TileType = 558,
 Size = new(6,3),
+Name = "Seahorse_Cage",
 },
 
 new SpriteData()
 {
 TileType = 559,
 Size = new(6,3),
+Name = "Gold_Seahorse_Cage",
 },
 
 new SpriteData()
@@ -57925,7 +59340,8 @@ new SpriteData()
 {
 TileType = 564,
 Size = new(2,2),
-Name = "On",
+Name = "Plasma_Lamp",
+Variety = "On",
 },
 
 new SpriteData()
@@ -57933,14 +59349,16 @@ new SpriteData()
 TileType = 564,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Off",
+Name = "Plasma_Lamp",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 565,
 Size = new(2,2),
-Name = "On",
+Name = "Fog_Machine",
+Variety = "On",
 },
 
 new SpriteData()
@@ -57948,14 +59366,16 @@ new SpriteData()
 TileType = 565,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Off",
+Name = "Fog_Machine",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 567,
 Size = new(1,2),
-Name = "A",
+Name = "Garden_Gnome",
+Variety = "A",
 },
 
 new SpriteData()
@@ -57963,7 +59383,8 @@ new SpriteData()
 TileType = 567,
 Size = new(1,2),
 Origin = new(28,0),
-Name = "B",
+Name = "Garden_Gnome",
+Variety = "B",
 },
 
 new SpriteData()
@@ -57971,7 +59392,8 @@ new SpriteData()
 TileType = 567,
 Size = new(1,2),
 Origin = new(56,0),
-Name = "C",
+Name = "Garden_Gnome",
+Variety = "C",
 },
 
 new SpriteData()
@@ -57979,7 +59401,8 @@ new SpriteData()
 TileType = 567,
 Size = new(1,2),
 Origin = new(84,0),
-Name = "D",
+Name = "Garden_Gnome",
+Variety = "D",
 },
 
 new SpriteData()
@@ -57987,164 +59410,188 @@ new SpriteData()
 TileType = 567,
 Size = new(1,2),
 Origin = new(112,0),
-Name = "E",
+Name = "Garden_Gnome",
+Variety = "E",
 },
 
 new SpriteData()
 {
 TileType = 568,
 Size = new(2,2),
+Name = "Pink_Fairy_Jar",
 },
 
 new SpriteData()
 {
 TileType = 569,
 Size = new(2,2),
+Name = "Green_Fairy_Jar",
 },
 
 new SpriteData()
 {
 TileType = 570,
 Size = new(2,2),
+Name = "Blue_Fairy_Jar",
 },
 
 new SpriteData()
 {
 TileType = 571,
-Name = "Base_A",
+Name = "Bamboo",
+Variety = "Base_A",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(18,0),
-Name = "Base_B",
+Name = "Bamboo",
+Variety = "Base_B",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(36,0),
-Name = "Base_C",
+Name = "Bamboo",
+Variety = "Base_C",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(54,0),
-Name = "Base_D",
+Name = "Bamboo",
+Variety = "Base_D",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(72,0),
-Name = "Base_E",
+Name = "Bamboo",
+Variety = "Base_E",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(90,0),
-Name = "Stem_A",
+Name = "Bamboo",
+Variety = "Stem_A",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(108,0),
-Name = "Stem_B",
+Name = "Bamboo",
+Variety = "Stem_B",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(126,0),
-Name = "Stem_C",
+Name = "Bamboo",
+Variety = "Stem_C",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(144,0),
-Name = "Stem_D",
+Name = "Bamboo",
+Variety = "Stem_D",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(162,0),
-Name = "Stem_E",
+Name = "Bamboo",
+Variety = "Stem_E",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(180,0),
-Name = "Stem_F",
+Name = "Bamboo",
+Variety = "Stem_F",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(198,0),
-Name = "Stem_G",
+Name = "Bamboo",
+Variety = "Stem_G",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(216,0),
-Name = "Stem_H",
+Name = "Bamboo",
+Variety = "Stem_H",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(234,0),
-Name = "Base_F",
+Name = "Bamboo",
+Variety = "Base_F",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(252,0),
-Name = "Top_A",
+Name = "Bamboo",
+Variety = "Top_A",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(270,0),
-Name = "Top_B",
+Name = "Bamboo",
+Variety = "Top_B",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(288,0),
-Name = "Top_C",
+Name = "Bamboo",
+Variety = "Top_C",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(306,0),
-Name = "Top_D",
+Name = "Bamboo",
+Variety = "Top_D",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(324,0),
-Name = "Top_E",
+Name = "Bamboo",
+Variety = "Top_E",
 },
 
 new SpriteData()
 {
 TileType = 571,
 Origin = new(342,0),
-Name = "Top_F",
+Name = "Bamboo",
+Variety = "Top_F",
 },
 
 new SpriteData()
@@ -58199,7 +59646,8 @@ new SpriteData()
 TileType = 573,
 Anchor = FrameAnchor.Top,
 Size = new(2,2),
-Name = "Ground",
+Name = "Tattered_Wood_Sign",
+Variety = "Ground",
 },
 
 new SpriteData()
@@ -58208,7 +59656,8 @@ TileType = 573,
 Anchor = FrameAnchor.Bottom,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Hanging",
+Name = "Tattered_Wood_Sign",
+Variety = "Hanging",
 },
 
 new SpriteData()
@@ -58217,7 +59666,8 @@ TileType = 573,
 Anchor = FrameAnchor.Left,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Left_Side",
+Name = "Tattered_Wood_Sign",
+Variety = "Left_Side",
 },
 
 new SpriteData()
@@ -58226,7 +59676,8 @@ TileType = 573,
 Anchor = FrameAnchor.Right,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Right_Side",
+Name = "Tattered_Wood_Sign",
+Variety = "Right_Side",
 },
 
 new SpriteData()
@@ -58234,14 +59685,16 @@ new SpriteData()
 TileType = 573,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Wall",
+Name = "Tattered_Wood_Sign",
+Variety = "Wall",
 },
 
 new SpriteData()
 {
 TileType = 579,
 Anchor = FrameAnchor.Left,
-Name = "A",
+Name = "Rock_Golem_Head",
+Variety = "A",
 },
 
 new SpriteData()
@@ -58249,7 +59702,8 @@ new SpriteData()
 TileType = 579,
 Anchor = FrameAnchor.Right,
 Origin = new(22,0),
-Name = "A",
+Name = "Rock_Golem_Head",
+Variety = "A",
 },
 
 new SpriteData()
@@ -58257,7 +59711,8 @@ new SpriteData()
 TileType = 579,
 Anchor = FrameAnchor.Left,
 Origin = new(0,22),
-Name = "B",
+Name = "Rock_Golem_Head",
+Variety = "B",
 },
 
 new SpriteData()
@@ -58265,3546 +59720,4054 @@ new SpriteData()
 TileType = 579,
 Anchor = FrameAnchor.Right,
 Origin = new(22,22),
-Name = "B",
+Name = "Rock_Golem_Head",
+Variety = "B",
 },
 
 new SpriteData()
 {
 TileType = 580,
 Size = new(2,2),
+Name = "Hell_Butterfly_Jar",
 },
 
 new SpriteData()
 {
 TileType = 581,
 Size = new(1,2),
+Name = "Lavafly_in_a_Bottle",
 },
 
 new SpriteData()
 {
 TileType = 582,
 Size = new(3,2),
+Name = "Magma_Snail_Cage",
 },
 
 new SpriteData()
 {
 TileType = 583,
-Name = "Trunk_Plain_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Topaz_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Topaz_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Topaz_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Topaz_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Topaz_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Topaz_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Topaz_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Topaz_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Topaz_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Topaz_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Topaz_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Topaz_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Topaz_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Topaz_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Topaz_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Topaz_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Topaz_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Topaz_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Topaz_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Topaz_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Topaz_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Topaz_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Topaz_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Topaz_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Topaz_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Topaz_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Topaz_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Topaz_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Topaz_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Topaz_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Topaz_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Topaz_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Topaz_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Topaz_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 583,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Topaz_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
-Name = "Trunk_Plain_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Amethyst_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Amethyst_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Amethyst_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Amethyst_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Amethyst_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Amethyst_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Amethyst_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Amethyst_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Amethyst_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Amethyst_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Amethyst_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Amethyst_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Amethyst_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Amethyst_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Amethyst_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Amethyst_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Amethyst_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Amethyst_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 584,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Amethyst_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
-Name = "Trunk_Plain_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Sapphire_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Sapphire_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Sapphire_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Sapphire_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Sapphire_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Sapphire_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Sapphire_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Sapphire_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Sapphire_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Sapphire_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Sapphire_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Sapphire_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Sapphire_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Sapphire_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Sapphire_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Sapphire_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Sapphire_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Sapphire_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 585,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Sapphire_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
-Name = "Trunk_Plain_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Emerald_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Emerald_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Emerald_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Emerald_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Emerald_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Emerald_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Emerald_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Emerald_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Emerald_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Emerald_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Emerald_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Emerald_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Emerald_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Emerald_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Emerald_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Emerald_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Emerald_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Emerald_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Emerald_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Emerald_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Emerald_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Emerald_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Emerald_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Emerald_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Emerald_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Emerald_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Emerald_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Emerald_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Emerald_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Emerald_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Emerald_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Emerald_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Emerald_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Emerald_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 586,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Emerald_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
-Name = "Trunk_Plain_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Ruby_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Ruby_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Ruby_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Ruby_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Ruby_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Ruby_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Ruby_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Ruby_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Ruby_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Ruby_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Ruby_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Ruby_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Ruby_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Ruby_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Ruby_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Ruby_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Ruby_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Ruby_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Ruby_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Ruby_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Ruby_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Ruby_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Ruby_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Ruby_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Ruby_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Ruby_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Ruby_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Ruby_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Ruby_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Ruby_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Ruby_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Ruby_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Ruby_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Ruby_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 587,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Ruby_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
-Name = "Trunk_Plain_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Diamond_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Diamond_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Diamond_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Diamond_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Diamond_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Diamond_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Diamond_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Diamond_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Diamond_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Diamond_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Diamond_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Diamond_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Diamond_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Diamond_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Diamond_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Diamond_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Diamond_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Diamond_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Diamond_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Diamond_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Diamond_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Diamond_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Diamond_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Diamond_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Diamond_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Diamond_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Diamond_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Diamond_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Diamond_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Diamond_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Diamond_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Diamond_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Diamond_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Diamond_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 588,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Diamond_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
-Name = "Trunk_Plain_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Amber_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Amber_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Amber_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Amber_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Amber_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Amber_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Amber_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Amber_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Amber_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Amber_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Amber_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Amber_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Amber_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Amber_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Amber_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Amber_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Amber_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Amber_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Amber_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Amber_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Amber_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Amber_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Amber_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Amber_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Amber_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Amber_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Amber_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Amber_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Amber_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Amber_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Amber_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Amber_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Amber_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Amber_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 589,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Amber_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
@@ -62097,24 +64060,28 @@ new SpriteData()
 {
 TileType = 592,
 Size = new(2,3),
+Name = "Hanging_Brazier",
 },
 
 new SpriteData()
 {
 TileType = 593,
+Name = "Mini_Volcano",
 },
 
 new SpriteData()
 {
 TileType = 594,
 Size = new(2,2),
+Name = "Large_Volcano",
 },
 
 new SpriteData()
 {
 TileType = 595,
 Size = new(1,2),
-Name = "A",
+Name = "Sakura_Sapling",
+Variety = "A",
 },
 
 new SpriteData()
@@ -62122,7 +64089,8 @@ new SpriteData()
 TileType = 595,
 Size = new(1,2),
 Origin = new(18,0),
-Name = "B",
+Name = "Sakura_Sapling",
+Variety = "B",
 },
 
 new SpriteData()
@@ -62130,510 +64098,583 @@ new SpriteData()
 TileType = 595,
 Size = new(1,2),
 Origin = new(36,0),
-Name = "C",
+Name = "Sakura_Sapling",
+Variety = "C",
 },
 
 new SpriteData()
 {
 TileType = 596,
-Name = "Trunk_Plain_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,0),
-Name = "Trunk_Right_Indent_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,22),
-Name = "Trunk_Right_Indent_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,44),
-Name = "Trunk_Right_Indent_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,66),
-Name = "Trunk_Left_Indent_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,88),
-Name = "Trunk_Left_Indent_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,110),
-Name = "Trunk_Left_Indent_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Vanity_Tree_Sakura",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 596,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Vanity_Tree_Sakura",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
@@ -62720,90 +64761,105 @@ new SpriteData()
 {
 TileType = 598,
 Size = new(2,2),
+Name = "Lava_Serpent_Bowl",
 },
 
 new SpriteData()
 {
 TileType = 599,
 Size = new(6,3),
+Name = "Amethyst_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 600,
 Size = new(6,3),
+Name = "Topaz_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 601,
 Size = new(6,3),
+Name = "Sapphire_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 602,
 Size = new(6,3),
+Name = "Emerald_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 603,
 Size = new(6,3),
+Name = "Ruby_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 604,
 Size = new(6,3),
+Name = "Diamond_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 605,
 Size = new(6,3),
+Name = "Amber_Bunny_Cage",
 },
 
 new SpriteData()
 {
 TileType = 606,
 Size = new(6,3),
+Name = "Amethyst_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 607,
 Size = new(6,3),
+Name = "Topaz_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 608,
 Size = new(6,3),
+Name = "Sapphire_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 609,
 Size = new(6,3),
+Name = "Emerald_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 610,
 Size = new(6,3),
+Name = "Ruby_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 611,
 Size = new(6,3),
+Name = "Diamond_Squirrel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 612,
 Size = new(6,3),
+Name = "Amber_Squirrel_Cage",
 },
 
 new SpriteData()
@@ -62825,13 +64881,15 @@ new SpriteData()
 {
 TileType = 614,
 Size = new(3,6),
+Name = "Potted_Ember_Tendrils",
 },
 
 new SpriteData()
 {
 TileType = 615,
 Size = new(1,2),
-Name = "A",
+Name = "Yellow_Willow_Sapling",
+Variety = "A",
 },
 
 new SpriteData()
@@ -62839,7 +64897,8 @@ new SpriteData()
 TileType = 615,
 Size = new(1,2),
 Origin = new(18,0),
-Name = "B",
+Name = "Yellow_Willow_Sapling",
+Variety = "B",
 },
 
 new SpriteData()
@@ -62847,517 +64906,591 @@ new SpriteData()
 TileType = 615,
 Size = new(1,2),
 Origin = new(36,0),
-Name = "C",
+Name = "Yellow_Willow_Sapling",
+Variety = "C",
 },
 
 new SpriteData()
 {
 TileType = 616,
-Name = "Trunk_Plain_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,0),
-Name = "Trunk_Right_Indent_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,22),
-Name = "Trunk_Right_Indent_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,44),
-Name = "Trunk_Right_Indent_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,66),
-Name = "Trunk_Left_Indent_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,88),
-Name = "Trunk_Left_Indent_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,110),
-Name = "Trunk_Left_Indent_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 616,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Vanity_Tree_Yellow_Willow",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 617,
 Size = new(3,4),
-Name = "Left",
+Name = "Relic_Base",
+Variety = "Left",
 },
 
 new SpriteData()
@@ -63365,31 +65498,36 @@ new SpriteData()
 TileType = 617,
 Size = new(3,4),
 Origin = new(0,72),
-Name = "Right",
+Name = "Relic_Base",
+Variety = "Right",
 },
 
 new SpriteData()
 {
 TileType = 619,
 Size = new(3,2),
+Name = "Truffle_Worm_Cage",
 },
 
 new SpriteData()
 {
 TileType = 620,
 Size = new(2,2),
+Name = "Prismatic_Lacewing_Jar",
 },
 
 new SpriteData()
 {
 TileType = 621,
 Size = new(2,2),
+Name = "Slice_of_Cake",
 },
 
 new SpriteData()
 {
 TileType = 622,
 Size = new(2,2),
+Name = "Teapot",
 },
 
 new SpriteData()
@@ -63426,18 +65564,21 @@ Name = "Potted_Crystal_Tree",
 new SpriteData()
 {
 TileType = 624,
+Name = "Abigail's_Flower",
 },
 
 new SpriteData()
 {
 TileType = 629,
 Size = new(3,2),
+Name = "Stinkbug_Cage",
 },
 
 new SpriteData()
 {
 TileType = 630,
 Anchor = FrameAnchor.Bottom,
+Name = "Stinkbug_Blocker",
 },
 
 new SpriteData()
@@ -63445,6 +65586,7 @@ new SpriteData()
 TileType = 630,
 Anchor = FrameAnchor.Top,
 Origin = new(18,0),
+Name = "Stinkbug_Blocker",
 },
 
 new SpriteData()
@@ -63452,6 +65594,7 @@ new SpriteData()
 TileType = 630,
 Anchor = FrameAnchor.Right,
 Origin = new(36,0),
+Name = "Stinkbug_Blocker",
 },
 
 new SpriteData()
@@ -63459,18 +65602,21 @@ new SpriteData()
 TileType = 630,
 Anchor = FrameAnchor.Left,
 Origin = new(54,0),
+Name = "Stinkbug_Blocker",
 },
 
 new SpriteData()
 {
 TileType = 630,
 Origin = new(72,0),
+Name = "Stinkbug_Blocker",
 },
 
 new SpriteData()
 {
 TileType = 631,
 Anchor = FrameAnchor.Bottom,
+Name = "Ghostly_Stinkbug_Blocker",
 },
 
 new SpriteData()
@@ -63478,6 +65624,7 @@ new SpriteData()
 TileType = 631,
 Anchor = FrameAnchor.Top,
 Origin = new(18,0),
+Name = "Ghostly_Stinkbug_Blocker",
 },
 
 new SpriteData()
@@ -63485,6 +65632,7 @@ new SpriteData()
 TileType = 631,
 Anchor = FrameAnchor.Right,
 Origin = new(36,0),
+Name = "Ghostly_Stinkbug_Blocker",
 },
 
 new SpriteData()
@@ -63492,653 +65640,748 @@ new SpriteData()
 TileType = 631,
 Anchor = FrameAnchor.Left,
 Origin = new(54,0),
+Name = "Ghostly_Stinkbug_Blocker",
 },
 
 new SpriteData()
 {
 TileType = 631,
 Origin = new(72,0),
+Name = "Ghostly_Stinkbug_Blocker",
 },
 
 new SpriteData()
 {
 TileType = 632,
 Size = new(6,3),
+Name = "Scarlet_Macaw_Cage",
 },
 
 new SpriteData()
 {
 TileType = 634,
-Name = "Trunk_Plain_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,0),
-Name = "Trunk_Ore_Right_Indent_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Ore_Right_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,0),
-Name = "Trunk_Right_Slight_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,0),
-Name = "Branch_Plain_A",
+Name = "Ash_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,0),
-Name = "Trunk_Left_Slight_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Left_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(110,0),
-Name = "Top_Medium_A",
+Name = "Ash_Tree",
+Variety = "Top_Medium_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,0),
-Name = "Top_Small_A",
+Name = "Ash_Tree",
+Variety = "Top_Small_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,0),
-Name = "Top_Large_A",
+Name = "Ash_Tree",
+Variety = "Top_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,22),
-Name = "Trunk_Plain_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,22),
-Name = "Trunk_Ore_Right_Indent_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Ore_Right_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,22),
-Name = "Trunk_Right_Slight_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,22),
-Name = "Branch_Plain_B",
+Name = "Ash_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,22),
-Name = "Trunk_Left_Slight_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Left_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(110,22),
-Name = "Top_Medium_B",
+Name = "Ash_Tree",
+Variety = "Top_Medium_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,22),
-Name = "Top_Small_B",
+Name = "Ash_Tree",
+Variety = "Top_Small_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,22),
-Name = "Top_Large_B",
+Name = "Ash_Tree",
+Variety = "Top_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,44),
-Name = "Trunk_Plain_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,44),
-Name = "Trunk_Ore_Right_Indent_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Ore_Right_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,44),
-Name = "Trunk_Right_Slight_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,44),
-Name = "Branch_Plain_C",
+Name = "Ash_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,44),
-Name = "Trunk_Left_Slight_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Left_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(110,44),
-Name = "Top_Medium_C",
+Name = "Ash_Tree",
+Variety = "Top_Medium_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,44),
-Name = "Top_Small_C",
+Name = "Ash_Tree",
+Variety = "Top_Small_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,44),
-Name = "Top_Large_C",
+Name = "Ash_Tree",
+Variety = "Top_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,66),
-Name = "Trunk_Ore_Left_Indent_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Ore_Left_Indent_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,66),
-Name = "Trunk_Right_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,66),
-Name = "Trunk_Left_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Left_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,66),
-Name = "Trunk_Right_Slight_Bulge_D",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Slight_Bulge_D",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,66),
-Name = "Branch_Plain_A",
+Name = "Ash_Tree",
+Variety = "Branch_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(110,66),
-Name = "Trunk_Double_Slight_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,66),
-Name = "Top_Small_Right_Slight_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,66),
-Name = "Top_Large_D",
+Name = "Ash_Tree",
+Variety = "Top_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,88),
-Name = "Trunk_Ore_Left_Indent_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Ore_Left_Indent_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,88),
-Name = "Trunk_Right_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,88),
-Name = "Trunk_Left_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Left_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,88),
-Name = "Trunk_Right_Slight_Bulge_E",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Slight_Bulge_E",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,88),
-Name = "Branch_Plain_B",
+Name = "Ash_Tree",
+Variety = "Branch_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(110,88),
-Name = "Trunk_Double_Slight_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,88),
-Name = "Top_Small_Right_Slight_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,88),
-Name = "Top_Large_E",
+Name = "Ash_Tree",
+Variety = "Top_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,110),
-Name = "Trunk_Ore_Left_Indent_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Ore_Left_Indent_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,110),
-Name = "Trunk_Right_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,110),
-Name = "Trunk_Left_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Left_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,110),
-Name = "Trunk_Right_Slight_Bulge_F",
+Name = "Ash_Tree",
+Variety = "Trunk_Right_Slight_Bulge_F",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,110),
-Name = "Branch_Plain_C",
+Name = "Ash_Tree",
+Variety = "Branch_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(110,110),
-Name = "Trunk_Double_Slight_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,110),
-Name = "Top_Small_Right_Slight_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Top_Small_Right_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,110),
-Name = "Top_Large_F",
+Name = "Ash_Tree",
+Variety = "Top_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,132),
-Name = "Trunk_Large_A",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,132),
-Name = "Base_Plain_A",
+Name = "Ash_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,132),
-Name = "Base_Plain_A",
+Name = "Ash_Tree",
+Variety = "Base_Plain_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,132),
-Name = "Trunk_Large_B",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,132),
-Name = "Trunk_Large_C",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,132),
-Name = "Top_Small_Double_Slight_Bulge_A",
+Name = "Ash_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,132),
-Name = "Top_Huge_A",
+Name = "Ash_Tree",
+Variety = "Top_Huge_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,154),
-Name = "Trunk_Large_D",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_D",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,154),
-Name = "Base_Plain_B",
+Name = "Ash_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,154),
-Name = "Base_Plain_B",
+Name = "Ash_Tree",
+Variety = "Base_Plain_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,154),
-Name = "Trunk_Large_E",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_E",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,154),
-Name = "Trunk_Large_F",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_F",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,154),
-Name = "Top_Small_Double_Slight_Bulge_B",
+Name = "Ash_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,154),
-Name = "Top_Huge_B",
+Name = "Ash_Tree",
+Variety = "Top_Huge_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,176),
-Name = "Trunk_Large_G",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_G",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(22,176),
-Name = "Base_Plain_C",
+Name = "Ash_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(44,176),
-Name = "Base_Plain_C",
+Name = "Ash_Tree",
+Variety = "Base_Plain_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(66,176),
-Name = "Trunk_Large_H",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_H",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(88,176),
-Name = "Trunk_Large_I",
+Name = "Ash_Tree",
+Variety = "Trunk_Large_I",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(132,176),
-Name = "Top_Small_Double_Slight_Bulge_C",
+Name = "Ash_Tree",
+Variety = "Top_Small_Double_Slight_Bulge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(154,176),
-Name = "Top_Huge_C",
+Name = "Ash_Tree",
+Variety = "Top_Huge_C",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,198),
-Name = "Top_Jagged_A",
+Name = "Ash_Tree",
+Variety = "Top_Jagged_A",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,220),
-Name = "Top_Jagged_B",
+Name = "Ash_Tree",
+Variety = "Top_Jagged_B",
 },
 
 new SpriteData()
 {
 TileType = 634,
 Origin = new(0,242),
-Name = "Top_Jagged_C",
+Name = "Ash_Tree",
+Variety = "Top_Jagged_C",
 },
 
 new SpriteData()
 {
 TileType = 637,
-Name = "Grass_A",
+Name = "Ash_Short_Plants",
+Variety = "Grass_A",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(18,0),
-Name = "Grass_B",
+Name = "Ash_Short_Plants",
+Variety = "Grass_B",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(36,0),
-Name = "Grass_C",
+Name = "Ash_Short_Plants",
+Variety = "Grass_C",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(54,0),
-Name = "Grass_D",
+Name = "Ash_Short_Plants",
+Variety = "Grass_D",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(72,0),
-Name = "Grass_E",
+Name = "Ash_Short_Plants",
+Variety = "Grass_E",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(90,0),
-Name = "Grass_F",
+Name = "Ash_Short_Plants",
+Variety = "Grass_F",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(108,0),
-Name = "Flower_A",
+Name = "Ash_Short_Plants",
+Variety = "Flower_A",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(126,0),
-Name = "Flower_B",
+Name = "Ash_Short_Plants",
+Variety = "Flower_B",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(144,0),
-Name = "Flower_C",
+Name = "Ash_Short_Plants",
+Variety = "Flower_C",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(162,0),
-Name = "Flower_D",
+Name = "Ash_Short_Plants",
+Variety = "Flower_D",
 },
 
 new SpriteData()
 {
 TileType = 637,
 Origin = new(180,0),
-Name = "Flower_E",
+Name = "Ash_Short_Plants",
+Variety = "Flower_E",
 },
 
 new SpriteData()
 {
 TileType = 639,
 Size = new(2,2),
+Name = "Mana_Crystal",
 },
 
 new SpriteData()
 {
 TileType = 640,
 Size = new(6,3),
+Name = "Blue_Macaw_Cage",
 },
 
 new SpriteData()
 {
 TileType = 642,
 Size = new(3,3),
+Name = "Chlorophyte_Extractinator",
 },
 
 new SpriteData()
 {
 TileType = 643,
 Size = new(6,3),
+Name = "Toucan_Cage",
 },
 
 new SpriteData()
 {
 TileType = 644,
 Size = new(6,3),
+Name = "Yellow_Cockatiel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 645,
 Size = new(6,3),
+Name = "Gray_Cockatiel_Cage",
 },
 
 new SpriteData()
 {
 TileType = 646,
-Name = "On",
+Name = "Shadow_Candle",
+Variety = "On",
 },
 
 new SpriteData()
 {
 TileType = 646,
 Origin = new(18,0),
-Name = "Off",
+Name = "Shadow_Candle",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 647,
 Size = new(3,2),
-Name = "Bone_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_A",
 },
 
 new SpriteData()
@@ -64146,7 +66389,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Bone_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_B",
 },
 
 new SpriteData()
@@ -64154,7 +66398,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "Bone_C",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_C",
 },
 
 new SpriteData()
@@ -64162,7 +66407,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "Bone_D",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_D",
 },
 
 new SpriteData()
@@ -64170,7 +66416,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "Bone_E",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_E",
 },
 
 new SpriteData()
@@ -64178,7 +66425,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "Bone_F",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_F",
 },
 
 new SpriteData()
@@ -64186,7 +66434,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "Bone_G",
+Name = "Large_Rubble_(3x2)",
+Variety = "Bone_G",
 },
 
 new SpriteData()
@@ -64194,7 +66443,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "Stone_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_A",
 },
 
 new SpriteData()
@@ -64202,7 +66452,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "Stone_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_B",
 },
 
 new SpriteData()
@@ -64210,7 +66461,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(486,0),
-Name = "Stone_C",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_C",
 },
 
 new SpriteData()
@@ -64218,7 +66470,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(540,0),
-Name = "Stone_D",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_D",
 },
 
 new SpriteData()
@@ -64226,7 +66479,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(594,0),
-Name = "Stone_E",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_E",
 },
 
 new SpriteData()
@@ -64234,7 +66488,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(648,0),
-Name = "Stone_F",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_F",
 },
 
 new SpriteData()
@@ -64242,7 +66497,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(702,0),
-Name = "Stone_G",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_G",
 },
 
 new SpriteData()
@@ -64250,7 +66506,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(756,0),
-Name = "Stone_H",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_H",
 },
 
 new SpriteData()
@@ -64258,7 +66515,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(810,0),
-Name = "Stone_I",
+Name = "Large_Rubble_(3x2)",
+Variety = "Stone_I",
 },
 
 new SpriteData()
@@ -64266,7 +66524,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(864,0),
-Name = "Copper_Coin_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Copper_Coin_A",
 },
 
 new SpriteData()
@@ -64274,7 +66533,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(918,0),
-Name = "Copper_Coin_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Copper_Coin_B",
 },
 
 new SpriteData()
@@ -64282,7 +66542,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(972,0),
-Name = "Silver_Coin_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Silver_Coin_A",
 },
 
 new SpriteData()
@@ -64290,7 +66551,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1026,0),
-Name = "Silver_Coin_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Silver_Coin_B",
 },
 
 new SpriteData()
@@ -64298,7 +66560,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1080,0),
-Name = "Gold_Coin_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Gold_Coin_A",
 },
 
 new SpriteData()
@@ -64306,7 +66569,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1134,0),
-Name = "Gold_Coin_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Gold_Coin_B",
 },
 
 new SpriteData()
@@ -64314,7 +66578,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1188,0),
-Name = "Wood_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Wood_A",
 },
 
 new SpriteData()
@@ -64322,7 +66587,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1242,0),
-Name = "Wood_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Wood_B",
 },
 
 new SpriteData()
@@ -64330,7 +66596,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1296,0),
-Name = "Wood_C",
+Name = "Large_Rubble_(3x2)",
+Variety = "Wood_C",
 },
 
 new SpriteData()
@@ -64338,7 +66605,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1350,0),
-Name = "Wood_D",
+Name = "Large_Rubble_(3x2)",
+Variety = "Wood_D",
 },
 
 new SpriteData()
@@ -64346,7 +66614,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1404,0),
-Name = "Snow_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Snow_A",
 },
 
 new SpriteData()
@@ -64354,7 +66623,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1458,0),
-Name = "Snow_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Snow_B",
 },
 
 new SpriteData()
@@ -64362,7 +66632,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1512,0),
-Name = "Snow_C",
+Name = "Large_Rubble_(3x2)",
+Variety = "Snow_C",
 },
 
 new SpriteData()
@@ -64370,7 +66641,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1566,0),
-Name = "Snow_D",
+Name = "Large_Rubble_(3x2)",
+Variety = "Snow_D",
 },
 
 new SpriteData()
@@ -64378,7 +66650,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1620,0),
-Name = "Snow_E",
+Name = "Large_Rubble_(3x2)",
+Variety = "Snow_E",
 },
 
 new SpriteData()
@@ -64386,7 +66659,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1674,0),
-Name = "Snow_F",
+Name = "Large_Rubble_(3x2)",
+Variety = "Snow_F",
 },
 
 new SpriteData()
@@ -64394,7 +66668,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1728,0),
-Name = "Mushroom_A",
+Name = "Large_Rubble_(3x2)",
+Variety = "Mushroom_A",
 },
 
 new SpriteData()
@@ -64402,7 +66677,8 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1782,0),
-Name = "Mushroom_B",
+Name = "Large_Rubble_(3x2)",
+Variety = "Mushroom_B",
 },
 
 new SpriteData()
@@ -64410,14 +66686,16 @@ new SpriteData()
 TileType = 647,
 Size = new(3,2),
 Origin = new(1836,0),
-Name = "Mushroom_C",
+Name = "Large_Rubble_(3x2)",
+Variety = "Mushroom_C",
 },
 
 new SpriteData()
 {
 TileType = 648,
 Size = new(3,2),
-Name = "Jungle_Seeds_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Jungle_Seeds_A",
 },
 
 new SpriteData()
@@ -64425,7 +66703,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Jungle_Seeds_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Jungle_Seeds_B",
 },
 
 new SpriteData()
@@ -64433,7 +66712,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "Jungle_Seeds_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Jungle_Seeds_C",
 },
 
 new SpriteData()
@@ -64441,7 +66721,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "Jungle_Seeds_D",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Jungle_Seeds_D",
 },
 
 new SpriteData()
@@ -64449,7 +66730,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "Jungle_Seeds_E",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Jungle_Seeds_E",
 },
 
 new SpriteData()
@@ -64457,7 +66739,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "Jungle_Seeds_F",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Jungle_Seeds_F",
 },
 
 new SpriteData()
@@ -64465,7 +66748,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "Hellstone_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Hellstone_A",
 },
 
 new SpriteData()
@@ -64473,7 +66757,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "Hellstone_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Hellstone_B",
 },
 
 new SpriteData()
@@ -64481,7 +66766,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "Hellstone_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Hellstone_C",
 },
 
 new SpriteData()
@@ -64489,7 +66775,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(486,0),
-Name = "Cobweb_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
@@ -64497,7 +66784,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(540,0),
-Name = "Cobweb_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
@@ -64505,7 +66793,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(594,0),
-Name = "Cobweb_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
@@ -64513,7 +66802,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(648,0),
-Name = "Cobweb_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
@@ -64521,7 +66811,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(702,0),
-Name = "Cobweb_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
@@ -64529,7 +66820,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(756,0),
-Name = "Stone_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Stone_A",
 },
 
 new SpriteData()
@@ -64537,7 +66829,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(810,0),
-Name = "Stone_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Stone_B",
 },
 
 new SpriteData()
@@ -64545,7 +66838,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(864,0),
-Name = "Stone_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Stone_C",
 },
 
 new SpriteData()
@@ -64553,7 +66847,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(918,0),
-Name = "Enchanted_Sword",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Enchanted_Sword",
 },
 
 new SpriteData()
@@ -64561,7 +66856,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(972,0),
-Name = "Lihzahrd_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Lihzahrd_A",
 },
 
 new SpriteData()
@@ -64569,7 +66865,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1026,0),
-Name = "Lihzahrd_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Lihzahrd_B",
 },
 
 new SpriteData()
@@ -64577,7 +66874,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1080,0),
-Name = "Lihzahrd_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Lihzahrd_C",
 },
 
 new SpriteData()
@@ -64585,7 +66883,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1134,0),
-Name = "Wood_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_A",
 },
 
 new SpriteData()
@@ -64593,7 +66892,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1188,0),
-Name = "Wood_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_B",
 },
 
 new SpriteData()
@@ -64601,7 +66901,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1242,0),
-Name = "Wood_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_C",
 },
 
 new SpriteData()
@@ -64609,7 +66910,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1296,0),
-Name = "Wood_D",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_D",
 },
 
 new SpriteData()
@@ -64617,7 +66919,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1350,0),
-Name = "Wood_E",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_E",
 },
 
 new SpriteData()
@@ -64625,7 +66928,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1404,0),
-Name = "Wood_F",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_F",
 },
 
 new SpriteData()
@@ -64633,7 +66937,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1458,0),
-Name = "Wood_G",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_G",
 },
 
 new SpriteData()
@@ -64641,7 +66946,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1512,0),
-Name = "Wood_H",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Wood_H",
 },
 
 new SpriteData()
@@ -64649,7 +66955,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1566,0),
-Name = "Sandstone_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Sandstone_A",
 },
 
 new SpriteData()
@@ -64657,7 +66964,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1620,0),
-Name = "Sandstone_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Sandstone_B",
 },
 
 new SpriteData()
@@ -64665,7 +66973,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1674,0),
-Name = "Sandstone_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Sandstone_C",
 },
 
 new SpriteData()
@@ -64673,7 +66982,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1728,0),
-Name = "Sandstone_D",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Sandstone_D",
 },
 
 new SpriteData()
@@ -64681,7 +66991,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1782,0),
-Name = "Sandstone_E",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Sandstone_E",
 },
 
 new SpriteData()
@@ -64689,7 +67000,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1836,0),
-Name = "Sandstone_F",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Sandstone_F",
 },
 
 new SpriteData()
@@ -64697,7 +67009,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(0,36),
-Name = "Granite_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Granite_A",
 },
 
 new SpriteData()
@@ -64705,7 +67018,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(54,36),
-Name = "Granite_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Granite_B",
 },
 
 new SpriteData()
@@ -64713,7 +67027,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(108,36),
-Name = "Granite_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Granite_C",
 },
 
 new SpriteData()
@@ -64721,7 +67036,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(162,36),
-Name = "Granite_D",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Granite_D",
 },
 
 new SpriteData()
@@ -64729,7 +67045,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(216,36),
-Name = "Granite_E",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Granite_E",
 },
 
 new SpriteData()
@@ -64737,7 +67054,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(270,36),
-Name = "Granite_F",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Granite_F",
 },
 
 new SpriteData()
@@ -64745,7 +67063,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(324,36),
-Name = "Marble_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Marble_A",
 },
 
 new SpriteData()
@@ -64753,7 +67072,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(378,36),
-Name = "Marble_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Marble_B",
 },
 
 new SpriteData()
@@ -64761,7 +67081,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(432,36),
-Name = "Marble_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Marble_C",
 },
 
 new SpriteData()
@@ -64769,7 +67090,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(486,36),
-Name = "Marble_D",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Marble_D",
 },
 
 new SpriteData()
@@ -64777,7 +67099,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(540,36),
-Name = "Marble_E",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Marble_E",
 },
 
 new SpriteData()
@@ -64785,7 +67108,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(594,36),
-Name = "Marble_F",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Marble_F",
 },
 
 new SpriteData()
@@ -64793,7 +67117,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(648,36),
-Name = "Grass_Seeds_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Grass_Seeds_A",
 },
 
 new SpriteData()
@@ -64801,7 +67126,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(702,36),
-Name = "Grass_Seeds_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Grass_Seeds_B",
 },
 
 new SpriteData()
@@ -64809,7 +67135,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(756,36),
-Name = "Grass_Seeds_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Grass_Seeds_C",
 },
 
 new SpriteData()
@@ -64817,7 +67144,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(810,36),
-Name = "Grass_Seeds_D",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Grass_Seeds_D",
 },
 
 new SpriteData()
@@ -64825,7 +67153,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(864,36),
-Name = "Grass_Seeds_E",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Grass_Seeds_E",
 },
 
 new SpriteData()
@@ -64833,7 +67162,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(918,36),
-Name = "Bone_A",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Bone_A",
 },
 
 new SpriteData()
@@ -64841,7 +67171,8 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(972,36),
-Name = "Bone_B",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Bone_B",
 },
 
 new SpriteData()
@@ -64849,14 +67180,16 @@ new SpriteData()
 TileType = 648,
 Size = new(3,2),
 Origin = new(1026,36),
-Name = "Bone_C",
+Name = "Large_Rubble_(3x2)_(Group_2)",
+Variety = "Bone_C",
 },
 
 new SpriteData()
 {
 TileType = 649,
 Size = new(2,1),
-Name = "Stone_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_A",
 },
 
 new SpriteData()
@@ -64864,7 +67197,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(36,0),
-Name = "Stone_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_B",
 },
 
 new SpriteData()
@@ -64872,7 +67206,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(72,0),
-Name = "Stone_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_C",
 },
 
 new SpriteData()
@@ -64880,7 +67215,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(108,0),
-Name = "Stone_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_D",
 },
 
 new SpriteData()
@@ -64888,7 +67224,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(144,0),
-Name = "Stone_E",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_E",
 },
 
 new SpriteData()
@@ -64896,7 +67233,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(180,0),
-Name = "Stone_F",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_F",
 },
 
 new SpriteData()
@@ -64904,7 +67242,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(216,0),
-Name = "Bone_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_A",
 },
 
 new SpriteData()
@@ -64912,7 +67251,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(252,0),
-Name = "Bone_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_B",
 },
 
 new SpriteData()
@@ -64920,7 +67260,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(288,0),
-Name = "Bone_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_C",
 },
 
 new SpriteData()
@@ -64928,7 +67269,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(324,0),
-Name = "Bone_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_D",
 },
 
 new SpriteData()
@@ -64936,7 +67278,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(360,0),
-Name = "Bone_E",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_E",
 },
 
 new SpriteData()
@@ -64944,7 +67287,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(396,0),
-Name = "Bone_F",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_F",
 },
 
 new SpriteData()
@@ -64952,7 +67296,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(432,0),
-Name = "Bone_G",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_G",
 },
 
 new SpriteData()
@@ -64960,7 +67305,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(468,0),
-Name = "Bone_H",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_H",
 },
 
 new SpriteData()
@@ -64968,7 +67314,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(504,0),
-Name = "Bone_I",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_I",
 },
 
 new SpriteData()
@@ -64976,7 +67323,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(540,0),
-Name = "Bone_J",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Bone_J",
 },
 
 new SpriteData()
@@ -64984,7 +67332,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(576,0),
-Name = "Copper_Coin",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Copper_Coin",
 },
 
 new SpriteData()
@@ -64992,7 +67341,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(612,0),
-Name = "Silver_Coin",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Silver_Coin",
 },
 
 new SpriteData()
@@ -65000,7 +67350,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(648,0),
-Name = "Gold_Coin",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Gold_Coin",
 },
 
 new SpriteData()
@@ -65008,7 +67359,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(684,0),
-Name = "Amethyst",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Amethyst",
 },
 
 new SpriteData()
@@ -65016,7 +67368,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(720,0),
-Name = "Topaz",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Topaz",
 },
 
 new SpriteData()
@@ -65024,7 +67377,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(756,0),
-Name = "Sapphire",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sapphire",
 },
 
 new SpriteData()
@@ -65032,7 +67386,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(792,0),
-Name = "Emerald",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Emerald",
 },
 
 new SpriteData()
@@ -65040,7 +67395,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(828,0),
-Name = "Ruby",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Ruby",
 },
 
 new SpriteData()
@@ -65048,7 +67404,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(864,0),
-Name = "Diamond",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Diamond",
 },
 
 new SpriteData()
@@ -65056,7 +67413,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(900,0),
-Name = "Snow_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Snow_A",
 },
 
 new SpriteData()
@@ -65064,7 +67422,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(936,0),
-Name = "Snow_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Snow_B",
 },
 
 new SpriteData()
@@ -65072,7 +67431,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(972,0),
-Name = "Snow_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Snow_C",
 },
 
 new SpriteData()
@@ -65080,7 +67440,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1008,0),
-Name = "Snow_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Snow_D",
 },
 
 new SpriteData()
@@ -65088,7 +67449,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1044,0),
-Name = "Snow_E",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Snow_E",
 },
 
 new SpriteData()
@@ -65096,7 +67458,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1080,0),
-Name = "Snow_F",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Snow_F",
 },
 
 new SpriteData()
@@ -65104,7 +67467,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1116,0),
-Name = "Wood_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Wood_A",
 },
 
 new SpriteData()
@@ -65112,7 +67476,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1152,0),
-Name = "Wood_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Wood_B",
 },
 
 new SpriteData()
@@ -65120,7 +67485,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1188,0),
-Name = "Wood_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Wood_C",
 },
 
 new SpriteData()
@@ -65128,7 +67494,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1224,0),
-Name = "Cobweb_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Cobweb_A",
 },
 
 new SpriteData()
@@ -65136,7 +67503,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1260,0),
-Name = "Cobweb_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Cobweb_B",
 },
 
 new SpriteData()
@@ -65144,7 +67512,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1296,0),
-Name = "Cobweb_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
@@ -65152,7 +67521,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1332,0),
-Name = "Cobweb_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Cobweb_D",
 },
 
 new SpriteData()
@@ -65160,7 +67530,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1368,0),
-Name = "Stone_G",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_G",
 },
 
 new SpriteData()
@@ -65168,7 +67539,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1404,0),
-Name = "Stone_H",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_H",
 },
 
 new SpriteData()
@@ -65176,7 +67548,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1440,0),
-Name = "Stone_I",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Stone_I",
 },
 
 new SpriteData()
@@ -65184,7 +67557,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1476,0),
-Name = "Sandstone_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sandstone_A",
 },
 
 new SpriteData()
@@ -65192,7 +67566,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1512,0),
-Name = "Sandstone_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sandstone_B",
 },
 
 new SpriteData()
@@ -65200,7 +67575,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1548,0),
-Name = "Sandstone_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sandstone_C",
 },
 
 new SpriteData()
@@ -65208,7 +67584,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1584,0),
-Name = "Sandstone_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sandstone_D",
 },
 
 new SpriteData()
@@ -65216,7 +67593,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1620,0),
-Name = "Sandstone_E",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sandstone_E",
 },
 
 new SpriteData()
@@ -65224,7 +67602,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1656,0),
-Name = "Sandstone_F",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sandstone_F",
 },
 
 new SpriteData()
@@ -65232,7 +67611,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1692,0),
-Name = "Granite_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Granite_A",
 },
 
 new SpriteData()
@@ -65240,7 +67620,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1728,0),
-Name = "Granite_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Granite_B",
 },
 
 new SpriteData()
@@ -65248,7 +67629,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1764,0),
-Name = "Granite_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Granite_C",
 },
 
 new SpriteData()
@@ -65256,7 +67638,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1800,0),
-Name = "Granite_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Granite_D",
 },
 
 new SpriteData()
@@ -65264,7 +67647,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1836,0),
-Name = "Granite_E",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Granite_E",
 },
 
 new SpriteData()
@@ -65272,7 +67656,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(1872,0),
-Name = "Granite_F",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Granite_F",
 },
 
 new SpriteData()
@@ -65280,7 +67665,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(0,18),
-Name = "Marble_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Marble_A",
 },
 
 new SpriteData()
@@ -65288,7 +67674,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(36,18),
-Name = "Marble_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Marble_B",
 },
 
 new SpriteData()
@@ -65296,7 +67683,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(72,18),
-Name = "Marble_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Marble_C",
 },
 
 new SpriteData()
@@ -65304,7 +67692,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(108,18),
-Name = "Marble_D",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Marble_D",
 },
 
 new SpriteData()
@@ -65312,7 +67701,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(144,18),
-Name = "Marble_E",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Marble_E",
 },
 
 new SpriteData()
@@ -65320,7 +67710,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(180,18),
-Name = "Marble_F",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Marble_F",
 },
 
 new SpriteData()
@@ -65328,7 +67719,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(216,18),
-Name = "Grass_Seeds_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Grass_Seeds_A",
 },
 
 new SpriteData()
@@ -65336,7 +67728,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(252,18),
-Name = "Grass_Seeds_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Grass_Seeds_B",
 },
 
 new SpriteData()
@@ -65344,7 +67737,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(288,18),
-Name = "Grass_Seeds_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Grass_Seeds_C",
 },
 
 new SpriteData()
@@ -65352,7 +67746,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(324,18),
-Name = "Sand_A",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sand_A",
 },
 
 new SpriteData()
@@ -65360,7 +67755,8 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(360,18),
-Name = "Sand_B",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sand_B",
 },
 
 new SpriteData()
@@ -65368,552 +67764,631 @@ new SpriteData()
 TileType = 649,
 Size = new(2,1),
 Origin = new(396,18),
-Name = "Sand_C",
+Name = "Medium_Rubble_(2x1)",
+Variety = "Sand_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
-Name = "Stone_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Stone_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(18,0),
-Name = "Stone_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Stone_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(36,0),
-Name = "Stone_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Stone_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(54,0),
-Name = "Stone_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Stone_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(72,0),
-Name = "Stone_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Stone_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(90,0),
-Name = "Stone_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Stone_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(108,0),
-Name = "Dirt_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Dirt_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(126,0),
-Name = "Dirt_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Dirt_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(144,0),
-Name = "Dirt_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Dirt_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(162,0),
-Name = "Dirt_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Dirt_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(180,0),
-Name = "Dirt_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Dirt_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(198,0),
-Name = "Dirt_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Dirt_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(216,0),
-Name = "Bone_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(234,0),
-Name = "Bone_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(252,0),
-Name = "Bone_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(270,0),
-Name = "Bone_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(288,0),
-Name = "Bone_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(306,0),
-Name = "Bone_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(324,0),
-Name = "Bone_G",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_G",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(342,0),
-Name = "Bone_H",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_H",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(360,0),
-Name = "Bone_I",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_I",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(378,0),
-Name = "Bone_J",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_J",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(396,0),
-Name = "Bone_K",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_K",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(414,0),
-Name = "Bone_L",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_L",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(432,0),
-Name = "Bone_M",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_M",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(450,0),
-Name = "Bone_N",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_N",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(468,0),
-Name = "Bone_O",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_O",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(486,0),
-Name = "Bone_P",
+Name = "Small_Rubble_(1x1)",
+Variety = "Bone_P",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(504,0),
-Name = "Wood_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(522,0),
-Name = "Wood_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(540,0),
-Name = "Wood_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(558,0),
-Name = "Wood_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(576,0),
-Name = "Wood_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(594,0),
-Name = "Wood_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(612,0),
-Name = "Wood_G",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_G",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(630,0),
-Name = "Wood_H",
+Name = "Small_Rubble_(1x1)",
+Variety = "Wood_H",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(648,0),
-Name = "Snow_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Snow_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(666,0),
-Name = "Snow_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Snow_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(684,0),
-Name = "Snow_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Snow_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(702,0),
-Name = "Snow_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Snow_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(720,0),
-Name = "Snow_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Snow_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(738,0),
-Name = "Snow_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Snow_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(756,0),
-Name = "Ice_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Ice_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(774,0),
-Name = "Ice_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Ice_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(792,0),
-Name = "Ice_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Ice_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(810,0),
-Name = "Ice_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Ice_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(828,0),
-Name = "Ice_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Ice_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(846,0),
-Name = "Ice_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Ice_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(864,0),
-Name = "Cobweb_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Cobweb_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(882,0),
-Name = "Cobweb_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Cobweb_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(900,0),
-Name = "Cobweb_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Cobweb_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(918,0),
-Name = "Cobweb_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Cobweb_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(936,0),
-Name = "Cobweb_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Cobweb_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(954,0),
-Name = "Cobweb_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Cobweb_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(972,0),
-Name = "Sandstone_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sandstone_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(990,0),
-Name = "Sandstone_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sandstone_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1008,0),
-Name = "Sandstone_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sandstone_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1026,0),
-Name = "Sandstone_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sandstone_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1044,0),
-Name = "Sandstone_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sandstone_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1062,0),
-Name = "Sandstone_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sandstone_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1080,0),
-Name = "Granite_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Granite_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1098,0),
-Name = "Granite_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Granite_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1116,0),
-Name = "Granite_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Granite_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1134,0),
-Name = "Granite_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Granite_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1152,0),
-Name = "Granite_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Granite_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1170,0),
-Name = "Granite_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Granite_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1188,0),
-Name = "Marble_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Marble_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1206,0),
-Name = "Marble_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Marble_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1224,0),
-Name = "Marble_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Marble_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1242,0),
-Name = "Marble_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Marble_D",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1260,0),
-Name = "Marble_E",
+Name = "Small_Rubble_(1x1)",
+Variety = "Marble_E",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1278,0),
-Name = "Marble_F",
+Name = "Small_Rubble_(1x1)",
+Variety = "Marble_F",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1296,0),
-Name = "Grass_Seed",
+Name = "Small_Rubble_(1x1)",
+Variety = "Grass_Seed",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1314,0),
-Name = "Sand_A",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sand_A",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1332,0),
-Name = "Sand_B",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sand_B",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1350,0),
-Name = "Sand_C",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sand_C",
 },
 
 new SpriteData()
 {
 TileType = 650,
 Origin = new(1368,0),
-Name = "Sand_D",
+Name = "Small_Rubble_(1x1)",
+Variety = "Sand_D",
 },
 
 new SpriteData()
 {
 TileType = 651,
 Size = new(3,2),
-Name = "Jungle_Seeds_A",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Jungle_Seeds_A",
 },
 
 new SpriteData()
@@ -65921,7 +68396,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(54,0),
-Name = "Jungle_Seeds_B",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Jungle_Seeds_B",
 },
 
 new SpriteData()
@@ -65929,7 +68405,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(108,0),
-Name = "Jungle_Seeds_C",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Jungle_Seeds_C",
 },
 
 new SpriteData()
@@ -65937,7 +68414,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(162,0),
-Name = "Grass_Seeds_A",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Grass_Seeds_A",
 },
 
 new SpriteData()
@@ -65945,7 +68423,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(216,0),
-Name = "Grass_Seeds_B",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Grass_Seeds_B",
 },
 
 new SpriteData()
@@ -65953,7 +68432,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(270,0),
-Name = "Grass_Seeds_C",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Grass_Seeds_C",
 },
 
 new SpriteData()
@@ -65961,7 +68441,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(324,0),
-Name = "Jungle_Spores_A",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Jungle_Spores_A",
 },
 
 new SpriteData()
@@ -65969,7 +68450,8 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(378,0),
-Name = "Jungle_Spores_B",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Jungle_Spores_B",
 },
 
 new SpriteData()
@@ -65977,14 +68459,16 @@ new SpriteData()
 TileType = 651,
 Size = new(3,2),
 Origin = new(432,0),
-Name = "Jungle_Spores_C",
+Name = "Large_Rubble_(3x2)_(Group_3)",
+Variety = "Jungle_Spores_C",
 },
 
 new SpriteData()
 {
 TileType = 652,
 Size = new(2,2),
-Name = "Jungle_Seeds_A",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Seeds_A",
 },
 
 new SpriteData()
@@ -65992,7 +68476,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(36,0),
-Name = "Jungle_Seeds_B",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Seeds_B",
 },
 
 new SpriteData()
@@ -66000,7 +68485,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(72,0),
-Name = "Jungle_Seeds_C",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Seeds_C",
 },
 
 new SpriteData()
@@ -66008,7 +68494,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(108,0),
-Name = "Grass_Seeds_A",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Grass_Seeds_A",
 },
 
 new SpriteData()
@@ -66016,7 +68503,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(144,0),
-Name = "Grass_Seeds_B",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Grass_Seeds_B",
 },
 
 new SpriteData()
@@ -66024,7 +68512,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(180,0),
-Name = "Grass_Seeds_C",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Grass_Seeds_C",
 },
 
 new SpriteData()
@@ -66032,7 +68521,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(216,0),
-Name = "Jungle_Spores_A",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Spores_A",
 },
 
 new SpriteData()
@@ -66040,7 +68530,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(252,0),
-Name = "Jungle_Spores_B",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Spores_B",
 },
 
 new SpriteData()
@@ -66048,7 +68539,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(288,0),
-Name = "Jungle_Spores_C",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Spores_C",
 },
 
 new SpriteData()
@@ -66056,7 +68548,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(324,0),
-Name = "Jungle_Spores_D",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Spores_D",
 },
 
 new SpriteData()
@@ -66064,7 +68557,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(360,0),
-Name = "Jungle_Spores_E",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Spores_E",
 },
 
 new SpriteData()
@@ -66072,7 +68566,8 @@ new SpriteData()
 TileType = 652,
 Size = new(2,2),
 Origin = new(396,0),
-Name = "Jungle_Spores_F",
+Name = "Medium_Rubble_(2x2)",
+Variety = "Jungle_Spores_F",
 },
 
 new SpriteData()
@@ -67086,25 +69581,29 @@ new SpriteData()
 {
 TileType = 654,
 Size = new(2,2),
+Name = "TNT_Barrel",
 },
 
 new SpriteData()
 {
 TileType = 656,
 Size = new(2,2),
+Name = "Glow_Tulip",
 },
 
 new SpriteData()
 {
 TileType = 657,
 Size = new(2,3),
+Name = "Echo_Chamber",
 },
 
 new SpriteData()
 {
 TileType = 658,
 Size = new(2,3),
-Name = "Off_(Flowing)",
+Name = "Aether_Monolith",
+Variety = "Off_(Flowing)",
 },
 
 new SpriteData()
@@ -67112,7 +69611,8 @@ new SpriteData()
 TileType = 658,
 Size = new(2,3),
 Origin = new(0,540),
-Name = "On",
+Name = "Aether_Monolith",
+Variety = "On",
 },
 
 new SpriteData()
@@ -67120,31 +69620,36 @@ new SpriteData()
 TileType = 658,
 Size = new(2,3),
 Origin = new(0,1080),
-Name = "Off",
+Name = "Aether_Monolith",
+Variety = "Off",
 },
 
 new SpriteData()
 {
 TileType = 660,
 Size = new(1,2),
+Name = "Faeling_in_a_Bottle",
 },
 
 new SpriteData()
 {
 TileType = 663,
 Size = new(2,3),
+Name = "Enchanted_Moondial",
 },
 
 new SpriteData()
 {
 TileType = 664,
 Size = new(2,2),
+Name = "Bouncy_Boulder",
 },
 
 new SpriteData()
 {
 TileType = 665,
 Size = new(2,2),
+Name = "Life_Crystal_Boulder",
 },
 };
     }
