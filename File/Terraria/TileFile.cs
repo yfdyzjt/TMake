@@ -212,7 +212,7 @@ namespace TMake.File
 
                 // grab bits[4, 5, 6] and shift 4 places to 0,1,2. This byte is our brick style
                 byte brickStyle = (byte)((header2 & 0b_0111_0000) >> 4);
-                if (brickStyle != 0 && (ushort)TileID.Count > tile.Type && (TileProperty.Solid[tile.Type] || TileProperty.NonSolidSaveSlopes[tile.Type]))
+                if (brickStyle != 0 && (ushort)TileID.Count > tile.Type && TileProperty.GetTileData(tile.Type).HasSlopes)
                 {
                     if (brickStyle == 1)
                         tile.HalfBrick = true;
@@ -312,7 +312,7 @@ namespace TMake.File
 
             // tile data
 
-            if (tile.Active && tile.Type <= maxTileId && tile.Type != (int)TileType.IceByRod)
+            if (tile.Active && tile.Type <= maxTileId && tile.Type != (int)TileID.MagicalIceBlock)
             {
                 // activate bit[1]
                 header1 |= 0b_0000_0010;

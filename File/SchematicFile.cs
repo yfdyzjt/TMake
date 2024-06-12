@@ -4,7 +4,7 @@ namespace TMake.File
 {
     public class SchematicFile
     {
-        public static Schematic Read(string filename)
+        public static Schematic Load(string filename)
         {
             Schematic sch = new();
 
@@ -33,7 +33,7 @@ namespace TMake.File
 
             return sch;
         }
-        public static void Write(Schematic sch, string filename)
+        public static void Save(Schematic sch, string filename)
         {
             try
             {

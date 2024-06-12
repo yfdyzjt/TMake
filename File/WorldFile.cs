@@ -5,7 +5,7 @@ namespace TMake.File
     public class WorldFile
     {
 
-        public static World Read(string filename)
+        public static World Load(string filename)
         {
             World world = new();
 
@@ -33,7 +33,7 @@ namespace TMake.File
             return world;
         }
 
-        public static void Write(World world, string filename)
+        public static void Save(World world, string filename)
         {
             try
             {

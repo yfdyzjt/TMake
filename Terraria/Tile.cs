@@ -98,5 +98,35 @@
             FullBrightBlock == other.FullBrightBlock &&
             FullBrightWall == other.FullBrightWall;
         }
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hashCode = Active.GetHashCode();
+                hashCode = (hashCode * 397) ^ Type.GetHashCode();
+                hashCode = (hashCode * 397) ^ FrameX.GetHashCode();
+                hashCode = (hashCode * 397) ^ FrameY.GetHashCode();
+                hashCode = (hashCode * 397) ^ Color.GetHashCode();
+                hashCode = (hashCode * 397) ^ Wall.GetHashCode();
+                hashCode = (hashCode * 397) ^ WallColor.GetHashCode();
+                hashCode = (hashCode * 397) ^ Liquid.GetHashCode();
+                hashCode = (hashCode * 397) ^ Lava.GetHashCode();
+                hashCode = (hashCode * 397) ^ Honey.GetHashCode();
+                hashCode = (hashCode * 397) ^ Shimmer.GetHashCode();
+                hashCode = (hashCode * 397) ^ Wire.GetHashCode();
+                hashCode = (hashCode * 397) ^ Wire2.GetHashCode();
+                hashCode = (hashCode * 397) ^ Wire3.GetHashCode();
+                hashCode = (hashCode * 397) ^ HalfBrick.GetHashCode();
+                hashCode = (hashCode * 397) ^ Slope.GetHashCode();
+                hashCode = (hashCode * 397) ^ Actuator.GetHashCode();
+                hashCode = (hashCode * 397) ^ InActive.GetHashCode();
+                hashCode = (hashCode * 397) ^ Wire4.GetHashCode();
+                hashCode = (hashCode * 397) ^ InvisibleBlock.GetHashCode();
+                hashCode = (hashCode * 397) ^ InvisibleWall.GetHashCode();
+                hashCode = (hashCode * 397) ^ FullBrightBlock.GetHashCode();
+                hashCode = (hashCode * 397) ^ FullBrightWall.GetHashCode();
+                return hashCode;
+            }
+        }
     }
 }
