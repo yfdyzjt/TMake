@@ -5,7 +5,22 @@ namespace TMake.Script
 {
     public static partial class Tool
     {
-        public static void PlaceSprite<T>(T area, Point position, SpriteData sprite) where T : ITileArea
+        public static Sign PlaceSign<T>(T area, Point position, SpriteData sprite) where T : ITileArea
+        {
+            PlaceSprite(area, position, sprite);
+            return GetSign(area, position);
+        }
+        public static Chest PlaceChest<T>(T area, Point position, SpriteData sprite) where T : ITileArea
+        {
+            PlaceSprite(area, position, sprite);
+            return GetChest(area, position);
+        }
+        public static TileEntity PlaceTileEntity<T>(T area, Point position, SpriteData sprite) where T : ITileArea
+        {
+            PlaceSprite(area, position, sprite);
+            return GetTileEntity(area, position);
+        }
+        public static Tile? PlaceSprite<T>(T area, Point position, SpriteData sprite) where T : ITileArea
         {
             Rectangle selection = Rectangle.Intersect(
                 new(position, new(sprite.Size)),
@@ -114,7 +129,9 @@ namespace TMake.Script
                     }
                     area.TileEntity.Add(TE);
                 }
+                return area.Tile[position.X, position.Y];
             }
+            return null;
         }
     }
 }

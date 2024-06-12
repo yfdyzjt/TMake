@@ -36,7 +36,7 @@
         {
             return SpriteDatas.First(sprite => (sprite.Name == name && sprite.Anchor == anchor));
         }
-        public readonly static List<SpriteData> SpriteDatas = new()
+        private readonly static List<SpriteData> SpriteDatas = new()
 {
 
 new SpriteData()

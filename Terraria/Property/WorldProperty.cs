@@ -26,7 +26,7 @@
             }
         }
 
-        public static readonly Dictionary<int, SaveVersionData> SaveVersions = new()
+        private static readonly Dictionary<int, SaveVersionData> SaveVersions = new()
         {
             [38] = new SaveVersionData(
       38,
