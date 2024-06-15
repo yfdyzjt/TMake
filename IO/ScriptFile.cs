@@ -89,7 +89,7 @@ namespace TMake.IO
                     var script = new Script
                     {
                         Name = name,
-                        Code = code,
+                        Code = code.Replace("\\n", "\n").Replace("\\r", "\r"),
                         DefaultArgs = [new KeyValuePair<string, object>("Sign", sign)]
                     };
                     scripts.Add(script);
@@ -104,13 +104,15 @@ namespace TMake.IO
         }
         private static string LoadScriptName(Sign sign)
         {
-            var line = sign.Text.Split(Environment.NewLine, 2)[0];
+            var line = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None)[0];
             var head = line.StartsWith("tmake") ? line.Split('.', 2) : [];
             return head.Length == 2 ? head[1] : "";
         }
+
+
         private static string LoadScriptCode(Sign sign)
         {
-            var line = sign.Text.Split(Environment.NewLine, 2);
+            var line = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
             return line.Length == 2 ? line[1] : "";
         }
         private static bool IsMatche(string str, string pattern)
