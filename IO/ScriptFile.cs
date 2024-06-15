@@ -14,20 +14,20 @@ namespace TMake.IO
             var heads = parts[0].Split(':', 2);
 
             var headName = heads[0];
-            var headExt = heads.Length == 2 ? heads[1] : "";
-            var scriptName = parts.Length == 2 ? parts[1] : "";
+            var headExt = heads.Length == 2 ? heads[1] : "*";
+            var scriptName = parts.Length == 2 ? parts[1] : "*";
 
             List<string> fileNames = [];
-            if (headExt != "")
-            {
-                fileNames.AddRange(Directory.GetFiles(path, headName + "." + headExt));
-            }
-            else
+            if (headExt == "*")
             {
                 foreach (var type in ScriptProperty.FileType)
                 {
                     fileNames.AddRange(Directory.GetFiles(path, headName + "." + type.Value));
                 }
+            }
+            else
+            {
+                fileNames.AddRange(Directory.GetFiles(path, headName + "." + headExt));
             }
 
             foreach (var file in fileNames)

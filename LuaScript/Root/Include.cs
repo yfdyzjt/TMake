@@ -2,7 +2,7 @@
 {
     public static partial class Root
     {
-        public static dynamic Include(string path)
+        public static void Include(string path)
         {
 
         }
