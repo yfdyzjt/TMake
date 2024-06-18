@@ -194,12 +194,12 @@ namespace TMake.IO
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
             sign.Text = lines[0] + Environment.NewLine +
-                code.Replace("\n", "\\n").Replace("\r", "\\r");
+                code.Replace("\n", "&#10").Replace("\r", "&#13");
         }
         private static string LoadScriptCode(Sign sign)
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
-            return lines.Length == 2 ? lines[1].Replace("\\n", "\n").Replace("\\r", "\r") : "";
+            return lines.Length == 2 ? lines[1].Replace("&#10", "\n").Replace("&#13", "\r") : "";
         }
         private static bool IsMatche(string str, string pattern)
         {
