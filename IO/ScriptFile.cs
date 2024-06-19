@@ -9,12 +9,11 @@ namespace TMake.IO
 {
     public class ScriptFile
     {
-        public static List<Script> Load(string name)
+        public static List<Script> Load(string load)
         {
-            return Load(Path.GetDirectoryName(Path.IsPathRooted(name) ? name : Path.GetFullPath(name)) ?? "", Path.GetFileName(name));
-        }
-        public static List<Script> Load(string path, string name)
-        {
+            var path = Path.GetDirectoryName(Path.IsPathRooted(load) ? load : Path.GetFullPath(load)) ?? "";
+            var name = Path.GetFileName(load);
+
             GetScriptNames(name,
                 out string scriptFileName,
                 out string scriptFileExt,
@@ -96,16 +95,13 @@ namespace TMake.IO
         public static void Save(Script script)
         {
             if (script.FileName == "") script.FileName = Path.Combine(Environment.CurrentDirectory, script.Name + ".lua");
-            Save(script, Path.GetDirectoryName(script.FileName) ?? "", script.Name);
+            Save(script, Path.Combine(Path.GetDirectoryName(script.FileName) ?? "", script.Name));
         }
-        public static void Save(Script script, string name)
+        public static void Save(Script script, string save)
         {
-            Save(script, 
-                Path.GetDirectoryName(Path.IsPathRooted(name) ? name : Path.GetFullPath(name)) ?? "", 
-                Path.GetFileName(name) == "" ? script.Name : Path.GetFileName(name));
-        }
-        public static void Save(Script script, string path, string name)
-        {
+            var path = Path.GetDirectoryName(Path.IsPathRooted(save) ? save : Path.GetFullPath(save)) ?? "";
+            var name = Path.GetFileName(save) == "" ? script.Name : Path.GetFileName(save);
+
             GetScriptNames(name,
                 out string scriptFileName,
                 out string scriptFileExt,
