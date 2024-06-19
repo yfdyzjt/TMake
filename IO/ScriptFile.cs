@@ -1,5 +1,7 @@
-﻿using System.Reflection;
+﻿using System.IO;
+using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using TMake.LuaScript;
 using TMake.Terraria;
 
@@ -7,6 +9,10 @@ namespace TMake.IO
 {
     public class ScriptFile
     {
+        public static List<Script> Load(string name)
+        {
+            return Load(Path.GetDirectoryName(Path.IsPathRooted(name) ? name : Path.GetFullPath(name)) ?? "", Path.GetFileName(name));
+        }
         public static List<Script> Load(string path, string name)
         {
             GetScriptNames(name,
@@ -87,9 +93,16 @@ namespace TMake.IO
 
             return scripts;
         }
-        public static void Save(Script script, string path)
+        public static void Save(Script script)
         {
-            Save(script, path, script.Name);
+            if (script.FileName == "") script.FileName = Path.Combine(Environment.CurrentDirectory, script.Name + ".lua");
+            Save(script, Path.GetDirectoryName(script.FileName) ?? "", script.Name);
+        }
+        public static void Save(Script script, string name)
+        {
+            Save(script, 
+                Path.GetDirectoryName(Path.IsPathRooted(name) ? name : Path.GetFullPath(name)) ?? "", 
+                Path.GetFileName(name) == "" ? script.Name : Path.GetFileName(name));
         }
         public static void Save(Script script, string path, string name)
         {
