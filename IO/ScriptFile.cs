@@ -1,7 +1,5 @@
-﻿using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
 using TMake.LuaScript;
 using TMake.Terraria;
 
@@ -23,69 +21,76 @@ namespace TMake.IO
 
             List<Script> scripts = [];
 
-            foreach (var fileName in fileNames)
+            if (fileNames.Count == 0)
             {
-                var fileType = GetScriptType(fileName);
+                throw new FileFormatException("Not Find File");
+            }
+            else
+            {
+                foreach (var fileName in fileNames)
+                {
+                    var fileType = GetScriptType(fileName);
 
-                if (fileType == ScriptType.Lua)
-                {
-                    var script = new Script
-                    {
-                        Name = Path.GetFileNameWithoutExtension(fileName),
-                        Code = File.ReadAllText(fileName),
-                        Type = ScriptType.Lua,
-                        FileName = fileName,
-                        DefaultArgs = [
-                                .. GetDefaultArgs(),
-                            ]
-                    };
-                    script.DefaultArgs.Add(new("script", script));
-                    scripts.Add(script);
-                }
-                else if (fileType == ScriptType.Sch)
-                {
-                    var sch = SchematicFile.Load(fileName);
-                    var signs = GetMatcheSigns(sch.Sign, scriptName);
-                    foreach (var sign in signs)
+                    if (fileType == ScriptType.Lua)
                     {
                         var script = new Script
                         {
-                            Name = name,
-                            Type = ScriptType.Sch,
+                            Name = Path.GetFileNameWithoutExtension(fileName),
+                            Code = File.ReadAllText(fileName),
+                            Type = ScriptType.Lua,
                             FileName = fileName,
-                            Code = LoadScriptCode(sign),
                             DefaultArgs = [
-                                .. GetDefaultArgs(),
-                                new KeyValuePair<string, object>("sign", sign),
-                                new KeyValuePair<string, object>("sch", sch),
-                                new KeyValuePair<string, object>("area", sch),
+                                    .. GetDefaultArgs(),
                             ]
                         };
                         script.DefaultArgs.Add(new("script", script));
                         scripts.Add(script);
                     }
-                }
-                else if (fileType == ScriptType.World)
-                {
-                    var world = WorldFile.Load(fileName);
-                    var signs = GetMatcheSigns(world.Sign, scriptName);
-                    foreach (var sign in signs)
+                    else if (fileType == ScriptType.Sch)
                     {
-                        var script = new Script
+                        var sch = SchematicFile.Load(fileName);
+                        var signs = GetMatcheSigns(sch.Sign, scriptName);
+                        foreach (var sign in signs)
                         {
-                            Name = name,
-                            Type = ScriptType.World,
-                            FileName = fileName,
-                            Code = LoadScriptCode(sign),
-                            DefaultArgs = [
-                                .. GetDefaultArgs(),
+                            var script = new Script
+                            {
+                                Name = name,
+                                Type = ScriptType.Sch,
+                                FileName = fileName,
+                                Code = LoadScriptCode(sign),
+                                DefaultArgs = [
+                                    .. GetDefaultArgs(),
+                                new KeyValuePair<string, object>("sign", sign),
+                                new KeyValuePair<string, object>("sch", sch),
+                                new KeyValuePair<string, object>("area", sch),
+                            ]
+                            };
+                            script.DefaultArgs.Add(new("script", script));
+                            scripts.Add(script);
+                        }
+                    }
+                    else if (fileType == ScriptType.World)
+                    {
+                        var world = WorldFile.Load(fileName);
+                        var signs = GetMatcheSigns(world.Sign, scriptName);
+                        foreach (var sign in signs)
+                        {
+                            var script = new Script
+                            {
+                                Name = name,
+                                Type = ScriptType.World,
+                                FileName = fileName,
+                                Code = LoadScriptCode(sign),
+                                DefaultArgs = [
+                                    .. GetDefaultArgs(),
                                 new KeyValuePair<string, object>("sign", sign),
                                 new KeyValuePair<string, object>("world", world),
                                 new KeyValuePair<string, object>("area", world),
                             ],
-                        };
-                        script.DefaultArgs.Add(new("script", script));
-                        scripts.Add(script);
+                            };
+                            script.DefaultArgs.Add(new("script", script));
+                            scripts.Add(script);
+                        }
                     }
                 }
             }
