@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Reflection;
+using System.Text.RegularExpressions;
 using TMake.LuaScript;
 using TMake.Terraria;
 
@@ -28,8 +29,12 @@ namespace TMake.IO
                         Name = Path.GetFileNameWithoutExtension(fileName),
                         Code = File.ReadAllText(fileName),
                         Type = ScriptType.Lua,
-                        FileName = fileName
+                        FileName = fileName,
+                        DefaultArgs = [
+                                .. GetDefaultArgs(),
+                            ]
                     };
+                    script.DefaultArgs.Add(new("script", script));
                     scripts.Add(script);
                 }
                 else if (fileType == ScriptType.Sch)
@@ -45,10 +50,13 @@ namespace TMake.IO
                             FileName = fileName,
                             Code = LoadScriptCode(sign),
                             DefaultArgs = [
-                                new KeyValuePair<string, object>("Sign", sign),
-                                new KeyValuePair<string, object>("Sch", sch),
-                                new KeyValuePair<string, object>("Area", sch)]
+                                .. GetDefaultArgs(),
+                                new KeyValuePair<string, object>("sign", sign),
+                                new KeyValuePair<string, object>("sch", sch),
+                                new KeyValuePair<string, object>("area", sch),
+                            ]
                         };
+                        script.DefaultArgs.Add(new("script", script));
                         scripts.Add(script);
                     }
                 }
@@ -65,10 +73,13 @@ namespace TMake.IO
                             FileName = fileName,
                             Code = LoadScriptCode(sign),
                             DefaultArgs = [
-                                new KeyValuePair<string, object>("Sign", sign),
-                                new KeyValuePair<string, object>("World", world),
-                                new KeyValuePair<string, object>("Area", world)]
+                                .. GetDefaultArgs(),
+                                new KeyValuePair<string, object>("sign", sign),
+                                new KeyValuePair<string, object>("world", world),
+                                new KeyValuePair<string, object>("area", world),
+                            ],
                         };
+                        script.DefaultArgs.Add(new("script", script));
                         scripts.Add(script);
                     }
                 }
@@ -141,6 +152,20 @@ namespace TMake.IO
                     }
                 }
             }
+        }
+        private static List<KeyValuePair<string, object>> GetDefaultArgs()
+        {
+            return [
+                ..UsingNamespace("IO"),
+                ..UsingNamespace("Terraria"),
+                ..UsingNamespace("LuaScript"),
+                ];
+        }
+        private static List<KeyValuePair<string, object>> UsingNamespace(string namespaceName)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var types = assembly.GetTypes().Where(t => t.Namespace == namespaceName).ToList();
+            return types.Select(type => new KeyValuePair<string, object>(type.Name, type)).ToList();
         }
         private static void GetScriptNames(string name, out string scriptFileName, out string scriptFileExt, out string scriptName)
         {
