@@ -1,6 +1,7 @@
 ﻿namespace TMake.IO
 {
-    internal class BinaryFile
+    public static class DataFile
     {
+
     }
 }

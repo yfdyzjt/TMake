@@ -5,7 +5,7 @@ using TMake.Terraria;
 
 namespace TMake.IO
 {
-    public class ScriptFile
+    public static class ScriptFile
     {
         public static List<Script> Load(string packageName)
         {

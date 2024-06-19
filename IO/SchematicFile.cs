@@ -2,7 +2,7 @@
 
 namespace TMake.IO
 {
-    public class SchematicFile
+    public static class SchematicFile
     {
         public static Schematic Load(string filename)
         {

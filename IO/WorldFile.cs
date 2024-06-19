@@ -2,9 +2,8 @@
 
 namespace TMake.IO
 {
-    public class WorldFile
+    public static class WorldFile
     {
-
         public static World Load(string filename)
         {
             World world = new();
@@ -32,7 +31,6 @@ namespace TMake.IO
 
             return world;
         }
-
         public static void Save(World world, string filename)
         {
             try

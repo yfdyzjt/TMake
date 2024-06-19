@@ -17,7 +17,7 @@ namespace TMake.LuaScript
 
             script.Code = Regex.Replace(script.Code, pattern2, match =>
             functionNames.Contains(match.Groups[1].Value) ?
-            (prefix + match.Groups[1].Value) :
+            prefix + match.Groups[1].Value :
             match.Groups[1].Value);
 
             return Run(script, self, args);
