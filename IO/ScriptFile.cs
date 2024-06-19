@@ -7,10 +7,10 @@ namespace TMake.IO
 {
     public class ScriptFile
     {
-        public static List<Script> Load(string load)
+        public static List<Script> Load(string packageName)
         {
-            var path = Path.GetDirectoryName(Path.IsPathRooted(load) ? load : Path.GetFullPath(load)) ?? "";
-            var name = Path.GetFileName(load);
+            var path = Path.GetDirectoryName(Path.IsPathRooted(packageName) ? packageName : Path.GetFullPath(packageName)) ?? "";
+            var name = Path.GetFileName(packageName);
 
             GetScriptNames(name,
                 out string scriptFileName,
@@ -36,14 +36,16 @@ namespace TMake.IO
                         var script = new Script
                         {
                             Name = Path.GetFileNameWithoutExtension(fileName),
-                            Code = File.ReadAllText(fileName),
                             Type = ScriptType.Lua,
                             FileName = fileName,
-                            DefaultArgs = [
-                                    .. GetDefaultArgs(),
-                            ]
+                            Code = File.ReadAllText(fileName),
                         };
-                        script.DefaultArgs.Add(new("script", script));
+                        script.Args.AddRange([
+                            new("script", script),
+                            ]);
+                        script.Packages.AddRange([
+                                .. GetDefaultArgs(),
+                                ]);
                         scripts.Add(script);
                     }
                     else if (fileType == ScriptType.Sch)
@@ -58,14 +60,16 @@ namespace TMake.IO
                                 Type = ScriptType.Sch,
                                 FileName = fileName,
                                 Code = LoadScriptCode(sign),
-                                DefaultArgs = [
-                                    .. GetDefaultArgs(),
-                                new KeyValuePair<string, object>("sign", sign),
-                                new KeyValuePair<string, object>("sch", sch),
-                                new KeyValuePair<string, object>("area", sch),
-                            ]
                             };
-                            script.DefaultArgs.Add(new("script", script));
+                            script.Args.AddRange([
+                                new("sign", sign),
+                                new("sch", sch),
+                                new("area", sch),
+                                new("script", script),
+                                ]);
+                            script.Packages.AddRange([
+                                .. GetDefaultArgs(),
+                                ]);
                             scripts.Add(script);
                         }
                     }
@@ -81,14 +85,16 @@ namespace TMake.IO
                                 Type = ScriptType.World,
                                 FileName = fileName,
                                 Code = LoadScriptCode(sign),
-                                DefaultArgs = [
-                                    .. GetDefaultArgs(),
-                                new KeyValuePair<string, object>("sign", sign),
-                                new KeyValuePair<string, object>("world", world),
-                                new KeyValuePair<string, object>("area", world),
-                            ],
                             };
-                            script.DefaultArgs.Add(new("script", script));
+                            script.Args.AddRange([
+                                new("sign", sign),
+                                new("world", world),
+                                new("area", world),
+                                new("script", script),
+                                ]);
+                            script.Packages.AddRange([
+                                .. GetDefaultArgs(),
+                                ]);
                             scripts.Add(script);
                         }
                     }
@@ -102,10 +108,10 @@ namespace TMake.IO
             if (script.FileName == "") script.FileName = Path.Combine(Environment.CurrentDirectory, script.Name + ".lua");
             Save(script, Path.Combine(Path.GetDirectoryName(script.FileName) ?? "", script.Name));
         }
-        public static void Save(Script script, string save)
+        public static void Save(Script script, string packageName)
         {
-            var path = Path.GetDirectoryName(Path.IsPathRooted(save) ? save : Path.GetFullPath(save)) ?? "";
-            var name = Path.GetFileName(save) == "" ? script.Name : Path.GetFileName(save);
+            var path = Path.GetDirectoryName(Path.IsPathRooted(packageName) ? packageName : Path.GetFullPath(packageName)) ?? "";
+            var name = Path.GetFileName(packageName) == "" ? script.Name : Path.GetFileName(packageName);
 
             GetScriptNames(name,
                 out string scriptFileName,
@@ -167,19 +173,19 @@ namespace TMake.IO
                 }
             }
         }
-        private static List<KeyValuePair<string, object>> GetDefaultArgs()
+        private static List<KeyValuePair<string, Type>> GetDefaultArgs()
         {
             return [
-                ..UsingNamespace("IO"),
-                ..UsingNamespace("Terraria"),
-                ..UsingNamespace("LuaScript"),
+                ..UsingNamespace("TMake.IO"),
+                ..UsingNamespace("TMake.Terraria"),
+                ..UsingNamespace("TMake.LuaScript"),
                 ];
         }
-        private static List<KeyValuePair<string, object>> UsingNamespace(string namespaceName)
+        private static List<KeyValuePair<string, Type>> UsingNamespace(string namespaceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
             var types = assembly.GetTypes().Where(t => t.Namespace == namespaceName).ToList();
-            return types.Select(type => new KeyValuePair<string, object>(type.Name, type)).ToList();
+            return types.Select(type => new KeyValuePair<string, Type>(type.Name, type)).ToList();
         }
         private static void GetScriptNames(string name, out string scriptFileName, out string scriptFileExt, out string scriptName)
         {

@@ -6,9 +6,42 @@ namespace TMake.LuaScript
     {
         public static void Run(Script script, params string[] args)
         {
-            using Lua lua = new();
-            LuaGlobal global = lua.CreateEnvironment();
-            global.DoChunk(script.Code, script.Name, [new("args", args), .. script.DefaultArgs]);
+            using var lua = new Lua();
+            var env = lua.CreateEnvironment();
+
+            env["self"] = env;
+            env["args"] = args;
+
+            foreach (var arg in script.Args)
+            {
+                env[arg.Key] = arg.Value;
+            }
+
+            foreach (var package in script.Packages)
+            {
+                env.RegisterPackage(package.Key, package.Value);
+            }
+
+            try
+            {
+                env.DoChunk(script.Code, script.Name);
+            }
+            catch (LuaParseException e)
+            {
+                throw;
+            }
+            catch (LuaRuntimeException e)
+            {
+                throw;
+            }
+            catch (IOException e)
+            {
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

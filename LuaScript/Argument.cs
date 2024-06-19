@@ -4,8 +4,9 @@ namespace TMake.LuaScript
 {
     public static partial class Root
     {
-        public static void FormatArgs(LuaTable self, string[] args, params string[] pairs)
+        public static void FormatArgs(LuaGlobal self, params string[] pairs)
         {
+            var args = (string[])self["args"];
             for (int i = 0; i < pairs.Length; i++)
             {
                 var parts = pairs[i].Split(':', 2);
