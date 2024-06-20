@@ -38,15 +38,13 @@ namespace TMake.LuaScript
 
             int size = Marshal.SizeOf<T>() * 8;
 
-            long carValue = Convert.ToInt64(carry);
-            long binValue = Convert.ToInt64(value);
+            dynamic carValue = carry;
+            dynamic binValue = value;
 
-            long grayValue = binValue ^ (binValue << 1) ^ carValue;
+            dynamic grayValue = binValue ^ (binValue << 1) ^ carValue;
 
-            grayValue = grayValue << (64 - size) >> (64 - size);
-
-            carry = (T)Convert.ChangeType(binValue >> (size - 1), typeof(T));
-            return (T)Convert.ChangeType(grayValue, typeof(T));
+            carry = (T)((binValue >> (size - 1)) & 1);
+            return (T)grayValue;
         }
         public static T[] GrayCodeToBinary<T>(T[] value) where T : struct, IConvertible, IComparable, IFormattable
         {
@@ -82,10 +80,10 @@ namespace TMake.LuaScript
 
             int size = Marshal.SizeOf<T>() * 8;
 
-            long carValue = Convert.ToInt64(carry);
-            long grayValue = Convert.ToInt64(value) ^ carValue;
+            dynamic carValue = carry;
+            dynamic grayValue = value ^ carValue;
 
-            long binValue = grayValue;
+            dynamic binValue = grayValue;
 
             for (int i = 0; i < size; i++)
             {
@@ -93,10 +91,8 @@ namespace TMake.LuaScript
                 binValue ^= grayValue;
             }
 
-            binValue = binValue << (64 - size) >> (64 - size);
-
-            carry = (T)Convert.ChangeType(binValue >> (size - 1), typeof(T));
-            return (T)Convert.ChangeType(binValue, typeof(T));
+            carry = (T)((binValue >> (size - 1)) & 1);
+            return (T)binValue;
         }
     }
 }
