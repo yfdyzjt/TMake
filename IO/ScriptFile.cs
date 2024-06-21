@@ -187,9 +187,11 @@ namespace TMake.IO
         }
         private static List<KeyValuePair<string, Type>> UsingNamespace(string namespaceName)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var types = assembly.GetExportedTypes().Where(t => t.Namespace == namespaceName).ToList();
-            return types.Select(type => new KeyValuePair<string, Type>(type.Name, type)).ToList();
+            return AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(assembly => assembly.GetExportedTypes())
+                .Where(t => t.Namespace == namespaceName)
+                .ToList()
+                .Select(type => new KeyValuePair<string, Type>(type.Name, type)).ToList();
         }
         private static List<KeyValuePair<string, object>> GetMethod()
         {
@@ -199,12 +201,14 @@ namespace TMake.IO
         }
         private static List<KeyValuePair<string, object>> UsingClass(string namespaceName, string className)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var type = assembly.GetTypes().First(t => t.Namespace == namespaceName && t.Name == className);
-            return type.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly)
-                .Select(methodInfo => new KeyValuePair<string, object>(methodInfo.Name, CreateDelegateFromMethodInfo(methodInfo))).ToList();
+            return AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(assembly => assembly.GetExportedTypes())
+                .First(t => t.Namespace == namespaceName && t.Name == className)
+                .GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly)
+                .Select(methodInfo => new KeyValuePair<string, object>(methodInfo.Name, CreateDelegateFromMethodInfo(methodInfo)))
+                .ToList();
         }
-        public static Delegate CreateDelegateFromMethodInfo(MethodInfo method)
+        private static Delegate CreateDelegateFromMethodInfo(MethodInfo method)
         {
             var parameter = method.GetParameters().Select(p => p.ParameterType).ToArray();
 
@@ -216,7 +220,7 @@ namespace TMake.IO
             else
             {
                 Array.Resize(ref parameter, parameter.Length + 1);
-                parameter[parameter.Length - 1] = method.ReturnType;
+                parameter[^1] = method.ReturnType;
 
                 var func = Expression.GetFuncType(parameter);
                 return Delegate.CreateDelegate(func, method);

@@ -38,7 +38,7 @@ namespace TMake.LuaScript
             {
                 env.RegisterPackage(package.Key, package.Value);
             }
-
+            
             try
             {
                 return env.DoChunk(script.Code, script.Name);
