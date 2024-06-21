@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Linq.Expressions;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using TMake.LuaScript;
 using TMake.Terraria;
@@ -41,10 +42,11 @@ namespace TMake.IO
                             Code = File.ReadAllText(fileName),
                         };
                         script.Args.AddRange([
+                            ..GetMethod(),
                             new("script", script),
                             ]);
                         script.Packages.AddRange([
-                                .. GetDefaultArgs(),
+                                .. GetClass(),
                                 ]);
                         scripts.Add(script);
                     }
@@ -62,13 +64,14 @@ namespace TMake.IO
                                 Code = LoadScriptCode(sign),
                             };
                             script.Args.AddRange([
+                                ..GetMethod(),
                                 new("sign", sign),
                                 new("sch", sch),
                                 new("area", sch),
                                 new("script", script),
                                 ]);
                             script.Packages.AddRange([
-                                .. GetDefaultArgs(),
+                                .. GetClass(),
                                 ]);
                             scripts.Add(script);
                         }
@@ -87,13 +90,14 @@ namespace TMake.IO
                                 Code = LoadScriptCode(sign),
                             };
                             script.Args.AddRange([
+                                ..GetMethod(),
                                 new("sign", sign),
                                 new("world", world),
                                 new("area", world),
                                 new("script", script),
                                 ]);
                             script.Packages.AddRange([
-                                .. GetDefaultArgs(),
+                                .. GetClass(),
                                 ]);
                             scripts.Add(script);
                         }
@@ -173,7 +177,7 @@ namespace TMake.IO
                 }
             }
         }
-        private static List<KeyValuePair<string, Type>> GetDefaultArgs()
+        private static List<KeyValuePair<string, Type>> GetClass()
         {
             return [
                 ..UsingNamespace("TMake.IO"),
@@ -184,8 +188,39 @@ namespace TMake.IO
         private static List<KeyValuePair<string, Type>> UsingNamespace(string namespaceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var types = assembly.GetTypes().Where(t => t.Namespace == namespaceName).ToList();
+            var types = assembly.GetExportedTypes().Where(t => t.Namespace == namespaceName).ToList();
             return types.Select(type => new KeyValuePair<string, Type>(type.Name, type)).ToList();
+        }
+        private static List<KeyValuePair<string, object>> GetMethod()
+        {
+            return [
+                ..UsingClass("TMake.LuaScript","Root"),
+                ];
+        }
+        private static List<KeyValuePair<string, object>> UsingClass(string namespaceName, string className)
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            var type = assembly.GetTypes().First(t => t.Namespace == namespaceName && t.Name == className);
+            return type.GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly)
+                .Select(methodInfo => new KeyValuePair<string, object>(methodInfo.Name, CreateDelegateFromMethodInfo(methodInfo))).ToList();
+        }
+        public static Delegate CreateDelegateFromMethodInfo(MethodInfo method)
+        {
+            var parameter = method.GetParameters().Select(p => p.ParameterType).ToArray();
+
+            if (method.ReturnType == typeof(void))
+            {
+                var action = Expression.GetActionType(parameter);
+                return Delegate.CreateDelegate(action, method);
+            }
+            else
+            {
+                Array.Resize(ref parameter, parameter.Length + 1);
+                parameter[parameter.Length - 1] = method.ReturnType;
+
+                var func = Expression.GetFuncType(parameter);
+                return Delegate.CreateDelegate(func, method);
+            }
         }
         private static void GetScriptNames(string name, out string scriptFileName, out string scriptFileExt, out string scriptName)
         {
