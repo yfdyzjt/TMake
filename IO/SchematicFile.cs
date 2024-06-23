@@ -1,13 +1,19 @@
-﻿using TMake.Terraria;
+﻿using System.Drawing;
+using TMake.LuaScript;
+using TMake.Terraria;
 
 namespace TMake.IO
 {
     public static class SchematicFile
     {
-        public static Schematic Load(string filename)
+        public static Schematic Load(string filePath)
         {
             Schematic sch = new();
-
+            Load(sch, filePath);
+            return sch;
+        }
+        public static void Load(Schematic sch, string filename)
+        {
             try
             {
                 using var fileStream = new FileStream(filename, FileMode.Open);
@@ -30,8 +36,6 @@ namespace TMake.IO
             {
                 throw;
             }
-
-            return sch;
         }
         public static void Save(Schematic sch, string filename)
         {

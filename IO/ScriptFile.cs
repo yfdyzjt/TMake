@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Drawing;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using TMake.LuaScript;
@@ -8,182 +9,93 @@ namespace TMake.IO
 {
     public static class ScriptFile
     {
-        public static List<Script> Load(string packageName)
+        public static void Load<T>(List<Script> scripts, T area, string scriptName) where T : TMakeFileFormat, ITileArea
         {
-            var path = Path.GetDirectoryName(Path.IsPathRooted(packageName) ? packageName : Path.GetFullPath(packageName)) ?? "";
-            var name = Path.GetFileName(packageName);
+            var signs = GetMatcheSigns(area.Sign, scriptName);
 
-            GetScriptNames(name,
-                out string scriptFileName,
-                out string scriptFileExt,
-                out string scriptName);
-
-            List<string> fileNames = GetFileNames(path, scriptFileName, scriptFileExt);
-
-            List<Script> scripts = [];
-
-            if (fileNames.Count == 0)
+            foreach (var sign in signs)
             {
-                throw new FileFormatException("Not Find File");
+                var type = TMakeFileProperty.Class2Type[typeof(T)];
+                var typeName = type.ToString().ToLower();
+
+                var script = new Script
+                {
+                    Type = type,
+                    FileName = area.FilePath,
+                    Args = [
+                        new(typeName, area),
+                        new("area", area),
+                        new("sign", sign),
+                    ],
+                };
+
+                Load(script, sign);
+
+                scripts.Add(script);
+            }
+        }
+        public static void Load(Script script, string filePath)
+        {
+            script.FilePath = filePath;
+            script.Name = Path.GetFileNameWithoutExtension(filePath);
+            script.Code = File.ReadAllText(filePath);
+
+            GetDefaultArgs(script);
+        }
+        public static void Load(Script script, Sign sign)
+        {
+            script.Name = LoadScriptName(sign);
+            script.Code = LoadScriptCode(sign);
+
+            GetDefaultArgs(script);
+        }
+        public static void Save<T>(List<Script> scripts, T area, string scriptName) where T : ITileArea
+        {
+            foreach(var script in scripts)
+            {
+                Save(script, area, scriptName);
+            }
+        }
+        public static void Save<T>(Script script, T area, string scriptName) where T : ITileArea
+        {
+            var signs = GetMatcheSigns(area.Sign, scriptName);
+
+            if (signs.Count == 0)
+            {
+                Save(script, area, new Point(0, 0));
             }
             else
             {
-                foreach (var fileName in fileNames)
+                foreach (var sign in signs)
                 {
-                    var fileType = GetScriptType(fileName);
-
-                    if (fileType == ScriptType.Lua)
-                    {
-                        var script = new Script
-                        {
-                            Name = Path.GetFileNameWithoutExtension(fileName),
-                            Type = ScriptType.Lua,
-                            FileName = fileName,
-                            Code = File.ReadAllText(fileName),
-                        };
-                        script.Args.AddRange([
-                            ..GetMethod(),
-                            new("script", script),
-                            ]);
-                        script.Packages.AddRange([
-                                .. GetClass(),
-                                ]);
-                        scripts.Add(script);
-                    }
-                    else if (fileType == ScriptType.Sch)
-                    {
-                        var sch = SchematicFile.Load(fileName);
-                        var signs = GetMatcheSigns(sch.Sign, scriptName);
-                        foreach (var sign in signs)
-                        {
-                            var script = new Script
-                            {
-                                Name = name,
-                                Type = ScriptType.Sch,
-                                FileName = fileName,
-                                Code = LoadScriptCode(sign),
-                            };
-                            script.Args.AddRange([
-                                ..GetMethod(),
-                                new("sign", sign),
-                                new("sch", sch),
-                                new("area", sch),
-                                new("script", script),
-                                ]);
-                            script.Packages.AddRange([
-                                .. GetClass(),
-                                ]);
-                            scripts.Add(script);
-                        }
-                    }
-                    else if (fileType == ScriptType.World)
-                    {
-                        var world = WorldFile.Load(fileName);
-                        var signs = GetMatcheSigns(world.Sign, scriptName);
-                        foreach (var sign in signs)
-                        {
-                            var script = new Script
-                            {
-                                Name = name,
-                                Type = ScriptType.World,
-                                FileName = fileName,
-                                Code = LoadScriptCode(sign),
-                            };
-                            script.Args.AddRange([
-                                ..GetMethod(),
-                                new("sign", sign),
-                                new("world", world),
-                                new("area", world),
-                                new("script", script),
-                                ]);
-                            script.Packages.AddRange([
-                                .. GetClass(),
-                                ]);
-                            scripts.Add(script);
-                        }
-                    }
-                }
-            }
-
-            return scripts;
-        }
-        public static void Save(Script script)
-        {
-            if (script.FileName == "") script.FileName = Path.Combine(Environment.CurrentDirectory, script.Name + ".lua");
-            Save(script, Path.Combine(Path.GetDirectoryName(script.FileName) ?? "", script.Name));
-        }
-        public static void Save(Script script, string packageName)
-        {
-            var path = Path.GetDirectoryName(Path.IsPathRooted(packageName) ? packageName : Path.GetFullPath(packageName)) ?? "";
-            var name = Path.GetFileName(packageName) == "" ? script.Name : Path.GetFileName(packageName);
-
-            GetScriptNames(name,
-                out string scriptFileName,
-                out string scriptFileExt,
-                out string scriptName);
-
-            List<string> fileNames = GetFileNames(path, scriptFileName, scriptFileExt);
-
-            if (fileNames.Count == 0)
-            {
-                File.WriteAllText(Path.Combine(path, scriptFileName + ".lua"), script.Code);
-            }
-            else
-            {
-                foreach (var fileName in fileNames)
-                {
-                    var fileType = GetScriptType(fileName);
-
-                    if (fileType == ScriptType.Lua)
-                    {
-                        File.WriteAllText(Path.Combine(path, scriptFileName + ".lua"), script.Code);
-                    }
-                    else if (fileType == ScriptType.Sch)
-                    {
-                        var sch = SchematicFile.Load(fileName);
-                        var signs = GetMatcheSigns(sch.Sign, scriptName);
-
-                        if (signs.Count == 0)
-                        {
-                            signs.Add(Tool.PlaceSign(sch, new(0, 0), SpriteProperty.GetSpriteData("Sign", "Wall")));
-                        }
-
-                        foreach (var sign in signs)
-                        {
-                            SaveScriptName(sign, script.Name);
-                            SaveScriptCode(sign, script.Code);
-                        }
-
-                        SchematicFile.Save(sch, fileName);
-                    }
-                    else if (fileType == ScriptType.World)
-                    {
-                        var world = WorldFile.Load(fileName);
-                        var signs = GetMatcheSigns(world.Sign, scriptName);
-
-                        if (signs.Count == 0)
-                        {
-                            signs.Add(Tool.PlaceSign(world, new(0, 0), SpriteProperty.GetSpriteData("Sign", "Wall")));
-                        }
-
-                        foreach (var sign in signs)
-                        {
-                            SaveScriptName(sign, script.Name);
-                            SaveScriptCode(sign, script.Code);
-                        }
-
-                        WorldFile.Save(world, fileName);
-                    }
+                    Save(script, sign);
                 }
             }
         }
-        private static List<KeyValuePair<string, Type>> GetClass()
+        public static void Save<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
-            return [
+            Save(script, Tool.PlaceSign(area, pos, SpriteProperty.GetSpriteData("Sign", "Wall")));
+        }
+        public static void Save(Script script, string filePath)
+        {
+            File.WriteAllText(filePath, script.Code);
+        }
+        public static void Save(Script script, Sign sign)
+        {
+            SaveScriptName(sign, script.Name);
+            SaveScriptCode(sign, script.Code);
+        }
+        private static void GetDefaultArgs(Script script)
+        {
+            script.Args.AddRange([
+                new("script", script),
+                ..UsingClass("TMake.LuaScript","Root"),
+                ]);
+            script.Packages.AddRange([
                 ..UsingNamespace("TMake.IO"),
                 ..UsingNamespace("TMake.Terraria"),
                 ..UsingNamespace("TMake.LuaScript"),
-                ];
+                ]);
         }
         private static List<KeyValuePair<string, Type>> UsingNamespace(string namespaceName)
         {
@@ -192,12 +104,6 @@ namespace TMake.IO
                 .Where(t => t.Namespace == namespaceName)
                 .ToList()
                 .Select(type => new KeyValuePair<string, Type>(type.Name, type)).ToList();
-        }
-        private static List<KeyValuePair<string, object>> GetMethod()
-        {
-            return [
-                ..UsingClass("TMake.LuaScript","Root"),
-                ];
         }
         private static List<KeyValuePair<string, object>> UsingClass(string namespaceName, string className)
         {
@@ -226,52 +132,16 @@ namespace TMake.IO
                 return Delegate.CreateDelegate(func, method);
             }
         }
-        private static void GetScriptNames(string name, out string scriptFileName, out string scriptFileExt, out string scriptName)
-        {
-            var parts = name.Split('.', 2);
-            var heads = parts[0].Split(':', 2);
-
-            scriptFileName = heads[0];
-            scriptFileExt = heads.Length == 2 ? heads[1] : "*";
-            scriptName = parts.Length == 2 ? parts[1] : "*";
-        }
-        private static List<string> GetFileNames(string path, string scriptFileName, string scriptFileExt = "*")
-        {
-            List<string> fileNames = [];
-
-            if (scriptFileExt == "*")
-            {
-                foreach (var type in ScriptProperty.FileType)
-                {
-                    fileNames.AddRange(Directory.GetFiles(path, scriptFileName + "." + type.Value));
-                }
-            }
-            else
-            {
-                fileNames.AddRange(Directory.GetFiles(path, scriptFileName + "." + scriptFileExt));
-            }
-
-            return fileNames;
-        }
-        private static ScriptType GetScriptType(string fileName)
-        {
-            var name = Path.GetExtension(fileName).TrimStart('.');
-            return ScriptProperty.FileType.FirstOrDefault(pair => pair.Value == name).Key;
-        }
-        private static List<Sign> GetMatcheSigns(List<Sign> signs, string pattern)
-        {
-            return signs.Where(sign => IsMatche(LoadScriptName(sign), pattern)).ToList();
-        }
         private static void SaveScriptName(Sign sign, string name)
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
-            sign.Text = "tmake" + "." + name + Environment.NewLine +
+            sign.Text = "tmake" + ":" + name + Environment.NewLine +
                 (lines.Length == 2 ? lines[1] : "");
         }
         private static string LoadScriptName(Sign sign)
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
-            var heads = lines[0].StartsWith("tmake") ? lines[0].Split('.', 2) : [];
+            var heads = lines[0].StartsWith("tmake") ? lines[0].Split(':', 2) : [];
             return heads.Length == 2 ? heads[1] : "";
         }
         private static void SaveScriptCode(Sign sign, string code)
@@ -284,6 +154,10 @@ namespace TMake.IO
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
             return lines.Length == 2 ? lines[1].Replace("&#10", "\n").Replace("&#13", "\r") : "";
+        }
+        private static List<Sign> GetMatcheSigns(List<Sign> signs, string pattern)
+        {
+            return signs.Where(sign => IsMatche(LoadScriptName(sign), pattern)).ToList();
         }
         private static bool IsMatche(string str, string pattern)
         {

@@ -1,7 +1,18 @@
-﻿namespace TMake.Terraria
+﻿using TMake.IO;
+
+namespace TMake.Terraria
 {
-    public class World : ITileArea
+    public class World : TMakeFileFormat, ITileArea
     {
+        public override void Load(TMakeFileFormat tmakeFile)
+        {
+            WorldFile.Load(this, tmakeFile.FilePath);
+        }
+        public override void Save(TMakeFileFormat tmakeFile)
+        {
+            WorldFile.Save(this, tmakeFile.FilePath);
+        }
+
         public Tile[,] Tile { get; set; } = new Tile[0, 0];
         public List<Chest> Chest { get; set; } = [];
         public List<Sign> Sign { get; set; } = [];

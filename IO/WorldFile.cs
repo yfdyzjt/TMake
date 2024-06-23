@@ -1,16 +1,22 @@
 ﻿using TMake.Terraria;
+using TMake.LuaScript;
+using System.Drawing;
 
 namespace TMake.IO
 {
     public static class WorldFile
     {
-        public static World Load(string filename)
+        public static World Load(string filePath)
         {
             World world = new();
-
+            Load(world, filePath);
+            return world;
+        }
+        public static void Load(World world, string filePath)
+        {
             try
             {
-                using var fileStream = new FileStream(filename, FileMode.Open);
+                using var fileStream = new FileStream(filePath, FileMode.Open);
                 using var binaryReader = new BinaryReader(fileStream);
 
                 world.Version = binaryReader.ReadUInt32();
@@ -28,14 +34,12 @@ namespace TMake.IO
             {
                 throw;
             }
-
-            return world;
         }
-        public static void Save(World world, string filename)
+        public static void Save(World world, string filePath)
         {
             try
             {
-                using var fileStream = new FileStream(filename, FileMode.Create);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
                 using var binaryWriter = new BinaryWriter(fileStream);
 
                 if (world.Version > 87)
