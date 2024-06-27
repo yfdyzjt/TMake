@@ -7,7 +7,7 @@ namespace TMake.LuaScript
         public static void FormatArgs(LuaGlobal self, params string[] pairs)
         {
             var args = (string[])self["args"];
-            for (int i = 0; i < pairs.Length; i++)
+            for (int i = 0; i < pairs.Length && i < args.Length; i++)
             {
                 var parts = pairs[i].Split(':', 2);
 

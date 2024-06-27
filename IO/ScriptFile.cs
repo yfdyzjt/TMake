@@ -15,7 +15,7 @@ namespace TMake.IO
 
             foreach (var sign in signs)
             {
-                var type = TMakeFileProperty.ClassToType[typeof(T)];
+                var type = TMakeFileProperty.GetType(typeof(T));
                 var typeName = type.ToString().ToLower();
 
                 var script = new Script

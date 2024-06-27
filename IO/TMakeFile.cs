@@ -19,8 +19,8 @@
         }
         public TMakeFileType Type
         {
-            get => TMakeFileProperty.FileExtToType[Extension]; 
-            set => Extension = TMakeFileProperty.TypeToFileExt[value]; 
+            get => TMakeFileProperty.GetType(Extension); 
+            set => Extension = TMakeFileProperty.GetFileExt(value); 
         }
         public string FilePath
         {
@@ -40,9 +40,9 @@
 
         public TMakeFile()
         {
-            var type = TMakeFileProperty.ClassToType[GetType()];
+            var type = TMakeFileProperty.GetType(GetType());
             var fileName = GetType().Name;
-            var fileExt = TMakeFileProperty.TypeToFileExt[type];
+            var fileExt = TMakeFileProperty.GetFileExt(type);
             _filePath = "TMake" + "_" + fileName + "." + fileExt;
         }
     }

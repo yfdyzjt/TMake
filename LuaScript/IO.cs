@@ -18,7 +18,7 @@ namespace TMake.LuaScript
             var format = GetSeachFormat(packageName);
             return LoadScripts(format);
         }
-        internal static List<Script> LoadScripts(TMakeFileSeachFormat format)
+        internal static List<Script> LoadScripts(TMakeFileSeachFormat format, bool validate = true)
         {
             var scripts = new List<Script>();
 
@@ -28,7 +28,7 @@ namespace TMake.LuaScript
                 {
                     var tmpformat = (TMakeFileSeachFormat)format.Clone();
                     tmpformat.Type = (TMakeFileType)type;
-                    scripts.AddRange(LoadScripts(tmpformat));
+                    scripts.AddRange(LoadScripts(tmpformat, false));
                 }
             }
             else
@@ -37,17 +37,17 @@ namespace TMake.LuaScript
                 {
                     case TMakeFileType.Other:
                     case TMakeFileType.Lua:
-                        scripts.AddRange(LoadFiles<Script>(format));
+                        scripts.AddRange(LoadFiles<Script>(format, false));
                         break;
                     case TMakeFileType.Sch:
-                        var schs = LoadFiles<Schematic>(format);
+                        var schs = LoadFiles<Schematic>(format, false);
                         foreach (var sch in schs)
                         {
                             ScriptFile.Load(scripts, sch, format.ScriptName);
                         }
                         break;
                     case TMakeFileType.World:
-                        var worlds = LoadFiles<World>(format);
+                        var worlds = LoadFiles<World>(format, false);
                         foreach (var world in worlds)
                         {
                             ScriptFile.Load(scripts, world, format.ScriptName);
@@ -56,7 +56,7 @@ namespace TMake.LuaScript
                 }
             }
 
-            if (scripts.Count == 0)
+            if (scripts.Count == 0 && validate)
                 throw new FileFormatException("Not Find File");
 
             return scripts;
@@ -99,12 +99,12 @@ namespace TMake.LuaScript
             tmpformat.Type = TMakeFileType.World;
             return LoadFiles<World>(tmpformat);
         }
-        private static List<T> LoadFiles<T>(TMakeFileSeachFormat format) where T : TMakeFile, new()
+        private static List<T> LoadFiles<T>(TMakeFileSeachFormat format, bool validate = true) where T : TMakeFile, new()
         {
             var files = new List<T>();
             var filePaths = SeachFilePaths(format);
 
-            if (filePaths.Count == 0)
+            if (filePaths.Count == 0 && validate)
                 throw new FileFormatException("Not Find File");
 
             foreach (var filePath in filePaths)
