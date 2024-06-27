@@ -1,6 +1,4 @@
 ﻿using TMake.Terraria;
-using TMake.LuaScript;
-using System.Drawing;
 
 namespace TMake.IO
 {
@@ -16,6 +14,8 @@ namespace TMake.IO
         {
             try
             {
+                world.FilePath = filePath;
+
                 using var fileStream = new FileStream(filePath, FileMode.Open);
                 using var binaryReader = new BinaryReader(fileStream);
 

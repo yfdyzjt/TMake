@@ -8,7 +8,7 @@ namespace TMake.LuaScript
         public static List<LuaResult> Run(string packageName, params string[] args)
         {
             var result = new List<LuaResult>();
-            var scripts = ScriptFile.Loads(packageName);
+            var scripts = LoadScripts(packageName);
 
             foreach (var script in scripts)
             {

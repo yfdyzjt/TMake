@@ -2,16 +2,17 @@
 
 namespace TMake.LuaScript
 {
-    public class Script : TMakeFileFormat
+    public class Script : TMakeFile
     {
-        public override void Load(TMakeFileFormat tmakeFile)
+        public override void Load(string filePath)
         {
-            ScriptFile.Load(this, tmakeFile.FilePath);
+            ScriptFile.Load(this, filePath);
         }
-        public override void Save(TMakeFileFormat tmakeFile)
+        public override void Save(string filePath)
         {
-            ScriptFile.Load(this, tmakeFile.FilePath);
+            ScriptFile.Save(this, filePath);
         }
+
         public string Name { get; set; } = "";
         public string Code { get; set; } = "";
         public List<KeyValuePair<string, object>> Args { get; set; } = [];

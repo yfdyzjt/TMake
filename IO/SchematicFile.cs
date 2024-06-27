@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using TMake.LuaScript;
-using TMake.Terraria;
+﻿using TMake.Terraria;
 
 namespace TMake.IO
 {
@@ -12,11 +10,13 @@ namespace TMake.IO
             Load(sch, filePath);
             return sch;
         }
-        public static void Load(Schematic sch, string filename)
+        public static void Load(Schematic sch, string filePath)
         {
             try
             {
-                using var fileStream = new FileStream(filename, FileMode.Open);
+                sch.FilePath = filePath;
+
+                using var fileStream = new FileStream(filePath, FileMode.Open);
                 using var binaryReader = new BinaryReader(fileStream);
 
                 string name = binaryReader.ReadString();

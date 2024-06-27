@@ -1,6 +1,5 @@
 ﻿using Neo.IronLua;
 using System.Text.RegularExpressions;
-using TMake.IO;
 
 namespace TMake.LuaScript
 {
@@ -25,7 +24,7 @@ namespace TMake.LuaScript
         public static List<LuaResult> Include(LuaGlobal self, string packageName, params string[] args)
         {
             var result = new List<LuaResult>();
-            var scripts = ScriptFile.Loads(packageName);
+            var scripts = LoadScripts(packageName);
 
             foreach (var script in scripts)
             {

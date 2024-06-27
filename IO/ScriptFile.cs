@@ -9,13 +9,13 @@ namespace TMake.IO
 {
     public static class ScriptFile
     {
-        public static void Load<T>(List<Script> scripts, T area, string scriptName) where T : TMakeFileFormat, ITileArea
+        public static void Load<T>(List<Script> scripts, T area, string scriptName) where T : TMakeFile, ITileArea
         {
             var signs = GetMatcheSigns(area.Sign, scriptName);
 
             foreach (var sign in signs)
             {
-                var type = TMakeFileProperty.Class2Type[typeof(T)];
+                var type = TMakeFileProperty.ClassToType[typeof(T)];
                 var typeName = type.ToString().ToLower();
 
                 var script = new Script
@@ -25,7 +25,6 @@ namespace TMake.IO
                     Args = [
                         new(typeName, area),
                         new("area", area),
-                        new("sign", sign),
                     ],
                 };
 
@@ -34,13 +33,18 @@ namespace TMake.IO
                 scripts.Add(script);
             }
         }
+        public static void Load<T>(Script script, T area, Point pos = default) where T : ITileArea
+        {
+            Load(script, Tool.GetSign(area, pos, true));
+        }
         public static void Load(Script script, string filePath)
         {
-            script.FilePath = filePath;
             script.Name = Path.GetFileNameWithoutExtension(filePath);
             script.Code = File.ReadAllText(filePath);
 
             GetDefaultArgs(script);
+
+            script.FilePath = filePath;
         }
         public static void Load(Script script, Sign sign)
         {
@@ -48,10 +52,12 @@ namespace TMake.IO
             script.Code = LoadScriptCode(sign);
 
             GetDefaultArgs(script);
+
+            script.Args.Add(new("sign", sign));
         }
         public static void Save<T>(List<Script> scripts, T area, string scriptName) where T : ITileArea
         {
-            foreach(var script in scripts)
+            foreach (var script in scripts)
             {
                 Save(script, area, scriptName);
             }
@@ -74,7 +80,8 @@ namespace TMake.IO
         }
         public static void Save<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
-            Save(script, Tool.PlaceSign(area, pos, SpriteProperty.GetSpriteData("Sign", "Wall")));
+            var sign = Tool.PlaceSign(area, pos, SpriteProperty.GetSpriteData("Sign", "Wall"));
+            Save(script, sign);
         }
         public static void Save(Script script, string filePath)
         {
