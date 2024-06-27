@@ -21,7 +21,7 @@ namespace TMake.IO
                 var script = new Script
                 {
                     Type = type,
-                    FileName = area.FilePath,
+                    FilePath = area.FilePath,
                     Args = [
                         new(typeName, area),
                         new("area", area),
@@ -164,7 +164,7 @@ namespace TMake.IO
         }
         private static List<Sign> GetMatcheSigns(List<Sign> signs, string pattern)
         {
-            return signs.Where(sign => IsMatche(LoadScriptName(sign), pattern)).ToList();
+            return signs.Where(sign => LoadScriptName(sign) != "" && IsMatche(LoadScriptName(sign), pattern)).ToList();
         }
         private static bool IsMatche(string str, string pattern)
         {

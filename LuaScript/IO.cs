@@ -147,6 +147,7 @@ namespace TMake.LuaScript
                         {
                             ScriptFile.Save(script, sch, format.ScriptName);
                         }
+                        SaveFiles(schs, format);
                         break;
                     case TMakeFileType.World:
                         var worlds = LoadFiles<World>(format);
@@ -154,6 +155,7 @@ namespace TMake.LuaScript
                         {
                             ScriptFile.Save(script, world, format.ScriptName);
                         }
+                        SaveFiles(worlds, format);
                         break;
                 }
             }
@@ -187,6 +189,13 @@ namespace TMake.LuaScript
             var tmpformat = (TMakeFileSeachFormat)format.Clone();
             tmpformat.Type = TMakeFileType.World;
             SaveFile(world, tmpformat);
+        }
+        private static void SaveFiles<T>(List<T> files, TMakeFileSeachFormat format) where T : TMakeFile, new()
+        {
+            foreach(var file in files)
+            {
+                SaveFile(file, format);
+            }
         }
         private static void SaveFile<T>(T file, TMakeFileSeachFormat format) where T : TMakeFile, new()
         {

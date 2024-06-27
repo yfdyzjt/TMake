@@ -37,11 +37,11 @@ namespace TMake.IO
                 throw;
             }
         }
-        public static void Save(Schematic sch, string filename)
+        public static void Save(Schematic sch, string filePath)
         {
             try
             {
-                using var fileStream = new FileStream(filename, FileMode.Create);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
                 using var binaryWriter = new BinaryWriter(fileStream);
 
                 SaveV4(sch, binaryWriter);
