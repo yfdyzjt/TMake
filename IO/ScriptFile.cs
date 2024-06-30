@@ -40,16 +40,12 @@ namespace TMake.IO
             script.Name = Path.GetFileNameWithoutExtension(filePath);
             script.Code = File.ReadAllText(filePath);
 
-            GetDefaultArgs(script);
-
             script.FilePath = filePath;
         }
         public static void Load(Script script, Sign sign)
         {
             script.Name = LoadScriptName(sign);
             script.Code = LoadScriptCode(sign);
-
-            GetDefaultArgs(script);
 
             script.Args.Add(new("sign", sign));
         }
@@ -89,30 +85,6 @@ namespace TMake.IO
         {
             SaveScriptName(sign, script.Name);
             SaveScriptCode(sign, script.Code);
-        }
-        private static void GetDefaultArgs(Script script)
-        {
-            script.Args.AddRange([
-                new("script", script),
-                .. UsingClass("TMake.LuaScript", "Root"),
-            ]);
-            script.Packages.AddRange([
-                .. UsingNamespace("TMake.IO"),
-                .. UsingNamespace("TMake.Terraria"),
-                .. UsingNamespace("TMake.LuaScript"),
-            ]);
-        }
-        private static List<KeyValuePair<string, Type>> UsingNamespace(string namespaceName)
-        {
-            return Reflective.GetTypes(namespaceName)
-                .Select(type => new KeyValuePair<string, Type>(type.Name, type))
-                .ToList();
-        }
-        private static List<KeyValuePair<string, object>> UsingClass(string namespaceName, string className)
-        {
-            return Reflective.GetMethods(namespaceName, className)
-                .Select(methodInfo => new KeyValuePair<string, object>(methodInfo.Name, Reflective.CreateDelegate(methodInfo)))
-                .ToList();
         }
         private static void SaveScriptName(Sign sign, string name)
         {
