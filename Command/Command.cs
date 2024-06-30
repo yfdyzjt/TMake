@@ -4,28 +4,17 @@ namespace TMake
 {
     public class Command
     {
-        public static object? Execute(string[] args)
+        public static object? Execute(string methodName,string[] strArgs)
         {
-            if (args.Length == 0)
-            {
-                args = [
-                    "Run",
-                    "tmake.lua",
-                ];
-            }
+            var objArgs = new List<object>();
 
-            var methodName = args[0];
-            var strargs = new string[args.Length - 1];
-            var objargs = new List<object>();
-
-            Array.Copy(args, 1, strargs, 0, strargs.Length);
             var @delegate = Reflective.CreateDelegate(Reflective.GetMethods("TMake.LuaScript")
                 .Where(method => method.Name.Equals(methodName, StringComparison.OrdinalIgnoreCase))
-                .First(method => ParameterMatch(method.GetParameters(), strargs, objargs)));
+                .First(method => ParameterMatch(method.GetParameters(), strArgs, objArgs)));
 
             if (@delegate != null)
             {
-                return @delegate.DynamicInvoke([.. objargs]);
+                return @delegate.DynamicInvoke([.. objArgs]);
             }
             else
             {
