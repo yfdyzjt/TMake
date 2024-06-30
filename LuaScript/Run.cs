@@ -20,7 +20,7 @@ namespace TMake.LuaScript
         {
             using var lua = new Lua();
             var env = lua.CreateEnvironment();
-
+            
             return Run(script, env, args);
         }
         public static LuaResult? Run(Script script, LuaGlobal env, params string[] args)

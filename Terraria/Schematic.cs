@@ -2,17 +2,8 @@
 
 namespace TMake.Terraria
 {
-    public class Schematic : TMakeFile, ITileArea
+    public partial class Schematic : TMakeFile, ITileArea
     {
-        public override void Load(string filePath)
-        {
-            SchematicFile.Load(this, filePath);
-        }
-        public override void Save(string filePath)
-        {
-            SchematicFile.Save(this, filePath);
-        }
-
         public Tile[,] Tile { get; set; } = new Tile[0, 0];
         public List<Chest> Chest { get; set; } = [];
         public List<Sign> Sign { get; set; } = [];
