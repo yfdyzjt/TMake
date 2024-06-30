@@ -12,9 +12,4 @@
     <PackageReference Include="System.IO.Packaging" Version="9.0.0-preview.4.24266.19" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Command\" />
-    <Folder Include="Exception\" />
-  </ItemGroup>
-
 </Project>

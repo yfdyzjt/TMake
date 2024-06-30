@@ -44,15 +44,26 @@ namespace TMake.LuaScript
             }
             catch (LuaParseException e)
             {
-                throw;
+                Console.WriteLine(
+                    $"Lua script have a syntactical exception.\r\n" +
+                    $"Message: {e.Message}\r\n" +
+                    $"Line: {e.Line}");
+                return new LuaResult();
             }
             catch (LuaRuntimeException e)
             {
-                throw;
+                Console.WriteLine(
+                    $"Lua script have a runtime exception.\r\n" +
+                    $"Message: {e.Message}\r\n" +
+                    $"Line: {e.Line}");
+                return new LuaResult();
             }
             catch (IOException e)
             {
-                throw;
+                Console.WriteLine(
+                    $"Lua script have a file exception.\r\n" +
+                    $"Message: {e.Message}\r\n");
+                return new LuaResult();
             }
             catch
             {

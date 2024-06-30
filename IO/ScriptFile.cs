@@ -1,6 +1,4 @@
 ﻿using System.Drawing;
-using System.Linq.Expressions;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using TMake.LuaScript;
 using TMake.Terraria;
@@ -96,48 +94,25 @@ namespace TMake.IO
         {
             script.Args.AddRange([
                 new("script", script),
-                ..UsingClass("TMake.LuaScript","Root"),
-                ]);
+                .. UsingClass("TMake.LuaScript", "Root"),
+            ]);
             script.Packages.AddRange([
-                ..UsingNamespace("TMake.IO"),
-                ..UsingNamespace("TMake.Terraria"),
-                ..UsingNamespace("TMake.LuaScript"),
-                ]);
+                .. UsingNamespace("TMake.IO"),
+                .. UsingNamespace("TMake.Terraria"),
+                .. UsingNamespace("TMake.LuaScript"),
+            ]);
         }
         private static List<KeyValuePair<string, Type>> UsingNamespace(string namespaceName)
         {
-            return AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(assembly => assembly.GetExportedTypes())
-                .Where(t => t.Namespace == namespaceName)
-                .ToList()
-                .Select(type => new KeyValuePair<string, Type>(type.Name, type)).ToList();
+            return Reflective.GetTypes(namespaceName)
+                .Select(type => new KeyValuePair<string, Type>(type.Name, type))
+                .ToList();
         }
         private static List<KeyValuePair<string, object>> UsingClass(string namespaceName, string className)
         {
-            return AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(assembly => assembly.GetExportedTypes())
-                .First(t => t.Namespace == namespaceName && t.Name == className)
-                .GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly)
-                .Select(methodInfo => new KeyValuePair<string, object>(methodInfo.Name, CreateDelegateFromMethodInfo(methodInfo)))
+            return Reflective.GetMethods(namespaceName, className)
+                .Select(methodInfo => new KeyValuePair<string, object>(methodInfo.Name, Reflective.CreateDelegate(methodInfo)))
                 .ToList();
-        }
-        private static Delegate CreateDelegateFromMethodInfo(MethodInfo method)
-        {
-            var parameter = method.GetParameters().Select(p => p.ParameterType).ToArray();
-
-            if (method.ReturnType == typeof(void))
-            {
-                var action = Expression.GetActionType(parameter);
-                return Delegate.CreateDelegate(action, method);
-            }
-            else
-            {
-                Array.Resize(ref parameter, parameter.Length + 1);
-                parameter[^1] = method.ReturnType;
-
-                var func = Expression.GetFuncType(parameter);
-                return Delegate.CreateDelegate(func, method);
-            }
         }
         private static void SaveScriptName(Sign sign, string name)
         {

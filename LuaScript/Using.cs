@@ -6,10 +6,7 @@ namespace TMake.LuaScript
     {
         public static void Using(LuaGlobal self, string namespaceName)
         {
-            AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(assembly => assembly.GetExportedTypes())
-                .Where(t => t.Namespace == namespaceName)
-                .ToList()
+            Reflective.GetTypes(namespaceName)
                 .ForEach(type => self.RegisterPackage(type.Name, type));
         }
     }
