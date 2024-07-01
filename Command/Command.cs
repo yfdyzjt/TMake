@@ -29,6 +29,16 @@ namespace TMake
             {
                 Type paramType = parameters[i].ParameterType;
 
+                if (paramType != typeof(string) && paramType != typeof(string[]))
+                {
+                    return false;
+                }
+            }
+
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                Type paramType = parameters[i].ParameterType;
+
                 if (paramType == typeof(string[]))
                 {
                     objargs.Add(strargs[i..]);
