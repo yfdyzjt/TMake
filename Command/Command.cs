@@ -29,28 +29,9 @@ namespace TMake
             {
                 Type paramType = parameters[i].ParameterType;
 
-                if (paramType != typeof(string) && paramType != typeof(string[]))
-                {
-                    return false;
-                }
-            }
-            for (int i = 0; i < parameters.Length; i++)
-            {
-                Type paramType = parameters[i].ParameterType;
-
                 if (paramType == typeof(string[]))
                 {
-                    if (i < strargs.Length)
-                    {
-                        for (int j = i; j < strargs.Length; j++)
-                        {
-                            objargs.Add(strargs[j]);
-                        }
-                    }
-                    else
-                    {
-                        objargs.Add(Array.Empty<string>());
-                    }
+                    objargs.Add(strargs[i..]);
                     return true;
                 }
                 else if (i < strargs.Length)
@@ -62,7 +43,8 @@ namespace TMake
                     return false;
                 }
             }
-            return true;
+
+            return parameters.Length <= strargs.Length;
         }
     }
 }
