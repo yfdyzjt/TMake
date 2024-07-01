@@ -10,9 +10,9 @@ namespace TMake.LuaScript
             Schematic sch = Copy<T, Schematic>(area, selection);
             Paste(area, toPosition, sch);
         }
-        public static T2 Copy<T1, T2>(T1 fromArea, Rectangle selection, bool validate = true) where T1 : ITileArea where T2 : ITileArea, new()
+        public static T2 Copy<T1, T2>(T1 fromArea, Rectangle selection) where T1 : ITileArea where T2 : ITileArea, new()
         {
-            if (validate) selection.Intersect(new(0, 0, fromArea.MaxTilesX, fromArea.MaxTilesY));
+            Validate(fromArea, selection);
 
             T2 toArea = new()
             {
@@ -22,16 +22,16 @@ namespace TMake.LuaScript
                 Name = fromArea.Name,
             };
 
-            toArea.Chest.AddRange(CopyChests(fromArea, selection, false));
-            toArea.Sign.AddRange(CopySigns(fromArea, selection, false));
-            toArea.TileEntity.AddRange(CopyTileEntities(fromArea, selection, false));
-            toArea.Tile = CopyTile(fromArea, selection, false);
+            toArea.Chest.AddRange(CopyChests(fromArea, selection));
+            toArea.Sign.AddRange(CopySigns(fromArea, selection));
+            toArea.TileEntity.AddRange(CopyTileEntities(fromArea, selection));
+            toArea.Tile = CopyTile(fromArea, selection);
 
             return toArea;
         }
-        public static List<Chest> CopyChests<T>(T fromArea, Rectangle selection, bool validate = true) where T : ITileArea
+        public static List<Chest> CopyChests<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            if (validate) selection.Intersect(new(0, 0, fromArea.MaxTilesX, fromArea.MaxTilesY));
+            Validate(fromArea, selection);
 
             return fromArea.Chest.Where(chest =>
             selection.Contains(chest.X, chest.Y)).Select(chest =>
@@ -42,9 +42,9 @@ namespace TMake.LuaScript
                 return clone;
             }).ToList();
         }
-        public static List<Sign> CopySigns<T>(T fromArea, Rectangle selection, bool validate = true) where T : ITileArea
+        public static List<Sign> CopySigns<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            if (validate) selection.Intersect(new(0, 0, fromArea.MaxTilesX, fromArea.MaxTilesY));
+            Validate(fromArea, selection);
 
             return fromArea.Sign.Where(sign =>
             selection.Contains(sign.X, sign.Y)).Select(sign =>
@@ -55,9 +55,9 @@ namespace TMake.LuaScript
                 return clone;
             }).ToList();
         }
-        public static List<TileEntity> CopyTileEntities<T>(T fromArea, Rectangle selection, bool validate = true) where T : ITileArea
+        public static List<TileEntity> CopyTileEntities<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            if (validate) selection.Intersect(new(0, 0, fromArea.MaxTilesX, fromArea.MaxTilesY));
+            Validate(fromArea, selection);
 
             return fromArea.TileEntity.Where(tileEntity =>
             selection.Contains(tileEntity.X, tileEntity.Y)).Select(tileEntity =>
@@ -68,9 +68,9 @@ namespace TMake.LuaScript
                 return clone;
             }).ToList();
         }
-        public static Tile[,] CopyTile<T>(T fromArea, Rectangle selection, bool validate = true) where T : ITileArea
+        public static Tile[,] CopyTile<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            if (validate) selection.Intersect(new(0, 0, fromArea.MaxTilesX, fromArea.MaxTilesY));
+            Validate(fromArea, selection);
 
             Tile[,] tiles = new Tile[selection.Width, selection.Height];
             for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)

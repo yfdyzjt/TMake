@@ -29,7 +29,7 @@ namespace TMake.IO
         }
         public static void Load<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
-            Load(script, Tool.GetSign(area, pos, true));
+            Load(script, Tool.GetSign(area, pos));
         }
         public static void Load(Script script, string filePath)
         {

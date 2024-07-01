@@ -26,9 +26,9 @@ namespace TMake.LuaScript
                 new(position, new(sprite.Size)),
                 new(0, 0, area.MaxTilesX, area.MaxTilesY));
 
-            DeleteChests(area, selection, false);
-            DeleteSigns(area, selection, false);
-            DeleteTileEntities(area, selection, false);
+            DeleteChests(area, selection);
+            DeleteSigns(area, selection);
+            DeleteTileEntities(area, selection);
 
             var tileDate = TileProperty.GetTileData(sprite.TileType);
             if (sprite.TileType == (ushort)TileID.ChristmasTree)
