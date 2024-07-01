@@ -27,9 +27,11 @@ namespace TMake.IO
                 scripts.Add(script);
             }
         }
-        public static void Load<T>(Script script, T area, Point pos = default) where T : ITileArea
+        public static Sign Load<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
-            Load(script, Tool.GetSign(area, pos));
+            var sign = Tool.GetSign(area, pos);
+            Load(script, sign);
+            return sign;
         }
         public static void Load(Script script, string filePath)
         {
@@ -68,10 +70,11 @@ namespace TMake.IO
                 }
             }
         }
-        public static void Save<T>(Script script, T area, Point pos = default) where T : ITileArea
+        public static Sign Save<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
             var sign = Tool.PlaceSign(area, pos, SpriteProperty.GetSpriteData("Sign", "Wall"));
             Save(script, sign);
+            return sign;
         }
         public static void Save(Script script, string filePath)
         {
