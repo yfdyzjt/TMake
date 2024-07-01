@@ -1,5 +1,29 @@
 ﻿namespace TMake.Terraria
 {
+    public enum WireColor : byte
+    {
+        Red = 0x0,
+        Blue = 0x1,
+        Green = 0x2,
+        Yellow = 0x3,
+    }
+    public enum BrickStyle : byte
+    {
+        Full = 0x0,
+        Half = 0x1,
+        SlopeTopRight = 0x2,
+        SlopeTopLeft = 0x3,
+        SlopeBottomRight = 0x4,
+        SlopeBottomLeft = 0x5,
+    }
+    public enum LiquidType : byte
+    {
+        None = 0x0,
+        Water = 0x01,
+        Lava = 0x02,
+        Honey = 0x03,
+        Shimmer = 0x04,
+    }
     public enum TileID : ushort
     {
         Dirt = 0,

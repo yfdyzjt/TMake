@@ -1,4 +1,6 @@
-﻿namespace TMake.LuaScript
+﻿using System.Drawing;
+
+namespace TMake.LuaScript
 {
     public static partial class Root
     {

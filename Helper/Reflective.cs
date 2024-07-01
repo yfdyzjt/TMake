@@ -21,8 +21,10 @@ namespace TMake
         }
         internal static List<MethodInfo> GetMethods(string namespaceName, string className)
         {
-            return GetMethods(namespaceName)
-                .Where(method => method.GetType().Name == className)
+            return GetTypes(namespaceName)
+                .Where(type => type.Name == className)
+                .SelectMany(type => type
+                .GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly))
                 .ToList();
         }
         internal static Delegate CreateDelegate(MethodInfo method)

@@ -16,17 +16,13 @@ namespace TMake.IO
                 var type = TMakeFileProperty.GetType(typeof(T));
                 var typeName = type.ToString().ToLower();
 
-                var script = new Script
-                {
-                    Type = type,
-                    FilePath = area.FilePath,
-                    Args = [
-                        new(typeName, area),
-                        new("area", area),
-                    ],
-                };
+                var script = new Script();
 
                 Load(script, sign);
+
+                script.Type = type;
+                script.FilePath = area.FilePath;
+                script.Args.AddRange([new(typeName, area), new("area", area)]);
 
                 scripts.Add(script);
             }

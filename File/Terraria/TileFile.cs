@@ -467,7 +467,7 @@ namespace TMake.IO
                 }
                 else
                 {
-                    brickStyle = (byte)(tile.Slope + 1 << 4);
+                    brickStyle = (byte)((tile.Slope + 1) << 4);
                 }
             }
 

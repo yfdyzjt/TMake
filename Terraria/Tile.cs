@@ -26,6 +26,51 @@
         public bool FullBrightBlock;
         public bool FullBrightWall;
 
+        public bool WireRed { get => Wire; set => Wire = value; }
+        public bool WireBlue { get => Wire2; set => Wire2 = value; }
+        public bool WireGreen { get => Wire3; set => Wire3 = value; }
+        public bool WireYellow { get => Wire4; set => Wire4 = value; }
+        public BrickStyle BrickStyle
+        {
+            get
+            {
+                if (HalfBrick == true) return BrickStyle.Half;
+                else if (Slope == 0) return BrickStyle.Full;
+                else return (BrickStyle)(Slope + 1);
+            }
+            set
+            {
+                if (value == BrickStyle.Half) { HalfBrick = true; Slope = 0; }
+                else if (value == BrickStyle.Full) { HalfBrick = false; Slope = 0; }
+                else { HalfBrick = false; Slope = (byte)(value - 1); }
+            }
+        }
+        public byte LiquidAmount { get => Liquid; set => Liquid = value; }
+        public LiquidType LiquidType
+        {
+            get
+            {
+                if (Lava) return LiquidType.Lava;
+                else if (Honey) return LiquidType.Honey;
+                else if (Shimmer) return LiquidType.Shimmer;
+                else if (Liquid != 0) return LiquidType.Water;
+                else return LiquidType.None;
+            }
+            set
+            {
+                Lava = false; Honey = false; Shimmer = false; 
+                Liquid = Liquid == 0 ? byte.MaxValue : Liquid;
+                switch (value)
+                {
+                    case LiquidType.None: Liquid = 0; break;
+                    case LiquidType.Water: break;
+                    case LiquidType.Lava: Lava = true; break;
+                    case LiquidType.Honey: Honey = true; break;
+                    case LiquidType.Shimmer: Shimmer = true; break;
+                }
+            }
+        }
+
         public void Reset()
         {
             Active = false;
@@ -64,7 +109,7 @@
         {
             return !Equals(left, right);
         }
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is null) return false;
             if (ReferenceEquals(this, obj)) return true;

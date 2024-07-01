@@ -6,10 +6,7 @@
         {
             if (args.Length == 0) args = ["Run", "tmake.lua"];
 
-            var methodName = args[0];
-            var strArgs = args.Skip(1).ToArray();
-
-            Command.Execute(methodName, strArgs);
+            Command.Execute(args[0], args.Skip(1).ToArray());
         }
     }
 }
