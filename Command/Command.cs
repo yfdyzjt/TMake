@@ -4,7 +4,7 @@ namespace TMake
 {
     public class Command
     {
-        public static object? Execute(string methodName,string[] strArgs)
+        public static object? Execute(string methodName, string[] strArgs)
         {
             var objArgs = new List<object>();
 
@@ -18,7 +18,7 @@ namespace TMake
             }
             else
             {
-                throw new ArgumentException($"Method {nameof(@delegate)} not exist.");
+                throw new ArgumentException($"Method {methodName} not exist.");
             }
         }
         private static bool ParameterMatch(ParameterInfo[] parameters, string[] strargs, List<object> objargs)

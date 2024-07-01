@@ -5,19 +5,6 @@ namespace TMake.LuaScript
 {
     public static partial class Root
     {
-        public static Script LoadScript(string packageName)
-        {
-            var scripts = LoadScripts(packageName);
-            if (scripts.Count > 1)
-                throw new FileFormatException("Find Too Many Files");
-
-            return scripts[0];
-        }
-        public static List<Script> LoadScripts(string packageName)
-        {
-            var format = GetSeachFormat(packageName);
-            return LoadScripts(format);
-        }
         internal static List<Script> LoadScripts(TMakeFileSeachFormat format, bool validate = true)
         {
             var scripts = new List<Script>();
@@ -61,37 +48,11 @@ namespace TMake.LuaScript
 
             return scripts;
         }
-        public static Schematic LoadSchematic(string packageName)
-        {
-            var schematics = LoadSchematics(packageName);
-            if (schematics.Count > 1)
-                throw new FileFormatException("Find Too Many Files");
-
-            return schematics[0];
-        }
-        public static List<Schematic> LoadSchematics(string packageName)
-        {
-            var format = GetSeachFormat(packageName);
-            return LoadSchematics(format);
-        }
         internal static List<Schematic> LoadSchematics(TMakeFileSeachFormat format)
         {
             var tmpformat = (TMakeFileSeachFormat)format.Clone();
             tmpformat.Type = TMakeFileType.Sch;
             return LoadFiles<Schematic>(tmpformat);
-        }
-        public static World LoadWorld(string packageName)
-        {
-            var worlds = LoadWorlds(packageName);
-            if (worlds.Count > 1)
-                throw new FileFormatException("Find Too Many Files");
-
-            return worlds[0];
-        }
-        public static List<World> LoadWorlds(string packageName)
-        {
-            var format = GetSeachFormat(packageName);
-            return LoadWorlds(format);
         }
         internal static List<World> LoadWorlds(TMakeFileSeachFormat format)
         {
@@ -115,15 +76,6 @@ namespace TMake.LuaScript
             }
 
             return files;
-        }
-        public static void SaveScript(Script script)
-        {
-            SaveScript(script, (TMakeFileSeachFormat)(TMakeFile)script);
-        }
-        public static void SaveScript(Script script, string packageName)
-        {
-            var format = GetSeachFormat(packageName);
-            SaveScript(script, format);
         }
         internal static void SaveScript(Script script, TMakeFileSeachFormat format)
         {
@@ -160,29 +112,11 @@ namespace TMake.LuaScript
                 }
             }
         }
-        public static void SaveSchematic(Schematic sch)
-        {
-            SaveSchematic(sch, (TMakeFileSeachFormat)(TMakeFile)sch);
-        }
-        public static void SaveSchematic(Schematic sch, string packageName)
-        {
-            var format = GetSeachFormat(packageName);
-            SaveSchematic(sch, format);
-        }
         internal static void SaveSchematic(Schematic sch, TMakeFileSeachFormat format)
         {
             var tmpformat = (TMakeFileSeachFormat)format.Clone();
             tmpformat.Type = TMakeFileType.Sch;
             SaveFile(sch, tmpformat);
-        }
-        public static void SaveWorld(World world)
-        {
-            SaveWorld(world, (TMakeFileSeachFormat)(TMakeFile)world);
-        }
-        public static void SaveWorld(World world, string packageName)
-        {
-            var format = GetSeachFormat(packageName);
-            SaveWorld(world, format);
         }
         internal static void SaveWorld(World world, TMakeFileSeachFormat format)
         {
