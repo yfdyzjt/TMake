@@ -44,7 +44,7 @@ namespace TMake
                 }
             }
 
-            return parameters.Length <= strargs.Length;
+            return parameters.Length == strargs.Length;
         }
     }
 }
