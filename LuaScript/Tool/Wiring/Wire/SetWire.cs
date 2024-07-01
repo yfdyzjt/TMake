@@ -4,9 +4,9 @@ namespace TMake.LuaScript
 {
     public static partial class Tool
     {
-        public static void SetWire(Tile tile, WireColor color, bool value)
+        public static void SetWire<T>(Tile tile, T color, bool value) where T : struct, IConvertible, IComparable, IFormattable
         {
-            switch (color)
+            switch ((WireColor)Enum.ToObject(typeof(WireColor), color))
             {
                 case WireColor.Red: tile.WireRed = value; break;
                 case WireColor.Blue: tile.WireBlue = value; break;
