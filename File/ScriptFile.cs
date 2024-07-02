@@ -100,13 +100,19 @@ namespace TMake.IO
         private static void SaveScriptCode(Sign sign, string code)
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
-            sign.Text = lines[0] + Environment.NewLine +
-                code.Replace("\n", "&#10").Replace("\r", "&#13");
+            sign.Text = lines[0] + Environment.NewLine + code
+                .Replace("\n", "&#10")
+                .Replace("\r", "&#13")
+                .Replace("\t", "&#09");
         }
         private static string LoadScriptCode(Sign sign)
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
-            return lines.Length == 2 ? lines[1].Replace("&#10", "\n").Replace("&#13", "\r") : "";
+            return lines.Length == 2 ? lines[1]
+                .Replace("&#10", "\n")
+                .Replace("&#13", "\r")
+                .Replace("&#09", "\t")
+                : "";
         }
         private static List<Sign> GetMatcheSigns(List<Sign> signs, string pattern)
         {
