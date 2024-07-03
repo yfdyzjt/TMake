@@ -40983,7 +40983,6 @@ namespace TMake.Terraria
 						Name = "Icicle 1x1",
 						Color = Color.FromArgb(115, 173, 229),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(0, 72),
 					},
 					new()
@@ -40992,7 +40991,6 @@ namespace TMake.Terraria
 						Name = "Icicle 1x1",
 						Color = Color.FromArgb(115, 173, 229),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(18, 72),
 					},
 					new()
@@ -41001,7 +40999,6 @@ namespace TMake.Terraria
 						Name = "Icicle 1x1",
 						Color = Color.FromArgb(115, 173, 229),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(36, 72),
 					},
 					new()
@@ -41010,7 +41007,6 @@ namespace TMake.Terraria
 						Name = "Stone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(54, 72),
 					},
 					new()
@@ -41019,7 +41015,6 @@ namespace TMake.Terraria
 						Name = "Stone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(72, 72),
 					},
 					new()
@@ -41028,7 +41023,6 @@ namespace TMake.Terraria
 						Name = "Stone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(90, 72),
 					},
 					new()
@@ -41037,7 +41031,6 @@ namespace TMake.Terraria
 						Name = "Stone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(54, 90),
 					},
 					new()
@@ -41046,7 +41039,6 @@ namespace TMake.Terraria
 						Name = "Stone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(72, 90),
 					},
 					new()
@@ -41055,7 +41047,6 @@ namespace TMake.Terraria
 						Name = "Stone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(90, 90),
 					},
 					new()
@@ -41064,7 +41055,6 @@ namespace TMake.Terraria
 						Name = "Hive Stalactite 1x1",
 						Color = Color.FromArgb(227, 125, 22),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(162, 72),
 					},
 					new()
@@ -41073,7 +41063,6 @@ namespace TMake.Terraria
 						Name = "Hive Stalactite 1x1",
 						Color = Color.FromArgb(227, 125, 22),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(180, 72),
 					},
 					new()
@@ -41082,7 +41071,6 @@ namespace TMake.Terraria
 						Name = "Hive Stalactite 1x1",
 						Color = Color.FromArgb(227, 125, 22),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(198, 72),
 					},
 					new()
@@ -41091,7 +41079,6 @@ namespace TMake.Terraria
 						Name = "Hive Stalagmite 1x1",
 						Color = Color.FromArgb(227, 125, 22),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(162, 90),
 					},
 					new()
@@ -41100,7 +41087,6 @@ namespace TMake.Terraria
 						Name = "Hive Stalagmite 1x1",
 						Color = Color.FromArgb(227, 125, 22),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(180, 90),
 					},
 					new()
@@ -41109,7 +41095,6 @@ namespace TMake.Terraria
 						Name = "Hive Stalagmite 1x1",
 						Color = Color.FromArgb(227, 125, 22),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(198, 90),
 					},
 					new()
@@ -41118,7 +41103,6 @@ namespace TMake.Terraria
 						Name = "Pearlstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(216, 72),
 					},
 					new()
@@ -41127,7 +41111,6 @@ namespace TMake.Terraria
 						Name = "Pearlstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(234, 72),
 					},
 					new()
@@ -41136,7 +41119,6 @@ namespace TMake.Terraria
 						Name = "Pearlstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(252, 72),
 					},
 					new()
@@ -41145,7 +41127,6 @@ namespace TMake.Terraria
 						Name = "Pearlstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(216, 90),
 					},
 					new()
@@ -41154,7 +41135,6 @@ namespace TMake.Terraria
 						Name = "Pearlstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(234, 90),
 					},
 					new()
@@ -41163,7 +41143,6 @@ namespace TMake.Terraria
 						Name = "Pearlstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(252, 90),
 					},
 					new()
@@ -41172,7 +41151,6 @@ namespace TMake.Terraria
 						Name = "Ebonstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(270, 72),
 					},
 					new()
@@ -41181,7 +41159,6 @@ namespace TMake.Terraria
 						Name = "Ebonstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(288, 72),
 					},
 					new()
@@ -41190,7 +41167,6 @@ namespace TMake.Terraria
 						Name = "Ebonstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(306, 72),
 					},
 					new()
@@ -41199,7 +41175,6 @@ namespace TMake.Terraria
 						Name = "Ebonstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(270, 90),
 					},
 					new()
@@ -41208,7 +41183,6 @@ namespace TMake.Terraria
 						Name = "Ebonstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(288, 90),
 					},
 					new()
@@ -41217,7 +41191,6 @@ namespace TMake.Terraria
 						Name = "Ebonstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(306, 90),
 					},
 					new()
@@ -41226,7 +41199,6 @@ namespace TMake.Terraria
 						Name = "Crimstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(324, 72),
 					},
 					new()
@@ -41235,7 +41207,6 @@ namespace TMake.Terraria
 						Name = "Crimstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(342, 72),
 					},
 					new()
@@ -41244,7 +41215,6 @@ namespace TMake.Terraria
 						Name = "Crimstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(360, 72),
 					},
 					new()
@@ -41253,7 +41223,6 @@ namespace TMake.Terraria
 						Name = "Crimstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(324, 90),
 					},
 					new()
@@ -41262,7 +41231,6 @@ namespace TMake.Terraria
 						Name = "Crimstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(342, 90),
 					},
 					new()
@@ -41271,7 +41239,6 @@ namespace TMake.Terraria
 						Name = "Crimstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(360, 90),
 					},
 					new()
@@ -41280,7 +41247,6 @@ namespace TMake.Terraria
 						Name = "Sandstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(378, 72),
 					},
 					new()
@@ -41289,7 +41255,6 @@ namespace TMake.Terraria
 						Name = "Sandstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(396, 72),
 					},
 					new()
@@ -41298,7 +41263,6 @@ namespace TMake.Terraria
 						Name = "Sandstone Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(414, 72),
 					},
 					new()
@@ -41307,7 +41271,6 @@ namespace TMake.Terraria
 						Name = "Sandstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(378, 90),
 					},
 					new()
@@ -41316,7 +41279,6 @@ namespace TMake.Terraria
 						Name = "Sandstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(396, 90),
 					},
 					new()
@@ -41325,7 +41287,6 @@ namespace TMake.Terraria
 						Name = "Sandstone Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(414, 90),
 					},
 					new()
@@ -41334,7 +41295,6 @@ namespace TMake.Terraria
 						Name = "Granite Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(432, 72),
 					},
 					new()
@@ -41343,7 +41303,6 @@ namespace TMake.Terraria
 						Name = "Granite Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(450, 72),
 					},
 					new()
@@ -41352,7 +41311,6 @@ namespace TMake.Terraria
 						Name = "Granite Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(468, 72),
 					},
 					new()
@@ -41361,7 +41319,6 @@ namespace TMake.Terraria
 						Name = "Granite Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(432, 90),
 					},
 					new()
@@ -41370,7 +41327,6 @@ namespace TMake.Terraria
 						Name = "Granite Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(450, 90),
 					},
 					new()
@@ -41379,7 +41335,6 @@ namespace TMake.Terraria
 						Name = "Granite Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(468, 90),
 					},
 					new()
@@ -41388,7 +41343,6 @@ namespace TMake.Terraria
 						Name = "Marble Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(486, 72),
 					},
 					new()
@@ -41397,7 +41351,6 @@ namespace TMake.Terraria
 						Name = "Marble Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(504, 72),
 					},
 					new()
@@ -41406,7 +41359,6 @@ namespace TMake.Terraria
 						Name = "Marble Stalactite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(522, 72),
 					},
 					new()
@@ -41415,7 +41367,6 @@ namespace TMake.Terraria
 						Name = "Marble Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(486, 90),
 					},
 					new()
@@ -41424,7 +41375,6 @@ namespace TMake.Terraria
 						Name = "Marble Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(504, 90),
 					},
 					new()
@@ -41433,7 +41383,6 @@ namespace TMake.Terraria
 						Name = "Marble Stalagmite 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(522, 90),
 					},
 					new()
@@ -41442,7 +41391,6 @@ namespace TMake.Terraria
 						Name = "Pink Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(540, 72),
 					},
 					new()
@@ -41451,7 +41399,6 @@ namespace TMake.Terraria
 						Name = "Pink Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(558, 72),
 					},
 					new()
@@ -41460,7 +41407,6 @@ namespace TMake.Terraria
 						Name = "Pink Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(576, 72),
 					},
 					new()
@@ -41469,7 +41415,6 @@ namespace TMake.Terraria
 						Name = "Purple Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(594, 72),
 					},
 					new()
@@ -41478,7 +41423,6 @@ namespace TMake.Terraria
 						Name = "Purple Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(612, 72),
 					},
 					new()
@@ -41487,7 +41431,6 @@ namespace TMake.Terraria
 						Name = "Purple Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(630, 72),
 					},
 					new()
@@ -41496,7 +41439,6 @@ namespace TMake.Terraria
 						Name = "Red Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "A",
-						Size = new(1, 2),
 						Origin = new(648, 72),
 					},
 					new()
@@ -41505,7 +41447,6 @@ namespace TMake.Terraria
 						Name = "Red Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "B",
-						Size = new(1, 2),
 						Origin = new(666, 72),
 					},
 					new()
@@ -41514,7 +41455,6 @@ namespace TMake.Terraria
 						Name = "Red Icicle 1x1",
 						Color = Color.FromArgb(100, 100, 100),
 						Variety = "C",
-						Size = new(1, 2),
 						Origin = new(684, 72),
 					},
 				],
@@ -44585,6 +44525,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stone A",
+						Size = new(2, 1),
 						Origin = new(0, 18),
 					},
 					new()
@@ -44593,6 +44534,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stone B",
+						Size = new(2, 1),
 						Origin = new(36, 18),
 					},
 					new()
@@ -44601,6 +44543,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stone C",
+						Size = new(2, 1),
 						Origin = new(72, 18),
 					},
 					new()
@@ -44609,6 +44552,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stone D",
+						Size = new(2, 1),
 						Origin = new(108, 18),
 					},
 					new()
@@ -44617,6 +44561,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stone E",
+						Size = new(2, 1),
 						Origin = new(144, 18),
 					},
 					new()
@@ -44625,6 +44570,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stone F",
+						Size = new(2, 1),
 						Origin = new(180, 18),
 					},
 					new()
@@ -44633,6 +44579,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Skeleton Left",
+						Size = new(2, 1),
 						Origin = new(216, 18),
 					},
 					new()
@@ -44641,6 +44588,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Skeleton Right",
+						Size = new(2, 1),
 						Origin = new(252, 18),
 					},
 					new()
@@ -44649,6 +44597,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Bone A",
+						Size = new(2, 1),
 						Origin = new(288, 18),
 					},
 					new()
@@ -44657,6 +44606,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Bone B",
+						Size = new(2, 1),
 						Origin = new(324, 18),
 					},
 					new()
@@ -44665,6 +44615,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Bone C",
+						Size = new(2, 1),
 						Origin = new(360, 18),
 					},
 					new()
@@ -44673,6 +44624,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Gore Skeleton Left",
+						Size = new(2, 1),
 						Origin = new(396, 18),
 					},
 					new()
@@ -44681,6 +44633,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Gore Skeleton Right",
+						Size = new(2, 1),
 						Origin = new(432, 18),
 					},
 					new()
@@ -44689,6 +44642,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Gore A",
+						Size = new(2, 1),
 						Origin = new(468, 18),
 					},
 					new()
@@ -44697,6 +44651,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Gore B",
+						Size = new(2, 1),
 						Origin = new(504, 18),
 					},
 					new()
@@ -44705,6 +44660,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(133, 133, 101),
 						Variety = "Gore C",
+						Size = new(2, 1),
 						Origin = new(540, 18),
 					},
 					new()
@@ -44713,6 +44669,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Copper Pile",
+						Size = new(2, 1),
 						Origin = new(576, 18),
 					},
 					new()
@@ -44721,6 +44678,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Sliver Pile",
+						Size = new(2, 1),
 						Origin = new(612, 18),
 					},
 					new()
@@ -44729,6 +44687,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Gold Pile",
+						Size = new(2, 1),
 						Origin = new(648, 18),
 					},
 					new()
@@ -44737,6 +44696,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Amethyst Pile",
+						Size = new(2, 1),
 						Origin = new(684, 18),
 					},
 					new()
@@ -44745,6 +44705,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Topaz Pile",
+						Size = new(2, 1),
 						Origin = new(720, 18),
 					},
 					new()
@@ -44753,6 +44714,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sapphire Pile",
+						Size = new(2, 1),
 						Origin = new(756, 18),
 					},
 					new()
@@ -44761,6 +44723,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Emerald Pile",
+						Size = new(2, 1),
 						Origin = new(792, 18),
 					},
 					new()
@@ -44769,6 +44732,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Ruby Pile",
+						Size = new(2, 1),
 						Origin = new(828, 18),
 					},
 					new()
@@ -44777,6 +44741,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Diamond Pile",
+						Size = new(2, 1),
 						Origin = new(864, 18),
 					},
 					new()
@@ -44785,6 +44750,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(151, 200, 211),
 						Variety = "Ice Junk A",
+						Size = new(2, 1),
 						Origin = new(900, 18),
 					},
 					new()
@@ -44793,6 +44759,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(151, 200, 211),
 						Variety = "Ice Junk B",
+						Size = new(2, 1),
 						Origin = new(936, 18),
 					},
 					new()
@@ -44801,6 +44768,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(151, 200, 211),
 						Variety = "Ice Junk C",
+						Size = new(2, 1),
 						Origin = new(972, 18),
 					},
 					new()
@@ -44809,6 +44777,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(151, 200, 211),
 						Variety = "Ice Junk D",
+						Size = new(2, 1),
 						Origin = new(1008, 18),
 					},
 					new()
@@ -44817,6 +44786,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(151, 200, 211),
 						Variety = "Ice Junk E",
+						Size = new(2, 1),
 						Origin = new(1044, 18),
 					},
 					new()
@@ -44825,6 +44795,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(151, 200, 211),
 						Variety = "Ice Junk F",
+						Size = new(2, 1),
 						Origin = new(1080, 18),
 					},
 					new()
@@ -44833,6 +44804,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Debris A",
+						Size = new(2, 1),
 						Origin = new(1116, 18),
 					},
 					new()
@@ -44841,6 +44813,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Debris B",
+						Size = new(2, 1),
 						Origin = new(1152, 18),
 					},
 					new()
@@ -44849,6 +44822,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Debris C",
+						Size = new(2, 1),
 						Origin = new(1188, 18),
 					},
 					new()
@@ -44857,6 +44831,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(177, 183, 161),
 						Variety = "Spider Egg Pile A",
+						Size = new(2, 1),
 						Origin = new(1224, 18),
 					},
 					new()
@@ -44865,6 +44840,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(177, 183, 161),
 						Variety = "Spider Egg Pile B",
+						Size = new(2, 1),
 						Origin = new(1260, 18),
 					},
 					new()
@@ -44873,6 +44849,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(177, 183, 161),
 						Variety = "Spider Egg Pile C",
+						Size = new(2, 1),
 						Origin = new(1296, 18),
 					},
 					new()
@@ -44881,6 +44858,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(177, 183, 161),
 						Variety = "Spider Egg Pile D",
+						Size = new(2, 1),
 						Origin = new(1332, 18),
 					},
 					new()
@@ -44889,6 +44867,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stony Moss A",
+						Size = new(2, 1),
 						Origin = new(1368, 18),
 					},
 					new()
@@ -44897,6 +44876,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stony Moss B",
+						Size = new(2, 1),
 						Origin = new(1404, 18),
 					},
 					new()
@@ -44905,6 +44885,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Stony Moss C",
+						Size = new(2, 1),
 						Origin = new(1440, 18),
 					},
 					new()
@@ -44913,6 +44894,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sandstone A",
+						Size = new(2, 1),
 						Origin = new(1476, 18),
 					},
 					new()
@@ -44921,6 +44903,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sandstone B",
+						Size = new(2, 1),
 						Origin = new(1512, 18),
 					},
 					new()
@@ -44929,6 +44912,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sandstone C",
+						Size = new(2, 1),
 						Origin = new(1548, 18),
 					},
 					new()
@@ -44937,6 +44921,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sandstone D",
+						Size = new(2, 1),
 						Origin = new(1584, 18),
 					},
 					new()
@@ -44945,6 +44930,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sandstone E",
+						Size = new(2, 1),
 						Origin = new(1620, 18),
 					},
 					new()
@@ -44953,6 +44939,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sandstone F",
+						Size = new(2, 1),
 						Origin = new(1656, 18),
 					},
 					new()
@@ -44961,6 +44948,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Granite A",
+						Size = new(2, 1),
 						Origin = new(1692, 18),
 					},
 					new()
@@ -44969,6 +44957,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Granite B",
+						Size = new(2, 1),
 						Origin = new(1728, 18),
 					},
 					new()
@@ -44977,6 +44966,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Granite C",
+						Size = new(2, 1),
 						Origin = new(1764, 18),
 					},
 					new()
@@ -44985,6 +44975,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Granite D",
+						Size = new(2, 1),
 						Origin = new(1800, 18),
 					},
 					new()
@@ -44993,6 +44984,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Granite E",
+						Size = new(2, 1),
 						Origin = new(1836, 18),
 					},
 					new()
@@ -45001,6 +44993,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Granite F",
+						Size = new(2, 1),
 						Origin = new(1872, 18),
 					},
 					new()
@@ -45009,6 +45002,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Marble A",
+						Size = new(2, 1),
 						Origin = new(1908, 18),
 					},
 					new()
@@ -45017,6 +45011,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Marble B",
+						Size = new(2, 1),
 						Origin = new(1944, 18),
 					},
 					new()
@@ -45025,6 +45020,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Marble C",
+						Size = new(2, 1),
 						Origin = new(1980, 18),
 					},
 					new()
@@ -45033,6 +45029,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Marble D",
+						Size = new(2, 1),
 						Origin = new(2016, 18),
 					},
 					new()
@@ -45041,6 +45038,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Marble E",
+						Size = new(2, 1),
 						Origin = new(2052, 18),
 					},
 					new()
@@ -45049,6 +45047,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Marble F",
+						Size = new(2, 1),
 						Origin = new(2088, 18),
 					},
 					new()
@@ -45057,6 +45056,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Living Wood A",
+						Size = new(2, 1),
 						Origin = new(2124, 18),
 					},
 					new()
@@ -45065,6 +45065,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Living Wood B",
+						Size = new(2, 1),
 						Origin = new(2160, 18),
 					},
 					new()
@@ -45073,6 +45074,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(114, 81, 56),
 						Variety = "Living Wood C",
+						Size = new(2, 1),
 						Origin = new(2196, 18),
 					},
 					new()
@@ -45081,6 +45083,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sand A",
+						Size = new(2, 1),
 						Origin = new(2232, 18),
 					},
 					new()
@@ -45089,6 +45092,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sand B",
+						Size = new(2, 1),
 						Origin = new(2268, 18),
 					},
 					new()
@@ -45097,6 +45101,7 @@ namespace TMake.Terraria
 						Name = "Small Decos",
 						Color = Color.FromArgb(99, 99, 99),
 						Variety = "Sand C",
+						Size = new(2, 1),
 						Origin = new(2304, 18),
 					},
 				],
@@ -47637,7 +47642,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 A",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(0, 36),
 					},
 					new()
@@ -47646,7 +47651,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 B",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(36, 36),
 					},
 					new()
@@ -47655,7 +47660,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 C",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(72, 36),
 					},
 					new()
@@ -47664,7 +47669,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 D",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(108, 36),
 					},
 					new()
@@ -47673,7 +47678,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 E",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(144, 36),
 					},
 					new()
@@ -47682,7 +47687,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 F",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(180, 36),
 					},
 					new()
@@ -47691,7 +47696,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 G",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(216, 36),
 					},
 					new()
@@ -47700,7 +47705,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 H",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(252, 36),
 					},
 					new()
@@ -47709,7 +47714,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 I",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(288, 36),
 					},
 					new()
@@ -47718,7 +47723,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 J",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(324, 36),
 					},
 					new()
@@ -47727,7 +47732,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 K",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(360, 36),
 					},
 					new()
@@ -47736,7 +47741,7 @@ namespace TMake.Terraria
 						Name = "Jungle Large Plants",
 						Color = Color.FromArgb(107, 182, 29),
 						Variety = "2x2 L",
-						Size = new(3, 2),
+						Size = new(2, 2),
 						Origin = new(396, 36),
 					},
 				],
