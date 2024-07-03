@@ -27,8 +27,8 @@ namespace TMake.Terraria
         public bool IsChinese { get; set; }
         public uint Revision { get; set; }
         public bool IsFavorite { get; set; }
-        public string Name { get; set; } = "";
-        public string Seed { get; set; } = "";
+        public string Name { get; set; } = string.Empty;
+        public string Seed { get; set; } = string.Empty;
         public ulong WorldGenVersion { get; set; }
         public Guid Guid { get; set; }
         public int ID { get; set; }

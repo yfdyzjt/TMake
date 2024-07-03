@@ -3,7 +3,7 @@
     public class SaveVersionData
     {
         public int SaveVersion { get; set; }
-        public string GameVersion { get; set; } = "";
+        public string GameVersion { get; set; } = string.Empty;
         public int MaxTileId { get; set; }
         public int MaxWallId { get; set; }
         public int MaxItemId { get; set; }

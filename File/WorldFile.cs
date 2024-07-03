@@ -262,7 +262,7 @@ namespace TMake.IO
                 world.WorldGenVersion = binaryReader.ReadUInt64();
             }
             else
-                world.Seed = "";
+                world.Seed = string.Empty;
             if (world.Version >= 181)
             {
                 world.Guid = new Guid(binaryReader.ReadBytes(16));

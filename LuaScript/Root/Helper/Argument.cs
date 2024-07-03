@@ -12,9 +12,9 @@ namespace TMake.LuaScript
                 var parts = pairs[i].Split(':', 2);
 
                 string name = parts[0].Trim();
-                string type = parts.Length == 2 ? parts[1].Trim() : "";
+                string type = parts.Length == 2 ? parts[1].Trim() : string.Empty;
 
-                if (type == "")
+                if (type == string.Empty)
                 {
                     self[name] = args[i];
                 }

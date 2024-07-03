@@ -22,7 +22,7 @@ namespace TMake.IO
 
         public static string GetFileExt(TMakeFileType type)
         {
-            return TypeToFileExt.TryGetValue(type, out var value) ? value : "";
+            return TypeToFileExt.TryGetValue(type, out var value) ? value : string.Empty;
         }
         public static TMakeFileType GetType(string ext)
         {

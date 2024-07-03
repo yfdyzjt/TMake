@@ -6,8 +6,8 @@ namespace TMake.Terraria
     {
         public int Type { get; set; }
         public bool TownNPC { get; set; }
-        public string LegacyName { get; set; } = "";
-        public string GivenName { get; set; } = "";
+        public string LegacyName { get; set; } = string.Empty;
+        public string GivenName { get; set; } = string.Empty;
         public Vector2 Position { get; set; }
         public bool Homeless { get; set; }
         public int HomeTileX { get; set; }

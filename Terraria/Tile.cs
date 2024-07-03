@@ -1,4 +1,6 @@
-﻿namespace TMake.Terraria
+﻿using System.Drawing;
+
+namespace TMake.Terraria
 {
     public class Tile
     {

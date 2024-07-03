@@ -72,7 +72,7 @@ namespace TMake.IO
         }
         public static Sign Save<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
-            var sign = Tool.PlaceSign(area, pos, SpriteProperty.GetSpriteData("Sign", "Wall"));
+            var sign = Tool.PlaceSign(area, pos, SpriteProperty.GetSprite("Sign", "Wall"));
             Save(script, sign);
             return sign;
         }
@@ -89,13 +89,13 @@ namespace TMake.IO
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
             sign.Text = "tmake" + ":" + name + Environment.NewLine +
-                (lines.Length == 2 ? lines[1] : "");
+                (lines.Length == 2 ? lines[1] : string.Empty);
         }
         private static string LoadScriptName(Sign sign)
         {
             var lines = sign.Text.Split(["\r\n", "\r", "\n"], 2, StringSplitOptions.None);
             var heads = lines[0].StartsWith("tmake") ? lines[0].Split(':', 2) : [];
-            return heads.Length == 2 ? heads[1] : "";
+            return heads.Length == 2 ? heads[1] : string.Empty;
         }
         private static void SaveScriptCode(Sign sign, string code)
         {
@@ -112,11 +112,11 @@ namespace TMake.IO
                 .Replace("&#10", "\n")
                 .Replace("&#13", "\r")
                 .Replace("&#09", "\t")
-                : "";
+                : string.Empty;
         }
         private static List<Sign> GetMatcheSigns(List<Sign> signs, string pattern)
         {
-            return signs.Where(sign => LoadScriptName(sign) != "" && IsMatche(LoadScriptName(sign), pattern)).ToList();
+            return signs.Where(sign => LoadScriptName(sign) != string.Empty && IsMatche(LoadScriptName(sign), pattern)).ToList();
         }
         private static bool IsMatche(string str, string pattern)
         {

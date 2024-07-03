@@ -14,7 +14,7 @@
         }
         public string Directory
         {
-            get => Path.GetDirectoryName(_filePath) ?? ""; 
+            get => Path.GetDirectoryName(_filePath) ?? string.Empty; 
             set => _filePath = Path.Combine(value, FileName + "." + Extension); 
         }
         public TMakeFileType Type
@@ -48,7 +48,7 @@
     }
     public class TMakeFileSeachFormat : TMakeFile
     {
-        public string ScriptName { get; set; } = "";
-        public string FunctionName { get; set; } = "";
+        public string ScriptName { get; set; } = string.Empty;
+        public string FunctionName { get; set; } = string.Empty;
     }
 }

@@ -13,8 +13,8 @@ namespace TMake.LuaScript
             ScriptFile.Save(this, filePath);
         }
 
-        public string Name { get; set; } = "";
-        public string Code { get; set; } = "";
+        public string Name { get; set; } = string.Empty;
+        public string Code { get; set; } = string.Empty;
         public List<KeyValuePair<string, object>> Args { get; set; }
         public List<KeyValuePair<string, Type>> Packages { get; set; }
 

@@ -10,7 +10,7 @@ namespace TMake.LuaScript
             Validate(area, selection);
             Fill(area, selection, new(1, 1), (pos, offset) => area.Tile[pos.X, pos.Y] = tile.Copy());
         }
-        public static void Fill<T>(T area, Rectangle selection, SpriteData sprite) where T : ITileArea
+        public static void Fill<T>(T area, Rectangle selection, FrameData sprite) where T : ITileArea
         {
             Validate(area, selection);
             Fill(area, selection, sprite.Size, (pos, offset) => { if (offset.X == 0 && offset.Y == 0) PlaceSprite(area, pos, sprite); });

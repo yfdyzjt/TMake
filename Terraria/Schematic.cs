@@ -20,7 +20,7 @@ namespace TMake.Terraria
 
         public int MaxTilesX { get; set; }
         public int MaxTilesY { get; set; }
-        public string Name { get; set; } = "";
+        public string Name { get; set; } = string.Empty;
         public uint Version { get; set; }
     }
 }
