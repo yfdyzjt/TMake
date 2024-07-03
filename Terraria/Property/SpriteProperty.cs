@@ -1,7 +1,18 @@
-﻿namespace TMake.Terraria
+﻿using System.Drawing;
+
+namespace TMake.Terraria
 {
     public static class SpriteProperty
     {
+        public static FrameData GetSprite(Tile tile)
+        {
+            var tileData = TileProperty.GetTileData(tile.Type);
+            return tileData.Frames.First(frame =>
+                new Rectangle(frame.Origin,
+                new(tileData.TextureGrid.X + tileData.TextureGap.X,
+                    tileData.TextureGrid.Y + tileData.TextureGap.Y))
+                .Contains(new Point(tile.FrameX, tile.FrameY)));
+        }
         public static List<FrameData> GetSprites(ushort type)
         {
             return TileProperty.TileDatas[type].Frames;

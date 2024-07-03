@@ -39,8 +39,8 @@ namespace TMake.LuaScript
                     Tile tile = area.Tile[x, y];
                     tile.Active = true;
                     tile.Type = sprite.Type;
-                    tile.FrameX = (short)(i * (tileDate.TextureGrid.X + 2) + sprite.Origin.X);
-                    tile.FrameY = (short)(j * (tileDate.TextureGrid.Y + 2) + sprite.Origin.Y);
+                    tile.FrameX = (short)(i * (tileDate.TextureGrid.X + tileDate.TextureGap.X) + sprite.Origin.X);
+                    tile.FrameY = (short)(j * (tileDate.TextureGrid.Y + tileDate.TextureGap.Y) + sprite.Origin.Y);
 
                     if (sprite.Type == (ushort)TileID.ChristmasTree && x == 0 && y == 0) tile.FrameX = 10;
                 }

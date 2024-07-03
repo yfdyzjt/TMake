@@ -60,7 +60,7 @@ namespace TMake.Terraria
             }
             set
             {
-                Lava = false; Honey = false; Shimmer = false; 
+                Lava = false; Honey = false; Shimmer = false;
                 Liquid = Liquid == 0 ? byte.MaxValue : Liquid;
                 switch (value)
                 {
@@ -73,6 +73,84 @@ namespace TMake.Terraria
             }
         }
 
+        public Color GetColor()
+        {
+            bool isTile = false;
+            bool isWall = false;
+
+            Color resultColor = System.Drawing.Color.Transparent;
+
+            if (!InvisibleBlock && Active)
+            {
+                isTile = true;
+                if (TileProperty.GetTileData(Type).Frames.Count > 0)
+                {
+                    resultColor = SpriteProperty.GetSprite(this).Color;
+                }
+                else
+                {
+                    resultColor = TileProperty.GetTileData(Type).Color;
+                }
+            }
+            else if (LiquidAmount > 32)
+            {
+                resultColor = LiquidProperty.LiquidColors[LiquidType];
+            }
+            else if (!InvisibleWall && Wall > 0)
+            {
+                isWall = true;
+                resultColor = WallProperty.GetWallData(Wall).Color;
+            }
+
+            if ((isTile || isWall) && Color > 0)
+            {
+                Color paintColor = PaintProperty.PaintColor[Color];
+
+                float r = resultColor.R / 255f;
+                float g = resultColor.G / 255f;
+                float b = resultColor.B / 255f;
+
+                if (g > r) r = g;
+                if (b > r) (b, r) = (r, b);
+
+                if (Color == 29)
+                {
+                    float num = b * 0.3f;
+                    resultColor = System.Drawing.Color.FromArgb(
+                        (byte)(paintColor.R * num),
+                        (byte)(paintColor.G * num),
+                        (byte)(paintColor.B * num)
+                    );
+                }
+                else if (Color != 30)
+                {
+                    float num = r;
+                    resultColor = System.Drawing.Color.FromArgb(
+                        (byte)(paintColor.R * num),
+                        (byte)(paintColor.G * num),
+                        (byte)(paintColor.B * num)
+                    );
+                }
+                else if (isWall)
+                {
+                    resultColor = System.Drawing.Color.FromArgb(
+                        (byte)((byte.MaxValue - resultColor.R) * 0.5f),
+                        (byte)((byte.MaxValue - resultColor.G) * 0.5f),
+                        (byte)((byte.MaxValue - resultColor.B) * 0.5f)
+                    );
+                }
+                else
+                {
+                    resultColor = System.Drawing.Color.FromArgb(
+                        (byte)(byte.MaxValue - resultColor.R),
+                        (byte)(byte.MaxValue - resultColor.G),
+                        (byte)(byte.MaxValue - resultColor.B)
+                    );
+                }
+            }
+
+            return resultColor;
+        }
         public void Reset()
         {
             Active = false;
@@ -147,33 +225,31 @@ namespace TMake.Terraria
         }
         public override int GetHashCode()
         {
-            unchecked
-            {
-                int hashCode = Active.GetHashCode();
-                hashCode = (hashCode * 397) ^ Type.GetHashCode();
-                hashCode = (hashCode * 397) ^ FrameX.GetHashCode();
-                hashCode = (hashCode * 397) ^ FrameY.GetHashCode();
-                hashCode = (hashCode * 397) ^ Color.GetHashCode();
-                hashCode = (hashCode * 397) ^ Wall.GetHashCode();
-                hashCode = (hashCode * 397) ^ WallColor.GetHashCode();
-                hashCode = (hashCode * 397) ^ Liquid.GetHashCode();
-                hashCode = (hashCode * 397) ^ Lava.GetHashCode();
-                hashCode = (hashCode * 397) ^ Honey.GetHashCode();
-                hashCode = (hashCode * 397) ^ Shimmer.GetHashCode();
-                hashCode = (hashCode * 397) ^ Wire.GetHashCode();
-                hashCode = (hashCode * 397) ^ Wire2.GetHashCode();
-                hashCode = (hashCode * 397) ^ Wire3.GetHashCode();
-                hashCode = (hashCode * 397) ^ HalfBrick.GetHashCode();
-                hashCode = (hashCode * 397) ^ Slope.GetHashCode();
-                hashCode = (hashCode * 397) ^ Actuator.GetHashCode();
-                hashCode = (hashCode * 397) ^ InActive.GetHashCode();
-                hashCode = (hashCode * 397) ^ Wire4.GetHashCode();
-                hashCode = (hashCode * 397) ^ InvisibleBlock.GetHashCode();
-                hashCode = (hashCode * 397) ^ InvisibleWall.GetHashCode();
-                hashCode = (hashCode * 397) ^ FullBrightBlock.GetHashCode();
-                hashCode = (hashCode * 397) ^ FullBrightWall.GetHashCode();
-                return hashCode;
-            }
+            HashCode hash = new();
+            hash.Add(Active);
+            hash.Add(Type);
+            hash.Add(FrameX);
+            hash.Add(FrameY);
+            hash.Add(Color);
+            hash.Add(Wall);
+            hash.Add(WallColor);
+            hash.Add(Liquid);
+            hash.Add(Lava);
+            hash.Add(Honey);
+            hash.Add(Shimmer);
+            hash.Add(Wire);
+            hash.Add(Wire2);
+            hash.Add(Wire3);
+            hash.Add(HalfBrick);
+            hash.Add(Slope);
+            hash.Add(Actuator);
+            hash.Add(InActive);
+            hash.Add(Wire4);
+            hash.Add(InvisibleBlock);
+            hash.Add(InvisibleWall);
+            hash.Add(FullBrightBlock);
+            hash.Add(FullBrightWall);
+            return hash.ToHashCode();
         }
     }
 }

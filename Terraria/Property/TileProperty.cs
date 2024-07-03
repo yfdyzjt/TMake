@@ -18,14 +18,6 @@ namespace TMake.Terraria
 		SlopeBottomRight = 0x4,
 		SlopeBottomLeft = 0x5,
 	}
-	public enum LiquidType : byte
-	{
-		None = 0x0,
-		Water = 0x01,
-		Lava = 0x02,
-		Honey = 0x03,
-		Shimmer = 0x04,
-	}
 	public enum TileID : ushort
 	{
 		Dirt = 0,
@@ -752,28 +744,28 @@ namespace TMake.Terraria
 			{
 				Type = 0,
 				Name = "Dirt Block",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Solid = true,
 			},
 			[1] = new()
 			{
 				Type = 1,
 				Name = "Stone Block",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Solid = true,
 			},
 			[2] = new()
 			{
 				Type = 2,
 				Name = "Grass Block",
-				Color = Color.FromArgb(255, 28, 216, 94),
+				Color = Color.FromArgb(28, 216, 94),
 				Solid = true,
 			},
 			[3] = new()
 			{
 				Type = 3,
 				Name = "Forest Short Plants",
-				Color = Color.FromArgb(255, 26, 196, 84),
+				Color = Color.FromArgb(26, 196, 84),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -1141,7 +1133,7 @@ namespace TMake.Terraria
 			{
 				Type = 4,
 				Name = "Torches",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -2446,7 +2438,7 @@ namespace TMake.Terraria
 			{
 				Type = 5,
 				Name = "Trees",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -7135,35 +7127,35 @@ namespace TMake.Terraria
 			{
 				Type = 6,
 				Name = "Iron Ore",
-				Color = Color.FromArgb(255, 140, 101, 80),
+				Color = Color.FromArgb(140, 101, 80),
 				Solid = true,
 			},
 			[7] = new()
 			{
 				Type = 7,
 				Name = "Copper Ore",
-				Color = Color.FromArgb(255, 150, 67, 22),
+				Color = Color.FromArgb(150, 67, 22),
 				Solid = true,
 			},
 			[8] = new()
 			{
 				Type = 8,
 				Name = "Gold Ore",
-				Color = Color.FromArgb(255, 185, 164, 23),
+				Color = Color.FromArgb(185, 164, 23),
 				Solid = true,
 			},
 			[9] = new()
 			{
 				Type = 9,
 				Name = "Silver Ore",
-				Color = Color.FromArgb(255, 185, 194, 195),
+				Color = Color.FromArgb(185, 194, 195),
 				Solid = true,
 			},
 			[10] = new()
 			{
 				Type = 10,
 				Name = "Doors (Closed)",
-				Color = Color.FromArgb(255, 119, 105, 79),
+				Color = Color.FromArgb(119, 105, 79),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -8495,7 +8487,7 @@ namespace TMake.Terraria
 			{
 				Type = 11,
 				Name = "Doors (Open)",
-				Color = Color.FromArgb(255, 119, 105, 79),
+				Color = Color.FromArgb(119, 105, 79),
 				Framed = true,
 				Frames = [
 					new()
@@ -9403,7 +9395,7 @@ namespace TMake.Terraria
 			{
 				Type = 12,
 				Name = "Crystal Heart",
-				Color = Color.FromArgb(255, 174, 24, 69),
+				Color = Color.FromArgb(174, 24, 69),
 				Framed = true,
 				Frames = [
 					new()
@@ -9419,7 +9411,7 @@ namespace TMake.Terraria
 			{
 				Type = 13,
 				Name = "Placed Bottles",
-				Color = Color.FromArgb(255, 133, 213, 247),
+				Color = Color.FromArgb(133, 213, 247),
 				Framed = true,
 				Frames = [
 					new()
@@ -9490,7 +9482,7 @@ namespace TMake.Terraria
 			{
 				Type = 14,
 				Name = "Tables",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -9786,8 +9778,9 @@ namespace TMake.Terraria
 			{
 				Type = 15,
 				Name = "Chairs",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
+				TextureGap = new(0, 4),
 				Frames = [
 					new()
 					{
@@ -10658,7 +10651,7 @@ namespace TMake.Terraria
 			{
 				Type = 16,
 				Name = "Anvils",
-				Color = Color.FromArgb(255, 140, 130, 116),
+				Color = Color.FromArgb(140, 130, 116),
 				Framed = true,
 				TextureGrid = new(16, 18),
 				Frames = [
@@ -10683,7 +10676,7 @@ namespace TMake.Terraria
 			{
 				Type = 17,
 				Name = "Furnace",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -10699,7 +10692,7 @@ namespace TMake.Terraria
 			{
 				Type = 18,
 				Name = "Work Benches",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				TextureGrid = new(16, 18),
 				Frames = [
@@ -11060,7 +11053,7 @@ namespace TMake.Terraria
 			{
 				Type = 19,
 				Name = "Platforms",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -21653,7 +21646,7 @@ namespace TMake.Terraria
 			{
 				Type = 20,
 				Name = "Saplings",
-				Color = Color.FromArgb(255, 163, 116, 81),
+				Color = Color.FromArgb(163, 116, 81),
 				Framed = true,
 				Frames = [
 					new()
@@ -21958,7 +21951,7 @@ namespace TMake.Terraria
 			{
 				Type = 21,
 				Name = "Chests",
-				Color = Color.FromArgb(255, 174, 129, 92),
+				Color = Color.FromArgb(174, 129, 92),
 				Framed = true,
 				Frames = [
 					new()
@@ -22408,21 +22401,21 @@ namespace TMake.Terraria
 			{
 				Type = 22,
 				Name = "Demonite Ore",
-				Color = Color.FromArgb(255, 98, 95, 167),
+				Color = Color.FromArgb(98, 95, 167),
 				Solid = true,
 			},
 			[23] = new()
 			{
 				Type = 23,
 				Name = "Corrupt Grass Block",
-				Color = Color.FromArgb(255, 141, 137, 223),
+				Color = Color.FromArgb(141, 137, 223),
 				Solid = true,
 			},
 			[24] = new()
 			{
 				Type = 24,
 				Name = "Corruption Short Plants",
-				Color = Color.FromArgb(255, 122, 116, 218),
+				Color = Color.FromArgb(122, 116, 218),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -22614,14 +22607,14 @@ namespace TMake.Terraria
 			{
 				Type = 25,
 				Name = "Ebonstone Block",
-				Color = Color.FromArgb(255, 109, 90, 128),
+				Color = Color.FromArgb(109, 90, 128),
 				Solid = true,
 			},
 			[26] = new()
 			{
 				Type = 26,
 				Name = "Altars",
-				Color = Color.FromArgb(255, 119, 101, 125),
+				Color = Color.FromArgb(119, 101, 125),
 				Framed = true,
 				Frames = [
 					new()
@@ -22645,7 +22638,7 @@ namespace TMake.Terraria
 			{
 				Type = 27,
 				Name = "Sunflower",
-				Color = Color.FromArgb(255, 226, 196, 49),
+				Color = Color.FromArgb(226, 196, 49),
 				Framed = true,
 				Frames = [
 					new()
@@ -22680,7 +22673,7 @@ namespace TMake.Terraria
 			{
 				Type = 28,
 				Name = "Pots",
-				Color = Color.FromArgb(255, 151, 79, 80),
+				Color = Color.FromArgb(151, 79, 80),
 				Framed = true,
 				Frames = [
 					new()
@@ -23696,7 +23689,7 @@ namespace TMake.Terraria
 			{
 				Type = 29,
 				Name = "Piggy Bank",
-				Color = Color.FromArgb(255, 175, 105, 128),
+				Color = Color.FromArgb(175, 105, 128),
 				Framed = true,
 				Frames = [
 					new()
@@ -23712,14 +23705,14 @@ namespace TMake.Terraria
 			{
 				Type = 30,
 				Name = "Wood",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Solid = true,
 			},
 			[31] = new()
 			{
 				Type = 31,
 				Name = "Orb Heart",
-				Color = Color.FromArgb(255, 141, 120, 168),
+				Color = Color.FromArgb(141, 120, 168),
 				Framed = true,
 				Frames = [
 					new()
@@ -23743,13 +23736,13 @@ namespace TMake.Terraria
 			{
 				Type = 32,
 				Name = "Corruption Thorns",
-				Color = Color.FromArgb(255, 151, 135, 183),
+				Color = Color.FromArgb(151, 135, 183),
 			},
 			[33] = new()
 			{
 				Type = 33,
 				Name = "Candles",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -24430,7 +24423,7 @@ namespace TMake.Terraria
 			{
 				Type = 34,
 				Name = "Chandeliers",
-				Color = Color.FromArgb(255, 235, 166, 135),
+				Color = Color.FromArgb(235, 166, 135),
 				Framed = true,
 				Frames = [
 					new()
@@ -25320,7 +25313,7 @@ namespace TMake.Terraria
 			{
 				Type = 35,
 				Name = "Jack 'O Lantern",
-				Color = Color.FromArgb(255, 226, 145, 30),
+				Color = Color.FromArgb(226, 145, 30),
 				Framed = true,
 				Frames = [
 					new()
@@ -25490,7 +25483,7 @@ namespace TMake.Terraria
 			{
 				Type = 36,
 				Name = "Presents",
-				Color = Color.FromArgb(255, 230, 89, 92),
+				Color = Color.FromArgb(230, 89, 92),
 				Framed = true,
 				Frames = [
 					new()
@@ -25562,42 +25555,42 @@ namespace TMake.Terraria
 			{
 				Type = 37,
 				Name = "Meteorite Ore",
-				Color = Color.FromArgb(255, 104, 86, 84),
+				Color = Color.FromArgb(104, 86, 84),
 				Solid = true,
 			},
 			[38] = new()
 			{
 				Type = 38,
 				Name = "Gray Brick",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Solid = true,
 			},
 			[39] = new()
 			{
 				Type = 39,
 				Name = "Red Brick",
-				Color = Color.FromArgb(255, 181, 62, 59),
+				Color = Color.FromArgb(181, 62, 59),
 				Solid = true,
 			},
 			[40] = new()
 			{
 				Type = 40,
 				Name = "Clay Block",
-				Color = Color.FromArgb(255, 146, 81, 68),
+				Color = Color.FromArgb(146, 81, 68),
 				Solid = true,
 			},
 			[41] = new()
 			{
 				Type = 41,
 				Name = "Blue Brick",
-				Color = Color.FromArgb(255, 66, 84, 109),
+				Color = Color.FromArgb(66, 84, 109),
 				Solid = true,
 			},
 			[42] = new()
 			{
 				Type = 42,
 				Name = "Lanterns",
-				Color = Color.FromArgb(255, 251, 235, 127),
+				Color = Color.FromArgb(251, 235, 127),
 				Framed = true,
 				Frames = [
 					new()
@@ -26487,49 +26480,49 @@ namespace TMake.Terraria
 			{
 				Type = 43,
 				Name = "Green Brick",
-				Color = Color.FromArgb(255, 84, 100, 63),
+				Color = Color.FromArgb(84, 100, 63),
 				Solid = true,
 			},
 			[44] = new()
 			{
 				Type = 44,
 				Name = "Pink Brick",
-				Color = Color.FromArgb(255, 107, 68, 99),
+				Color = Color.FromArgb(107, 68, 99),
 				Solid = true,
 			},
 			[45] = new()
 			{
 				Type = 45,
 				Name = "Gold Brick",
-				Color = Color.FromArgb(255, 185, 164, 23),
+				Color = Color.FromArgb(185, 164, 23),
 				Solid = true,
 			},
 			[46] = new()
 			{
 				Type = 46,
 				Name = "Silver Brick",
-				Color = Color.FromArgb(255, 185, 194, 195),
+				Color = Color.FromArgb(185, 194, 195),
 				Solid = true,
 			},
 			[47] = new()
 			{
 				Type = 47,
 				Name = "Copper Brick",
-				Color = Color.FromArgb(255, 150, 67, 22),
+				Color = Color.FromArgb(150, 67, 22),
 				Solid = true,
 			},
 			[48] = new()
 			{
 				Type = 48,
 				Name = "Spike",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Solid = true,
 			},
 			[49] = new()
 			{
 				Type = 49,
 				Name = "Water Candle",
-				Color = Color.FromArgb(255, 89, 201, 255),
+				Color = Color.FromArgb(89, 201, 255),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -26554,7 +26547,7 @@ namespace TMake.Terraria
 			{
 				Type = 50,
 				Name = "Books",
-				Color = Color.FromArgb(255, 170, 48, 114),
+				Color = Color.FromArgb(170, 48, 114),
 				Framed = true,
 				Frames = [
 					new()
@@ -26610,35 +26603,35 @@ namespace TMake.Terraria
 			{
 				Type = 51,
 				Name = "Cobweb",
-				Color = Color.FromArgb(255, 192, 202, 203),
+				Color = Color.FromArgb(192, 202, 203),
 				Solid = true,
 			},
 			[52] = new()
 			{
 				Type = 52,
 				Name = "Vines",
-				Color = Color.FromArgb(255, 23, 177, 76),
+				Color = Color.FromArgb(23, 177, 76),
 				Solid = true,
 			},
 			[53] = new()
 			{
 				Type = 53,
 				Name = "Sand Block",
-				Color = Color.FromArgb(255, 186, 168, 84),
+				Color = Color.FromArgb(186, 168, 84),
 				Solid = true,
 			},
 			[54] = new()
 			{
 				Type = 54,
 				Name = "Glass Block",
-				Color = Color.FromArgb(255, 200, 246, 254),
+				Color = Color.FromArgb(200, 246, 254),
 				Solid = true,
 			},
 			[55] = new()
 			{
 				Type = 55,
 				Name = "Sign",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -26695,42 +26688,42 @@ namespace TMake.Terraria
 			{
 				Type = 56,
 				Name = "Obsidian Block",
-				Color = Color.FromArgb(255, 43, 40, 84),
+				Color = Color.FromArgb(43, 40, 84),
 				Solid = true,
 			},
 			[57] = new()
 			{
 				Type = 57,
 				Name = "Ash Block",
-				Color = Color.FromArgb(255, 68, 68, 76),
+				Color = Color.FromArgb(68, 68, 76),
 				Solid = true,
 			},
 			[58] = new()
 			{
 				Type = 58,
 				Name = "Hellstone Ore",
-				Color = Color.FromArgb(255, 142, 66, 66),
+				Color = Color.FromArgb(142, 66, 66),
 				Solid = true,
 			},
 			[59] = new()
 			{
 				Type = 59,
 				Name = "Mud Block",
-				Color = Color.FromArgb(255, 92, 68, 73),
+				Color = Color.FromArgb(92, 68, 73),
 				Solid = true,
 			},
 			[60] = new()
 			{
 				Type = 60,
 				Name = "Jungle Grass Block",
-				Color = Color.FromArgb(255, 143, 215, 29),
+				Color = Color.FromArgb(143, 215, 29),
 				Solid = true,
 			},
 			[61] = new()
 			{
 				Type = 61,
 				Name = "Jungle Short Plants",
-				Color = Color.FromArgb(255, 135, 196, 26),
+				Color = Color.FromArgb(135, 196, 26),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -26921,69 +26914,69 @@ namespace TMake.Terraria
 			{
 				Type = 62,
 				Name = "Jungle Vines",
-				Color = Color.FromArgb(255, 121, 176, 24),
+				Color = Color.FromArgb(121, 176, 24),
 				Solid = true,
 			},
 			[63] = new()
 			{
 				Type = 63,
 				Name = "Sapphire Stone Block",
-				Color = Color.FromArgb(255, 110, 140, 182),
+				Color = Color.FromArgb(110, 140, 182),
 				Solid = true,
 			},
 			[64] = new()
 			{
 				Type = 64,
 				Name = "Ruby Stone Block",
-				Color = Color.FromArgb(255, 196, 96, 114),
+				Color = Color.FromArgb(196, 96, 114),
 				Solid = true,
 			},
 			[65] = new()
 			{
 				Type = 65,
 				Name = "Emerald Stone Block",
-				Color = Color.FromArgb(255, 56, 150, 97),
+				Color = Color.FromArgb(56, 150, 97),
 				Solid = true,
 			},
 			[66] = new()
 			{
 				Type = 66,
 				Name = "Topaz Stone Block",
-				Color = Color.FromArgb(255, 160, 118, 58),
+				Color = Color.FromArgb(160, 118, 58),
 				Solid = true,
 			},
 			[67] = new()
 			{
 				Type = 67,
 				Name = "Amethyst Stone Block",
-				Color = Color.FromArgb(255, 140, 58, 166),
+				Color = Color.FromArgb(140, 58, 166),
 				Solid = true,
 			},
 			[68] = new()
 			{
 				Type = 68,
 				Name = "Diamond Stone Block",
-				Color = Color.FromArgb(255, 125, 191, 197),
+				Color = Color.FromArgb(125, 191, 197),
 				Solid = true,
 			},
 			[69] = new()
 			{
 				Type = 69,
 				Name = "Jungle Thorns",
-				Color = Color.FromArgb(255, 190, 150, 92),
+				Color = Color.FromArgb(190, 150, 92),
 			},
 			[70] = new()
 			{
 				Type = 70,
 				Name = "Mushroom Grass Block",
-				Color = Color.FromArgb(255, 93, 127, 255),
+				Color = Color.FromArgb(93, 127, 255),
 				Solid = true,
 			},
 			[71] = new()
 			{
 				Type = 71,
 				Name = "Mushroom Plant",
-				Color = Color.FromArgb(255, 182, 175, 130),
+				Color = Color.FromArgb(182, 175, 130),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -27032,7 +27025,7 @@ namespace TMake.Terraria
 			{
 				Type = 72,
 				Name = "Giant Glowing Mushroom (Underground)",
-				Color = Color.FromArgb(255, 182, 175, 130),
+				Color = Color.FromArgb(182, 175, 130),
 				Framed = true,
 				Frames = [
 					new()
@@ -27088,7 +27081,7 @@ namespace TMake.Terraria
 			{
 				Type = 73,
 				Name = "Forest Tall Plants",
-				Color = Color.FromArgb(255, 27, 197, 109),
+				Color = Color.FromArgb(27, 197, 109),
 				Framed = true,
 				TextureGrid = new(16, 32),
 				Frames = [
@@ -27493,7 +27486,7 @@ namespace TMake.Terraria
 			{
 				Type = 74,
 				Name = "Jungle Tall Plants",
-				Color = Color.FromArgb(255, 96, 197, 27),
+				Color = Color.FromArgb(96, 197, 27),
 				Framed = true,
 				TextureGrid = new(16, 32),
 				Frames = [
@@ -27646,21 +27639,21 @@ namespace TMake.Terraria
 			{
 				Type = 75,
 				Name = "Obsidian Brick",
-				Color = Color.FromArgb(255, 26, 26, 26),
+				Color = Color.FromArgb(26, 26, 26),
 				Solid = true,
 			},
 			[76] = new()
 			{
 				Type = 76,
 				Name = "Hellstone Brick",
-				Color = Color.FromArgb(255, 142, 66, 66),
+				Color = Color.FromArgb(142, 66, 66),
 				Solid = true,
 			},
 			[77] = new()
 			{
 				Type = 77,
 				Name = "Hellforge",
-				Color = Color.FromArgb(255, 238, 85, 70),
+				Color = Color.FromArgb(238, 85, 70),
 				Framed = true,
 				Frames = [
 					new()
@@ -27676,7 +27669,7 @@ namespace TMake.Terraria
 			{
 				Type = 78,
 				Name = "Clay Pot",
-				Color = Color.FromArgb(255, 121, 110, 97),
+				Color = Color.FromArgb(121, 110, 97),
 				Framed = true,
 				Frames = [
 					new()
@@ -27691,7 +27684,7 @@ namespace TMake.Terraria
 			{
 				Type = 79,
 				Name = "Beds",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -28473,13 +28466,13 @@ namespace TMake.Terraria
 			{
 				Type = 80,
 				Name = "Cactus Plant",
-				Color = Color.FromArgb(255, 73, 120, 17),
+				Color = Color.FromArgb(73, 120, 17),
 			},
 			[81] = new()
 			{
 				Type = 81,
 				Name = "Coral",
-				Color = Color.FromArgb(255, 245, 133, 191),
+				Color = Color.FromArgb(245, 133, 191),
 				Framed = true,
 				TextureGrid = new(24, 26),
 				Frames = [
@@ -28542,7 +28535,7 @@ namespace TMake.Terraria
 			{
 				Type = 82,
 				Name = "Herbs (Sprout)",
-				Color = Color.FromArgb(255, 246, 197, 26),
+				Color = Color.FromArgb(246, 197, 26),
 				Framed = true,
 				Frames = [
 					new()
@@ -28599,7 +28592,7 @@ namespace TMake.Terraria
 			{
 				Type = 83,
 				Name = "Herbs (Mature)",
-				Color = Color.FromArgb(255, 246, 197, 26),
+				Color = Color.FromArgb(246, 197, 26),
 				Framed = true,
 				Frames = [
 					new()
@@ -28656,7 +28649,7 @@ namespace TMake.Terraria
 			{
 				Type = 84,
 				Name = "Herbs (Bloom)",
-				Color = Color.FromArgb(255, 246, 197, 26),
+				Color = Color.FromArgb(246, 197, 26),
 				Framed = true,
 				Frames = [
 					new()
@@ -28713,7 +28706,7 @@ namespace TMake.Terraria
 			{
 				Type = 85,
 				Name = "Tombstones",
-				Color = Color.FromArgb(255, 192, 192, 192),
+				Color = Color.FromArgb(192, 192, 192),
 				Framed = true,
 				Frames = [
 					new()
@@ -28820,7 +28813,7 @@ namespace TMake.Terraria
 			{
 				Type = 86,
 				Name = "Loom",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -28836,7 +28829,7 @@ namespace TMake.Terraria
 			{
 				Type = 87,
 				Name = "Pianos",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -29188,7 +29181,7 @@ namespace TMake.Terraria
 			{
 				Type = 88,
 				Name = "Dressers",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -29540,7 +29533,7 @@ namespace TMake.Terraria
 			{
 				Type = 89,
 				Name = "Benches",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -29924,7 +29917,7 @@ namespace TMake.Terraria
 			{
 				Type = 90,
 				Name = "Bathtubs",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -30706,7 +30699,7 @@ namespace TMake.Terraria
 			{
 				Type = 91,
 				Name = "Banners",
-				Color = Color.FromArgb(255, 13, 88, 130),
+				Color = Color.FromArgb(13, 88, 130),
 				Framed = true,
 				Frames = [
 					new()
@@ -33513,7 +33506,7 @@ namespace TMake.Terraria
 			{
 				Type = 92,
 				Name = "Lamp Post",
-				Color = Color.FromArgb(255, 213, 229, 237),
+				Color = Color.FromArgb(213, 229, 237),
 				Framed = true,
 				Frames = [
 					new()
@@ -33539,7 +33532,7 @@ namespace TMake.Terraria
 			{
 				Type = 93,
 				Name = "Lamps",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -34321,7 +34314,7 @@ namespace TMake.Terraria
 			{
 				Type = 94,
 				Name = "Keg",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -34337,7 +34330,7 @@ namespace TMake.Terraria
 			{
 				Type = 95,
 				Name = "Chinese Lantern",
-				Color = Color.FromArgb(255, 255, 162, 31),
+				Color = Color.FromArgb(255, 162, 31),
 				Framed = true,
 				Frames = [
 					new()
@@ -34363,7 +34356,7 @@ namespace TMake.Terraria
 			{
 				Type = 96,
 				Name = "Cooking Pots",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -34387,7 +34380,7 @@ namespace TMake.Terraria
 			{
 				Type = 97,
 				Name = "Safe",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -34403,7 +34396,7 @@ namespace TMake.Terraria
 			{
 				Type = 98,
 				Name = "Skull Lantern",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -34419,7 +34412,7 @@ namespace TMake.Terraria
 			{
 				Type = 99,
 				Name = "Trash Can",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -34435,7 +34428,7 @@ namespace TMake.Terraria
 			{
 				Type = 100,
 				Name = "Candelabras",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -35217,7 +35210,7 @@ namespace TMake.Terraria
 			{
 				Type = 101,
 				Name = "Bookcases",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -35577,7 +35570,7 @@ namespace TMake.Terraria
 			{
 				Type = 102,
 				Name = "Throne",
-				Color = Color.FromArgb(255, 229, 212, 73),
+				Color = Color.FromArgb(229, 212, 73),
 				Framed = true,
 				Frames = [
 					new()
@@ -35593,7 +35586,7 @@ namespace TMake.Terraria
 			{
 				Type = 103,
 				Name = "Bowls",
-				Color = Color.FromArgb(255, 141, 98, 77),
+				Color = Color.FromArgb(141, 98, 77),
 				Framed = true,
 				Frames = [
 					new()
@@ -35633,7 +35626,7 @@ namespace TMake.Terraria
 			{
 				Type = 104,
 				Name = "Clocks",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -35993,7 +35986,7 @@ namespace TMake.Terraria
 			{
 				Type = 105,
 				Name = "Statue",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -37495,7 +37488,7 @@ namespace TMake.Terraria
 			{
 				Type = 106,
 				Name = "Sawmill",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -37511,28 +37504,28 @@ namespace TMake.Terraria
 			{
 				Type = 107,
 				Name = "Cobalt Ore",
-				Color = Color.FromArgb(255, 11, 80, 143),
+				Color = Color.FromArgb(11, 80, 143),
 				Solid = true,
 			},
 			[108] = new()
 			{
 				Type = 108,
 				Name = "Mythril Ore",
-				Color = Color.FromArgb(255, 91, 169, 169),
+				Color = Color.FromArgb(91, 169, 169),
 				Solid = true,
 			},
 			[109] = new()
 			{
 				Type = 109,
 				Name = "Hallowed Grass Block",
-				Color = Color.FromArgb(255, 78, 193, 227),
+				Color = Color.FromArgb(78, 193, 227),
 				Solid = true,
 			},
 			[110] = new()
 			{
 				Type = 110,
 				Name = "Hallow Short Plants",
-				Color = Color.FromArgb(255, 48, 186, 135),
+				Color = Color.FromArgb(48, 186, 135),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -37724,21 +37717,21 @@ namespace TMake.Terraria
 			{
 				Type = 111,
 				Name = "Adamantite Ore",
-				Color = Color.FromArgb(255, 128, 26, 52),
+				Color = Color.FromArgb(128, 26, 52),
 				Solid = true,
 			},
 			[112] = new()
 			{
 				Type = 112,
 				Name = "Ebonsand Block",
-				Color = Color.FromArgb(255, 103, 98, 122),
+				Color = Color.FromArgb(103, 98, 122),
 				Solid = true,
 			},
 			[113] = new()
 			{
 				Type = 113,
 				Name = "Hallow Tall Plants",
-				Color = Color.FromArgb(255, 48, 208, 234),
+				Color = Color.FromArgb(48, 208, 234),
 				Framed = true,
 				TextureGrid = new(16, 32),
 				Frames = [
@@ -37819,7 +37812,7 @@ namespace TMake.Terraria
 			{
 				Type = 114,
 				Name = "Tinkerer's Workshop",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -37835,76 +37828,76 @@ namespace TMake.Terraria
 			{
 				Type = 115,
 				Name = "Hallowed Vines",
-				Color = Color.FromArgb(255, 33, 171, 207),
+				Color = Color.FromArgb(33, 171, 207),
 				Solid = true,
 			},
 			[116] = new()
 			{
 				Type = 116,
 				Name = "Pearlsand Block",
-				Color = Color.FromArgb(255, 238, 225, 218),
+				Color = Color.FromArgb(238, 225, 218),
 				Solid = true,
 			},
 			[117] = new()
 			{
 				Type = 117,
 				Name = "Pearlstone Block",
-				Color = Color.FromArgb(255, 181, 172, 190),
+				Color = Color.FromArgb(181, 172, 190),
 				Solid = true,
 			},
 			[118] = new()
 			{
 				Type = 118,
 				Name = "Pearlstone Brick",
-				Color = Color.FromArgb(255, 238, 225, 218),
+				Color = Color.FromArgb(238, 225, 218),
 				Solid = true,
 			},
 			[119] = new()
 			{
 				Type = 119,
 				Name = "Iridescent Brick",
-				Color = Color.FromArgb(255, 107, 92, 108),
+				Color = Color.FromArgb(107, 92, 108),
 				Solid = true,
 			},
 			[120] = new()
 			{
 				Type = 120,
 				Name = "Mudstone Brick",
-				Color = Color.FromArgb(255, 92, 68, 73),
+				Color = Color.FromArgb(92, 68, 73),
 				Solid = true,
 			},
 			[121] = new()
 			{
 				Type = 121,
 				Name = "Cobalt Brick",
-				Color = Color.FromArgb(255, 11, 80, 143),
+				Color = Color.FromArgb(11, 80, 143),
 				Solid = true,
 			},
 			[122] = new()
 			{
 				Type = 122,
 				Name = "Mythril Brick",
-				Color = Color.FromArgb(255, 91, 169, 169),
+				Color = Color.FromArgb(91, 169, 169),
 				Solid = true,
 			},
 			[123] = new()
 			{
 				Type = 123,
 				Name = "Silt Block",
-				Color = Color.FromArgb(255, 106, 107, 118),
+				Color = Color.FromArgb(106, 107, 118),
 				Solid = true,
 			},
 			[124] = new()
 			{
 				Type = 124,
 				Name = "Wooden Beam",
-				Color = Color.FromArgb(255, 73, 51, 36),
+				Color = Color.FromArgb(73, 51, 36),
 			},
 			[125] = new()
 			{
 				Type = 125,
 				Name = "Crystal Ball",
-				Color = Color.FromArgb(255, 141, 175, 255),
+				Color = Color.FromArgb(141, 175, 255),
 				Framed = true,
 				Frames = [
 					new()
@@ -37920,7 +37913,7 @@ namespace TMake.Terraria
 			{
 				Type = 126,
 				Name = "Disco Ball",
-				Color = Color.FromArgb(255, 159, 209, 229),
+				Color = Color.FromArgb(159, 209, 229),
 				Framed = true,
 				Frames = [
 					new()
@@ -37946,14 +37939,14 @@ namespace TMake.Terraria
 			{
 				Type = 127,
 				Name = "Ice (Ice Rod)",
-				Color = Color.FromArgb(0, 0, 0, 0),
+				Color = Color.FromArgb(0, 0, 0),
 				Solid = true,
 			},
 			[128] = new()
 			{
 				Type = 128,
 				Name = "Mannequin (Legacy)",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -37979,7 +37972,7 @@ namespace TMake.Terraria
 			{
 				Type = 129,
 				Name = "Crystal Shard",
-				Color = Color.FromArgb(255, 255, 117, 224),
+				Color = Color.FromArgb(255, 117, 224),
 				Framed = true,
 				Frames = [
 					new()
@@ -38667,21 +38660,21 @@ namespace TMake.Terraria
 			{
 				Type = 130,
 				Name = "Active Stone Block",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Solid = true,
 			},
 			[131] = new()
 			{
 				Type = 131,
 				Name = "Inactive Stone Block",
-				Color = Color.FromArgb(255, 52, 52, 52),
+				Color = Color.FromArgb(52, 52, 52),
 				SaveSlope = true,
 			},
 			[132] = new()
 			{
 				Type = 132,
 				Name = "Lever",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -38727,7 +38720,7 @@ namespace TMake.Terraria
 			{
 				Type = 133,
 				Name = "Forges",
-				Color = Color.FromArgb(255, 231, 53, 56),
+				Color = Color.FromArgb(231, 53, 56),
 				Framed = true,
 				Frames = [
 					new()
@@ -38751,7 +38744,7 @@ namespace TMake.Terraria
 			{
 				Type = 134,
 				Name = "Anvils (Hardmode)",
-				Color = Color.FromArgb(255, 166, 187, 153),
+				Color = Color.FromArgb(166, 187, 153),
 				Framed = true,
 				Frames = [
 					new()
@@ -38775,7 +38768,7 @@ namespace TMake.Terraria
 			{
 				Type = 135,
 				Name = "Pressure Plates",
-				Color = Color.FromArgb(0, 0, 0, 0),
+				Color = Color.FromArgb(0, 0, 0),
 				Framed = true,
 				Frames = [
 					new()
@@ -38839,7 +38832,7 @@ namespace TMake.Terraria
 			{
 				Type = 136,
 				Name = "Switch",
-				Color = Color.FromArgb(255, 213, 203, 204),
+				Color = Color.FromArgb(213, 203, 204),
 				Framed = true,
 				Frames = [
 					new()
@@ -38917,7 +38910,7 @@ namespace TMake.Terraria
 			{
 				Type = 137,
 				Name = "Traps",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -39198,7 +39191,7 @@ namespace TMake.Terraria
 			{
 				Type = 138,
 				Name = "Boulder",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -39215,7 +39208,7 @@ namespace TMake.Terraria
 			{
 				Type = 139,
 				Name = "Music Boxes",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -39961,14 +39954,14 @@ namespace TMake.Terraria
 			{
 				Type = 140,
 				Name = "Demonite Brick",
-				Color = Color.FromArgb(255, 98, 95, 167),
+				Color = Color.FromArgb(98, 95, 167),
 				Solid = true,
 			},
 			[141] = new()
 			{
 				Type = 141,
 				Name = "Explosives",
-				Color = Color.FromArgb(255, 192, 59, 59),
+				Color = Color.FromArgb(192, 59, 59),
 				Framed = true,
 				Frames = [
 					new()
@@ -39992,7 +39985,7 @@ namespace TMake.Terraria
 			{
 				Type = 142,
 				Name = "Inlet Pump",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -40008,7 +40001,7 @@ namespace TMake.Terraria
 			{
 				Type = 143,
 				Name = "Outlet Pump",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -40024,7 +40017,7 @@ namespace TMake.Terraria
 			{
 				Type = 144,
 				Name = "Timers",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -40112,35 +40105,35 @@ namespace TMake.Terraria
 			{
 				Type = 145,
 				Name = "Red Candy Cane Block",
-				Color = Color.FromArgb(255, 192, 30, 30),
+				Color = Color.FromArgb(192, 30, 30),
 				Solid = true,
 			},
 			[146] = new()
 			{
 				Type = 146,
 				Name = "Green Candy Cane Block",
-				Color = Color.FromArgb(255, 43, 192, 30),
+				Color = Color.FromArgb(43, 192, 30),
 				Solid = true,
 			},
 			[147] = new()
 			{
 				Type = 147,
 				Name = "Snow Block",
-				Color = Color.FromArgb(255, 211, 236, 241),
+				Color = Color.FromArgb(211, 236, 241),
 				Solid = true,
 			},
 			[148] = new()
 			{
 				Type = 148,
 				Name = "Snow Brick",
-				Color = Color.FromArgb(255, 211, 236, 241),
+				Color = Color.FromArgb(211, 236, 241),
 				Solid = true,
 			},
 			[149] = new()
 			{
 				Type = 149,
 				Name = "Holiday Lights",
-				Color = Color.FromArgb(255, 220, 50, 50),
+				Color = Color.FromArgb(220, 50, 50),
 				Framed = true,
 				Frames = [
 					new()
@@ -40364,112 +40357,112 @@ namespace TMake.Terraria
 			{
 				Type = 150,
 				Name = "Adamantite Beam",
-				Color = Color.FromArgb(255, 128, 26, 52),
+				Color = Color.FromArgb(128, 26, 52),
 				Solid = true,
 			},
 			[151] = new()
 			{
 				Type = 151,
 				Name = "Sandstone Brick",
-				Color = Color.FromArgb(255, 190, 171, 94),
+				Color = Color.FromArgb(190, 171, 94),
 				Solid = true,
 			},
 			[152] = new()
 			{
 				Type = 152,
 				Name = "Ebonstone Brick",
-				Color = Color.FromArgb(255, 128, 133, 184),
+				Color = Color.FromArgb(128, 133, 184),
 				Solid = true,
 			},
 			[153] = new()
 			{
 				Type = 153,
 				Name = "Red Stucco",
-				Color = Color.FromArgb(255, 239, 141, 126),
+				Color = Color.FromArgb(239, 141, 126),
 				Solid = true,
 			},
 			[154] = new()
 			{
 				Type = 154,
 				Name = "Yellow Stucco",
-				Color = Color.FromArgb(255, 190, 171, 94),
+				Color = Color.FromArgb(190, 171, 94),
 				Solid = true,
 			},
 			[155] = new()
 			{
 				Type = 155,
 				Name = "Green Stucco",
-				Color = Color.FromArgb(255, 131, 162, 161),
+				Color = Color.FromArgb(131, 162, 161),
 				Solid = true,
 			},
 			[156] = new()
 			{
 				Type = 156,
 				Name = "Gray Stucco",
-				Color = Color.FromArgb(255, 170, 171, 157),
+				Color = Color.FromArgb(170, 171, 157),
 				Solid = true,
 			},
 			[157] = new()
 			{
 				Type = 157,
 				Name = "Ebonwood",
-				Color = Color.FromArgb(255, 104, 100, 126),
+				Color = Color.FromArgb(104, 100, 126),
 				Solid = true,
 			},
 			[158] = new()
 			{
 				Type = 158,
 				Name = "Rich Mahogany",
-				Color = Color.FromArgb(255, 145, 81, 85),
+				Color = Color.FromArgb(145, 81, 85),
 				Solid = true,
 			},
 			[159] = new()
 			{
 				Type = 159,
 				Name = "Pearlwood",
-				Color = Color.FromArgb(255, 148, 133, 98),
+				Color = Color.FromArgb(148, 133, 98),
 				Solid = true,
 			},
 			[160] = new()
 			{
 				Type = 160,
 				Name = "Rainbow Brick",
-				Color = Color.FromArgb(255, 255, 76, 76),
+				Color = Color.FromArgb(255, 76, 76),
 				Solid = true,
 			},
 			[161] = new()
 			{
 				Type = 161,
 				Name = "Ice Block",
-				Color = Color.FromArgb(255, 144, 195, 232),
+				Color = Color.FromArgb(144, 195, 232),
 				Solid = true,
 			},
 			[162] = new()
 			{
 				Type = 162,
 				Name = "Thin Ice Block",
-				Color = Color.FromArgb(255, 184, 219, 240),
+				Color = Color.FromArgb(184, 219, 240),
 				Solid = true,
 			},
 			[163] = new()
 			{
 				Type = 163,
 				Name = "Purple Ice Block",
-				Color = Color.FromArgb(255, 174, 145, 214),
+				Color = Color.FromArgb(174, 145, 214),
 				Solid = true,
 			},
 			[164] = new()
 			{
 				Type = 164,
 				Name = "Pink Ice Block",
-				Color = Color.FromArgb(255, 218, 182, 204),
+				Color = Color.FromArgb(218, 182, 204),
 				Solid = true,
 			},
 			[165] = new()
 			{
 				Type = 165,
 				Name = "Cave Decos",
-				Color = Color.FromArgb(255, 115, 173, 229),
+				Color = Color.FromArgb(115, 173, 229),
 				Framed = true,
 				Frames = [
 					new()
@@ -41530,42 +41523,42 @@ namespace TMake.Terraria
 			{
 				Type = 166,
 				Name = "Tin Ore",
-				Color = Color.FromArgb(255, 129, 125, 93),
+				Color = Color.FromArgb(129, 125, 93),
 				Solid = true,
 			},
 			[167] = new()
 			{
 				Type = 167,
 				Name = "Lead Ore",
-				Color = Color.FromArgb(255, 62, 82, 114),
+				Color = Color.FromArgb(62, 82, 114),
 				Solid = true,
 			},
 			[168] = new()
 			{
 				Type = 168,
 				Name = "Tungsten Ore",
-				Color = Color.FromArgb(255, 132, 157, 127),
+				Color = Color.FromArgb(132, 157, 127),
 				Solid = true,
 			},
 			[169] = new()
 			{
 				Type = 169,
 				Name = "Platinum Ore",
-				Color = Color.FromArgb(255, 152, 171, 198),
+				Color = Color.FromArgb(152, 171, 198),
 				Solid = true,
 			},
 			[170] = new()
 			{
 				Type = 170,
 				Name = "Pine Tree Block",
-				Color = Color.FromArgb(255, 27, 109, 69),
+				Color = Color.FromArgb(27, 109, 69),
 				Solid = true,
 			},
 			[171] = new()
 			{
 				Type = 171,
 				Name = "Christmas Tree",
-				Color = Color.FromArgb(255, 33, 135, 85),
+				Color = Color.FromArgb(33, 135, 85),
 				Framed = true,
 				Frames = [
 					new()
@@ -41581,7 +41574,7 @@ namespace TMake.Terraria
 			{
 				Type = 172,
 				Name = "Sinks",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -41941,7 +41934,7 @@ namespace TMake.Terraria
 			{
 				Type = 173,
 				Name = "Platinum Candelabra",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -41967,7 +41960,7 @@ namespace TMake.Terraria
 			{
 				Type = 174,
 				Name = "Platinum Candle",
-				Color = Color.FromArgb(255, 253, 221, 3),
+				Color = Color.FromArgb(253, 221, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -41991,28 +41984,28 @@ namespace TMake.Terraria
 			{
 				Type = 175,
 				Name = "Tin Brick",
-				Color = Color.FromArgb(255, 129, 125, 93),
+				Color = Color.FromArgb(129, 125, 93),
 				Solid = true,
 			},
 			[176] = new()
 			{
 				Type = 176,
 				Name = "Tungsten Brick",
-				Color = Color.FromArgb(255, 132, 157, 127),
+				Color = Color.FromArgb(132, 157, 127),
 				Solid = true,
 			},
 			[177] = new()
 			{
 				Type = 177,
 				Name = "Platinum Brick",
-				Color = Color.FromArgb(255, 152, 171, 198),
+				Color = Color.FromArgb(152, 171, 198),
 				Solid = true,
 			},
 			[178] = new()
 			{
 				Type = 178,
 				Name = "Gems",
-				Color = Color.FromArgb(255, 208, 94, 201),
+				Color = Color.FromArgb(208, 94, 201),
 				Framed = true,
 				Frames = [
 					new()
@@ -42776,42 +42769,42 @@ namespace TMake.Terraria
 			{
 				Type = 179,
 				Name = "Green Moss Block",
-				Color = Color.FromArgb(255, 49, 134, 114),
+				Color = Color.FromArgb(49, 134, 114),
 				Solid = true,
 			},
 			[180] = new()
 			{
 				Type = 180,
 				Name = "Yellow Moss Block",
-				Color = Color.FromArgb(255, 126, 134, 49),
+				Color = Color.FromArgb(126, 134, 49),
 				Solid = true,
 			},
 			[181] = new()
 			{
 				Type = 181,
 				Name = "Red Moss Block",
-				Color = Color.FromArgb(255, 134, 59, 49),
+				Color = Color.FromArgb(134, 59, 49),
 				Solid = true,
 			},
 			[182] = new()
 			{
 				Type = 182,
 				Name = "Blue Moss Block",
-				Color = Color.FromArgb(255, 43, 86, 140),
+				Color = Color.FromArgb(43, 86, 140),
 				Solid = true,
 			},
 			[183] = new()
 			{
 				Type = 183,
 				Name = "Purple Moss Block",
-				Color = Color.FromArgb(255, 121, 49, 134),
+				Color = Color.FromArgb(121, 49, 134),
 				Solid = true,
 			},
 			[184] = new()
 			{
 				Type = 184,
 				Name = "Moss Plants",
-				Color = Color.FromArgb(255, 29, 106, 88),
+				Color = Color.FromArgb(29, 106, 88),
 				Framed = true,
 				TextureGrid = new(20, 16),
 				Frames = [
@@ -44008,7 +44001,7 @@ namespace TMake.Terraria
 			{
 				Type = 185,
 				Name = "Small Decos",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				Frames = [
 					new()
@@ -45112,7 +45105,7 @@ namespace TMake.Terraria
 			{
 				Type = 186,
 				Name = "Decos (3x2)",
-				Color = Color.FromArgb(255, 133, 133, 101),
+				Color = Color.FromArgb(133, 133, 101),
 				Framed = true,
 				Frames = [
 					new()
@@ -45435,7 +45428,7 @@ namespace TMake.Terraria
 			{
 				Type = 187,
 				Name = "Decos (3x2) (Group 2)",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				Frames = [
 					new()
@@ -45938,98 +45931,98 @@ namespace TMake.Terraria
 			{
 				Type = 188,
 				Name = "Cactus Block",
-				Color = Color.FromArgb(255, 73, 120, 17),
+				Color = Color.FromArgb(73, 120, 17),
 				Solid = true,
 			},
 			[189] = new()
 			{
 				Type = 189,
 				Name = "Cloud Block",
-				Color = Color.FromArgb(255, 223, 255, 255),
+				Color = Color.FromArgb(223, 255, 255),
 				Solid = true,
 			},
 			[190] = new()
 			{
 				Type = 190,
 				Name = "Glowing Mushroom Block",
-				Color = Color.FromArgb(255, 182, 175, 130),
+				Color = Color.FromArgb(182, 175, 130),
 				Solid = true,
 			},
 			[191] = new()
 			{
 				Type = 191,
 				Name = "Living Wood Block",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Solid = true,
 			},
 			[192] = new()
 			{
 				Type = 192,
 				Name = "Living Leaf Block",
-				Color = Color.FromArgb(255, 26, 196, 84),
+				Color = Color.FromArgb(26, 196, 84),
 				Solid = true,
 			},
 			[193] = new()
 			{
 				Type = 193,
 				Name = "Slime Block",
-				Color = Color.FromArgb(255, 56, 121, 255),
+				Color = Color.FromArgb(56, 121, 255),
 				Solid = true,
 			},
 			[194] = new()
 			{
 				Type = 194,
 				Name = "Bone Block",
-				Color = Color.FromArgb(255, 157, 157, 107),
+				Color = Color.FromArgb(157, 157, 107),
 				Solid = true,
 			},
 			[195] = new()
 			{
 				Type = 195,
 				Name = "Flesh Block",
-				Color = Color.FromArgb(255, 134, 22, 34),
+				Color = Color.FromArgb(134, 22, 34),
 				Solid = true,
 			},
 			[196] = new()
 			{
 				Type = 196,
 				Name = "Rain Cloud Block",
-				Color = Color.FromArgb(255, 147, 144, 178),
+				Color = Color.FromArgb(147, 144, 178),
 				Solid = true,
 			},
 			[197] = new()
 			{
 				Type = 197,
 				Name = "Frozen Slime Block",
-				Color = Color.FromArgb(255, 97, 200, 225),
+				Color = Color.FromArgb(97, 200, 225),
 				Solid = true,
 			},
 			[198] = new()
 			{
 				Type = 198,
 				Name = "Asphalt Block",
-				Color = Color.FromArgb(255, 62, 61, 52),
+				Color = Color.FromArgb(62, 61, 52),
 				Solid = true,
 			},
 			[199] = new()
 			{
 				Type = 199,
 				Name = "Crimson Grass Block",
-				Color = Color.FromArgb(255, 208, 80, 80),
+				Color = Color.FromArgb(208, 80, 80),
 				Solid = true,
 			},
 			[200] = new()
 			{
 				Type = 200,
 				Name = "Red Ice Block",
-				Color = Color.FromArgb(255, 216, 152, 144),
+				Color = Color.FromArgb(216, 152, 144),
 				Solid = true,
 			},
 			[201] = new()
 			{
 				Type = 201,
 				Name = "Crimson Short Plants",
-				Color = Color.FromArgb(255, 203, 61, 64),
+				Color = Color.FromArgb(203, 61, 64),
 				Framed = true,
 				Frames = [
 					new()
@@ -46220,42 +46213,42 @@ namespace TMake.Terraria
 			{
 				Type = 202,
 				Name = "Sunplate Block",
-				Color = Color.FromArgb(255, 213, 178, 28),
+				Color = Color.FromArgb(213, 178, 28),
 				Solid = true,
 			},
 			[203] = new()
 			{
 				Type = 203,
 				Name = "Crimstone Block",
-				Color = Color.FromArgb(255, 128, 44, 45),
+				Color = Color.FromArgb(128, 44, 45),
 				Solid = true,
 			},
 			[204] = new()
 			{
 				Type = 204,
 				Name = "Crimtane Ore",
-				Color = Color.FromArgb(255, 125, 55, 65),
+				Color = Color.FromArgb(125, 55, 65),
 				Solid = true,
 			},
 			[205] = new()
 			{
 				Type = 205,
 				Name = "Crimson Vines",
-				Color = Color.FromArgb(255, 186, 50, 52),
+				Color = Color.FromArgb(186, 50, 52),
 				Solid = true,
 			},
 			[206] = new()
 			{
 				Type = 206,
 				Name = "Ice Brick",
-				Color = Color.FromArgb(255, 124, 175, 201),
+				Color = Color.FromArgb(124, 175, 201),
 				Solid = true,
 			},
 			[207] = new()
 			{
 				Type = 207,
 				Name = "Water Fountains",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -46443,14 +46436,14 @@ namespace TMake.Terraria
 			{
 				Type = 208,
 				Name = "Shadewood",
-				Color = Color.FromArgb(255, 88, 105, 118),
+				Color = Color.FromArgb(88, 105, 118),
 				Solid = true,
 			},
 			[209] = new()
 			{
 				Type = 209,
 				Name = "Cannons",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -46863,7 +46856,7 @@ namespace TMake.Terraria
 			{
 				Type = 210,
 				Name = "Land Mine",
-				Color = Color.FromArgb(0, 0, 0, 0),
+				Color = Color.FromArgb(0, 0, 0),
 				Framed = true,
 				Frames = [
 					new()
@@ -46878,14 +46871,14 @@ namespace TMake.Terraria
 			{
 				Type = 211,
 				Name = "Chlorophyte Ore",
-				Color = Color.FromArgb(255, 191, 233, 115),
+				Color = Color.FromArgb(191, 233, 115),
 				Solid = true,
 			},
 			[212] = new()
 			{
 				Type = 212,
 				Name = "Snowball Launcher",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -46911,19 +46904,19 @@ namespace TMake.Terraria
 			{
 				Type = 213,
 				Name = "Rope",
-				Color = Color.FromArgb(255, 137, 120, 67),
+				Color = Color.FromArgb(137, 120, 67),
 			},
 			[214] = new()
 			{
 				Type = 214,
 				Name = "Chain",
-				Color = Color.FromArgb(255, 103, 103, 103),
+				Color = Color.FromArgb(103, 103, 103),
 			},
 			[215] = new()
 			{
 				Type = 215,
 				Name = "Campfires",
-				Color = Color.FromArgb(255, 254, 121, 2),
+				Color = Color.FromArgb(254, 121, 2),
 				Framed = true,
 				Frames = [
 					new()
@@ -47219,7 +47212,7 @@ namespace TMake.Terraria
 			{
 				Type = 216,
 				Name = "Rockets",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -47263,7 +47256,7 @@ namespace TMake.Terraria
 			{
 				Type = 217,
 				Name = "Blend-O-Matic",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -47279,7 +47272,7 @@ namespace TMake.Terraria
 			{
 				Type = 218,
 				Name = "Meat Grinder",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -47295,7 +47288,7 @@ namespace TMake.Terraria
 			{
 				Type = 219,
 				Name = "Extractinator",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -47311,7 +47304,7 @@ namespace TMake.Terraria
 			{
 				Type = 220,
 				Name = "Solidifier",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -47327,49 +47320,49 @@ namespace TMake.Terraria
 			{
 				Type = 221,
 				Name = "Palladium Ore",
-				Color = Color.FromArgb(255, 239, 90, 50),
+				Color = Color.FromArgb(239, 90, 50),
 				Solid = true,
 			},
 			[222] = new()
 			{
 				Type = 222,
 				Name = "Orichalcum Ore",
-				Color = Color.FromArgb(255, 231, 96, 228),
+				Color = Color.FromArgb(231, 96, 228),
 				Solid = true,
 			},
 			[223] = new()
 			{
 				Type = 223,
 				Name = "Titanium Ore",
-				Color = Color.FromArgb(255, 57, 85, 101),
+				Color = Color.FromArgb(57, 85, 101),
 				Solid = true,
 			},
 			[224] = new()
 			{
 				Type = 224,
 				Name = "Slush Block",
-				Color = Color.FromArgb(255, 107, 132, 139),
+				Color = Color.FromArgb(107, 132, 139),
 				Solid = true,
 			},
 			[225] = new()
 			{
 				Type = 225,
 				Name = "Hive Block",
-				Color = Color.FromArgb(255, 227, 125, 22),
+				Color = Color.FromArgb(227, 125, 22),
 				Solid = true,
 			},
 			[226] = new()
 			{
 				Type = 226,
 				Name = "Lihzahrd Brick",
-				Color = Color.FromArgb(255, 141, 56, 0),
+				Color = Color.FromArgb(141, 56, 0),
 				Solid = true,
 			},
 			[227] = new()
 			{
 				Type = 227,
 				Name = "Dye Plants",
-				Color = Color.FromArgb(255, 74, 197, 155),
+				Color = Color.FromArgb(74, 197, 155),
 				Framed = true,
 				TextureGrid = new(32, 38),
 				Frames = [
@@ -47502,7 +47495,7 @@ namespace TMake.Terraria
 			{
 				Type = 228,
 				Name = "Dye Vat",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -47518,21 +47511,21 @@ namespace TMake.Terraria
 			{
 				Type = 229,
 				Name = "Honey Block",
-				Color = Color.FromArgb(255, 255, 156, 12),
+				Color = Color.FromArgb(255, 156, 12),
 				Solid = true,
 			},
 			[230] = new()
 			{
 				Type = 230,
 				Name = "Crispy Honey Block",
-				Color = Color.FromArgb(255, 131, 79, 13),
+				Color = Color.FromArgb(131, 79, 13),
 				Solid = true,
 			},
 			[231] = new()
 			{
 				Type = 231,
 				Name = "Larva",
-				Color = Color.FromArgb(255, 224, 194, 101),
+				Color = Color.FromArgb(224, 194, 101),
 				Framed = true,
 				Frames = [
 					new()
@@ -47548,14 +47541,14 @@ namespace TMake.Terraria
 			{
 				Type = 232,
 				Name = "Wooden Spike",
-				Color = Color.FromArgb(255, 145, 81, 85),
+				Color = Color.FromArgb(145, 81, 85),
 				Solid = true,
 			},
 			[233] = new()
 			{
 				Type = 233,
 				Name = "Jungle Large Plants",
-				Color = Color.FromArgb(255, 107, 182, 29),
+				Color = Color.FromArgb(107, 182, 29),
 				Framed = true,
 				Frames = [
 					new()
@@ -47752,14 +47745,14 @@ namespace TMake.Terraria
 			{
 				Type = 234,
 				Name = "Crimsand Block",
-				Color = Color.FromArgb(255, 53, 44, 41),
+				Color = Color.FromArgb(53, 44, 41),
 				Solid = true,
 			},
 			[235] = new()
 			{
 				Type = 235,
 				Name = "Teleporter",
-				Color = Color.FromArgb(255, 214, 184, 46),
+				Color = Color.FromArgb(214, 184, 46),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -47776,7 +47769,7 @@ namespace TMake.Terraria
 			{
 				Type = 236,
 				Name = "Life Fruit Plant",
-				Color = Color.FromArgb(255, 149, 232, 87),
+				Color = Color.FromArgb(149, 232, 87),
 				Framed = true,
 				Frames = [
 					new()
@@ -47811,7 +47804,7 @@ namespace TMake.Terraria
 			{
 				Type = 237,
 				Name = "Lihzahrd Altar",
-				Color = Color.FromArgb(255, 255, 241, 51),
+				Color = Color.FromArgb(255, 241, 51),
 				Framed = true,
 				Frames = [
 					new()
@@ -47827,7 +47820,7 @@ namespace TMake.Terraria
 			{
 				Type = 238,
 				Name = "Plantera's Bulb",
-				Color = Color.FromArgb(255, 225, 128, 206),
+				Color = Color.FromArgb(225, 128, 206),
 				Framed = true,
 				Frames = [
 					new()
@@ -47843,7 +47836,7 @@ namespace TMake.Terraria
 			{
 				Type = 239,
 				Name = "Ore Bars",
-				Color = Color.FromArgb(255, 224, 194, 101),
+				Color = Color.FromArgb(224, 194, 101),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -48036,7 +48029,7 @@ namespace TMake.Terraria
 			{
 				Type = 240,
 				Name = "Wall Hangings 3x3",
-				Color = Color.FromArgb(255, 120, 85, 60),
+				Color = Color.FromArgb(120, 85, 60),
 				Framed = true,
 				Frames = [
 					new()
@@ -48881,7 +48874,7 @@ namespace TMake.Terraria
 			{
 				Type = 241,
 				Name = "Catacombs",
-				Color = Color.FromArgb(255, 77, 74, 72),
+				Color = Color.FromArgb(77, 74, 72),
 				Framed = true,
 				Frames = [
 					new()
@@ -48970,7 +48963,7 @@ namespace TMake.Terraria
 			{
 				Type = 242,
 				Name = "Paintings 6x4",
-				Color = Color.FromArgb(255, 99, 50, 30),
+				Color = Color.FromArgb(99, 50, 30),
 				Framed = true,
 				Frames = [
 					new()
@@ -49572,7 +49565,7 @@ namespace TMake.Terraria
 			{
 				Type = 243,
 				Name = "Imbuing Station",
-				Color = Color.FromArgb(255, 198, 196, 170),
+				Color = Color.FromArgb(198, 196, 170),
 				Framed = true,
 				Frames = [
 					new()
@@ -49588,7 +49581,7 @@ namespace TMake.Terraria
 			{
 				Type = 244,
 				Name = "Bubble Machine",
-				Color = Color.FromArgb(255, 200, 245, 253),
+				Color = Color.FromArgb(200, 245, 253),
 				Framed = true,
 				Frames = [
 					new()
@@ -49604,7 +49597,7 @@ namespace TMake.Terraria
 			{
 				Type = 245,
 				Name = "Paintings 2x3",
-				Color = Color.FromArgb(255, 99, 50, 30),
+				Color = Color.FromArgb(99, 50, 30),
 				Framed = true,
 				Frames = [
 					new()
@@ -49873,7 +49866,7 @@ namespace TMake.Terraria
 			{
 				Type = 246,
 				Name = "Paintings 3x2",
-				Color = Color.FromArgb(255, 99, 50, 30),
+				Color = Color.FromArgb(99, 50, 30),
 				Framed = true,
 				Frames = [
 					new()
@@ -50214,7 +50207,7 @@ namespace TMake.Terraria
 			{
 				Type = 247,
 				Name = "Autohammer",
-				Color = Color.FromArgb(255, 140, 150, 150),
+				Color = Color.FromArgb(140, 150, 150),
 				Framed = true,
 				Frames = [
 					new()
@@ -50230,49 +50223,49 @@ namespace TMake.Terraria
 			{
 				Type = 248,
 				Name = "Palladium Column",
-				Color = Color.FromArgb(255, 219, 71, 38),
+				Color = Color.FromArgb(219, 71, 38),
 				Solid = true,
 			},
 			[249] = new()
 			{
 				Type = 249,
 				Name = "Bubblegum Block",
-				Color = Color.FromArgb(255, 235, 38, 231),
+				Color = Color.FromArgb(235, 38, 231),
 				Solid = true,
 			},
 			[250] = new()
 			{
 				Type = 250,
 				Name = "Titanstone Block",
-				Color = Color.FromArgb(255, 86, 85, 92),
+				Color = Color.FromArgb(86, 85, 92),
 				Solid = true,
 			},
 			[251] = new()
 			{
 				Type = 251,
 				Name = "Pumpkin Block",
-				Color = Color.FromArgb(255, 235, 150, 23),
+				Color = Color.FromArgb(235, 150, 23),
 				Solid = true,
 			},
 			[252] = new()
 			{
 				Type = 252,
 				Name = "Hay Block",
-				Color = Color.FromArgb(255, 153, 131, 44),
+				Color = Color.FromArgb(153, 131, 44),
 				Solid = true,
 			},
 			[253] = new()
 			{
 				Type = 253,
 				Name = "Spooky Wood",
-				Color = Color.FromArgb(255, 57, 48, 97),
+				Color = Color.FromArgb(57, 48, 97),
 				Solid = true,
 			},
 			[254] = new()
 			{
 				Type = 254,
 				Name = "Pumpkin Plant",
-				Color = Color.FromArgb(255, 248, 158, 92),
+				Color = Color.FromArgb(248, 158, 92),
 				Framed = true,
 				Frames = [
 					new()
@@ -50550,105 +50543,105 @@ namespace TMake.Terraria
 			{
 				Type = 255,
 				Name = "Amethyst Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 107, 49, 154),
+				Color = Color.FromArgb(107, 49, 154),
 				Solid = true,
 			},
 			[256] = new()
 			{
 				Type = 256,
 				Name = "Topaz Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 154, 148, 49),
+				Color = Color.FromArgb(154, 148, 49),
 				Solid = true,
 			},
 			[257] = new()
 			{
 				Type = 257,
 				Name = "Sapphire Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 49, 49, 154),
+				Color = Color.FromArgb(49, 49, 154),
 				Solid = true,
 			},
 			[258] = new()
 			{
 				Type = 258,
 				Name = "Emerald Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 49, 154, 68),
+				Color = Color.FromArgb(49, 154, 68),
 				Solid = true,
 			},
 			[259] = new()
 			{
 				Type = 259,
 				Name = "Ruby Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 154, 49, 77),
+				Color = Color.FromArgb(154, 49, 77),
 				Solid = true,
 			},
 			[260] = new()
 			{
 				Type = 260,
 				Name = "Diamond Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 85, 89, 118),
+				Color = Color.FromArgb(85, 89, 118),
 				Solid = true,
 			},
 			[261] = new()
 			{
 				Type = 261,
 				Name = "Amber Gemspark Block (Offline)",
-				Color = Color.FromArgb(255, 154, 83, 49),
+				Color = Color.FromArgb(154, 83, 49),
 				Solid = true,
 			},
 			[262] = new()
 			{
 				Type = 262,
 				Name = "Amethyst Gemspark Block",
-				Color = Color.FromArgb(255, 221, 79, 255),
+				Color = Color.FromArgb(221, 79, 255),
 				Solid = true,
 			},
 			[263] = new()
 			{
 				Type = 263,
 				Name = "Topaz Gemspark Block",
-				Color = Color.FromArgb(255, 250, 255, 79),
+				Color = Color.FromArgb(250, 255, 79),
 				Solid = true,
 			},
 			[264] = new()
 			{
 				Type = 264,
 				Name = "Sapphire Gemspark Block",
-				Color = Color.FromArgb(255, 79, 102, 255),
+				Color = Color.FromArgb(79, 102, 255),
 				Solid = true,
 			},
 			[265] = new()
 			{
 				Type = 265,
 				Name = "Emerald Gemspark Block",
-				Color = Color.FromArgb(255, 79, 255, 89),
+				Color = Color.FromArgb(79, 255, 89),
 				Solid = true,
 			},
 			[266] = new()
 			{
 				Type = 266,
 				Name = "Ruby Gemspark Block",
-				Color = Color.FromArgb(255, 255, 79, 79),
+				Color = Color.FromArgb(255, 79, 79),
 				Solid = true,
 			},
 			[267] = new()
 			{
 				Type = 267,
 				Name = "Diamond Gemspark Block",
-				Color = Color.FromArgb(255, 240, 240, 247),
+				Color = Color.FromArgb(240, 240, 247),
 				Solid = true,
 			},
 			[268] = new()
 			{
 				Type = 268,
 				Name = "Amber Gemspark Block",
-				Color = Color.FromArgb(255, 255, 145, 79),
+				Color = Color.FromArgb(255, 145, 79),
 				Solid = true,
 			},
 			[269] = new()
 			{
 				Type = 269,
 				Name = "Womannequin (Legacy)",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -50674,7 +50667,7 @@ namespace TMake.Terraria
 			{
 				Type = 270,
 				Name = "Firefly in a Bottle",
-				Color = Color.FromArgb(255, 187, 255, 107),
+				Color = Color.FromArgb(187, 255, 107),
 				Framed = true,
 				Frames = [
 					new()
@@ -50690,7 +50683,7 @@ namespace TMake.Terraria
 			{
 				Type = 271,
 				Name = "Lightning Bug in a Bottle",
-				Color = Color.FromArgb(255, 107, 250, 255),
+				Color = Color.FromArgb(107, 250, 255),
 				Framed = true,
 				Frames = [
 					new()
@@ -50706,28 +50699,28 @@ namespace TMake.Terraria
 			{
 				Type = 272,
 				Name = "Cog Block",
-				Color = Color.FromArgb(255, 121, 119, 101),
+				Color = Color.FromArgb(121, 119, 101),
 				Solid = true,
 			},
 			[273] = new()
 			{
 				Type = 273,
 				Name = "Stone Slab",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Solid = true,
 			},
 			[274] = new()
 			{
 				Type = 274,
 				Name = "Sandstone Slab",
-				Color = Color.FromArgb(255, 190, 171, 94),
+				Color = Color.FromArgb(190, 171, 94),
 				Solid = true,
 			},
 			[275] = new()
 			{
 				Type = 275,
 				Name = "Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50743,7 +50736,7 @@ namespace TMake.Terraria
 			{
 				Type = 276,
 				Name = "Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50759,7 +50752,7 @@ namespace TMake.Terraria
 			{
 				Type = 277,
 				Name = "Mallard Duck Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50775,7 +50768,7 @@ namespace TMake.Terraria
 			{
 				Type = 278,
 				Name = "Duck Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50791,7 +50784,7 @@ namespace TMake.Terraria
 			{
 				Type = 279,
 				Name = "Bird Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50807,7 +50800,7 @@ namespace TMake.Terraria
 			{
 				Type = 280,
 				Name = "Blue Jay Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50823,7 +50816,7 @@ namespace TMake.Terraria
 			{
 				Type = 281,
 				Name = "Cardinal Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50839,7 +50832,7 @@ namespace TMake.Terraria
 			{
 				Type = 282,
 				Name = "Fish Bowl",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50855,7 +50848,7 @@ namespace TMake.Terraria
 			{
 				Type = 283,
 				Name = "Heavy Work Bench",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Framed = true,
 				Frames = [
 					new()
@@ -50871,14 +50864,14 @@ namespace TMake.Terraria
 			{
 				Type = 284,
 				Name = "Copper Plating",
-				Color = Color.FromArgb(255, 150, 67, 22),
+				Color = Color.FromArgb(150, 67, 22),
 				Solid = true,
 			},
 			[285] = new()
 			{
 				Type = 285,
 				Name = "Snail Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50894,7 +50887,7 @@ namespace TMake.Terraria
 			{
 				Type = 286,
 				Name = "Glowing Snail Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50910,7 +50903,7 @@ namespace TMake.Terraria
 			{
 				Type = 287,
 				Name = "Ammo Box",
-				Color = Color.FromArgb(255, 79, 128, 17),
+				Color = Color.FromArgb(79, 128, 17),
 				Framed = true,
 				Frames = [
 					new()
@@ -50926,7 +50919,7 @@ namespace TMake.Terraria
 			{
 				Type = 288,
 				Name = "Monarch Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50942,7 +50935,7 @@ namespace TMake.Terraria
 			{
 				Type = 289,
 				Name = "Purple Emperor Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50958,7 +50951,7 @@ namespace TMake.Terraria
 			{
 				Type = 290,
 				Name = "Red Admiral Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50974,7 +50967,7 @@ namespace TMake.Terraria
 			{
 				Type = 291,
 				Name = "Ulysses Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -50990,7 +50983,7 @@ namespace TMake.Terraria
 			{
 				Type = 292,
 				Name = "Sulphur Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51006,7 +50999,7 @@ namespace TMake.Terraria
 			{
 				Type = 293,
 				Name = "Tree Nymph Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51022,7 +51015,7 @@ namespace TMake.Terraria
 			{
 				Type = 294,
 				Name = "Zebra Swallowtail Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51038,7 +51031,7 @@ namespace TMake.Terraria
 			{
 				Type = 295,
 				Name = "Julia Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51054,7 +51047,7 @@ namespace TMake.Terraria
 			{
 				Type = 296,
 				Name = "Scorpion Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51070,7 +51063,7 @@ namespace TMake.Terraria
 			{
 				Type = 297,
 				Name = "Black Scorpion Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51086,7 +51079,7 @@ namespace TMake.Terraria
 			{
 				Type = 298,
 				Name = "Frog Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51102,7 +51095,7 @@ namespace TMake.Terraria
 			{
 				Type = 299,
 				Name = "Mouse Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51118,7 +51111,7 @@ namespace TMake.Terraria
 			{
 				Type = 300,
 				Name = "Bone Welder",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51134,7 +51127,7 @@ namespace TMake.Terraria
 			{
 				Type = 301,
 				Name = "Flesh Cloning Vat",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51150,7 +51143,7 @@ namespace TMake.Terraria
 			{
 				Type = 302,
 				Name = "Glass Kiln",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51166,7 +51159,7 @@ namespace TMake.Terraria
 			{
 				Type = 303,
 				Name = "Lihzahrd Furnace",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51182,7 +51175,7 @@ namespace TMake.Terraria
 			{
 				Type = 304,
 				Name = "Living Loom",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51198,7 +51191,7 @@ namespace TMake.Terraria
 			{
 				Type = 305,
 				Name = "Sky Mill",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51214,7 +51207,7 @@ namespace TMake.Terraria
 			{
 				Type = 306,
 				Name = "Ice Machine",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51230,7 +51223,7 @@ namespace TMake.Terraria
 			{
 				Type = 307,
 				Name = "Steampunk Boiler",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51246,7 +51239,7 @@ namespace TMake.Terraria
 			{
 				Type = 308,
 				Name = "Honey Dispenser",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -51262,7 +51255,7 @@ namespace TMake.Terraria
 			{
 				Type = 309,
 				Name = "Penguin Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51278,7 +51271,7 @@ namespace TMake.Terraria
 			{
 				Type = 310,
 				Name = "Worm Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -51294,28 +51287,28 @@ namespace TMake.Terraria
 			{
 				Type = 311,
 				Name = "Dynasty Wood",
-				Color = Color.FromArgb(255, 117, 61, 25),
+				Color = Color.FromArgb(117, 61, 25),
 				Solid = true,
 			},
 			[312] = new()
 			{
 				Type = 312,
 				Name = "Red Dynasty Shingles",
-				Color = Color.FromArgb(255, 204, 93, 73),
+				Color = Color.FromArgb(204, 93, 73),
 				Solid = true,
 			},
 			[313] = new()
 			{
 				Type = 313,
 				Name = "Blue Dynasty Shingles",
-				Color = Color.FromArgb(255, 87, 150, 154),
+				Color = Color.FromArgb(87, 150, 154),
 				Solid = true,
 			},
 			[314] = new()
 			{
 				Type = 314,
 				Name = "Minecart Track",
-				Color = Color.FromArgb(255, 181, 164, 125),
+				Color = Color.FromArgb(181, 164, 125),
 				Framed = true,
 				Frames = [
 					new()
@@ -51330,14 +51323,14 @@ namespace TMake.Terraria
 			{
 				Type = 315,
 				Name = "Coralstone Block",
-				Color = Color.FromArgb(255, 235, 114, 80),
+				Color = Color.FromArgb(235, 114, 80),
 				Solid = true,
 			},
 			[316] = new()
 			{
 				Type = 316,
 				Name = "Blue Jellyfish Jar",
-				Color = Color.FromArgb(255, 157, 176, 226),
+				Color = Color.FromArgb(157, 176, 226),
 				Framed = true,
 				Frames = [
 					new()
@@ -51353,7 +51346,7 @@ namespace TMake.Terraria
 			{
 				Type = 317,
 				Name = "Green Jellyfish Jar",
-				Color = Color.FromArgb(255, 118, 227, 129),
+				Color = Color.FromArgb(118, 227, 129),
 				Framed = true,
 				Frames = [
 					new()
@@ -51369,7 +51362,7 @@ namespace TMake.Terraria
 			{
 				Type = 318,
 				Name = "Pink Jellyfish Jar",
-				Color = Color.FromArgb(255, 227, 118, 215),
+				Color = Color.FromArgb(227, 118, 215),
 				Framed = true,
 				Frames = [
 					new()
@@ -51385,7 +51378,7 @@ namespace TMake.Terraria
 			{
 				Type = 319,
 				Name = "Ship in a Bottle",
-				Color = Color.FromArgb(255, 96, 68, 48),
+				Color = Color.FromArgb(96, 68, 48),
 				Framed = true,
 				Frames = [
 					new()
@@ -51401,7 +51394,7 @@ namespace TMake.Terraria
 			{
 				Type = 320,
 				Name = "Seaweed Planter",
-				Color = Color.FromArgb(255, 203, 185, 151),
+				Color = Color.FromArgb(203, 185, 151),
 				Framed = true,
 				Frames = [
 					new()
@@ -51417,21 +51410,21 @@ namespace TMake.Terraria
 			{
 				Type = 321,
 				Name = "Boreal Wood",
-				Color = Color.FromArgb(255, 96, 77, 64),
+				Color = Color.FromArgb(96, 77, 64),
 				Solid = true,
 			},
 			[322] = new()
 			{
 				Type = 322,
 				Name = "Palm Wood",
-				Color = Color.FromArgb(255, 198, 170, 104),
+				Color = Color.FromArgb(198, 170, 104),
 				Solid = true,
 			},
 			[323] = new()
 			{
 				Type = 323,
 				Name = "Palm Trees",
-				Color = Color.FromArgb(255, 182, 141, 86),
+				Color = Color.FromArgb(182, 141, 86),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -52145,7 +52138,7 @@ namespace TMake.Terraria
 			{
 				Type = 324,
 				Name = "Seashells",
-				Color = Color.FromArgb(255, 228, 213, 173),
+				Color = Color.FromArgb(228, 213, 173),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -52274,66 +52267,66 @@ namespace TMake.Terraria
 			{
 				Type = 325,
 				Name = "Tin Plating",
-				Color = Color.FromArgb(255, 129, 125, 93),
+				Color = Color.FromArgb(129, 125, 93),
 				Solid = true,
 			},
 			[326] = new()
 			{
 				Type = 326,
 				Name = "Waterfall Block",
-				Color = Color.FromArgb(255, 9, 61, 191),
+				Color = Color.FromArgb(9, 61, 191),
 				Solid = true,
 			},
 			[327] = new()
 			{
 				Type = 327,
 				Name = "Lavafall Block",
-				Color = Color.FromArgb(255, 253, 32, 3),
+				Color = Color.FromArgb(253, 32, 3),
 				Solid = true,
 			},
 			[328] = new()
 			{
 				Type = 328,
 				Name = "Confetti Block",
-				Color = Color.FromArgb(255, 200, 246, 254),
+				Color = Color.FromArgb(200, 246, 254),
 				Solid = true,
 			},
 			[329] = new()
 			{
 				Type = 329,
 				Name = "Midnight Confetti Block",
-				Color = Color.FromArgb(255, 15, 15, 15),
+				Color = Color.FromArgb(15, 15, 15),
 				Solid = true,
 			},
 			[330] = new()
 			{
 				Type = 330,
 				Name = "Copper Coin Pile",
-				Color = Color.FromArgb(255, 226, 118, 76),
+				Color = Color.FromArgb(226, 118, 76),
 			},
 			[331] = new()
 			{
 				Type = 331,
 				Name = "Silver Coin Pile",
-				Color = Color.FromArgb(255, 161, 172, 173),
+				Color = Color.FromArgb(161, 172, 173),
 			},
 			[332] = new()
 			{
 				Type = 332,
 				Name = "Gold Coin Pile",
-				Color = Color.FromArgb(255, 204, 181, 72),
+				Color = Color.FromArgb(204, 181, 72),
 			},
 			[333] = new()
 			{
 				Type = 333,
 				Name = "Platinum Coin Pile",
-				Color = Color.FromArgb(255, 190, 190, 178),
+				Color = Color.FromArgb(190, 190, 178),
 			},
 			[334] = new()
 			{
 				Type = 334,
 				Name = "Weapon Rack (Legacy - DO NOT USE)",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -52358,7 +52351,7 @@ namespace TMake.Terraria
 			{
 				Type = 335,
 				Name = "Fireworks Box",
-				Color = Color.FromArgb(255, 217, 174, 137),
+				Color = Color.FromArgb(217, 174, 137),
 				Framed = true,
 				Frames = [
 					new()
@@ -52374,14 +52367,14 @@ namespace TMake.Terraria
 			{
 				Type = 336,
 				Name = "Living Fire Block",
-				Color = Color.FromArgb(255, 253, 62, 3),
+				Color = Color.FromArgb(253, 62, 3),
 				Solid = true,
 			},
 			[337] = new()
 			{
 				Type = 337,
 				Name = "Text Statue",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -52713,7 +52706,7 @@ namespace TMake.Terraria
 			{
 				Type = 338,
 				Name = "Firework Fountain",
-				Color = Color.FromArgb(255, 85, 255, 160),
+				Color = Color.FromArgb(85, 255, 160),
 				Framed = true,
 				Frames = [
 					new()
@@ -52729,7 +52722,7 @@ namespace TMake.Terraria
 			{
 				Type = 339,
 				Name = "Grasshopper Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -52745,70 +52738,70 @@ namespace TMake.Terraria
 			{
 				Type = 340,
 				Name = "Living Cursed Fire Block",
-				Color = Color.FromArgb(255, 96, 248, 2),
+				Color = Color.FromArgb(96, 248, 2),
 				Solid = true,
 			},
 			[341] = new()
 			{
 				Type = 341,
 				Name = "Living Demon Fire Block",
-				Color = Color.FromArgb(255, 105, 74, 202),
+				Color = Color.FromArgb(105, 74, 202),
 				Solid = true,
 			},
 			[342] = new()
 			{
 				Type = 342,
 				Name = "Living Frost Fire Block",
-				Color = Color.FromArgb(255, 29, 240, 255),
+				Color = Color.FromArgb(29, 240, 255),
 				Solid = true,
 			},
 			[343] = new()
 			{
 				Type = 343,
 				Name = "Living Ichor Fire Block",
-				Color = Color.FromArgb(255, 254, 202, 80),
+				Color = Color.FromArgb(254, 202, 80),
 				Solid = true,
 			},
 			[344] = new()
 			{
 				Type = 344,
 				Name = "Living Ultrabright Fire Block",
-				Color = Color.FromArgb(255, 131, 252, 245),
+				Color = Color.FromArgb(131, 252, 245),
 				Solid = true,
 			},
 			[345] = new()
 			{
 				Type = 345,
 				Name = "Honeyfall Block",
-				Color = Color.FromArgb(255, 255, 156, 12),
+				Color = Color.FromArgb(255, 156, 12),
 				Solid = true,
 			},
 			[346] = new()
 			{
 				Type = 346,
 				Name = "Chlorophyte Brick",
-				Color = Color.FromArgb(255, 149, 212, 89),
+				Color = Color.FromArgb(149, 212, 89),
 				Solid = true,
 			},
 			[347] = new()
 			{
 				Type = 347,
 				Name = "Crimtane Brick",
-				Color = Color.FromArgb(255, 236, 74, 79),
+				Color = Color.FromArgb(236, 74, 79),
 				Solid = true,
 			},
 			[348] = new()
 			{
 				Type = 348,
 				Name = "Shroomite Plating",
-				Color = Color.FromArgb(255, 44, 26, 233),
+				Color = Color.FromArgb(44, 26, 233),
 				Solid = true,
 			},
 			[349] = new()
 			{
 				Type = 349,
 				Name = "Mushroom Statue",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -52852,35 +52845,35 @@ namespace TMake.Terraria
 			{
 				Type = 350,
 				Name = "Martian Conduit Plating",
-				Color = Color.FromArgb(255, 55, 97, 155),
+				Color = Color.FromArgb(55, 97, 155),
 				Solid = true,
 			},
 			[351] = new()
 			{
 				Type = 351,
 				Name = "Smoke Block",
-				Color = Color.FromArgb(255, 31, 31, 31),
+				Color = Color.FromArgb(31, 31, 31),
 				Solid = true,
 			},
 			[352] = new()
 			{
 				Type = 352,
 				Name = "Crimtane Thorns",
-				Color = Color.FromArgb(255, 238, 97, 94),
+				Color = Color.FromArgb(238, 97, 94),
 				Solid = true,
 			},
 			[353] = new()
 			{
 				Type = 353,
 				Name = "Vine Rope",
-				Color = Color.FromArgb(255, 28, 216, 94),
+				Color = Color.FromArgb(28, 216, 94),
 				Solid = true,
 			},
 			[354] = new()
 			{
 				Type = 354,
 				Name = "Bewitching Table",
-				Color = Color.FromArgb(255, 141, 107, 89),
+				Color = Color.FromArgb(141, 107, 89),
 				Framed = true,
 				Frames = [
 					new()
@@ -52896,7 +52889,7 @@ namespace TMake.Terraria
 			{
 				Type = 355,
 				Name = "Alchemy Table",
-				Color = Color.FromArgb(255, 141, 107, 89),
+				Color = Color.FromArgb(141, 107, 89),
 				Framed = true,
 				Frames = [
 					new()
@@ -52912,7 +52905,7 @@ namespace TMake.Terraria
 			{
 				Type = 356,
 				Name = "Enchanted Sundial",
-				Color = Color.FromArgb(255, 233, 203, 24),
+				Color = Color.FromArgb(233, 203, 24),
 				Framed = true,
 				Frames = [
 					new()
@@ -52928,14 +52921,14 @@ namespace TMake.Terraria
 			{
 				Type = 357,
 				Name = "Smooth Marble Block",
-				Color = Color.FromArgb(255, 168, 178, 204),
+				Color = Color.FromArgb(168, 178, 204),
 				Solid = true,
 			},
 			[358] = new()
 			{
 				Type = 358,
 				Name = "Gold Bird Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -52951,7 +52944,7 @@ namespace TMake.Terraria
 			{
 				Type = 359,
 				Name = "Gold Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -52967,7 +52960,7 @@ namespace TMake.Terraria
 			{
 				Type = 360,
 				Name = "Gold Butterfly Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -52983,7 +52976,7 @@ namespace TMake.Terraria
 			{
 				Type = 361,
 				Name = "Gold Frog Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -52999,7 +52992,7 @@ namespace TMake.Terraria
 			{
 				Type = 362,
 				Name = "Gold Grasshopper Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53015,7 +53008,7 @@ namespace TMake.Terraria
 			{
 				Type = 363,
 				Name = "Gold Mouse Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53031,7 +53024,7 @@ namespace TMake.Terraria
 			{
 				Type = 364,
 				Name = "Gold Worm Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53047,56 +53040,56 @@ namespace TMake.Terraria
 			{
 				Type = 365,
 				Name = "Silk Rope",
-				Color = Color.FromArgb(255, 146, 136, 205),
+				Color = Color.FromArgb(146, 136, 205),
 				Solid = true,
 			},
 			[366] = new()
 			{
 				Type = 366,
 				Name = "Web Rope",
-				Color = Color.FromArgb(255, 223, 232, 233),
+				Color = Color.FromArgb(223, 232, 233),
 				Solid = true,
 			},
 			[367] = new()
 			{
 				Type = 367,
 				Name = "Marble Block",
-				Color = Color.FromArgb(255, 168, 178, 204),
+				Color = Color.FromArgb(168, 178, 204),
 				Solid = true,
 			},
 			[368] = new()
 			{
 				Type = 368,
 				Name = "Granite Block",
-				Color = Color.FromArgb(255, 50, 46, 104),
+				Color = Color.FromArgb(50, 46, 104),
 				Solid = true,
 			},
 			[369] = new()
 			{
 				Type = 369,
 				Name = "Smooth Granite Block",
-				Color = Color.FromArgb(255, 50, 46, 104),
+				Color = Color.FromArgb(50, 46, 104),
 				Solid = true,
 			},
 			[370] = new()
 			{
 				Type = 370,
 				Name = "Meteorite Brick",
-				Color = Color.FromArgb(255, 127, 116, 194),
+				Color = Color.FromArgb(127, 116, 194),
 				Solid = true,
 			},
 			[371] = new()
 			{
 				Type = 371,
 				Name = "Pink Slime Block",
-				Color = Color.FromArgb(255, 249, 101, 189),
+				Color = Color.FromArgb(249, 101, 189),
 				Solid = true,
 			},
 			[372] = new()
 			{
 				Type = 372,
 				Name = "Peace Candle",
-				Color = Color.FromArgb(255, 252, 128, 201),
+				Color = Color.FromArgb(252, 128, 201),
 				Framed = true,
 				Frames = [
 					new()
@@ -53120,7 +53113,7 @@ namespace TMake.Terraria
 			{
 				Type = 373,
 				Name = "Water Drip",
-				Color = Color.FromArgb(255, 9, 61, 191),
+				Color = Color.FromArgb(9, 61, 191),
 				Framed = true,
 				Frames = [
 					new()
@@ -53135,7 +53128,7 @@ namespace TMake.Terraria
 			{
 				Type = 374,
 				Name = "Lava Drip",
-				Color = Color.FromArgb(255, 253, 32, 3),
+				Color = Color.FromArgb(253, 32, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -53150,7 +53143,7 @@ namespace TMake.Terraria
 			{
 				Type = 375,
 				Name = "Honey Drip",
-				Color = Color.FromArgb(255, 255, 156, 12),
+				Color = Color.FromArgb(255, 156, 12),
 				Framed = true,
 				Frames = [
 					new()
@@ -53165,7 +53158,7 @@ namespace TMake.Terraria
 			{
 				Type = 376,
 				Name = "Fishing Crates",
-				Color = Color.FromArgb(255, 160, 120, 92),
+				Color = Color.FromArgb(160, 120, 92),
 				Framed = true,
 				Frames = [
 					new()
@@ -53381,7 +53374,7 @@ namespace TMake.Terraria
 			{
 				Type = 377,
 				Name = "Sharpening Station",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -53407,7 +53400,7 @@ namespace TMake.Terraria
 			{
 				Type = 378,
 				Name = "Target Dummy",
-				Color = Color.FromArgb(255, 160, 120, 100),
+				Color = Color.FromArgb(160, 120, 100),
 				Framed = true,
 				Frames = [
 					new()
@@ -53433,14 +53426,14 @@ namespace TMake.Terraria
 			{
 				Type = 379,
 				Name = "Bubble",
-				Color = Color.FromArgb(255, 251, 209, 240),
+				Color = Color.FromArgb(251, 209, 240),
 				Solid = true,
 			},
 			[380] = new()
 			{
 				Type = 380,
 				Name = "Planter Boxes",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -53705,41 +53698,41 @@ namespace TMake.Terraria
 			{
 				Type = 381,
 				Name = "Lava Moss",
-				Color = Color.FromArgb(255, 254, 121, 2),
+				Color = Color.FromArgb(254, 121, 2),
 				Solid = true,
 			},
 			[382] = new()
 			{
 				Type = 382,
 				Name = "Flower Vines",
-				Color = Color.FromArgb(255, 28, 216, 94),
+				Color = Color.FromArgb(28, 216, 94),
 			},
 			[383] = new()
 			{
 				Type = 383,
 				Name = "Living Mahogany Block",
-				Color = Color.FromArgb(255, 221, 136, 144),
+				Color = Color.FromArgb(221, 136, 144),
 				Solid = true,
 			},
 			[384] = new()
 			{
 				Type = 384,
 				Name = "Living Mahogany Leaves Block",
-				Color = Color.FromArgb(255, 131, 206, 12),
+				Color = Color.FromArgb(131, 206, 12),
 				Solid = true,
 			},
 			[385] = new()
 			{
 				Type = 385,
 				Name = "Crystal Block",
-				Color = Color.FromArgb(255, 87, 21, 144),
+				Color = Color.FromArgb(87, 21, 144),
 				Solid = true,
 			},
 			[386] = new()
 			{
 				Type = 386,
 				Name = "Trap Door (Open)",
-				Color = Color.FromArgb(255, 127, 92, 69),
+				Color = Color.FromArgb(127, 92, 69),
 				Framed = true,
 				Frames = [
 					new()
@@ -53765,7 +53758,7 @@ namespace TMake.Terraria
 			{
 				Type = 387,
 				Name = "Trap Door (Closed)",
-				Color = Color.FromArgb(255, 127, 92, 69),
+				Color = Color.FromArgb(127, 92, 69),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -53782,7 +53775,7 @@ namespace TMake.Terraria
 			{
 				Type = 388,
 				Name = "Tall Gate (Closed)",
-				Color = Color.FromArgb(255, 127, 92, 69),
+				Color = Color.FromArgb(127, 92, 69),
 				Framed = true,
 				Solid = true,
 				TextureGrid = new(16, 18),
@@ -53810,7 +53803,7 @@ namespace TMake.Terraria
 			{
 				Type = 389,
 				Name = "Tall Gate (Open)",
-				Color = Color.FromArgb(255, 127, 92, 69),
+				Color = Color.FromArgb(127, 92, 69),
 				Framed = true,
 				TextureGrid = new(16, 18),
 				Frames = [
@@ -53837,7 +53830,7 @@ namespace TMake.Terraria
 			{
 				Type = 390,
 				Name = "Lava Lamp",
-				Color = Color.FromArgb(255, 253, 32, 3),
+				Color = Color.FromArgb(253, 32, 3),
 				Framed = true,
 				Frames = [
 					new()
@@ -53853,7 +53846,7 @@ namespace TMake.Terraria
 			{
 				Type = 391,
 				Name = "Cage Enchanted Nightcrawler",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53869,7 +53862,7 @@ namespace TMake.Terraria
 			{
 				Type = 392,
 				Name = "Buggy Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53885,7 +53878,7 @@ namespace TMake.Terraria
 			{
 				Type = 393,
 				Name = "Grubby Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53901,7 +53894,7 @@ namespace TMake.Terraria
 			{
 				Type = 394,
 				Name = "Sluggy Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -53917,7 +53910,7 @@ namespace TMake.Terraria
 			{
 				Type = 395,
 				Name = "Item Frame",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -53974,70 +53967,70 @@ namespace TMake.Terraria
 			{
 				Type = 396,
 				Name = "Sandstone Block",
-				Color = Color.FromArgb(255, 198, 124, 78),
+				Color = Color.FromArgb(198, 124, 78),
 				Solid = true,
 			},
 			[397] = new()
 			{
 				Type = 397,
 				Name = "Hardened Sand Block",
-				Color = Color.FromArgb(255, 212, 192, 100),
+				Color = Color.FromArgb(212, 192, 100),
 				Solid = true,
 			},
 			[398] = new()
 			{
 				Type = 398,
 				Name = "Corrupt Hardened Sand Block",
-				Color = Color.FromArgb(255, 100, 82, 126),
+				Color = Color.FromArgb(100, 82, 126),
 				Solid = true,
 			},
 			[399] = new()
 			{
 				Type = 399,
 				Name = "Crimson Hardened Sand Block",
-				Color = Color.FromArgb(255, 77, 76, 66),
+				Color = Color.FromArgb(77, 76, 66),
 				Solid = true,
 			},
 			[400] = new()
 			{
 				Type = 400,
 				Name = "Corrupt Sandstone Block",
-				Color = Color.FromArgb(255, 96, 68, 117),
+				Color = Color.FromArgb(96, 68, 117),
 				Solid = true,
 			},
 			[401] = new()
 			{
 				Type = 401,
 				Name = "Crimson Sandstone Block",
-				Color = Color.FromArgb(255, 68, 60, 51),
+				Color = Color.FromArgb(68, 60, 51),
 				Solid = true,
 			},
 			[402] = new()
 			{
 				Type = 402,
 				Name = "Hallow Hardened Sand Block",
-				Color = Color.FromArgb(255, 174, 168, 186),
+				Color = Color.FromArgb(174, 168, 186),
 				Solid = true,
 			},
 			[403] = new()
 			{
 				Type = 403,
 				Name = "Hallow Sandstone Block",
-				Color = Color.FromArgb(255, 205, 152, 186),
+				Color = Color.FromArgb(205, 152, 186),
 				Solid = true,
 			},
 			[404] = new()
 			{
 				Type = 404,
 				Name = "Desert Fossil Block",
-				Color = Color.FromArgb(255, 212, 148, 88),
+				Color = Color.FromArgb(212, 148, 88),
 				Solid = true,
 			},
 			[405] = new()
 			{
 				Type = 405,
 				Name = "Fireplace",
-				Color = Color.FromArgb(255, 140, 140, 140),
+				Color = Color.FromArgb(140, 140, 140),
 				Framed = true,
 				Frames = [
 					new()
@@ -54063,7 +54056,7 @@ namespace TMake.Terraria
 			{
 				Type = 406,
 				Name = "Chimney",
-				Color = Color.FromArgb(255, 120, 120, 120),
+				Color = Color.FromArgb(120, 120, 120),
 				Framed = true,
 				Frames = [
 					new()
@@ -54079,28 +54072,28 @@ namespace TMake.Terraria
 			{
 				Type = 407,
 				Name = "Sturdy Fossil Block",
-				Color = Color.FromArgb(255, 255, 227, 132),
+				Color = Color.FromArgb(255, 227, 132),
 				Solid = true,
 			},
 			[408] = new()
 			{
 				Type = 408,
 				Name = "Luminite Ore",
-				Color = Color.FromArgb(255, 85, 83, 82),
+				Color = Color.FromArgb(85, 83, 82),
 				Solid = true,
 			},
 			[409] = new()
 			{
 				Type = 409,
 				Name = "Luminite Brick",
-				Color = Color.FromArgb(255, 85, 83, 82),
+				Color = Color.FromArgb(85, 83, 82),
 				Solid = true,
 			},
 			[410] = new()
 			{
 				Type = 410,
 				Name = "Lunar Monoliths",
-				Color = Color.FromArgb(255, 75, 139, 166),
+				Color = Color.FromArgb(75, 139, 166),
 				Framed = true,
 				Frames = [
 					new()
@@ -54180,7 +54173,7 @@ namespace TMake.Terraria
 			{
 				Type = 411,
 				Name = "Detonator",
-				Color = Color.FromArgb(255, 227, 46, 46),
+				Color = Color.FromArgb(227, 46, 46),
 				Framed = true,
 				Frames = [
 					new()
@@ -54206,7 +54199,7 @@ namespace TMake.Terraria
 			{
 				Type = 412,
 				Name = "Lunar Crafting Station",
-				Color = Color.FromArgb(255, 75, 139, 166),
+				Color = Color.FromArgb(75, 139, 166),
 				Framed = true,
 				Frames = [
 					new()
@@ -54222,7 +54215,7 @@ namespace TMake.Terraria
 			{
 				Type = 413,
 				Name = "Red Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -54238,7 +54231,7 @@ namespace TMake.Terraria
 			{
 				Type = 414,
 				Name = "Gold Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -54254,35 +54247,35 @@ namespace TMake.Terraria
 			{
 				Type = 415,
 				Name = "Solar Fragment Block",
-				Color = Color.FromArgb(255, 249, 75, 7),
+				Color = Color.FromArgb(249, 75, 7),
 				Solid = true,
 			},
 			[416] = new()
 			{
 				Type = 416,
 				Name = "Vortex Fragment Block",
-				Color = Color.FromArgb(255, 0, 160, 170),
+				Color = Color.FromArgb(0, 160, 170),
 				Solid = true,
 			},
 			[417] = new()
 			{
 				Type = 417,
 				Name = "Nebula Fragment Block",
-				Color = Color.FromArgb(255, 160, 87, 234),
+				Color = Color.FromArgb(160, 87, 234),
 				Solid = true,
 			},
 			[418] = new()
 			{
 				Type = 418,
 				Name = "Stardust Fragment Block",
-				Color = Color.FromArgb(255, 22, 173, 254),
+				Color = Color.FromArgb(22, 173, 254),
 				Solid = true,
 			},
 			[419] = new()
 			{
 				Type = 419,
 				Name = "Logic Lamp",
-				Color = Color.FromArgb(255, 88, 95, 114),
+				Color = Color.FromArgb(88, 95, 114),
 				Framed = true,
 				Frames = [
 					new()
@@ -54314,7 +54307,7 @@ namespace TMake.Terraria
 			{
 				Type = 420,
 				Name = "Logic Gates",
-				Color = Color.FromArgb(255, 99, 255, 107),
+				Color = Color.FromArgb(99, 255, 107),
 				Framed = true,
 				Frames = [
 					new()
@@ -54466,21 +54459,21 @@ namespace TMake.Terraria
 			{
 				Type = 421,
 				Name = "Conveyor Belt (CW)",
-				Color = Color.FromArgb(255, 65, 75, 90),
+				Color = Color.FromArgb(65, 75, 90),
 				Solid = true,
 			},
 			[422] = new()
 			{
 				Type = 422,
 				Name = "Conveyor Belt (CCW)",
-				Color = Color.FromArgb(255, 65, 75, 90),
+				Color = Color.FromArgb(65, 75, 90),
 				Solid = true,
 			},
 			[423] = new()
 			{
 				Type = 423,
 				Name = "Logic Sensor",
-				Color = Color.FromArgb(255, 245, 197, 1),
+				Color = Color.FromArgb(245, 197, 1),
 				Framed = true,
 				Frames = [
 					new()
@@ -54600,7 +54593,7 @@ namespace TMake.Terraria
 			{
 				Type = 424,
 				Name = "Junction Box",
-				Color = Color.FromArgb(255, 146, 155, 187),
+				Color = Color.FromArgb(146, 155, 187),
 				Framed = true,
 				Frames = [
 					new()
@@ -54632,7 +54625,7 @@ namespace TMake.Terraria
 			{
 				Type = 425,
 				Name = "Announcement Box",
-				Color = Color.FromArgb(255, 146, 155, 187),
+				Color = Color.FromArgb(146, 155, 187),
 				Framed = true,
 				Frames = [
 					new()
@@ -54689,14 +54682,14 @@ namespace TMake.Terraria
 			{
 				Type = 426,
 				Name = "Red Team Block",
-				Color = Color.FromArgb(255, 168, 38, 47),
+				Color = Color.FromArgb(168, 38, 47),
 				Solid = true,
 			},
 			[427] = new()
 			{
 				Type = 427,
 				Name = "Red Team Platform",
-				Color = Color.FromArgb(255, 183, 53, 62),
+				Color = Color.FromArgb(183, 53, 62),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -55137,7 +55130,7 @@ namespace TMake.Terraria
 			{
 				Type = 428,
 				Name = "Weighted Pressure Plates",
-				Color = Color.FromArgb(0, 0, 0, 0),
+				Color = Color.FromArgb(0, 0, 0),
 				Framed = true,
 				Frames = [
 					new()
@@ -55209,7 +55202,7 @@ namespace TMake.Terraria
 			{
 				Type = 429,
 				Name = "Wire Bulb",
-				Color = Color.FromArgb(255, 220, 220, 220),
+				Color = Color.FromArgb(220, 220, 220),
 				Framed = true,
 				Frames = [
 					new()
@@ -55465,42 +55458,42 @@ namespace TMake.Terraria
 			{
 				Type = 430,
 				Name = "Green Team Block",
-				Color = Color.FromArgb(255, 39, 168, 96),
+				Color = Color.FromArgb(39, 168, 96),
 				Solid = true,
 			},
 			[431] = new()
 			{
 				Type = 431,
 				Name = "Blue Team Block",
-				Color = Color.FromArgb(255, 39, 94, 168),
+				Color = Color.FromArgb(39, 94, 168),
 				Solid = true,
 			},
 			[432] = new()
 			{
 				Type = 432,
 				Name = "Yellow Team Block",
-				Color = Color.FromArgb(255, 242, 221, 100),
+				Color = Color.FromArgb(242, 221, 100),
 				Solid = true,
 			},
 			[433] = new()
 			{
 				Type = 433,
 				Name = "Pink Team Block",
-				Color = Color.FromArgb(255, 224, 100, 242),
+				Color = Color.FromArgb(224, 100, 242),
 				Solid = true,
 			},
 			[434] = new()
 			{
 				Type = 434,
 				Name = "White Team Block",
-				Color = Color.FromArgb(255, 197, 193, 216),
+				Color = Color.FromArgb(197, 193, 216),
 				Solid = true,
 			},
 			[435] = new()
 			{
 				Type = 435,
 				Name = "Green Team Platform",
-				Color = Color.FromArgb(255, 54, 183, 111),
+				Color = Color.FromArgb(54, 183, 111),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -55941,7 +55934,7 @@ namespace TMake.Terraria
 			{
 				Type = 436,
 				Name = "Blue Team Platform",
-				Color = Color.FromArgb(255, 54, 109, 183),
+				Color = Color.FromArgb(54, 109, 183),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -56382,7 +56375,7 @@ namespace TMake.Terraria
 			{
 				Type = 437,
 				Name = "Yellow Team Platform",
-				Color = Color.FromArgb(255, 255, 236, 115),
+				Color = Color.FromArgb(255, 236, 115),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -56823,7 +56816,7 @@ namespace TMake.Terraria
 			{
 				Type = 438,
 				Name = "Pink Team Platform",
-				Color = Color.FromArgb(255, 239, 115, 255),
+				Color = Color.FromArgb(239, 115, 255),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -57264,7 +57257,7 @@ namespace TMake.Terraria
 			{
 				Type = 439,
 				Name = "White Team Platform",
-				Color = Color.FromArgb(255, 212, 208, 231),
+				Color = Color.FromArgb(212, 208, 231),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -57705,7 +57698,7 @@ namespace TMake.Terraria
 			{
 				Type = 440,
 				Name = "Gem Locks",
-				Color = Color.FromArgb(255, 238, 51, 53),
+				Color = Color.FromArgb(238, 51, 53),
 				Framed = true,
 				Frames = [
 					new()
@@ -57839,7 +57832,7 @@ namespace TMake.Terraria
 			{
 				Type = 441,
 				Name = "Trapped Chests",
-				Color = Color.FromArgb(255, 174, 129, 92),
+				Color = Color.FromArgb(174, 129, 92),
 				Framed = true,
 				Frames = [
 					new()
@@ -58289,7 +58282,7 @@ namespace TMake.Terraria
 			{
 				Type = 442,
 				Name = "Teal Pressure Pad",
-				Color = Color.FromArgb(255, 3, 144, 201),
+				Color = Color.FromArgb(3, 144, 201),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -58330,7 +58323,7 @@ namespace TMake.Terraria
 			{
 				Type = 443,
 				Name = "Geyser",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -58378,7 +58371,7 @@ namespace TMake.Terraria
 			{
 				Type = 444,
 				Name = "Bee Hive",
-				Color = Color.FromArgb(255, 191, 176, 124),
+				Color = Color.FromArgb(191, 176, 124),
 				Framed = true,
 				Frames = [
 					new()
@@ -58394,7 +58387,7 @@ namespace TMake.Terraria
 			{
 				Type = 445,
 				Name = "Pixel Box",
-				Color = Color.FromArgb(255, 240, 240, 240),
+				Color = Color.FromArgb(240, 240, 240),
 				Framed = true,
 				Frames = [
 					new()
@@ -58426,49 +58419,49 @@ namespace TMake.Terraria
 			{
 				Type = 446,
 				Name = "Silly Pink Balloon Block",
-				Color = Color.FromArgb(255, 255, 66, 152),
+				Color = Color.FromArgb(255, 66, 152),
 				Solid = true,
 			},
 			[447] = new()
 			{
 				Type = 447,
 				Name = "Silly Purple Balloon Block",
-				Color = Color.FromArgb(255, 179, 132, 255),
+				Color = Color.FromArgb(179, 132, 255),
 				Solid = true,
 			},
 			[448] = new()
 			{
 				Type = 448,
 				Name = "Silly Green Balloon Block",
-				Color = Color.FromArgb(255, 0, 206, 180),
+				Color = Color.FromArgb(0, 206, 180),
 				Solid = true,
 			},
 			[449] = new()
 			{
 				Type = 449,
 				Name = "Blue Streamer",
-				Color = Color.FromArgb(255, 91, 186, 240),
+				Color = Color.FromArgb(91, 186, 240),
 				Solid = true,
 			},
 			[450] = new()
 			{
 				Type = 450,
 				Name = "Green Streamer",
-				Color = Color.FromArgb(255, 92, 240, 91),
+				Color = Color.FromArgb(92, 240, 91),
 				Solid = true,
 			},
 			[451] = new()
 			{
 				Type = 451,
 				Name = "Pink Streamer",
-				Color = Color.FromArgb(255, 240, 91, 147),
+				Color = Color.FromArgb(240, 91, 147),
 				Solid = true,
 			},
 			[452] = new()
 			{
 				Type = 452,
 				Name = "Silly Balloon Machine",
-				Color = Color.FromArgb(255, 255, 150, 181),
+				Color = Color.FromArgb(255, 150, 181),
 				Framed = true,
 				Frames = [
 					new()
@@ -58484,7 +58477,7 @@ namespace TMake.Terraria
 			{
 				Type = 453,
 				Name = "Silly Tied Balloon",
-				Color = Color.FromArgb(255, 179, 132, 255),
+				Color = Color.FromArgb(179, 132, 255),
 				Framed = true,
 				Frames = [
 					new()
@@ -58546,7 +58539,7 @@ namespace TMake.Terraria
 			{
 				Type = 454,
 				Name = "Pigronata",
-				Color = Color.FromArgb(255, 174, 16, 176),
+				Color = Color.FromArgb(174, 16, 176),
 				Framed = true,
 				Frames = [
 					new()
@@ -58562,7 +58555,7 @@ namespace TMake.Terraria
 			{
 				Type = 455,
 				Name = "Party Center",
-				Color = Color.FromArgb(255, 48, 225, 110),
+				Color = Color.FromArgb(48, 225, 110),
 				Framed = true,
 				Frames = [
 					new()
@@ -58578,7 +58571,7 @@ namespace TMake.Terraria
 			{
 				Type = 456,
 				Name = "Silly Tied Bundle of Balloons",
-				Color = Color.FromArgb(255, 179, 132, 255),
+				Color = Color.FromArgb(179, 132, 255),
 				Framed = true,
 				Frames = [
 					new()
@@ -58594,7 +58587,7 @@ namespace TMake.Terraria
 			{
 				Type = 457,
 				Name = "Party Presents",
-				Color = Color.FromArgb(255, 150, 164, 206),
+				Color = Color.FromArgb(150, 164, 206),
 				Framed = true,
 				Frames = [
 					new()
@@ -58647,28 +58640,28 @@ namespace TMake.Terraria
 			{
 				Type = 458,
 				Name = "Sandfall Block",
-				Color = Color.FromArgb(255, 211, 198, 111),
+				Color = Color.FromArgb(211, 198, 111),
 				Solid = true,
 			},
 			[459] = new()
 			{
 				Type = 459,
 				Name = "Snowfall Block",
-				Color = Color.FromArgb(255, 190, 223, 232),
+				Color = Color.FromArgb(190, 223, 232),
 				Solid = true,
 			},
 			[460] = new()
 			{
 				Type = 460,
 				Name = "Snow Cloud Block",
-				Color = Color.FromArgb(255, 141, 163, 181),
+				Color = Color.FromArgb(141, 163, 181),
 				Solid = true,
 			},
 			[461] = new()
 			{
 				Type = 461,
 				Name = "Sand Drip",
-				Color = Color.FromArgb(255, 212, 192, 100),
+				Color = Color.FromArgb(212, 192, 100),
 				Framed = true,
 				Frames = [
 					new()
@@ -58683,7 +58676,7 @@ namespace TMake.Terraria
 			{
 				Type = 462,
 				Name = "Desert Spirit Lamp",
-				Color = Color.FromArgb(255, 231, 178, 28),
+				Color = Color.FromArgb(231, 178, 28),
 				Framed = true,
 				Frames = [
 					new()
@@ -58699,7 +58692,7 @@ namespace TMake.Terraria
 			{
 				Type = 463,
 				Name = "Defender's Forge",
-				Color = Color.FromArgb(255, 155, 214, 240),
+				Color = Color.FromArgb(155, 214, 240),
 				Framed = true,
 				Frames = [
 					new()
@@ -58715,7 +58708,7 @@ namespace TMake.Terraria
 			{
 				Type = 464,
 				Name = "War Table",
-				Color = Color.FromArgb(255, 233, 183, 128),
+				Color = Color.FromArgb(233, 183, 128),
 				Framed = true,
 				Frames = [
 					new()
@@ -58731,7 +58724,7 @@ namespace TMake.Terraria
 			{
 				Type = 465,
 				Name = "War Table Banner",
-				Color = Color.FromArgb(255, 51, 84, 195),
+				Color = Color.FromArgb(51, 84, 195),
 				Framed = true,
 				Frames = [
 					new()
@@ -58747,7 +58740,7 @@ namespace TMake.Terraria
 			{
 				Type = 466,
 				Name = "Elder Cystal Stand",
-				Color = Color.FromArgb(255, 205, 153, 73),
+				Color = Color.FromArgb(205, 153, 73),
 				Framed = true,
 				Frames = [
 					new()
@@ -58763,7 +58756,7 @@ namespace TMake.Terraria
 			{
 				Type = 467,
 				Name = "Chests (Group 2)",
-				Color = Color.FromArgb(255, 129, 56, 121),
+				Color = Color.FromArgb(129, 56, 121),
 				Framed = true,
 				Frames = [
 					new()
@@ -58908,7 +58901,7 @@ namespace TMake.Terraria
 			{
 				Type = 468,
 				Name = "Trapped Chests (Group 2)",
-				Color = Color.FromArgb(255, 129, 56, 121),
+				Color = Color.FromArgb(129, 56, 121),
 				Framed = true,
 				Frames = [
 					new()
@@ -59053,7 +59046,7 @@ namespace TMake.Terraria
 			{
 				Type = 469,
 				Name = "Tables (Group 2)",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -59157,7 +59150,7 @@ namespace TMake.Terraria
 			{
 				Type = 470,
 				Name = "Mannequins",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -59245,7 +59238,7 @@ namespace TMake.Terraria
 			{
 				Type = 471,
 				Name = "Weapon Rack",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -59270,28 +59263,28 @@ namespace TMake.Terraria
 			{
 				Type = 472,
 				Name = "Iron Brick",
-				Color = Color.FromArgb(255, 190, 160, 140),
+				Color = Color.FromArgb(190, 160, 140),
 				Solid = true,
 			},
 			[473] = new()
 			{
 				Type = 473,
 				Name = "Lead Brick",
-				Color = Color.FromArgb(255, 85, 114, 123),
+				Color = Color.FromArgb(85, 114, 123),
 				Solid = true,
 			},
 			[474] = new()
 			{
 				Type = 474,
 				Name = "Lesion Block",
-				Color = Color.FromArgb(255, 116, 94, 97),
+				Color = Color.FromArgb(116, 94, 97),
 				Solid = true,
 			},
 			[475] = new()
 			{
 				Type = 475,
 				Name = "Hat Rack",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -59316,7 +59309,7 @@ namespace TMake.Terraria
 			{
 				Type = 476,
 				Name = "Golf Cup",
-				Color = Color.FromArgb(255, 160, 160, 160),
+				Color = Color.FromArgb(160, 160, 160),
 				Framed = true,
 				Solid = true,
 				TextureGrid = new(20, 18),
@@ -59333,28 +59326,28 @@ namespace TMake.Terraria
 			{
 				Type = 477,
 				Name = "Mowed Grass Block",
-				Color = Color.FromArgb(255, 28, 216, 94),
+				Color = Color.FromArgb(28, 216, 94),
 				Solid = true,
 			},
 			[478] = new()
 			{
 				Type = 478,
 				Name = "Crimstone Brick",
-				Color = Color.FromArgb(255, 108, 34, 35),
+				Color = Color.FromArgb(108, 34, 35),
 				Solid = true,
 			},
 			[479] = new()
 			{
 				Type = 479,
 				Name = "Smooth Sandstone Block",
-				Color = Color.FromArgb(255, 178, 114, 68),
+				Color = Color.FromArgb(178, 114, 68),
 				Solid = true,
 			},
 			[480] = new()
 			{
 				Type = 480,
 				Name = "Blood Moon Monolith",
-				Color = Color.FromArgb(255, 120, 50, 50),
+				Color = Color.FromArgb(120, 50, 50),
 				Framed = true,
 				Frames = [
 					new()
@@ -59380,28 +59373,28 @@ namespace TMake.Terraria
 			{
 				Type = 481,
 				Name = "Cracked Blue Brick",
-				Color = Color.FromArgb(255, 66, 84, 109),
+				Color = Color.FromArgb(66, 84, 109),
 				Solid = true,
 			},
 			[482] = new()
 			{
 				Type = 482,
 				Name = "Cracked Green Brick",
-				Color = Color.FromArgb(255, 84, 100, 63),
+				Color = Color.FromArgb(84, 100, 63),
 				Solid = true,
 			},
 			[483] = new()
 			{
 				Type = 483,
 				Name = "Cracked Pink Brick",
-				Color = Color.FromArgb(255, 107, 68, 99),
+				Color = Color.FromArgb(107, 68, 99),
 				Solid = true,
 			},
 			[484] = new()
 			{
 				Type = 484,
 				Name = "Rolling Cactus",
-				Color = Color.FromArgb(255, 73, 120, 17),
+				Color = Color.FromArgb(73, 120, 17),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -59418,7 +59411,7 @@ namespace TMake.Terraria
 			{
 				Type = 485,
 				Name = "Antlion Larva",
-				Color = Color.FromArgb(255, 198, 134, 88),
+				Color = Color.FromArgb(198, 134, 88),
 				Framed = true,
 				Frames = [
 					new()
@@ -59434,7 +59427,7 @@ namespace TMake.Terraria
 			{
 				Type = 486,
 				Name = "Drum Set",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -59450,7 +59443,7 @@ namespace TMake.Terraria
 			{
 				Type = 487,
 				Name = "Picnic Tables",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -59474,7 +59467,7 @@ namespace TMake.Terraria
 			{
 				Type = 488,
 				Name = "Fallen Log",
-				Color = Color.FromArgb(255, 127, 92, 69),
+				Color = Color.FromArgb(127, 92, 69),
 				Framed = true,
 				Frames = [
 					new()
@@ -59490,7 +59483,7 @@ namespace TMake.Terraria
 			{
 				Type = 489,
 				Name = "Pin Wheel",
-				Color = Color.FromArgb(255, 255, 29, 136),
+				Color = Color.FromArgb(255, 29, 136),
 				Framed = true,
 				Frames = [
 					new()
@@ -59506,7 +59499,7 @@ namespace TMake.Terraria
 			{
 				Type = 490,
 				Name = "Weather Vane",
-				Color = Color.FromArgb(255, 211, 211, 211),
+				Color = Color.FromArgb(211, 211, 211),
 				Framed = true,
 				Frames = [
 					new()
@@ -59522,7 +59515,7 @@ namespace TMake.Terraria
 			{
 				Type = 491,
 				Name = "Void Vault",
-				Color = Color.FromArgb(255, 60, 20, 160),
+				Color = Color.FromArgb(60, 20, 160),
 				Framed = true,
 				Frames = [
 					new()
@@ -59538,14 +59531,14 @@ namespace TMake.Terraria
 			{
 				Type = 492,
 				Name = "Hallowed Mowed Grass Block",
-				Color = Color.FromArgb(255, 78, 193, 227),
+				Color = Color.FromArgb(78, 193, 227),
 				Solid = true,
 			},
 			[493] = new()
 			{
 				Type = 493,
 				Name = "Pin Flags",
-				Color = Color.FromArgb(255, 250, 249, 252),
+				Color = Color.FromArgb(250, 249, 252),
 				Framed = true,
 				Frames = [
 					new()
@@ -59601,7 +59594,7 @@ namespace TMake.Terraria
 			{
 				Type = 494,
 				Name = "Golf Tee",
-				Color = Color.FromArgb(255, 224, 219, 236),
+				Color = Color.FromArgb(224, 219, 236),
 				Framed = true,
 				Frames = [
 					new()
@@ -59616,22 +59609,23 @@ namespace TMake.Terraria
 			{
 				Type = 495,
 				Name = "Shell Pile Block",
-				Color = Color.FromArgb(255, 253, 227, 215),
+				Color = Color.FromArgb(253, 227, 215),
 				Solid = true,
 			},
 			[496] = new()
 			{
 				Type = 496,
 				Name = "Anti-Portal Block",
-				Color = Color.FromArgb(255, 165, 159, 153),
+				Color = Color.FromArgb(165, 159, 153),
 				Solid = true,
 			},
 			[497] = new()
 			{
 				Type = 497,
 				Name = "Toilets",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
+				TextureGap = new(2, 4),
 				Frames = [
 					new()
 					{
@@ -60412,14 +60406,14 @@ namespace TMake.Terraria
 			{
 				Type = 498,
 				Name = "Spider Nest Block",
-				Color = Color.FromArgb(255, 202, 174, 165),
+				Color = Color.FromArgb(202, 174, 165),
 				Solid = true,
 			},
 			[499] = new()
 			{
 				Type = 499,
 				Name = "Decay Chamber",
-				Color = Color.FromArgb(255, 160, 187, 142),
+				Color = Color.FromArgb(160, 187, 142),
 				Framed = true,
 				Frames = [
 					new()
@@ -60435,41 +60429,41 @@ namespace TMake.Terraria
 			{
 				Type = 500,
 				Name = "Solar Brick",
-				Color = Color.FromArgb(255, 254, 158, 35),
+				Color = Color.FromArgb(254, 158, 35),
 				Solid = true,
 			},
 			[501] = new()
 			{
 				Type = 501,
 				Name = "Vortex Brick",
-				Color = Color.FromArgb(255, 34, 221, 151),
+				Color = Color.FromArgb(34, 221, 151),
 				Solid = true,
 			},
 			[502] = new()
 			{
 				Type = 502,
 				Name = "Nebula Brick",
-				Color = Color.FromArgb(255, 249, 170, 236),
+				Color = Color.FromArgb(249, 170, 236),
 				Solid = true,
 			},
 			[503] = new()
 			{
 				Type = 503,
 				Name = "Stardust Brick",
-				Color = Color.FromArgb(255, 35, 200, 254),
+				Color = Color.FromArgb(35, 200, 254),
 				Solid = true,
 			},
 			[504] = new()
 			{
 				Type = 504,
 				Name = "Mystic Snake Rope",
-				Color = Color.FromArgb(0, 0, 0, 0),
+				Color = Color.FromArgb(0, 0, 0),
 			},
 			[505] = new()
 			{
 				Type = 505,
 				Name = "Gold Fish Bowl",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -60485,7 +60479,7 @@ namespace TMake.Terraria
 			{
 				Type = 506,
 				Name = "Bast Statue",
-				Color = Color.FromArgb(255, 61, 61, 61),
+				Color = Color.FromArgb(61, 61, 61),
 				Framed = true,
 				Frames = [
 					new()
@@ -60533,21 +60527,21 @@ namespace TMake.Terraria
 			{
 				Type = 507,
 				Name = "Gold Starry Block",
-				Color = Color.FromArgb(255, 5, 5, 5),
+				Color = Color.FromArgb(5, 5, 5),
 				Solid = true,
 			},
 			[508] = new()
 			{
 				Type = 508,
 				Name = "Blue Starry Block",
-				Color = Color.FromArgb(255, 5, 5, 5),
+				Color = Color.FromArgb(5, 5, 5),
 				Solid = true,
 			},
 			[509] = new()
 			{
 				Type = 509,
 				Name = "Void Monolith",
-				Color = Color.FromArgb(255, 50, 50, 60),
+				Color = Color.FromArgb(50, 50, 60),
 				Framed = true,
 				Frames = [
 					new()
@@ -60573,7 +60567,7 @@ namespace TMake.Terraria
 			{
 				Type = 510,
 				Name = "Arrow Sign",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -60973,7 +60967,7 @@ namespace TMake.Terraria
 			{
 				Type = 511,
 				Name = "Painted Arrow Sign",
-				Color = Color.FromArgb(255, 187, 68, 74),
+				Color = Color.FromArgb(187, 68, 74),
 				Framed = true,
 				Frames = [
 					new()
@@ -61373,49 +61367,49 @@ namespace TMake.Terraria
 			{
 				Type = 512,
 				Name = "Green Moss Brick",
-				Color = Color.FromArgb(255, 49, 134, 114),
+				Color = Color.FromArgb(49, 134, 114),
 				Solid = true,
 			},
 			[513] = new()
 			{
 				Type = 513,
 				Name = "Brown Moss Brick",
-				Color = Color.FromArgb(255, 126, 134, 49),
+				Color = Color.FromArgb(126, 134, 49),
 				Solid = true,
 			},
 			[514] = new()
 			{
 				Type = 514,
 				Name = "Red Moss Brick",
-				Color = Color.FromArgb(255, 134, 59, 49),
+				Color = Color.FromArgb(134, 59, 49),
 				Solid = true,
 			},
 			[515] = new()
 			{
 				Type = 515,
 				Name = "Blue Moss Brick",
-				Color = Color.FromArgb(255, 43, 86, 140),
+				Color = Color.FromArgb(43, 86, 140),
 				Solid = true,
 			},
 			[516] = new()
 			{
 				Type = 516,
 				Name = "Purple Moss Brick",
-				Color = Color.FromArgb(255, 121, 49, 134),
+				Color = Color.FromArgb(121, 49, 134),
 				Solid = true,
 			},
 			[517] = new()
 			{
 				Type = 517,
 				Name = "Lava Moss Brick",
-				Color = Color.FromArgb(255, 254, 121, 2),
+				Color = Color.FromArgb(254, 121, 2),
 				Solid = true,
 			},
 			[518] = new()
 			{
 				Type = 518,
 				Name = "Lily Pads",
-				Color = Color.FromArgb(255, 26, 196, 84),
+				Color = Color.FromArgb(26, 196, 84),
 				Framed = true,
 				Frames = [
 					new()
@@ -62143,7 +62137,7 @@ namespace TMake.Terraria
 			{
 				Type = 519,
 				Name = "Cattails",
-				Color = Color.FromArgb(255, 28, 216, 109),
+				Color = Color.FromArgb(28, 216, 109),
 				Framed = true,
 				Frames = [
 					new()
@@ -62775,7 +62769,7 @@ namespace TMake.Terraria
 			{
 				Type = 520,
 				Name = "Plate",
-				Color = Color.FromArgb(255, 224, 219, 236),
+				Color = Color.FromArgb(224, 219, 236),
 				Framed = true,
 				Frames = [
 					new()
@@ -62799,7 +62793,7 @@ namespace TMake.Terraria
 			{
 				Type = 521,
 				Name = "Black Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62815,7 +62809,7 @@ namespace TMake.Terraria
 			{
 				Type = 522,
 				Name = "Blue Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62831,7 +62825,7 @@ namespace TMake.Terraria
 			{
 				Type = 523,
 				Name = "Green Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62847,7 +62841,7 @@ namespace TMake.Terraria
 			{
 				Type = 524,
 				Name = "Orange Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62863,7 +62857,7 @@ namespace TMake.Terraria
 			{
 				Type = 525,
 				Name = "Red Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62879,7 +62873,7 @@ namespace TMake.Terraria
 			{
 				Type = 526,
 				Name = "Yellow Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62895,7 +62889,7 @@ namespace TMake.Terraria
 			{
 				Type = 527,
 				Name = "Gold Dragonfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -62911,13 +62905,13 @@ namespace TMake.Terraria
 			{
 				Type = 528,
 				Name = "Mushroom Vines",
-				Color = Color.FromArgb(255, 182, 175, 130),
+				Color = Color.FromArgb(182, 175, 130),
 			},
 			[529] = new()
 			{
 				Type = 529,
 				Name = "Sea Oats",
-				Color = Color.FromArgb(255, 99, 150, 8),
+				Color = Color.FromArgb(99, 150, 8),
 				Framed = true,
 				TextureGrid = new(16, 15),
 				Frames = [
@@ -63601,7 +63595,7 @@ namespace TMake.Terraria
 			{
 				Type = 530,
 				Name = "Oasis Plants",
-				Color = Color.FromArgb(255, 107, 182, 0),
+				Color = Color.FromArgb(107, 182, 0),
 				Framed = true,
 				Frames = [
 					new()
@@ -63933,7 +63927,7 @@ namespace TMake.Terraria
 			{
 				Type = 531,
 				Name = "Boulder Statue",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				Frames = [
 					new()
@@ -63949,7 +63943,7 @@ namespace TMake.Terraria
 			{
 				Type = 532,
 				Name = "Maggot Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -63965,7 +63959,7 @@ namespace TMake.Terraria
 			{
 				Type = 533,
 				Name = "Rat Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -63981,35 +63975,35 @@ namespace TMake.Terraria
 			{
 				Type = 534,
 				Name = "Krypton Moss Block",
-				Color = Color.FromArgb(255, 114, 254, 2),
+				Color = Color.FromArgb(114, 254, 2),
 				Solid = true,
 			},
 			[535] = new()
 			{
 				Type = 535,
 				Name = "Krypton Moss Brick",
-				Color = Color.FromArgb(255, 114, 254, 2),
+				Color = Color.FromArgb(114, 254, 2),
 				Solid = true,
 			},
 			[536] = new()
 			{
 				Type = 536,
 				Name = "Xenon Moss Block",
-				Color = Color.FromArgb(255, 0, 197, 208),
+				Color = Color.FromArgb(0, 197, 208),
 				Solid = true,
 			},
 			[537] = new()
 			{
 				Type = 537,
 				Name = "Xenon Moss Brick",
-				Color = Color.FromArgb(255, 0, 197, 208),
+				Color = Color.FromArgb(0, 197, 208),
 				Solid = true,
 			},
 			[538] = new()
 			{
 				Type = 538,
 				Name = "Ladybug Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64025,28 +64019,28 @@ namespace TMake.Terraria
 			{
 				Type = 539,
 				Name = "Argon Moss Block",
-				Color = Color.FromArgb(255, 208, 0, 126),
+				Color = Color.FromArgb(208, 0, 126),
 				Solid = true,
 			},
 			[540] = new()
 			{
 				Type = 540,
 				Name = "Argon Moss Brick",
-				Color = Color.FromArgb(255, 208, 0, 126),
+				Color = Color.FromArgb(208, 0, 126),
 				Solid = true,
 			},
 			[541] = new()
 			{
 				Type = 541,
 				Name = "Echo Block",
-				Color = Color.FromArgb(0, 0, 0, 0),
+				Color = Color.FromArgb(0, 0, 0),
 				Solid = true,
 			},
 			[542] = new()
 			{
 				Type = 542,
 				Name = "Owl Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64062,7 +64056,7 @@ namespace TMake.Terraria
 			{
 				Type = 543,
 				Name = "Pupfish Bowl",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64078,7 +64072,7 @@ namespace TMake.Terraria
 			{
 				Type = 544,
 				Name = "Gold Ladybug Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64094,7 +64088,7 @@ namespace TMake.Terraria
 			{
 				Type = 545,
 				Name = "Lawn Flamingo",
-				Color = Color.FromArgb(255, 255, 126, 145),
+				Color = Color.FromArgb(255, 126, 145),
 				Framed = true,
 				Frames = [
 					new()
@@ -64142,14 +64136,14 @@ namespace TMake.Terraria
 			{
 				Type = 546,
 				Name = "Grate Block",
-				Color = Color.FromArgb(255, 60, 60, 60),
+				Color = Color.FromArgb(60, 60, 60),
 				Solid = true,
 			},
 			[547] = new()
 			{
 				Type = 547,
 				Name = "Potted Trees",
-				Color = Color.FromArgb(255, 120, 110, 100),
+				Color = Color.FromArgb(120, 110, 100),
 				Framed = true,
 				Frames = [
 					new()
@@ -64197,7 +64191,7 @@ namespace TMake.Terraria
 			{
 				Type = 548,
 				Name = "Potted Trees (Group 2)",
-				Color = Color.FromArgb(255, 120, 110, 100),
+				Color = Color.FromArgb(120, 110, 100),
 				Framed = true,
 				Frames = [
 					new()
@@ -64277,7 +64271,7 @@ namespace TMake.Terraria
 			{
 				Type = 549,
 				Name = "Seaweed",
-				Color = Color.FromArgb(255, 54, 83, 20),
+				Color = Color.FromArgb(54, 83, 20),
 				Framed = true,
 				Frames = [
 					new()
@@ -64389,7 +64383,7 @@ namespace TMake.Terraria
 			{
 				Type = 550,
 				Name = "Turtle Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64405,7 +64399,7 @@ namespace TMake.Terraria
 			{
 				Type = 551,
 				Name = "Jungle Turtle Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64421,7 +64415,7 @@ namespace TMake.Terraria
 			{
 				Type = 552,
 				Name = "Sandcastle Bucket",
-				Color = Color.FromArgb(255, 186, 168, 84),
+				Color = Color.FromArgb(186, 168, 84),
 				Framed = true,
 				Frames = [
 					new()
@@ -64465,7 +64459,7 @@ namespace TMake.Terraria
 			{
 				Type = 553,
 				Name = "Grebe Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64481,7 +64475,7 @@ namespace TMake.Terraria
 			{
 				Type = 554,
 				Name = "Seagull Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64497,7 +64491,7 @@ namespace TMake.Terraria
 			{
 				Type = 555,
 				Name = "Water Strider Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64513,7 +64507,7 @@ namespace TMake.Terraria
 			{
 				Type = 556,
 				Name = "Gold Water Strider Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64529,14 +64523,14 @@ namespace TMake.Terraria
 			{
 				Type = 557,
 				Name = "Grate Block closed",
-				Color = Color.FromArgb(255, 60, 60, 60),
+				Color = Color.FromArgb(60, 60, 60),
 				Solid = true,
 			},
 			[558] = new()
 			{
 				Type = 558,
 				Name = "Seahorse Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64552,7 +64546,7 @@ namespace TMake.Terraria
 			{
 				Type = 559,
 				Name = "Gold Seahorse Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -64568,7 +64562,7 @@ namespace TMake.Terraria
 			{
 				Type = 560,
 				Name = "Golf Trophies",
-				Color = Color.FromArgb(255, 150, 67, 22),
+				Color = Color.FromArgb(150, 67, 22),
 				Framed = true,
 				Frames = [
 					new()
@@ -64600,27 +64594,27 @@ namespace TMake.Terraria
 			{
 				Type = 561,
 				Name = "Marble Column",
-				Color = Color.FromArgb(255, 148, 158, 184),
+				Color = Color.FromArgb(148, 158, 184),
 			},
 			[562] = new()
 			{
 				Type = 562,
 				Name = "Bamboo Block",
-				Color = Color.FromArgb(255, 165, 168, 26),
+				Color = Color.FromArgb(165, 168, 26),
 				Solid = true,
 			},
 			[563] = new()
 			{
 				Type = 563,
 				Name = "Large Bamboo Block",
-				Color = Color.FromArgb(255, 165, 168, 26),
+				Color = Color.FromArgb(165, 168, 26),
 				Solid = true,
 			},
 			[564] = new()
 			{
 				Type = 564,
 				Name = "Plasma Lamp",
-				Color = Color.FromArgb(255, 87, 127, 220),
+				Color = Color.FromArgb(87, 127, 220),
 				Framed = true,
 				Frames = [
 					new()
@@ -64646,7 +64640,7 @@ namespace TMake.Terraria
 			{
 				Type = 565,
 				Name = "Fog Machine",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				Frames = [
 					new()
@@ -64672,14 +64666,14 @@ namespace TMake.Terraria
 			{
 				Type = 566,
 				Name = "Amber Stone Block",
-				Color = Color.FromArgb(255, 233, 180, 90),
+				Color = Color.FromArgb(233, 180, 90),
 				Solid = true,
 			},
 			[567] = new()
 			{
 				Type = 567,
 				Name = "Garden Gnome",
-				Color = Color.FromArgb(255, 144, 148, 144),
+				Color = Color.FromArgb(144, 148, 144),
 				Framed = true,
 				TextureGrid = new(26, 18),
 				Frames = [
@@ -64733,7 +64727,7 @@ namespace TMake.Terraria
 			{
 				Type = 568,
 				Name = "Pink Fairy Jar",
-				Color = Color.FromArgb(255, 248, 203, 233),
+				Color = Color.FromArgb(248, 203, 233),
 				Framed = true,
 				Frames = [
 					new()
@@ -64749,7 +64743,7 @@ namespace TMake.Terraria
 			{
 				Type = 569,
 				Name = "Green Fairy Jar",
-				Color = Color.FromArgb(255, 203, 248, 218),
+				Color = Color.FromArgb(203, 248, 218),
 				Framed = true,
 				Frames = [
 					new()
@@ -64765,7 +64759,7 @@ namespace TMake.Terraria
 			{
 				Type = 570,
 				Name = "Blue Fairy Jar",
-				Color = Color.FromArgb(255, 160, 242, 255),
+				Color = Color.FromArgb(160, 242, 255),
 				Framed = true,
 				Frames = [
 					new()
@@ -64781,7 +64775,7 @@ namespace TMake.Terraria
 			{
 				Type = 571,
 				Name = "Bamboo",
-				Color = Color.FromArgb(255, 165, 168, 26),
+				Color = Color.FromArgb(165, 168, 26),
 				Framed = true,
 				Frames = [
 					new()
@@ -64949,7 +64943,7 @@ namespace TMake.Terraria
 			{
 				Type = 572,
 				Name = "Souls in a Bottle",
-				Color = Color.FromArgb(255, 255, 186, 212),
+				Color = Color.FromArgb(255, 186, 212),
 				Framed = true,
 				Frames = [
 					new()
@@ -65005,7 +64999,7 @@ namespace TMake.Terraria
 			{
 				Type = 573,
 				Name = "Tattered Wood Sign",
-				Color = Color.FromArgb(255, 191, 142, 111),
+				Color = Color.FromArgb(191, 142, 111),
 				Framed = true,
 				Frames = [
 					new()
@@ -65062,37 +65056,37 @@ namespace TMake.Terraria
 			{
 				Type = 574,
 				Name = "Boreal Beam",
-				Color = Color.FromArgb(255, 76, 57, 44),
+				Color = Color.FromArgb(76, 57, 44),
 			},
 			[575] = new()
 			{
 				Type = 575,
 				Name = "Rich Mahogany Beam",
-				Color = Color.FromArgb(255, 125, 61, 65),
+				Color = Color.FromArgb(125, 61, 65),
 			},
 			[576] = new()
 			{
 				Type = 576,
 				Name = "Granite Column",
-				Color = Color.FromArgb(255, 30, 26, 84),
+				Color = Color.FromArgb(30, 26, 84),
 			},
 			[577] = new()
 			{
 				Type = 577,
 				Name = "Sandstone Column",
-				Color = Color.FromArgb(255, 178, 104, 58),
+				Color = Color.FromArgb(178, 104, 58),
 			},
 			[578] = new()
 			{
 				Type = 578,
 				Name = "Mushroom Beam",
-				Color = Color.FromArgb(255, 172, 155, 110),
+				Color = Color.FromArgb(172, 155, 110),
 			},
 			[579] = new()
 			{
 				Type = 579,
 				Name = "Rock Golem Head",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -65137,7 +65131,7 @@ namespace TMake.Terraria
 			{
 				Type = 580,
 				Name = "Hell Butterfly Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -65153,7 +65147,7 @@ namespace TMake.Terraria
 			{
 				Type = 581,
 				Name = "Lavafly in a Bottle",
-				Color = Color.FromArgb(255, 255, 150, 150),
+				Color = Color.FromArgb(255, 150, 150),
 				Framed = true,
 				Frames = [
 					new()
@@ -65169,7 +65163,7 @@ namespace TMake.Terraria
 			{
 				Type = 582,
 				Name = "Magma Snail Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -65185,7 +65179,7 @@ namespace TMake.Terraria
 			{
 				Type = 583,
 				Name = "Topaz Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -65770,7 +65764,7 @@ namespace TMake.Terraria
 			{
 				Type = 584,
 				Name = "Amethyst Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -66355,7 +66349,7 @@ namespace TMake.Terraria
 			{
 				Type = 585,
 				Name = "Sapphire Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -66940,7 +66934,7 @@ namespace TMake.Terraria
 			{
 				Type = 586,
 				Name = "Emerald Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -67525,7 +67519,7 @@ namespace TMake.Terraria
 			{
 				Type = 587,
 				Name = "Ruby Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -68110,7 +68104,7 @@ namespace TMake.Terraria
 			{
 				Type = 588,
 				Name = "Diamond Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -68695,7 +68689,7 @@ namespace TMake.Terraria
 			{
 				Type = 589,
 				Name = "Amber Tree",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -69280,7 +69274,7 @@ namespace TMake.Terraria
 			{
 				Type = 590,
 				Name = "Gem Saplings",
-				Color = Color.FromArgb(255, 127, 127, 127),
+				Color = Color.FromArgb(127, 127, 127),
 				Framed = true,
 				Frames = [
 					new()
@@ -69504,7 +69498,7 @@ namespace TMake.Terraria
 			{
 				Type = 591,
 				Name = "Hanging Pots",
-				Color = Color.FromArgb(255, 114, 81, 56),
+				Color = Color.FromArgb(114, 81, 56),
 				Framed = true,
 				Frames = [
 					new()
@@ -69584,7 +69578,7 @@ namespace TMake.Terraria
 			{
 				Type = 592,
 				Name = "Hanging Brazier",
-				Color = Color.FromArgb(255, 254, 121, 2),
+				Color = Color.FromArgb(254, 121, 2),
 				Framed = true,
 				Frames = [
 					new()
@@ -69600,7 +69594,7 @@ namespace TMake.Terraria
 			{
 				Type = 593,
 				Name = "Mini Volcano",
-				Color = Color.FromArgb(255, 119, 105, 79),
+				Color = Color.FromArgb(119, 105, 79),
 				Framed = true,
 				Frames = [
 					new()
@@ -69615,7 +69609,7 @@ namespace TMake.Terraria
 			{
 				Type = 594,
 				Name = "Large Volcano",
-				Color = Color.FromArgb(255, 119, 105, 79),
+				Color = Color.FromArgb(119, 105, 79),
 				Framed = true,
 				Frames = [
 					new()
@@ -69631,7 +69625,7 @@ namespace TMake.Terraria
 			{
 				Type = 595,
 				Name = "Sakura Sapling",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Framed = true,
 				Frames = [
 					new()
@@ -69666,7 +69660,7 @@ namespace TMake.Terraria
 			{
 				Type = 596,
 				Name = "Vanity Tree Sakura",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -70251,7 +70245,7 @@ namespace TMake.Terraria
 			{
 				Type = 597,
 				Name = "Pylons",
-				Color = Color.FromArgb(255, 28, 216, 94),
+				Color = Color.FromArgb(28, 216, 94),
 				Framed = true,
 				Frames = [
 					new()
@@ -70340,7 +70334,7 @@ namespace TMake.Terraria
 			{
 				Type = 598,
 				Name = "Lava Serpent Bowl",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70356,7 +70350,7 @@ namespace TMake.Terraria
 			{
 				Type = 599,
 				Name = "Amethyst Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70372,7 +70366,7 @@ namespace TMake.Terraria
 			{
 				Type = 600,
 				Name = "Topaz Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70388,7 +70382,7 @@ namespace TMake.Terraria
 			{
 				Type = 601,
 				Name = "Sapphire Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70404,7 +70398,7 @@ namespace TMake.Terraria
 			{
 				Type = 602,
 				Name = "Emerald Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70420,7 +70414,7 @@ namespace TMake.Terraria
 			{
 				Type = 603,
 				Name = "Ruby Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70436,7 +70430,7 @@ namespace TMake.Terraria
 			{
 				Type = 604,
 				Name = "Diamond Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70452,7 +70446,7 @@ namespace TMake.Terraria
 			{
 				Type = 605,
 				Name = "Amber Bunny Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70468,7 +70462,7 @@ namespace TMake.Terraria
 			{
 				Type = 606,
 				Name = "Amethyst Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70484,7 +70478,7 @@ namespace TMake.Terraria
 			{
 				Type = 607,
 				Name = "Topaz Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70500,7 +70494,7 @@ namespace TMake.Terraria
 			{
 				Type = 608,
 				Name = "Sapphire Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70516,7 +70510,7 @@ namespace TMake.Terraria
 			{
 				Type = 609,
 				Name = "Emerald Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70532,7 +70526,7 @@ namespace TMake.Terraria
 			{
 				Type = 610,
 				Name = "Ruby Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70548,7 +70542,7 @@ namespace TMake.Terraria
 			{
 				Type = 611,
 				Name = "Diamond Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70564,7 +70558,7 @@ namespace TMake.Terraria
 			{
 				Type = 612,
 				Name = "Amber Squirrel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -70580,7 +70574,7 @@ namespace TMake.Terraria
 			{
 				Type = 613,
 				Name = "Potted Lava Plants",
-				Color = Color.FromArgb(255, 250, 100, 50),
+				Color = Color.FromArgb(250, 100, 50),
 				Framed = true,
 				Frames = [
 					new()
@@ -70604,7 +70598,7 @@ namespace TMake.Terraria
 			{
 				Type = 614,
 				Name = "Potted Ember Tendrils",
-				Color = Color.FromArgb(255, 250, 100, 50),
+				Color = Color.FromArgb(250, 100, 50),
 				Framed = true,
 				Frames = [
 					new()
@@ -70620,7 +70614,7 @@ namespace TMake.Terraria
 			{
 				Type = 615,
 				Name = "Yellow Willow Sapling",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Framed = true,
 				Frames = [
 					new()
@@ -70655,7 +70649,7 @@ namespace TMake.Terraria
 			{
 				Type = 616,
 				Name = "Vanity Tree Yellow Willow",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -71240,7 +71234,7 @@ namespace TMake.Terraria
 			{
 				Type = 617,
 				Name = "Relic Base",
-				Color = Color.FromArgb(255, 233, 207, 94),
+				Color = Color.FromArgb(233, 207, 94),
 				Framed = true,
 				Frames = [
 					new()
@@ -71266,14 +71260,14 @@ namespace TMake.Terraria
 			{
 				Type = 618,
 				Name = "Stone Accent Slab",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Solid = true,
 			},
 			[619] = new()
 			{
 				Type = 619,
 				Name = "Truffle Worm Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -71289,7 +71283,7 @@ namespace TMake.Terraria
 			{
 				Type = 620,
 				Name = "Prismatic Lacewing Jar",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -71305,7 +71299,7 @@ namespace TMake.Terraria
 			{
 				Type = 621,
 				Name = "Slice of Cake",
-				Color = Color.FromArgb(255, 250, 250, 250),
+				Color = Color.FromArgb(250, 250, 250),
 				Framed = true,
 				Frames = [
 					new()
@@ -71321,7 +71315,7 @@ namespace TMake.Terraria
 			{
 				Type = 622,
 				Name = "Teapot",
-				Color = Color.FromArgb(255, 235, 235, 249),
+				Color = Color.FromArgb(235, 235, 249),
 				Framed = true,
 				Frames = [
 					new()
@@ -71337,7 +71331,7 @@ namespace TMake.Terraria
 			{
 				Type = 623,
 				Name = "Potted Crystal Plants",
-				Color = Color.FromArgb(255, 220, 210, 245),
+				Color = Color.FromArgb(220, 210, 245),
 				Framed = true,
 				Frames = [
 					new()
@@ -71377,7 +71371,7 @@ namespace TMake.Terraria
 			{
 				Type = 624,
 				Name = "Abigail's Flower",
-				Color = Color.FromArgb(255, 210, 91, 77),
+				Color = Color.FromArgb(210, 91, 77),
 				Framed = true,
 				TextureGrid = new(20, 18),
 				Frames = [
@@ -71393,35 +71387,35 @@ namespace TMake.Terraria
 			{
 				Type = 625,
 				Name = "Neon Moss Block",
-				Color = Color.FromArgb(255, 220, 12, 237),
+				Color = Color.FromArgb(220, 12, 237),
 				Solid = true,
 			},
 			[626] = new()
 			{
 				Type = 626,
 				Name = "Neon Moss Brick",
-				Color = Color.FromArgb(255, 220, 12, 237),
+				Color = Color.FromArgb(220, 12, 237),
 				Solid = true,
 			},
 			[627] = new()
 			{
 				Type = 627,
 				Name = "Helium Moss Block",
-				Color = Color.FromArgb(255, 255, 76, 76),
+				Color = Color.FromArgb(255, 76, 76),
 				Solid = true,
 			},
 			[628] = new()
 			{
 				Type = 628,
 				Name = "Helium Moss Brick",
-				Color = Color.FromArgb(255, 255, 76, 76),
+				Color = Color.FromArgb(255, 76, 76),
 				Solid = true,
 			},
 			[629] = new()
 			{
 				Type = 629,
 				Name = "Stinkbug Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -71437,7 +71431,7 @@ namespace TMake.Terraria
 			{
 				Type = 630,
 				Name = "Stinkbug Blocker",
-				Color = Color.FromArgb(255, 117, 145, 73),
+				Color = Color.FromArgb(117, 145, 73),
 				Framed = true,
 				Frames = [
 					new()
@@ -71484,7 +71478,7 @@ namespace TMake.Terraria
 			{
 				Type = 631,
 				Name = "Ghostly Stinkbug Blocker",
-				Color = Color.FromArgb(255, 122, 234, 225),
+				Color = Color.FromArgb(122, 234, 225),
 				Framed = true,
 				Frames = [
 					new()
@@ -71531,7 +71525,7 @@ namespace TMake.Terraria
 			{
 				Type = 632,
 				Name = "Scarlet Macaw Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -71547,14 +71541,14 @@ namespace TMake.Terraria
 			{
 				Type = 633,
 				Name = "Ash Grass Block",
-				Color = Color.FromArgb(255, 210, 140, 100),
+				Color = Color.FromArgb(210, 140, 100),
 				Solid = true,
 			},
 			[634] = new()
 			{
 				Type = 634,
 				Name = "Ash Tree",
-				Color = Color.FromArgb(255, 145, 120, 120),
+				Color = Color.FromArgb(145, 120, 120),
 				Framed = true,
 				TextureGrid = new(20, 20),
 				Frames = [
@@ -72139,20 +72133,20 @@ namespace TMake.Terraria
 			{
 				Type = 635,
 				Name = "Ash Wood",
-				Color = Color.FromArgb(255, 145, 120, 120),
+				Color = Color.FromArgb(145, 120, 120),
 				Solid = true,
 			},
 			[636] = new()
 			{
 				Type = 636,
 				Name = "Corrupt Vines",
-				Color = Color.FromArgb(255, 122, 116, 218),
+				Color = Color.FromArgb(122, 116, 218),
 			},
 			[637] = new()
 			{
 				Type = 637,
 				Name = "Ash Short Plants",
-				Color = Color.FromArgb(255, 200, 120, 75),
+				Color = Color.FromArgb(200, 120, 75),
 				Framed = true,
 				Frames = [
 					new()
@@ -72248,13 +72242,13 @@ namespace TMake.Terraria
 			{
 				Type = 638,
 				Name = "Ash Vines",
-				Color = Color.FromArgb(255, 200, 120, 75),
+				Color = Color.FromArgb(200, 120, 75),
 			},
 			[639] = new()
 			{
 				Type = 639,
 				Name = "Mana Crystal",
-				Color = Color.FromArgb(255, 110, 105, 255),
+				Color = Color.FromArgb(110, 105, 255),
 				Framed = true,
 				Frames = [
 					new()
@@ -72270,7 +72264,7 @@ namespace TMake.Terraria
 			{
 				Type = 640,
 				Name = "Blue Macaw Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -72286,14 +72280,14 @@ namespace TMake.Terraria
 			{
 				Type = 641,
 				Name = "Reef Block",
-				Color = Color.FromArgb(255, 235, 125, 150),
+				Color = Color.FromArgb(235, 125, 150),
 				Solid = true,
 			},
 			[642] = new()
 			{
 				Type = 642,
 				Name = "Chlorophyte Extractinator",
-				Color = Color.FromArgb(255, 149, 212, 89),
+				Color = Color.FromArgb(149, 212, 89),
 				Framed = true,
 				Frames = [
 					new()
@@ -72309,7 +72303,7 @@ namespace TMake.Terraria
 			{
 				Type = 643,
 				Name = "Toucan Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -72325,7 +72319,7 @@ namespace TMake.Terraria
 			{
 				Type = 644,
 				Name = "Yellow Cockatiel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -72341,7 +72335,7 @@ namespace TMake.Terraria
 			{
 				Type = 645,
 				Name = "Gray Cockatiel Cage",
-				Color = Color.FromArgb(255, 122, 217, 232),
+				Color = Color.FromArgb(122, 217, 232),
 				Framed = true,
 				Frames = [
 					new()
@@ -72357,7 +72351,7 @@ namespace TMake.Terraria
 			{
 				Type = 646,
 				Name = "Shadow Candle",
-				Color = Color.FromArgb(255, 108, 133, 140),
+				Color = Color.FromArgb(108, 133, 140),
 				Framed = true,
 				TextureGrid = new(16, 20),
 				Frames = [
@@ -72382,7 +72376,7 @@ namespace TMake.Terraria
 			{
 				Type = 647,
 				Name = "Large Rubble (3x2)",
-				Color = Color.FromArgb(255, 133, 133, 101),
+				Color = Color.FromArgb(133, 133, 101),
 				Framed = true,
 				Frames = [
 					new()
@@ -72705,7 +72699,7 @@ namespace TMake.Terraria
 			{
 				Type = 648,
 				Name = "Large Rubble (3x2) (Group 2)",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				Frames = [
 					new()
@@ -73208,7 +73202,7 @@ namespace TMake.Terraria
 			{
 				Type = 649,
 				Name = "Medium Rubble (2x1)",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				Frames = [
 					new()
@@ -73801,7 +73795,7 @@ namespace TMake.Terraria
 			{
 				Type = 650,
 				Name = "Small Rubble (1x1)",
-				Color = Color.FromArgb(255, 99, 99, 99),
+				Color = Color.FromArgb(99, 99, 99),
 				Framed = true,
 				Frames = [
 					new()
@@ -74425,7 +74419,7 @@ namespace TMake.Terraria
 			{
 				Type = 651,
 				Name = "Large Rubble (3x2) (Group 3)",
-				Color = Color.FromArgb(255, 107, 182, 29),
+				Color = Color.FromArgb(107, 182, 29),
 				Framed = true,
 				Frames = [
 					new()
@@ -74514,7 +74508,7 @@ namespace TMake.Terraria
 			{
 				Type = 652,
 				Name = "Medium Rubble (2x2)",
-				Color = Color.FromArgb(255, 107, 182, 29),
+				Color = Color.FromArgb(107, 182, 29),
 				Framed = true,
 				Frames = [
 					new()
@@ -74630,7 +74624,7 @@ namespace TMake.Terraria
 			{
 				Type = 653,
 				Name = "Pots (Rubblemaker)",
-				Color = Color.FromArgb(255, 151, 79, 80),
+				Color = Color.FromArgb(151, 79, 80),
 				Framed = true,
 				Frames = [
 					new()
@@ -75646,7 +75640,7 @@ namespace TMake.Terraria
 			{
 				Type = 654,
 				Name = "TNT Barrel",
-				Color = Color.FromArgb(255, 200, 44, 28),
+				Color = Color.FromArgb(200, 44, 28),
 				Framed = true,
 				Frames = [
 					new()
@@ -75662,13 +75656,13 @@ namespace TMake.Terraria
 			{
 				Type = 655,
 				Name = "Plantera Thorns",
-				Color = Color.FromArgb(255, 225, 128, 206),
+				Color = Color.FromArgb(225, 128, 206),
 			},
 			[656] = new()
 			{
 				Type = 656,
 				Name = "Glow Tulip",
-				Color = Color.FromArgb(255, 21, 124, 212),
+				Color = Color.FromArgb(21, 124, 212),
 				Framed = true,
 				Frames = [
 					new()
@@ -75684,7 +75678,7 @@ namespace TMake.Terraria
 			{
 				Type = 657,
 				Name = "Echo Chamber",
-				Color = Color.FromArgb(255, 35, 205, 215),
+				Color = Color.FromArgb(35, 205, 215),
 				Framed = true,
 				Frames = [
 					new()
@@ -75700,7 +75694,7 @@ namespace TMake.Terraria
 			{
 				Type = 658,
 				Name = "Aether Monolith",
-				Color = Color.FromArgb(255, 200, 105, 230),
+				Color = Color.FromArgb(200, 105, 230),
 				Framed = true,
 				Frames = [
 					new()
@@ -75735,14 +75729,14 @@ namespace TMake.Terraria
 			{
 				Type = 659,
 				Name = "Aetherium Block",
-				Color = Color.FromArgb(255, 247, 228, 254),
+				Color = Color.FromArgb(247, 228, 254),
 				Solid = true,
 			},
 			[660] = new()
 			{
 				Type = 660,
 				Name = "Faeling in a Bottle",
-				Color = Color.FromArgb(255, 255, 150, 150),
+				Color = Color.FromArgb(255, 150, 150),
 				Framed = true,
 				Frames = [
 					new()
@@ -75758,21 +75752,21 @@ namespace TMake.Terraria
 			{
 				Type = 661,
 				Name = "Corrupt Jungle Grass Block",
-				Color = Color.FromArgb(255, 141, 137, 223),
+				Color = Color.FromArgb(141, 137, 223),
 				Solid = true,
 			},
 			[662] = new()
 			{
 				Type = 662,
 				Name = "Crimson Jungle Grass Block",
-				Color = Color.FromArgb(255, 208, 80, 80),
+				Color = Color.FromArgb(208, 80, 80),
 				Solid = true,
 			},
 			[663] = new()
 			{
 				Type = 663,
 				Name = "Enchanted Moondial",
-				Color = Color.FromArgb(255, 24, 203, 233),
+				Color = Color.FromArgb(24, 203, 233),
 				Framed = true,
 				Frames = [
 					new()
@@ -75788,7 +75782,7 @@ namespace TMake.Terraria
 			{
 				Type = 664,
 				Name = "Bouncy Boulder",
-				Color = Color.FromArgb(255, 128, 128, 128),
+				Color = Color.FromArgb(128, 128, 128),
 				Framed = true,
 				Solid = true,
 				Frames = [
@@ -75805,7 +75799,7 @@ namespace TMake.Terraria
 			{
 				Type = 665,
 				Name = "Life Crystal Boulder",
-				Color = Color.FromArgb(255, 174, 24, 69),
+				Color = Color.FromArgb(174, 24, 69),
 				Framed = true,
 				Frames = [
 					new()
@@ -75821,189 +75815,189 @@ namespace TMake.Terraria
 			{
 				Type = 666,
 				Name = "Poo Block",
-				Color = Color.FromArgb(255, 115, 60, 40),
+				Color = Color.FromArgb(115, 60, 40),
 				Solid = true,
 			},
 			[667] = new()
 			{
 				Type = 667,
 				Name = "Aetherium Brick",
-				Color = Color.FromArgb(255, 247, 228, 254),
+				Color = Color.FromArgb(247, 228, 254),
 				Solid = true,
 			},
 			[668] = new()
 			{
 				Type = 668,
 				Name = "The Dirtiest Block",
-				Color = Color.FromArgb(255, 151, 107, 75),
+				Color = Color.FromArgb(151, 107, 75),
 				Solid = true,
 			},
 			[669] = new()
 			{
 				Type = 669,
 				Name = "Lunar Rust Brick",
-				Color = Color.FromArgb(255, 83, 46, 57),
+				Color = Color.FromArgb(83, 46, 57),
 				Solid = true,
 			},
 			[670] = new()
 			{
 				Type = 670,
 				Name = "Dark Celestial Brick",
-				Color = Color.FromArgb(255, 91, 87, 167),
+				Color = Color.FromArgb(91, 87, 167),
 				Solid = true,
 			},
 			[671] = new()
 			{
 				Type = 671,
 				Name = "Astra Brick",
-				Color = Color.FromArgb(255, 23, 33, 81),
+				Color = Color.FromArgb(23, 33, 81),
 				Solid = true,
 			},
 			[672] = new()
 			{
 				Type = 672,
 				Name = "Cosmic Ember Brick",
-				Color = Color.FromArgb(255, 53, 133, 103),
+				Color = Color.FromArgb(53, 133, 103),
 				Solid = true,
 			},
 			[673] = new()
 			{
 				Type = 673,
 				Name = "Cryocore Brick",
-				Color = Color.FromArgb(255, 11, 67, 80),
+				Color = Color.FromArgb(11, 67, 80),
 				Solid = true,
 			},
 			[674] = new()
 			{
 				Type = 674,
 				Name = "Mercury Brick",
-				Color = Color.FromArgb(255, 40, 49, 60),
+				Color = Color.FromArgb(40, 49, 60),
 				Solid = true,
 			},
 			[675] = new()
 			{
 				Type = 675,
 				Name = "Star Royale Brick",
-				Color = Color.FromArgb(255, 21, 13, 77),
+				Color = Color.FromArgb(21, 13, 77),
 				Solid = true,
 			},
 			[676] = new()
 			{
 				Type = 676,
 				Name = "Heavenforge Brick",
-				Color = Color.FromArgb(255, 195, 201, 215),
+				Color = Color.FromArgb(195, 201, 215),
 				Solid = true,
 			},
 			[677] = new()
 			{
 				Type = 677,
 				Name = "Ancient Blue Brick",
-				Color = Color.FromArgb(255, 66, 84, 109),
+				Color = Color.FromArgb(66, 84, 109),
 				Solid = true,
 			},
 			[678] = new()
 			{
 				Type = 678,
 				Name = "Ancient Green Brick",
-				Color = Color.FromArgb(255, 84, 100, 63),
+				Color = Color.FromArgb(84, 100, 63),
 				Solid = true,
 			},
 			[679] = new()
 			{
 				Type = 679,
 				Name = "Ancient Pink Brick",
-				Color = Color.FromArgb(255, 107, 68, 99),
+				Color = Color.FromArgb(107, 68, 99),
 				Solid = true,
 			},
 			[680] = new()
 			{
 				Type = 680,
 				Name = "Ancient Gold Brick",
-				Color = Color.FromArgb(255, 185, 164, 23),
+				Color = Color.FromArgb(185, 164, 23),
 				Solid = true,
 			},
 			[681] = new()
 			{
 				Type = 681,
 				Name = "Ancient Silver Brick",
-				Color = Color.FromArgb(255, 185, 194, 195),
+				Color = Color.FromArgb(185, 194, 195),
 				Solid = true,
 			},
 			[682] = new()
 			{
 				Type = 682,
 				Name = "Ancient Copper Brick",
-				Color = Color.FromArgb(255, 150, 67, 22),
+				Color = Color.FromArgb(150, 67, 22),
 				Solid = true,
 			},
 			[683] = new()
 			{
 				Type = 683,
 				Name = "Ancient Obsidian Brick",
-				Color = Color.FromArgb(255, 100, 90, 190),
+				Color = Color.FromArgb(100, 90, 190),
 				Solid = true,
 			},
 			[684] = new()
 			{
 				Type = 684,
 				Name = "Ancient Hellstone Brick",
-				Color = Color.FromArgb(255, 142, 66, 66),
+				Color = Color.FromArgb(142, 66, 66),
 				Solid = true,
 			},
 			[685] = new()
 			{
 				Type = 685,
 				Name = "Ancient Cobalt Brick",
-				Color = Color.FromArgb(255, 11, 80, 143),
+				Color = Color.FromArgb(11, 80, 143),
 				Solid = true,
 			},
 			[686] = new()
 			{
 				Type = 686,
 				Name = "Ancient Mythril Brick",
-				Color = Color.FromArgb(255, 91, 169, 169),
+				Color = Color.FromArgb(91, 169, 169),
 				Solid = true,
 			},
 			[687] = new()
 			{
 				Type = 687,
 				Name = "Lava Moss Brick",
-				Color = Color.FromArgb(255, 254, 121, 2),
+				Color = Color.FromArgb(254, 121, 2),
 				Solid = true,
 			},
 			[688] = new()
 			{
 				Type = 688,
 				Name = "Argon Moss Brick",
-				Color = Color.FromArgb(255, 208, 0, 126),
+				Color = Color.FromArgb(208, 0, 126),
 				Solid = true,
 			},
 			[689] = new()
 			{
 				Type = 689,
 				Name = "Krypton Moss Brick",
-				Color = Color.FromArgb(255, 114, 254, 2),
+				Color = Color.FromArgb(114, 254, 2),
 				Solid = true,
 			},
 			[690] = new()
 			{
 				Type = 690,
 				Name = "Xenon Moss Brick",
-				Color = Color.FromArgb(255, 0, 197, 208),
+				Color = Color.FromArgb(0, 197, 208),
 				Solid = true,
 			},
 			[691] = new()
 			{
 				Type = 691,
 				Name = "Neon Moss Brick",
-				Color = Color.FromArgb(255, 220, 12, 237),
+				Color = Color.FromArgb(220, 12, 237),
 				Solid = true,
 			},
 			[692] = new()
 			{
 				Type = 692,
 				Name = "Helium Moss Brick",
-				Color = Color.FromArgb(255, 255, 76, 76),
+				Color = Color.FromArgb(255, 76, 76),
 				Solid = true,
 			},
 		};
