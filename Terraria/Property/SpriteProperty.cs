@@ -44,16 +44,18 @@ namespace TMake.Terraria
             var tileData = TileProperty.GetTileData(tile.Type);
             var point = new Point(tile.FrameX, tile.FrameY);
 
-            var frames = tileData.Frames.Where(frame => new Rectangle(
-                new(frame.Origin.X, frame.Origin.Y),
-                new(frame.Size.X * (tileData.TextureGrid.X + tileData.TextureGap.X),
-                    frame.Size.Y * (tileData.TextureGrid.Y + tileData.TextureGap.Y))
-                ).Contains(point)).ToList();
-
-            if (frames.Count > 0)
-                return frames[0];
-            else
+            try
+            {
+                return tileData.Frames.First(frame => new Rectangle(
+                    new(frame.Origin.X, frame.Origin.Y),
+                    new(frame.Size.X * (tileData.TextureGrid.X + tileData.TextureGap.X),
+                        frame.Size.Y * (tileData.TextureGrid.Y + tileData.TextureGap.Y))
+                    ).Contains(point));
+            }
+            catch
+            {
                 return tileData.Frames.OrderBy(frame => DistanceSquared(point, tileData, frame)).First();
+            }
         }
         private static float DistanceSquared(Point point, TileData tile, FrameData frame)
         {
