@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 
 namespace TMake.Terraria
 {
@@ -41,18 +42,18 @@ namespace TMake.Terraria
         public static FrameData GetSprite(Tile tile)
         {
             var tileData = TileProperty.GetTileData(tile.Type);
+            var point = new Point(tile.FrameX, tile.FrameY);
 
-            var targetPoint = new Point(tile.FrameX, tile.FrameY);
+            var frames = tileData.Frames.Where(frame => new Rectangle(
+                new(frame.Origin.X, frame.Origin.Y),
+                new(frame.Size.X * (tileData.TextureGrid.X + tileData.TextureGap.X),
+                    frame.Size.Y * (tileData.TextureGrid.Y + tileData.TextureGap.Y))
+                ).Contains(point)).ToList();
 
-            var closestFrame = tileData.Frames.Aggregate((closest, current) =>
-            {
-                var closestDistance = DistanceSquared(targetPoint, tileData, closest);
-                var currentDistance = DistanceSquared(targetPoint, tileData, current);
-
-                return currentDistance < closestDistance ? current : closest;
-            });
-
-            return closestFrame;
+            if (frames.Count > 0)
+                return frames[0];
+            else
+                return tileData.Frames.OrderBy(frame => DistanceSquared(point, tileData, frame)).First();
         }
         private static float DistanceSquared(Point point, TileData tile, FrameData frame)
         {
