@@ -2,7 +2,7 @@
 
 namespace TMake.Terraria
 {
-    public class TileData
+    public class TileData : ITileData
     {
         public ushort Type { get; set; }
         public string Name { get; set; } = string.Empty;

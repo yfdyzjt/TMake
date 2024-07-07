@@ -85,7 +85,7 @@ namespace TMake.Terraria
                 isTile = true;
                 if (TileProperty.GetTileData(Type).Frames.Count > 0)
                 {
-                    resultColor = SpriteProperty.GetSprite(this).Color;
+                    resultColor = FrameProperty.GetFrameData(this).Color;
                 }
                 else
                 {

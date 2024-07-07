@@ -1,45 +1,44 @@
 ﻿using System.Drawing;
-using System.Linq;
 
 namespace TMake.Terraria
 {
-    public static class SpriteProperty
+    public static class FrameProperty
     {
-        public static List<FrameData> GetSprites(ushort type)
+        public static List<FrameData> GetFrameDatas(ushort type)
         {
             return TileProperty.TileDatas[type].Frames;
         }
-        public static FrameData GetSprite(ushort type, int frameType = 0)
+        public static FrameData GetFrameData(ushort type, int frameType = 0)
         {
-            return GetSprites(type).First(frame => frame.Type == frameType);
+            return GetFrameDatas(type).First(frame => frame.Type == frameType);
         }
-        public static FrameData GetSprite(ushort type, string variety)
+        public static FrameData GetFrameData(ushort type, string variety)
         {
-            return GetSprites(type).First(frame => frame.Variety == variety);
+            return GetFrameDatas(type).First(frame => frame.Variety == variety);
         }
-        public static FrameData GetSprite(ushort type, FrameAnchor anchor)
+        public static FrameData GetFrameData(ushort type, FrameAnchor anchor)
         {
-            return GetSprites(type).First(frame => frame.Anchor == anchor);
+            return GetFrameDatas(type).First(frame => frame.Anchor == anchor);
         }
-        public static List<FrameData> GetSprites(string name)
+        public static List<FrameData> GetFrameDatas(string name)
         {
             return TileProperty.TileDatas.Values
             .SelectMany(tileData => tileData.Frames)
             .Where(frameData => frameData.Name == name).ToList();
         }
-        public static FrameData GetSprite(string name, int frameType = 0)
+        public static FrameData GetFrameData(string name, int frameType = 0)
         {
-            return GetSprites(name).First(frame => frame.Type == frameType);
+            return GetFrameDatas(name).First(frame => frame.Type == frameType);
         }
-        public static FrameData GetSprite(string name, string variety)
+        public static FrameData GetFrameData(string name, string variety)
         {
-            return GetSprites(name).First(frame => frame.Variety == variety);
+            return GetFrameDatas(name).First(frame => frame.Variety == variety);
         }
-        public static FrameData GetSprite(string name, FrameAnchor anchor)
+        public static FrameData GetFrameData(string name, FrameAnchor anchor)
         {
-            return GetSprites(name).First(frame => frame.Anchor == anchor);
+            return GetFrameDatas(name).First(frame => frame.Anchor == anchor);
         }
-        public static FrameData GetSprite(Tile tile)
+        public static FrameData GetFrameData(Tile tile)
         {
             var tileData = TileProperty.GetTileData(tile.Type);
             var point = new Point(tile.FrameX, tile.FrameY);
