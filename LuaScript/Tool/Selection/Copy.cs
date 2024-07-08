@@ -12,7 +12,7 @@ namespace TMake.LuaScript
         }
         public static T2 Copy<T1, T2>(T1 fromArea, Rectangle selection) where T1 : ITileArea where T2 : ITileArea, new()
         {
-            Validate(fromArea, selection);
+            ValidateRectangleInArea(fromArea, selection);
 
             T2 toArea = new()
             {
@@ -31,7 +31,7 @@ namespace TMake.LuaScript
         }
         public static List<Chest> CopyChests<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            Validate(fromArea, selection);
+            ValidateRectangleInArea(fromArea, selection);
 
             return fromArea.Chest.Where(chest =>
             selection.Contains(chest.X, chest.Y)).Select(chest =>
@@ -44,7 +44,7 @@ namespace TMake.LuaScript
         }
         public static List<Sign> CopySigns<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            Validate(fromArea, selection);
+            ValidateRectangleInArea(fromArea, selection);
 
             return fromArea.Sign.Where(sign =>
             selection.Contains(sign.X, sign.Y)).Select(sign =>
@@ -57,7 +57,7 @@ namespace TMake.LuaScript
         }
         public static List<TileEntity> CopyTileEntities<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            Validate(fromArea, selection);
+            ValidateRectangleInArea(fromArea, selection);
 
             return fromArea.TileEntity.Where(tileEntity =>
             selection.Contains(tileEntity.X, tileEntity.Y)).Select(tileEntity =>
@@ -70,7 +70,7 @@ namespace TMake.LuaScript
         }
         public static Tile[,] CopyTile<T>(T fromArea, Rectangle selection) where T : ITileArea
         {
-            Validate(fromArea, selection);
+            ValidateRectangleInArea(fromArea, selection);
 
             Tile[,] tiles = new Tile[selection.Width, selection.Height];
             for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)

@@ -7,17 +7,17 @@ namespace TMake.LuaScript
     {
         public static void Fill<T>(T area, Rectangle selection, Tile tile) where T : ITileArea
         {
-            Validate(area, selection);
+            ValidateRectangleInArea(area, selection);
             Fill(area, selection, new(1, 1), (pos, offset) => area.Tile[pos.X, pos.Y] = tile.Copy());
         }
         public static void Fill<T>(T area, Rectangle selection, FrameData sprite) where T : ITileArea
         {
-            Validate(area, selection);
+            ValidateRectangleInArea(area, selection);
             Fill(area, selection, sprite.Size, (pos, offset) => { if (offset.X == 0 && offset.Y == 0) PlaceSprite(area, pos, sprite); });
         }
         public static void Fill<T>(T area, Rectangle selection, Point step, Action<Point, Point> func) where T : ITileArea
         {
-            Validate(area, selection);
+            ValidateRectangleInArea(area, selection);
 
             Delete(area, selection);
 

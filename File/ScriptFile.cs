@@ -72,7 +72,7 @@ namespace TMake.IO
         }
         public static Sign Save<T>(Script script, T area, Point pos = default) where T : ITileArea
         {
-            var sign = Tool.PlaceSign(area, pos, FrameProperty.GetFrameData("Sign", "Wall"));
+            var sign = Tool.PlaceSign(area, pos, FrameProperty.GetFrameData((ushort)TileID.Signs, "Wall"));
             Save(script, sign);
             return sign;
         }

@@ -11,7 +11,7 @@ namespace TMake.LuaScript
         }
         public static void Paste<T1, T2>(T1 toArea, Rectangle selection, T2 fromArea) where T1 : ITileArea where T2 : ITileArea
         {
-            Validate(toArea, selection);
+            ValidateRectangleInArea(toArea, selection);
 
             PasteChests(toArea, selection, fromArea.Chest);
             PasteSigns(toArea, selection, fromArea.Sign);
@@ -20,7 +20,7 @@ namespace TMake.LuaScript
         }
         public static void PasteChests<T>(T toArea, Rectangle selection, List<Chest> chests) where T : ITileArea
         {
-            Validate(toArea, selection);
+            ValidateRectangleInArea(toArea, selection);
 
             DeleteChests(toArea, selection);
 
@@ -35,7 +35,7 @@ namespace TMake.LuaScript
         }
         public static void PasteSigns<T>(T toArea, Rectangle selection, List<Sign> signs) where T : ITileArea
         {
-            Validate(toArea, selection);
+            ValidateRectangleInArea(toArea, selection);
 
             DeleteSigns(toArea, selection);
 
@@ -50,7 +50,7 @@ namespace TMake.LuaScript
         }
         public static void PasteTileEntities<T>(T toArea, Rectangle selection, List<TileEntity> tileEntities) where T : ITileArea
         {
-            Validate(toArea, selection);
+            ValidateRectangleInArea(toArea, selection);
 
             DeleteTileEntities(toArea, selection);
 
@@ -65,7 +65,7 @@ namespace TMake.LuaScript
         }
         public static void PasteTiles<T>(T toArea, Rectangle selection, Tile[,] tiles) where T : ITileArea
         {
-            Validate(toArea, selection);
+            ValidateRectangleInArea(toArea, selection);
 
             DeleteTiles(toArea, selection);
 
