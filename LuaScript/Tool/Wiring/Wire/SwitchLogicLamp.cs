@@ -1,14 +1,13 @@
-﻿using System.Drawing;
-using TMake.Terraria;
+﻿using TMake.Terraria;
 
 namespace TMake.LuaScript
 {
     public static partial class Tool
     {
-        public static bool SwitchLogicLamp<T>(T area, Point pos) where T : ITileArea
+        public static bool SwitchLogicLamp(Tile tile)
         {
-            bool value = !GetLogicLamp(area, pos);
-            return SetLogicLamp(area, pos, value);
+            bool value = !GetLogicLamp(tile);
+            return SetLogicLamp(tile, value);
         }
     }
 }

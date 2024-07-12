@@ -1,5 +1,4 @@
-﻿using Neo.IronLua;
-using System.Drawing;
+﻿using System.Drawing;
 using TMake.Terraria;
 
 namespace TMake.LuaScript
@@ -31,18 +30,11 @@ namespace TMake.LuaScript
             DeleteSigns(area, selection);
             DeleteTileEntities(area, selection);
 
-            var tileDate = TileProperty.GetTileData(sprite.Type);
             for (int x = selection.Left, i = 0; x < selection.Right; x++, i++)
             {
                 for (int y = selection.Top, j = 0; y < selection.Bottom; y++, j++)
                 {
-                    Tile tile = area.Tile[x, y];
-                    tile.Active = true;
-                    tile.Type = sprite.Type;
-                    tile.FrameX = (short)(i * (tileDate.TextureGrid.X + tileDate.TextureGap.X) + sprite.Origin.X);
-                    tile.FrameY = (short)(j * (tileDate.TextureGrid.Y + tileDate.TextureGap.Y) + sprite.Origin.Y);
-
-                    if (sprite.Type == (ushort)TileID.ChristmasTree && x == 0 && y == 0) tile.FrameX = 10;
+                    PlaceSingleSprite(area.Tile[x, y], sprite, new(i, j));
                 }
             }
 
@@ -63,6 +55,17 @@ namespace TMake.LuaScript
                 return area.Tile[position.X, position.Y];
             }
             return null;
+        }
+        public static void PlaceSingleSprite(Tile tile, FrameData sprite, Point pos = default)
+        {
+            var tileDate = TileProperty.GetTileData(sprite.Type);
+
+            tile.Active = true;
+            tile.Type = sprite.Type;
+            tile.FrameX = (short)(pos.X * (tileDate.TextureGrid.X + tileDate.TextureGap.X) + sprite.Origin.X);
+            tile.FrameY = (short)(pos.Y * (tileDate.TextureGrid.Y + tileDate.TextureGap.Y) + sprite.Origin.Y);
+
+            if (sprite.Type == (ushort)TileID.ChristmasTree && pos.X == 0 && pos.Y == 0) tile.FrameX = 10;
         }
         private static TileEntity GetTileEntityFromSprite<T>(T area, Point position, FrameData sprite) where T : ITileArea
         {
