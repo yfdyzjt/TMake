@@ -1,4 +1,5 @@
-﻿using TMake.IO;
+﻿using System.IO;
+using TMake.IO;
 using TMake.Terraria;
 
 namespace TMake.LuaScript
@@ -126,7 +127,7 @@ namespace TMake.LuaScript
         }
         private static void SaveFiles<T>(List<T> files, TMakeFileSeachFormat format) where T : TMakeFile, new()
         {
-            foreach(var file in files)
+            foreach (var file in files)
             {
                 SaveFile(file, format);
             }
@@ -170,7 +171,50 @@ namespace TMake.LuaScript
         }
         private static List<string> SeachFilePaths(TMakeFileSeachFormat format)
         {
-            return [.. Directory.GetFiles(format.Directory, format.FileName + "." + format.Extension)];
+            return SeachFileDirectories(format.Directory)
+                .SelectMany(dir => Directory.GetFiles(dir, format.FileName + "." + format.Extension))
+                .ToList();
+        }
+        private static List<string> SeachFileDirectories(string dir)
+        {
+            if (dir.Contains("**"))
+            {
+                SplitDir(dir, "**", out string dir1, out string dir2, out string dir3);
+
+                return Directory.GetDirectories(dir1, "*", SearchOption.AllDirectories)
+                    .SelectMany(subdir => SeachFileDirectories(Path.Combine(subdir, dir3)))
+                    .ToList();
+            }
+            else if (dir.Contains('*') || dir.Contains('?'))
+            {
+                SplitDir(dir, dir.Contains('*') ? "*" : "?", out string dir1, out string dir2, out string dir3);
+
+                return Directory.GetDirectories(dir1, dir2, SearchOption.TopDirectoryOnly)
+                    .SelectMany(subdir => SeachFileDirectories(Path.Combine(subdir, dir3)))
+                    .ToList();
+            }
+            else
+            {
+                return [dir];
+            }
+        }
+        private static void SplitDir(string dir, string separator, out string dir1, out string dir2, out string dir3)
+        {
+            string[] parts = dir.Split(separator, StringSplitOptions.None);
+            dir1 =
+                parts[0].Contains(Path.DirectorySeparatorChar)
+                ? parts[0][..parts[0].LastIndexOf(Path.DirectorySeparatorChar)]
+                : string.Empty;
+            dir2 =
+                parts[0].Contains(Path.DirectorySeparatorChar)
+                ? parts[0][(parts[0].LastIndexOf(Path.DirectorySeparatorChar) + 1)..]
+                : parts[0];
+            dir3 =
+                parts.Length > 1
+                ? parts[1].Contains(Path.DirectorySeparatorChar)
+                    ? parts[1][parts[1].IndexOf(Path.DirectorySeparatorChar)..]
+                    : string.Empty
+                : string.Empty;
         }
     }
 }
