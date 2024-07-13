@@ -4,7 +4,7 @@ namespace TMake.LuaScript
 {
     public static partial class Root
     {
-        public static List<LuaResult?> Run(string packageName, params string[] args)
+        public static List<LuaResult?> Runs(string packageName, params string[] args)
         {
             var result = new List<LuaResult?>();
             var scripts = LoadScripts(packageName);
@@ -16,11 +16,17 @@ namespace TMake.LuaScript
 
             return result;
         }
+        public static LuaResult? Run(string packageName, params string[] args)
+        {
+            var script = LoadScript(packageName);
+
+            return Run(script, args);
+        }
         public static LuaResult? Run(Script script, params string[] args)
         {
             using var lua = new Lua();
             var env = lua.CreateEnvironment();
-            
+
             return Run(script, env, args);
         }
         public static LuaResult? Run(Script script, LuaGlobal env, params string[] args)
@@ -37,7 +43,7 @@ namespace TMake.LuaScript
             {
                 env.RegisterPackage(package.Key, package.Value);
             }
-            
+
             try
             {
                 return env.DoChunk(script.Code, script.Name);

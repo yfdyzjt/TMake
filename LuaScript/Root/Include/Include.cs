@@ -4,26 +4,34 @@ namespace TMake.LuaScript
 {
     public static partial class Root
     {
-        public static List<LuaResult?> Include(LuaGlobal self, string packageName, params string[] args)
+        public static List<LuaGlobal?> Includes(LuaGlobal self, string packageName, params string[] args)
         {
-            var result = new List<LuaResult?>();
+            var envs = new List<LuaGlobal?>();
             var scripts = LoadScripts(packageName);
 
             foreach (var script in scripts)
             {
-                result.Add(Include(self, script, args));
+                envs.Add(Include(self, script, args));
             }
 
-            return result;
+            return envs;
         }
-        public static LuaResult? Include(LuaGlobal self, Script script, params string[] args)
+        public static LuaGlobal? Include(LuaGlobal self, string packageName, params string[] args)
+        {
+            var script = LoadScript(packageName);
+
+            return Include(self, script, args);
+        }
+        public static LuaGlobal? Include(LuaGlobal self, Script script, params string[] args)
         {
             using var lua = new Lua();
             var env = lua.CreateEnvironment();
 
             self[script.Name] = env;
 
-            return Run(script, env, args);
+            Run(script, env, args);
+
+            return env;
         }
     }
 }
