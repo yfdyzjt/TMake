@@ -202,17 +202,17 @@ namespace TMake.LuaScript
         {
             string[] parts = dir.Split(separator, StringSplitOptions.None);
             dir1 =
-                parts[0].Contains(Path.DirectorySeparatorChar)
-                ? parts[0][..parts[0].LastIndexOf(Path.DirectorySeparatorChar)]
+                parts[1].Contains('/') || parts[1].Contains('\\')
+                ? parts[0][..parts[0].LastIndexOfAny(['/','\\'])]
                 : string.Empty;
             dir2 =
-                parts[0].Contains(Path.DirectorySeparatorChar)
-                ? parts[0][(parts[0].LastIndexOf(Path.DirectorySeparatorChar) + 1)..]
+                parts[1].Contains('/') || parts[1].Contains('\\')
+                ? parts[0][(parts[0].LastIndexOfAny(['/', '\\']) + 1)..]
                 : parts[0];
             dir3 =
                 parts.Length > 1
-                ? parts[1].Contains(Path.DirectorySeparatorChar)
-                    ? parts[1][parts[1].IndexOf(Path.DirectorySeparatorChar)..]
+                ? parts[1].Contains('/') || parts[1].Contains('\\')
+                    ? parts[1][parts[1].IndexOfAny(['/', '\\'])..]
                     : string.Empty
                 : string.Empty;
         }
