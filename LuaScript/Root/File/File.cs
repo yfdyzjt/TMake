@@ -149,11 +149,7 @@ namespace TMake.LuaScript
         }
         private static TMakeFileSeachFormat GetSeachFormat(string packageName)
         {
-            packageName = packageName
-                .Replace('/', Path.DirectorySeparatorChar)
-                .Replace('\\', Path.DirectorySeparatorChar);
-
-            var path = Path.GetDirectoryName(Path.GetFullPath(packageName)) ?? string.Empty;
+            var path = Path.GetDirectoryName(Path.GetFullPath(packageName.Replace('\\', '/')) ?? string.Empty;
             var name = Path.GetFileName(packageName);
 
             var parts = name.Split(':', 3);
@@ -205,17 +201,17 @@ namespace TMake.LuaScript
         {
             string[] parts = dir.Split(separator, StringSplitOptions.None);
             dir1 =
-                parts[1].Contains(Path.DirectorySeparatorChar)
-                ? parts[0][..parts[0].LastIndexOf(Path.DirectorySeparatorChar)]
+                parts[1].Contains('/')
+                ? parts[0][..parts[0].LastIndexOf('/')]
                 : string.Empty;
             dir2 =
-                parts[1].Contains(Path.DirectorySeparatorChar)
-                ? parts[0][(parts[0].LastIndexOf(Path.DirectorySeparatorChar) + 1)..]
+                parts[1].Contains('/')
+                ? parts[0][(parts[0].LastIndexOf('/') + 1)..]
                 : parts[0];
             dir3 =
                 parts.Length > 1
-                ? parts[1].Contains(Path.DirectorySeparatorChar)
-                    ? parts[1][parts[1].IndexOf(Path.DirectorySeparatorChar)..]
+                ? parts[1].Contains('/')
+                    ? parts[1][parts[1].IndexOf('/')..]
                     : string.Empty
                 : string.Empty;
         }
