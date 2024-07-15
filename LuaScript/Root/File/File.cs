@@ -149,7 +149,7 @@ namespace TMake.LuaScript
         }
         private static TMakeFileSeachFormat GetSeachFormat(string packageName)
         {
-            var path = Path.GetDirectoryName(Path.GetFullPath(packageName.Replace('\\', '/')) ?? string.Empty;
+            var path = Path.GetDirectoryName(Path.GetFullPath(packageName.Replace('\\', '/'))) ?? string.Empty;
             var name = Path.GetFileName(packageName);
 
             var parts = name.Split(':', 3);
