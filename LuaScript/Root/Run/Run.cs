@@ -23,14 +23,14 @@ namespace TMake.LuaScript
 
             return Run(script, args);
         }
-        public static LuaResult? Run(Script script, params string[] args)
+        internal static LuaResult? Run(Script script, params string[] args)
         {
             using var lua = new Lua();
             var env = lua.CreateEnvironment();
 
             return Run(script, env, args);
         }
-        public static LuaResult? Run(Script script, LuaGlobal env, params string[] args)
+        internal static LuaResult? Run(Script script, LuaGlobal env, params string[] args)
         {
             env["self"] = env;
             env["args"] = args;

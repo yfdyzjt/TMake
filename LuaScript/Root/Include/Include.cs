@@ -22,7 +22,7 @@ namespace TMake.LuaScript
 
             return Include(self, script, args);
         }
-        public static LuaGlobal? Include(LuaGlobal self, Script script, params string[] args)
+        internal static LuaGlobal? Include(LuaGlobal self, Script script, params string[] args)
         {
             using var lua = new Lua();
             var env = lua.CreateEnvironment();
