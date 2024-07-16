@@ -1,4 +1,5 @@
 ﻿using Neo.IronLua;
+using System;
 
 namespace TMake.LuaScript
 {
@@ -51,7 +52,8 @@ namespace TMake.LuaScript
             catch (LuaParseException e)
             {
                 Console.WriteLine(
-                    $"Lua script {script.Name} have a syntactical exception.\r\n" +
+                    $"Script Syntactical Exception:\r\n" +
+                    $"Script: {script.Name}\r\n" +
                     $"Message: {e.Message}\r\n" +
                     $"Line: {e.Line}");
                 return new LuaResult();
@@ -59,21 +61,19 @@ namespace TMake.LuaScript
             catch (LuaRuntimeException e)
             {
                 Console.WriteLine(
-                    $"Lua script {script.Name} have a runtime exception.\r\n" +
+                    $"Script Runtime Exception:\r\n" +
+                    $"Script: {script.Name}\r\n" +
                     $"Message: {e.Message}\r\n" +
                     $"Line: {e.Line}");
                 return new LuaResult();
             }
-            catch (IOException e)
+            catch (Exception e)
             {
                 Console.WriteLine(
-                    $"Lua script {script.Name} have a file exception.\r\n" +
+                    $"Script Other Exception:\r\n" +
+                    $"Script: {script.Name}\r\n" +
                     $"Message: {e.Message}\r\n");
                 return new LuaResult();
-            }
-            catch
-            {
-                throw;
             }
         }
     }
