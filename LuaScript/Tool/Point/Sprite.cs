@@ -40,15 +40,15 @@ namespace TMake.LuaScript
 
             if (selection.Contains(position))
             {
-                if (IsChest(sprite.Type))
+                if (IsChest(sprite.TileType))
                 {
                     area.Chest.Add(new Chest() { X = position.X, Y = position.Y });
                 }
-                else if (IsSign(sprite.Type))
+                else if (IsSign(sprite.TileType))
                 {
                     area.Sign.Add(new Sign() { X = position.X, Y = position.Y });
                 }
-                else if (IsTileEntity(sprite.Type))
+                else if (IsTileEntity(sprite.TileType))
                 {
                     area.TileEntity.Add(GetTileEntityFromSprite(area, position, sprite));
                 }
@@ -58,14 +58,14 @@ namespace TMake.LuaScript
         }
         public static void PlaceSingleSprite(Tile tile, FrameData sprite, Point pos = default)
         {
-            var tileDate = TileProperty.GetTileData(sprite.Type);
+            var tileDate = TileProperty.GetTileData(sprite.TileType);
 
             tile.Active = true;
-            tile.Type = sprite.Type;
+            tile.Type = sprite.TileType;
             tile.FrameX = (short)(pos.X * (tileDate.TextureGrid.X + tileDate.TextureGap.X) + sprite.Origin.X);
             tile.FrameY = (short)(pos.Y * (tileDate.TextureGrid.Y + tileDate.TextureGap.Y) + sprite.Origin.Y);
 
-            if (sprite.Type == (ushort)TileID.ChristmasTree && pos.X == 0 && pos.Y == 0) tile.FrameX = 10;
+            if (sprite.TileType == (ushort)TileID.ChristmasTree && pos.X == 0 && pos.Y == 0) tile.FrameX = 10;
         }
         private static TileEntity GetTileEntityFromSprite<T>(T area, Point position, FrameData sprite) where T : ITileArea
         {
@@ -75,45 +75,45 @@ namespace TMake.LuaScript
                 Y = position.Y,
                 ID = area.TileEntity.Count
             };
-            if (sprite.Type == (int)TileID.TargetDummy)
+            if (sprite.TileType == (int)TileID.TargetDummy)
             {
                 TE.Type = 0;
                 TE.NPC = new() { Type = (int)NPCID.TargetDummy };
             }
-            else if (sprite.Type == (int)TileID.ItemFrame)
+            else if (sprite.TileType == (int)TileID.ItemFrame)
             {
                 TE.Type = 1;
                 TE.Item = new() { Type = 0, Prefix = 0, StackSize = 0 };
             }
-            else if (sprite.Type == (int)TileID.LogicSensor)
+            else if (sprite.TileType == (int)TileID.LogicSensor)
             {
                 TE.Type = 2;
                 TE.On = false;
                 TE.LogicCheck = (byte)(sprite.Origin.Y / 18 + 1);
             }
-            else if (sprite.Type == (int)TileID.Mannequin || sprite.Type == (int)TileID.Womannequin || sprite.Type == (int)TileID.DisplayDoll)
+            else if (sprite.TileType == (int)TileID.Mannequin || sprite.TileType == (int)TileID.Womannequin || sprite.TileType == (int)TileID.DisplayDoll)
             {
                 TE.Type = 3;
                 TE.Items = Enumerable.Repeat(new Item(), 8).ToArray();
                 TE.Dyes = Enumerable.Repeat(new Item(), 8).ToArray();
             }
-            else if (sprite.Type == (int)TileID.WeaponsRack || sprite.Type == (int)TileID.WeaponsRack2)
+            else if (sprite.TileType == (int)TileID.WeaponsRack || sprite.TileType == (int)TileID.WeaponsRack2)
             {
                 TE.Type = 4;
                 TE.Item = new() { Type = 0, Prefix = 0, StackSize = 0 };
             }
-            else if (sprite.Type == (int)TileID.HatRack)
+            else if (sprite.TileType == (int)TileID.HatRack)
             {
                 TE.Type = 5;
                 TE.Items = Enumerable.Repeat(new Item(), 2).ToArray();
                 TE.Dyes = Enumerable.Repeat(new Item(), 2).ToArray();
             }
-            else if (sprite.Type == (int)TileID.FoodPlatter)
+            else if (sprite.TileType == (int)TileID.FoodPlatter)
             {
                 TE.Type = 6;
                 TE.Item = new() { Type = 0, Prefix = 0, StackSize = 0 };
             }
-            else if (sprite.Type == (int)TileID.TeleportationPylon)
+            else if (sprite.TileType == (int)TileID.TeleportationPylon)
             {
                 TE.Type = 7;
             }

@@ -5,6 +5,7 @@ namespace TMake.Terraria
     public class FrameData
     {
         public ushort Type { get; set; }
+        public ushort TileType { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Variety { get; set; } = string.Empty;
         public FrameAnchor Anchor { get; set; } = FrameAnchor.None;
