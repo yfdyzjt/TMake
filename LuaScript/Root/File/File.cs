@@ -137,6 +137,7 @@ namespace TMake.LuaScript
 
             if (filePaths.Count == 0)
             {
+                Directory.CreateDirectory(format.Directory);
                 file.Save(format.FilePath);
             }
             else
