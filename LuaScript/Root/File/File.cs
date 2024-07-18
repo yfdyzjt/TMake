@@ -175,7 +175,9 @@ namespace TMake.LuaScript
         private static List<string> SeachFilePaths(TMakeFileSeachFormat format)
         {
             return SeachFileDirectories(format.Directory)
-                .SelectMany(dir => Directory.GetFiles(dir, format.FileName + "." + format.Extension))
+                .SelectMany(dir => Directory.Exists(dir)
+                    ? Directory.GetFiles(dir, format.FileName + "." + format.Extension)
+                    : [])
                 .ToList();
         }
         private static List<string> SeachFileDirectories(string dir)
