@@ -54,8 +54,8 @@ namespace TMake.LuaScript
                 Console.WriteLine(
                     $"Script Syntactical Exception:\r\n" +
                     $"Script: {script.Name}\r\n" +
-                    $"Message: {e.Message}\r\n" +
-                    $"Line: {e.Line}");
+                    $"Line: {e.Line}\r\n" +
+                    $"Message: {e.Message}");
                 return new LuaResult();
             }
             catch (LuaRuntimeException e)
@@ -63,16 +63,17 @@ namespace TMake.LuaScript
                 Console.WriteLine(
                     $"Script Runtime Exception:\r\n" +
                     $"Script: {script.Name}\r\n" +
-                    $"Message: {e.Message}\r\n" +
-                    $"Line: {e.Line}");
+                    $"Line: {e.Line}\r\n" +
+                    $"Message: {e.Message}");
                 return new LuaResult();
             }
             catch (Exception e)
             {
                 Console.WriteLine(
-                    $"Script Other Exception:\r\n" +
+                    $"Script Other Exception:\r\n" + 
                     $"Script: {script.Name}\r\n" +
-                    $"Message: {e.Message}\r\n");
+                    $"Type: {e.GetType().FullName}\r\n" +
+                    $"Message: {e.Message}");
                 return new LuaResult();
             }
         }

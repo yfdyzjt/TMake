@@ -137,7 +137,7 @@ namespace TMake.LuaScript
 
             if (filePaths.Count == 0)
             {
-                Directory.CreateDirectory(format.Directory);
+                if (!Directory.Exists(format.Directory)) Directory.CreateDirectory(format.Directory);
                 file.Save(format.FilePath);
             }
             else
@@ -178,7 +178,7 @@ namespace TMake.LuaScript
             return SeachFileDirectories(format.Directory)
                 .SelectMany(dir => Directory.Exists(dir)
                     ? Directory.GetFiles(dir, format.FileName + "." + format.Extension)
-                    : [])
+                    : Enumerable.Empty<string>())
                 .ToList();
         }
         private static List<string> SeachFileDirectories(string dir)
