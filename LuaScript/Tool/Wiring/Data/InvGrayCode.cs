@@ -4,34 +4,34 @@ namespace TMake.LuaScript
 {
     public static partial class Tool
     {
-        public static T[] BinaryToInvGrayCode<T>(T[] value) where T : struct, IConvertible, IComparable, IFormattable
+        public static T[] BinaryToInvGrayCodeAny<T>(T[] value) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return BinaryToInvGrayCode(value, default);
+            return BinaryToInvGrayCodeAnyCarry(value, default);
         }
-        public static T[] BinaryToInvGrayCode<T>(T[] value, T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T[] BinaryToInvGrayCodeAnyCarry<T>(T[] value, T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return BinaryToInvGrayCode(value, ref carry);
+            return BinaryToInvGrayCodeAnyCarryRef(value, ref carry);
         }
-        public static T[] BinaryToInvGrayCode<T>(T[] value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T[] BinaryToInvGrayCodeAnyCarryRef<T>(T[] value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
             T[] result = new T[value.Length];
 
             for (int i = 0; i < value.Length; i++)
             {
-                result[i] = BinaryToInvGrayCode(value[i], ref carry);
+                result[i] = BinaryToInvGrayCodeCarryRef(value[i], ref carry);
             }
 
             return result;
         }
         public static T BinaryToInvGrayCode<T>(T value) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return BinaryToInvGrayCode(value, default);
+            return BinaryToInvGrayCodeCarry(value, default);
         }
-        public static T BinaryToInvGrayCode<T>(T value, T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T BinaryToInvGrayCodeCarry<T>(T value, T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return BinaryToInvGrayCode(value, ref carry);
+            return BinaryToInvGrayCodeCarryRef(value, ref carry);
         }
-        public static T BinaryToInvGrayCode<T>(T value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T BinaryToInvGrayCodeCarryRef<T>(T value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
             if (!typeof(T).IsEnum && !typeof(T).IsPrimitive)
                 throw new ArgumentException("The type must be an enum or a primitive integer type.");
@@ -46,34 +46,34 @@ namespace TMake.LuaScript
             carry = (T)((binValue >> (size - 1)) & 1);
             return (T)grayValue;
         }
-        public static T[] InvGrayCodeToBinary<T>(T[] value) where T : struct, IConvertible, IComparable, IFormattable
+        public static T[] InvGrayCodeToBinaryAny<T>(T[] value) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return InvGrayCodeToBinary(value, default);
+            return InvGrayCodeToBinaryAnyCarry(value, default);
         }
-        public static T[] InvGrayCodeToBinary<T>(T[] value, T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T[] InvGrayCodeToBinaryAnyCarry<T>(T[] value, T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return InvGrayCodeToBinary(value, ref carry);
+            return InvGrayCodeToBinaryAnyCarryRef(value, ref carry);
         }
-        public static T[] InvGrayCodeToBinary<T>(T[] value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T[] InvGrayCodeToBinaryAnyCarryRef<T>(T[] value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
             T[] result = new T[value.Length];
 
             for (int i = 0; i < value.Length; i++)
             {
-                result[i] = InvGrayCodeToBinary(value[i], ref carry);
+                result[i] = InvGrayCodeToBinaryCarryRef(value[i], ref carry);
             }
 
             return result;
         }
         public static T InvGrayCodeToBinary<T>(T value) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return InvGrayCodeToBinary(value, default);
+            return InvGrayCodeToBinaryCarry(value, default);
         }
-        public static T InvGrayCodeToBinary<T>(T value, T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T InvGrayCodeToBinaryCarry<T>(T value, T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
-            return InvGrayCodeToBinary(value, ref carry);
+            return InvGrayCodeToBinaryCarryRef(value, ref carry);
         }
-        public static T InvGrayCodeToBinary<T>(T value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
+        public static T InvGrayCodeToBinaryCarryRef<T>(T value, ref T carry) where T : struct, IConvertible, IComparable, IFormattable
         {
             if (!typeof(T).IsEnum && !typeof(T).IsPrimitive)
                 throw new ArgumentException("The type must be an enum or a primitive integer type.");
